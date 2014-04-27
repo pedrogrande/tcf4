@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @unit.name %>
+</p>
+
+<p>
+  <strong>Tagline:</strong>
+  <%= @unit.tagline %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @unit.description %>
+</p>
+
+<p>
+  <strong>Duration minutes:</strong>
+  <%= @unit.duration_minutes %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @unit.icon %>
+</p>
+
+<p>
+  <strong>Skill group:</strong>
+  <%= @unit.skill_group %>
+</p>
+
+<p>
+  <strong>Unit code:</strong>
+  <%= @unit.unit_code %>
+</p>
+
+<p>
+  <strong>Workshop credits:</strong>
+  <%= @unit.workshop_credits %>
+</p>
+
+<p>
+  <strong>Online credits:</strong>
+  <%= @unit.online_credits %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @unit.active %>
+</p>
+
+<%= link_to 'Edit', edit_unit_path(@unit) %> |
+<%= link_to 'Back', units_path %>

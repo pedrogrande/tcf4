@@ -1,0 +1,12 @@
+<%= simple_form_for(@goal_unit) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :unit %>
+    <%= f.association :goal %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

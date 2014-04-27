@@ -1,0 +1,14 @@
+<%= simple_form_for(@unit_skill) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :unit %>
+    <%= f.association :skill %>
+    <%= f.input :before_skill_level %>
+    <%= f.input :after_skill_level %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

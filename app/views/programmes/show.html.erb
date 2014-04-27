@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @programme.user %>
+</p>
+
+<p>
+  <strong>Commenced:</strong>
+  <%= @programme.commenced %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @programme.completed %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @programme.name %>
+</p>
+
+<%= link_to 'Edit', edit_programme_path(@programme) %> |
+<%= link_to 'Back', programmes_path %>

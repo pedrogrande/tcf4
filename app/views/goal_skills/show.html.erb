@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @goal_skill.goal %>
+</p>
+
+<p>
+  <strong>Skill:</strong>
+  <%= @goal_skill.skill %>
+</p>
+
+<p>
+  <strong>Required skill level:</strong>
+  <%= @goal_skill.required_skill_level %>
+</p>
+
+<%= link_to 'Edit', edit_goal_skill_path(@goal_skill) %> |
+<%= link_to 'Back', goal_skills_path %>

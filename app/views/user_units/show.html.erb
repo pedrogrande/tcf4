@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_unit.user %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @user_unit.unit %>
+</p>
+
+<p>
+  <strong>Commenced:</strong>
+  <%= @user_unit.commenced %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @user_unit.completed %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @user_unit.grade %>
+</p>
+
+<%= link_to 'Edit', edit_user_unit_path(@user_unit) %> |
+<%= link_to 'Back', user_units_path %>

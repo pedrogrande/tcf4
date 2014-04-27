@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @unit_skill.unit %>
+</p>
+
+<p>
+  <strong>Skill:</strong>
+  <%= @unit_skill.skill %>
+</p>
+
+<p>
+  <strong>Before skill level:</strong>
+  <%= @unit_skill.before_skill_level %>
+</p>
+
+<p>
+  <strong>After skill level:</strong>
+  <%= @unit_skill.after_skill_level %>
+</p>
+
+<%= link_to 'Edit', edit_unit_skill_path(@unit_skill) %> |
+<%= link_to 'Back', unit_skills_path %>

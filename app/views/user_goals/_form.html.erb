@@ -1,0 +1,14 @@
+<%= simple_form_for(@user_goal) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :goal %>
+    <%= f.input :notes %>
+    <%= f.input :achieved %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

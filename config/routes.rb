@@ -1,4 +1,36 @@
 Rails.application.routes.draw do
+  resources :programmes
+
+  resources :goal_units
+
+  resources :goal_skills
+
+  resources :user_units
+
+  resources :user_goals
+
+  resources :unit_skills
+
+  resources :user_skills
+
+  resources :goals
+
+  resources :units
+
+  resources :skill_levels
+
+  resources :profiles
+
+  resources :skills
+
+  resources :skill_groups
+
+  get 'my_programme/index'
+
+  get 'my_goals/index'
+
+  get 'my_skills/index'
+
   get 'admin' => 'admin#index'
 
   devise_for :users

@@ -1,0 +1,29 @@
+<h1>Listing goal_skills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Goal</th>
+      <th>Skill</th>
+      <th>Required skill level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @goal_skills.each do |goal_skill| %>
+      <tr>
+        <td><%= goal_skill.goal %></td>
+        <td><%= goal_skill.skill %></td>
+        <td><%= goal_skill.required_skill_level %></td>
+        <td><%= link_to 'Show', goal_skill %></td>
+        <td><%= link_to 'Edit', edit_goal_skill_path(goal_skill) %></td>
+        <td><%= link_to 'Destroy', goal_skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Goal skill', new_goal_skill_path %>

@@ -1,0 +1,2 @@
+module GoalSkillsHelper
+end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @goal_unit.unit %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @goal_unit.goal %>
+</p>
+
+<%= link_to 'Edit', edit_goal_unit_path(@goal_unit) %> |
+<%= link_to 'Back', goal_units_path %>
