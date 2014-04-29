@@ -1,2 +1,45 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<h1>Admin Panel</h1>
+<div class="row">
+<div class="col-md-4">
+<h2>Users</h2>
+
+<h4><%= link_to "Profiles", profiles_path %></h4>
+
+<h3>Prospective Students</h3>
+<h4>Enquiries</h4>
+<h4>Constulations</h4>
+<h4>Registrations</h4>
+
+<h3>Enrolled Students</h3>
+<h4>Current students</h4>
+<h4>Past students</h4>
+
+
+<h3>Events</h3>
+<h4>Future events</h4>
+<h4>Archived events</h4>
+</div>
+
+<div class="col-md-4">
+<h2>Website</h2>
+<h3>Posts</h3>
+<h4>My posts</h4>
+<h4>Other posts</h4>
+<h4>Post categories</h4>
+
+<h3>Testimonials</h3>
+
+<h4>Testimonial questions</h4>
+
+</div>
+<div class="col-md-4">
+<h2>Classes</h2>
+<h4><%= link_to "Skill Groups", skill_groups_path %> [<%= SkillGroup.count %>]</h4>
+<h4><%= link_to "Skills", skills_path %> [<%= Skill.count %>]</h4>
+<h4><%= link_to "Goals", goals_path %> [<%= Goal.count %>]</h4>
+<h4><%= link_to "Units", units_path %> [<%= Unit.count %>]</h4>
+<h4>Programmes</h4>
+<br>
+<h4><%= link_to "Credit Point Packs", credit_point_packs_path %> <span class="badge"><%= CreditPointPack.count %></span></h4>
+</div>
+</div>

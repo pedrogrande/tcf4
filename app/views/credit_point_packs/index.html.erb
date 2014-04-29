@@ -1,0 +1,31 @@
+<h1>Listing credit_point_packs</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number of points</th>
+      <th>Price</th>
+      <th>Available</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @credit_point_packs.each do |credit_point_pack| %>
+      <tr>
+        <td><%= credit_point_pack.name %></td>
+        <td><%= credit_point_pack.number_of_points %></td>
+        <td><%= number_to_currency(credit_point_pack.price / 100) %></td>
+        <td><%= credit_point_pack.available %></td>
+        <td><%= link_to 'Show', credit_point_pack %></td>
+        <td><%= link_to 'Edit', edit_credit_point_pack_path(credit_point_pack) %></td>
+        <td><%= link_to 'Destroy', credit_point_pack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Credit point pack', new_credit_point_pack_path %>

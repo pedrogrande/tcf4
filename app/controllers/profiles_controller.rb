@@ -10,6 +10,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @programme = current_user.programmes.last
+    @credit_point_packs = CreditPointPack.available
   end
 
   # GET /profiles/new
@@ -64,7 +66,7 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:id])
+      @profile = Profile.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

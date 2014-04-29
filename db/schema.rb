@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427094306) do
+ActiveRecord::Schema.define(version: 20140429004244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "credit_point_packs", force: true do |t|
+    t.string   "name"
+    t.integer  "number_of_points"
+    t.integer  "price"
+    t.boolean  "available"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "goal_skills", force: true do |t|
     t.integer  "goal_id"
@@ -77,6 +86,9 @@ ActiveRecord::Schema.define(version: 20140427094306) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "programme_id"
+    t.boolean  "enrolled"
+    t.boolean  "converted"
   end
 
   add_index "guest_users", ["user_id"], name: "index_guest_users_on_user_id", using: :btree

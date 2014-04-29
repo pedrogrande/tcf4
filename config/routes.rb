@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  resources :programmes
+  
+  resources :credit_point_packs
+
+  root 'home#index'
+  resources :programmes do
+    member do
+      get :save
+      get :enrol
+      delete :remove_unit
+      get :add_unit
+    end
+  end
 
   resources :goal_units
 
@@ -13,7 +24,13 @@ Rails.application.routes.draw do
 
   resources :user_skills
 
-  resources :goals
+  resources :goals do
+    member do
+      post :choose
+      get :add_unit
+      get :remove_unit
+    end
+  end
 
   resources :units
 
@@ -24,21 +41,28 @@ Rails.application.routes.draw do
   resources :skills
 
   resources :skill_groups
+  resources :guest_users, only: :update
+  resources :guest_user_goals, only: :destroy
+  get 'my_programme' => "my_programme#index"
 
-  get 'my_programme/index'
+  get 'my_goals' => "my_goals#index"
 
-  get 'my_goals/index'
-
-  get 'my_skills/index'
+  get 'my_skills' => "my_skills#index"
 
   get 'admin' => 'admin#index'
+
+  resources :guest_user_skills do
+    member do
+      get :choose
+    end
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

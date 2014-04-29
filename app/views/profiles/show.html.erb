@@ -1,4 +1,58 @@
 <p id="notice"><%= notice %></p>
+<h1>My Coder Factory Dashboard</h1>
+<% if current_user.has_role :applicant %>
+  <div class="row">
+  <div class="col-md-12">
+  <div class="well">
+  <div class="row">
+  <div class="col-md-6">
+      <h3>Choose your points package</h3>
+      <h4>Just pay for the credit points you need</h4>
+      <p><a href="#" class="btn btn-primary"><%= programme_credits(@programme) %> credit points for $<%= programme_credits(@programme)*5 %></a></p>
+      <h4>Buy a pack of credit points to save</h4>
+      <table class="table">
+      <% @credit_point_packs.each do |pack| %>
+        <tr>
+          <th><%= pack.name %></th>
+          <td class="right-align">AUD <%= pack.price/100 %></td>
+          <td><a href="#" class="btn btn-success"><%= pack.number_of_points %> credit points</a></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  <div class="col-md-6">
+    <h3>My programme</h3>
+    <table class="table">
+        <tr>
+          <th>Module</th>
+          <th>Credit points</th>
+        </tr>
+        <% @programme.units.each do |unit| %>
+        <tr>
+          <td><%= unit.name %></td>
+          <td><%= unit.workshop_credits %></td>
+        </tr>
+        <% end %>
+        <tr>
+
+          <th>Workshop credit points total</th>
+          <th><%= programme_credits(@programme) %></th>
+          <th></th>
+        </tr>
+      </table>
+    </div>
+    </div>
+  </div>
+  </div>
+  </div>
+<% end %>
+<div class="row">
+<div class="col-md-3">
+<div class="panel panel-info">
+<div class="panel-heading">
+<h2 class="panel-title">My details</h2>
+</div>
+<div class="panel-body">
 
 <p>
   <strong>Name:</strong>
@@ -16,14 +70,122 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @profile.user %>
+  <strong>Role:</strong>
+  <% @profile.user.roles.each do |role| %><%= role.name %><br><% end %>
 </p>
 
 <p>
-  <strong>Slug:</strong>
-  <%= @profile.slug %>
+<strong>Points:</strong>
+<%= current_user.points_table.current %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<%= link_to 'Edit', edit_profile_path(@profile) %>
+</div></div>
+</div>
+<div class="col-md-9">
+<div class="row">
+<div class="col-md-6">
+<div class="panel panel-info">
+<div class="panel-heading">
+<h2 class="panel-title">My skills</h2>
+</div>
+<div class="panel-body">
+  <% if @profile.user.skills.count > 0 %>
+    <table class="table">
+      <tr>
+        <th>Skill</th>
+        <th>Level</th>
+      </tr>
+      <% @profile.user.skills.each do |skill| %>
+        <tr>
+          <td><%= skill.name %></td>
+          <td><%= skill_level(skill.user_skills.first.skill_level) %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+  <%= link_to "Manage my skills", my_skills_path, class: 'btn btn-default' %>
+</div></div></div>
+<div class="col-md-6">
+<div class="panel panel-info">
+<div class="panel-heading">
+<h2 class="panel-title">My goals</h2>
+</div>
+<div class="panel-body">
+  <% if @profile.user.goals.count > 0 %>
+    <table class="table">
+      <tr>
+        <th>Goal</th>
+        <th>% Achieved</th>
+      </tr>
+      <% @profile.user.goals.each do |goal| %>
+        <tr>
+          <td><%= goal.name %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+  <%= link_to "My goals", my_goals_path, class: 'btn btn-default' %>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-info">
+<div class="panel-heading">
+<h2 class="panel-title">My programmes</h2>
+</div>
+<div class="panel-body">
+  <% if @profile.user.programmes.count > 0 %>
+    <table class="table">
+      <tr>
+      <th>Programme</th>
+      <th></th>
+      </tr>
+      <% @profile.user.programmes.each do |programme| %>
+        <tr>
+          <td><%= @profile.name + "'s programme" %></td>
+          <td><%= link_to 'Edit', edit_programme_path(programme) %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <p>No programmes</p>
+
+  <% end %>
+  <%= link_to "Create a programme", new_programme_path, class: 'btn btn-default' %>
+</div></div>
+<div class="panel panel-info">
+<div class="panel-heading">
+<h2 class="panel-title">My modules</h2>
+</div>
+<div class="panel-body">
+  <% if @profile.user.goals.count > 0 %>
+    <% @profile.user.goals.each do |goal| %>
+      <h3>Goal: <%= goal.name %></h3>
+      <table class="table">
+        <tr>
+          <th>Module</th>
+          <th>Progress</th>
+        </tr>
+        <% goal.units.each do |unit| %>
+          <tr>
+            <td><%= unit.name %></td>
+            <td>
+              <% if !@profile.user.units.include?(unit) %>
+                <%= link_to "Add module to programme", root_path, class: 'btn btn-default' %>
+              <% end %>
+
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  <% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

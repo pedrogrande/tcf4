@@ -1,2 +1,29 @@
-<h1>MyGoals#index</h1>
-<p>Find me in app/views/my_goals/index.html.erb</p>
+<h1>My Goals</h1>
+
+<div class="row">
+	<div class="col-md-6">
+		<h2>Available goals <small>Click to add</small></h2>
+		<% @goals.each do |goal| %>
+			<div class="table-responsive">
+				<table class="table">
+					<% if goal_not_chosen?(goal) %>
+						<tr>
+							<th width="80%">		
+								<h3><%= goal.name %></h3>
+							</th>
+							<th>
+								<h3><%= link_to choose_goal_path(goal), method: :post, class: 'btn btn-success' do %>  <i class="glyphicon glyphicon-plus"></i><% end %></h3>
+							</th>
+					<% end %>
+				</table>
+			</div>
+		<% end %>
+	</div>
+	<div class="col-md-6">
+		<h2>My Goals <small>Click to remove</small></h2>
+		<% @user_goals.each do |user_goal| %>
+			<p><%= link_to user_goal, method: :delete, class: 'btn btn-primary' do %> <%= user_goal.goal.name %> <i class="glyphicon glyphicon-remove"></i><% end %> </p>
+		<% end %>
+	</div>
+</div>
+<%= link_to "Tell us what skills you already have", my_skills_path, class: goals_selected(@user_goals) %>

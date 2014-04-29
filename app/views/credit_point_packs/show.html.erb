@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @credit_point_pack.name %>
+</p>
+
+<p>
+  <strong>Number of points:</strong>
+  <%= @credit_point_pack.number_of_points %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @credit_point_pack.price %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @credit_point_pack.available %>
+</p>
+
+<%= link_to 'Edit', edit_credit_point_pack_path(@credit_point_pack) %> |
+<%= link_to 'Back', credit_point_packs_path %>

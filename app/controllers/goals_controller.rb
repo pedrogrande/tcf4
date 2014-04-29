@@ -1,6 +1,33 @@
 class GoalsController < ApplicationController
-  before_action :set_goal, only: [:show, :edit, :update, :destroy]
+  before_action :set_goal, only: [:choose, :show, :edit, :update, :destroy, :add_unit, :remove_unit]
 
+  def add_unit
+    @unit = Unit.find(params[:unit])
+    @goal.units << @unit
+    redirect_to :back
+  end
+
+  def remove_unit
+    @unit = Unit.find(params[:unit])
+    @goal.units.delete(@unit)
+    redirect_to :back
+  end
+
+  def choose
+    if current_user
+      @user_goal = UserGoal.new
+      @user_goal.user = current_user
+      @user_goal.goal = @goal
+      @user_goal.save
+    elsif guest_user
+      @guest_user_goal = GuestUserGoal.new
+      @user = guest_user
+      @guest_user_goal.guest_user = @user
+      @guest_user_goal.goal = @goal
+      @guest_user_goal.save
+    end
+    redirect_to :back
+  end
   # GET /goals
   # GET /goals.json
   def index
