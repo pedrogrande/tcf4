@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
 	has_many :skills, through: :user_skills
 	has_many :user_units
 	has_many :units, through: :user_units
-
+  has_many :purchases
+  has_many :posts
+  
 	accepts_nested_attributes_for :user_skills
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

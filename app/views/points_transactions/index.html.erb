@@ -1,0 +1,39 @@
+<h1>Listing points_transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Transaction type</th>
+      <th>Number of points</th>
+      <th>Value of points</th>
+      <th>Notes</th>
+      <th>Approval required</th>
+      <th>Approval received</th>
+      <th>Admin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @points_transactions.each do |points_transaction| %>
+      <tr>
+        <td><%= points_transaction.user %></td>
+        <td><%= points_transaction.transaction_type %></td>
+        <td><%= points_transaction.number_of_points %></td>
+        <td><%= points_transaction.value_of_points %></td>
+        <td><%= points_transaction.notes %></td>
+        <td><%= points_transaction.approval_required %></td>
+        <td><%= points_transaction.approval_received %></td>
+        <td><%= points_transaction.admin_id %></td>
+        <td><%= link_to 'Show', points_transaction %></td>
+        <td><%= link_to 'Edit', edit_points_transaction_path(points_transaction) %></td>
+        <td><%= link_to 'Destroy', points_transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Points transaction', new_points_transaction_path %>

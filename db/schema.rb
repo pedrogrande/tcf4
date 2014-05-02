@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429004244) do
+ActiveRecord::Schema.define(version: 20140501062843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "icon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "credit_point_packs", force: true do |t|
     t.string   "name"
@@ -93,6 +101,18 @@ ActiveRecord::Schema.define(version: 20140429004244) do
 
   add_index "guest_users", ["user_id"], name: "index_guest_users_on_user_id", using: :btree
 
+  create_table "payments", force: true do |t|
+    t.string   "payment_method"
+    t.integer  "payment_price"
+    t.integer  "credit_points_purchased"
+    t.integer  "user_id"
+    t.boolean  "payment_received"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
+
   create_table "points_tables", force: true do |t|
     t.integer  "user_id"
     t.integer  "received"
@@ -105,6 +125,37 @@ ActiveRecord::Schema.define(version: 20140429004244) do
 
   add_index "points_tables", ["user_id"], name: "index_points_tables_on_user_id", using: :btree
 
+  create_table "points_transactions", force: true do |t|
+    t.integer  "user_id"
+    t.string   "transaction_type"
+    t.integer  "number_of_points"
+    t.integer  "value_of_points"
+    t.text     "notes"
+    t.boolean  "approval_required"
+    t.boolean  "approval_received"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "points_transactions", ["user_id"], name: "index_points_transactions_on_user_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "lead"
+    t.text     "content"
+    t.string   "image"
+    t.string   "publish"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
   create_table "profiles", force: true do |t|
     t.string   "name"
     t.string   "phone"
@@ -113,6 +164,7 @@ ActiveRecord::Schema.define(version: 20140429004244) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "completion"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
@@ -138,6 +190,21 @@ ActiveRecord::Schema.define(version: 20140429004244) do
   end
 
   add_index "programmes", ["user_id"], name: "index_programmes_on_user_id", using: :btree
+
+  create_table "purchases", force: true do |t|
+    t.integer  "payment_id"
+    t.integer  "user_id"
+    t.string   "guid"
+    t.integer  "credit_points"
+    t.integer  "price"
+    t.integer  "credit_point_pack_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "purchases", ["credit_point_pack_id"], name: "index_purchases_on_credit_point_pack_id", using: :btree
+  add_index "purchases", ["payment_id"], name: "index_purchases_on_payment_id", using: :btree
+  add_index "purchases", ["user_id"], name: "index_purchases_on_user_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

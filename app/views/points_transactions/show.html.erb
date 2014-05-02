@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @points_transaction.user %>
+</p>
+
+<p>
+  <strong>Transaction type:</strong>
+  <%= @points_transaction.transaction_type %>
+</p>
+
+<p>
+  <strong>Number of points:</strong>
+  <%= @points_transaction.number_of_points %>
+</p>
+
+<p>
+  <strong>Value of points:</strong>
+  <%= @points_transaction.value_of_points %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @points_transaction.notes %>
+</p>
+
+<p>
+  <strong>Approval required:</strong>
+  <%= @points_transaction.approval_required %>
+</p>
+
+<p>
+  <strong>Approval received:</strong>
+  <%= @points_transaction.approval_received %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @points_transaction.admin_id %>
+</p>
+
+<%= link_to 'Edit', edit_points_transaction_path(@points_transaction) %> |
+<%= link_to 'Back', points_transactions_path %>

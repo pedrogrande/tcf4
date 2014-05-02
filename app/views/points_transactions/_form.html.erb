@@ -1,0 +1,18 @@
+<%= simple_form_for(@points_transaction) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :transaction_type %>
+    <%= f.input :number_of_points %>
+    <%= f.input :value_of_points %>
+    <%= f.input :notes %>
+    <%= f.input :approval_required %>
+    <%= f.input :approval_received %>
+    <%= f.input :admin_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

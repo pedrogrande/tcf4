@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @programme = current_user.programmes.last
-    @credit_point_packs = CreditPointPack.available
+    @credit_point_packs = CreditPointPack.available.order_by_price
   end
 
   # GET /profiles/new

@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
-  
+  resources :points_transactions
+
+  resources :posts
+
+  resources :categories
+
+  get 'free-tutorials' => 'tutorials#index'
+
+  get 'blog' => 'blog#index'
+
+  get 'contact' => 'contact#index'
+
+  get 'about' => 'about#index'
+
+  resources :purchases do
+    member do
+      patch :upgrade_to_pack
+    end
+  end
+  resources :payments
+
   resources :credit_point_packs
 
   root 'home#index'

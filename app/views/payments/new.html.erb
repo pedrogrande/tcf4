@@ -1,0 +1,54 @@
+
+
+  <% if @purchase.credit_point_pack %>
+    <h4>You are purchasing the <%= @purchase.credit_point_pack.name %></h4>
+    <p>Purchase credit points: <%= @purchase.credit_points %></p>
+<p>Purchase price: AUD <%= @purchase.price / 100 %></p>
+
+  <% else %>
+    <h4>You are purchasing <%= @purchase.credit_points %> credit points</h4>
+
+    <p>Reminder: A Credit Point Package = Save $$ + More Points to spend on modules!</p>
+    <table class="table">
+      <% @credit_point_packs.each do |pack| %>
+        <tr>
+          <th><%= pack.name %></th>
+          <td class="right-align">AUD <%= pack.price/100 %></td>
+          <td><%= link_to upgrade_to_pack_purchase_path(@purchase, credit_point_pack: pack), method: :patch do %><%= pack.number_of_points %> credit points<% end %></td>
+          <td><%= number_to_currency(pack.price/pack.number_of_points/100.0) %> per point</td>
+        </tr>
+      <% end %>
+      </table>
+
+  <% end %>
+
+  <h3>Choose your payment method:</h3>
+  <p class="lead">Pay by credit card or direct debit and start scheduling your courses now.</p>
+  <!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#credit" data-toggle="tab"><%= fa_stacked_icon "credit-card inverse", base: "circle" %> Credit Card</a></li>
+  <li><a href="#debit" data-toggle="tab"><%= fa_stacked_icon "calendar inverse", base: "circle" %> Direct Debit</a></li>
+  <li><a href="#bank" data-toggle="tab"><%= fa_stacked_icon "money inverse", base: "circle" %> Bank Transfer</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="credit">
+  	<br>
+  	<a href="#" class="btn btn-success">
+      Pay total: 
+      <%= number_to_currency(@purchase.price/100) %>
+    </a> 
+    <% if @purchase.price > 50000 %>
+      <a href="#" class="btn btn-primary">
+        Pay deposit of $500.00
+      </a>
+    <% end %>
+ 	</div>
+  <div class="tab-pane" id="bank">Bank Transfer</div>
+  <div class="tab-pane" id="debit">Direct Debit</div>
+</div>
+
+
+
+<br>

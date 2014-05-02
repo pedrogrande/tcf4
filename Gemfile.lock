@@ -59,6 +59,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    font-awesome-rails (4.0.3.2)
+      railties (>= 3.2, < 5.0)
     friendly_id (5.0.3)
       activerecord (>= 4.0.0)
     hike (1.2.3)
@@ -163,6 +165,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   country_select
   devise
+  font-awesome-rails
   friendly_id
   jbuilder (~> 2.0)
   jquery-rails

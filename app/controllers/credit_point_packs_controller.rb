@@ -4,7 +4,7 @@ class CreditPointPacksController < ApplicationController
   # GET /credit_point_packs
   # GET /credit_point_packs.json
   def index
-    @credit_point_packs = CreditPointPack.all
+    @credit_point_packs = CreditPointPack.order_by_price
   end
 
   # GET /credit_point_packs/1

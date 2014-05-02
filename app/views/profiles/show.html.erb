@@ -8,14 +8,14 @@
   <div class="col-md-6">
       <h3>Choose your points package</h3>
       <h4>Just pay for the credit points you need</h4>
-      <p><a href="#" class="btn btn-primary"><%= programme_credits(@programme) %> credit points for $<%= programme_credits(@programme)*5 %></a></p>
+      <p><a href="<%= new_purchase_path(credit_points: programme_credits(@programme)) %>" class="btn btn-primary"><%= programme_credits(@programme) %> credit points for $<%= programme_credits(@programme)*5 %></a></p>
       <h4>Buy a pack of credit points to save</h4>
       <table class="table">
       <% @credit_point_packs.each do |pack| %>
         <tr>
           <th><%= pack.name %></th>
           <td class="right-align">AUD <%= pack.price/100 %></td>
-          <td><a href="#" class="btn btn-success"><%= pack.number_of_points %> credit points</a></td>
+          <td><a href="<%= new_purchase_path(credit_point_pack: pack) %>" class="btn btn-success"><%= pack.number_of_points %> credit points</a></td>
         </tr>
       <% end %>
       </table>
@@ -78,8 +78,10 @@
 <strong>Points:</strong>
 <%= current_user.points_table.current %>
 </p>
+Completion: <%= @profile.completion %>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %>
+<br>
+<%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-default btn-xs' %>
 </div></div>
 </div>
 <div class="col-md-9">

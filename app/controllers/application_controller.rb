@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  # constant for price per credit point in cents
+  PRICE_PER_POINT = 500
+  PROFILE_COMPLETION_POINTS = 10
+  
   def guest_user
     begin
       # Cache the value the first time it's gotten.
