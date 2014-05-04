@@ -44,4 +44,8 @@ class User < ActiveRecord::Base
   		user_goal.save
   	end
   end
+
+  def self.staff
+    self.with_any_role(:admin)
+  end
 end

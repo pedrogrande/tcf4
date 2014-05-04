@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'people' => 'people#index'
+
+  get 'all-courses' => 'all_courses#index'
+
   resources :points_transactions
 
   resources :posts

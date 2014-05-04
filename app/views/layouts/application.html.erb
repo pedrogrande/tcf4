@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : "The Coder Factory" %></title>
   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "The Coder Factory" %>">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <script src="<%= asset_path 'modernizr.custom.17475.js' %>"></script>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -13,10 +15,32 @@
   <![endif]-->
 </head>
 <body>
-	<%= render 'layouts/navigation' %>
-	<div class="container">
-		<%= yield %>
-	</div>
+	<%= render 'layouts/header' %>
+  <%= render 'layouts/nav' %>
+  <div class="container">
+    <div class="row">
+		  <%= yield %>
+    </div>
+  </div>
 
+<%= render 'layouts/footer' %>
+<!-- MEGAMENU --> 
+<script src="<%= asset_path 'jquery.easing.js' %>"></script>
+<script src="<%= asset_path 'megamenu.js' %>"></script>
+
+<!-- OTHER JS -->    
+
+<script src="<%= asset_path 'functions.js' %>"></script>
+<script src="<%= asset_path 'validate.js' %>"></script> 
+
+<!-- FANCYBOX -->
+<script  src="<%= asset_path 'jquery.fancybox.pack.js' %>" type="text/javascript"></script> 
+<script src="<%= asset_path 'jquery.fancybox-media.js' %>" type="text/javascript"></script> 
+<script src="<%= asset_path 'fancy_func.js' %>" type="text/javascript"></script> 
+
+ <!-- REVOLUTION SLIDER -->
+ <script src="rs-plugin/<%= asset_path 'jquery.themepunch.plugins.min.js' %>"></script>
+ <script type="text/javascript" src="<%= asset_path 'jquery.themepunch.revolution.min.js' %>"></script>
+ <script src="<%= asset_path 'revolutio-slider-func.js' %>"></script>
 </body>
 </html>

@@ -22,6 +22,7 @@ gem 'simple_form', '~> 3.1.0.rc1'
 gem 'country_select'
 gem 'friendly_id'
 gem "font-awesome-rails"
+gem 'jquery-turbolinks'
 group :development do
   gem "better_errors"
   gem 'quiet_assets'

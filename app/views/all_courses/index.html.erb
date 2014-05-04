@@ -1,0 +1,73 @@
+<h1 class="col-md-12">All Courses</h1>
+	<div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="index.html">Home</a> <span class="divider"></span></li>
+          <li class="active">All  Courses</li>
+        </ul>
+    </div>
+<!-- =========================Start Col left section ============================= -->
+<aside  class="col-md-4 ">
+	<div class="col-left">
+    	<h3>Browse Courses</h3>
+            <ul class="submenu-col">
+                <li><a href="#" id="active">All Modules</a></li>
+                <% @skill_groups.each do |skill_group| %>
+                	<% if skill_group.units.count > 0 %>
+                		<li><a href="course-detail.html"><%= skill_group.name %> <span class="badge"><%= skill_group.units.count %></span></a></li>
+                	<% end %>
+                <% end %>
+            </ul>
+            
+            <hr>
+            
+            <h5>Upcoming Courses</h5>
+            <p>Suspendisse quis risus turpis, ut pharetra arcu. Donec adipiscing, quam non faucibus luctus, mi arcu blandit diam, at faucibus mi ante vel augue.</p>
+            <p><a href="#" class=" button_red_small">View Courses</a></p>
+            
+    </div>
+    <p><img src="<%= asset_path 'banner.jpg' %>" alt="Banner" class="img-rounded img-responsive" ></p>
+</aside>
+ 
+<section class="col-md-8  ">
+	<div class="col-right">
+    	<div class="main-img">
+            <img src="<%= asset_path 'pic-2.jpg' %>" alt="" class="img-resonsive">
+            <p class="lead">Tibique dolores adversarium ne vel. At vide errem duo, vis luptatum menandri ullamcorper id. </p>
+        </div>  
+
+
+        <% @units.each do |unit| %>
+           <div class="strip-courses">
+       		 <div class="title-course">
+   			   <h3><%= unit.name %> <span class="label label-warning">New</span></h3>
+               <ul >
+               		<li><i class="fa fa-calendar"></i> Start date: 24/06/13</li>
+                    <li><i class="fa fa-bookmark"></i> ID: <%= unit.unit_code %></li>
+               </ul>
+             </div>
+                <div class="description">
+                	<p><%= unit.description %></p>
+                    <ul>
+                    	<li><i class="fa fa-book"></i> 10 Lessons</li>
+                        <li><i class="fa fa-reorder"></i> Level Intermediate</li>
+                    </ul>
+                <a href="course-detail.html" class="button_medium button-align-2">Read more </a>
+                </div>
+            </div><!-- end strip-->
+          <% end %>
+            
+             <hr>
+           
+           <div class=" pagination-centered">
+               <ul class="pagination">
+                    <li><a href="#">Prev</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">Next</a></li>
+              </ul>
+          </div><!-- end pagination-->
+           
+    </div><!-- end col right-->
+	
+</section>
