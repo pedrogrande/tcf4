@@ -1,6 +1,5 @@
 class MySkillsController < ApplicationController
   def index
-    @skill_groups = SkillGroup.all
     @guest_user_goals = guest_user.goals
     if guest_user.skills.count == 0
     	@guest_user_goals.each do |guest_user_goal|
@@ -11,5 +10,7 @@ class MySkillsController < ApplicationController
 	    end
 	  end
 	  @guest_user_skills = guest_user.guest_user_skills
+    @guest_user_skills.each do |gus|
+      
   end
 end

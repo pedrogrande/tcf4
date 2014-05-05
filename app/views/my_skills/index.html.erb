@@ -1,6 +1,17 @@
-<h1>What are your current skills?</h1>
+<h1 class="col-md-12">My skills</h1>
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="#">Home</a> <span class="divider"></span></li>
+          <li class="active">My skills</li>
+        </ul>
+    </div>
+
+<div class="container">
+	<div class="col-full">
+	<h2>Select your skills</h2>
 
 <% @skill_groups.each do |skill_group| %>
+	
 	<h3><%= skill_group.name %></h3>
 	<table class="table">
 		
@@ -21,4 +32,8 @@
 		<% end %>
 	</table>
 <% end %>
-<%= link_to "Show me my personalised programme", new_programme_path, class: 'btn btn-primary btn-lg pull-right' %>
+<div class="row">
+<div class="col-md-12">
+<%= link_to "See your personalised programme", new_programme_path, class: 'btn btn-success btn-lg pull-right' %>
+</div></div>
+</div></div>

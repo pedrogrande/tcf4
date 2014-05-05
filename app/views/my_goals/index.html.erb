@@ -1,29 +1,49 @@
-<h1>My Goals</h1>
+<h1 class="col-md-12">My goals</h1>
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="#">Home</a> <span class="divider"></span></li>
+          <li class="active">My goals</li>
+        </ul>
+    </div>
+
+<div class="container">
+	<div class="col-full">
+	<h2>Select your goals</h2>
 
 <div class="row">
 	<div class="col-md-6">
-		<h2>Available goals <small>Click to add</small></h2>
+		<h3>Available goals <small>Click to add</small></h3>
 		<% @goals.each do |goal| %>
-			<div class="table-responsive">
-				<table class="table">
+			
 					<% if goal_not_chosen?(goal) %>
-						<tr>
-							<th width="80%">		
-								<h3><%= goal.name %></h3>
-							</th>
-							<th>
-								<h3><%= link_to choose_goal_path(goal), method: :post, class: 'btn btn-success' do %>  <i class="glyphicon glyphicon-plus"></i><% end %></h3>
-							</th>
+						<div class="row">
+							<div class="col-sm-1">
+								<p><%= link_to choose_goal_path(goal), method: :post, class: 'btn btn-success btn-xs' do %>  <i class="fa fa-plus"></i><% end %></p>
+							</div>
+							<div class="col-sm-6">
+								<p><%= goal.name %></p>
+							</div>
+						</div>
 					<% end %>
-				</table>
-			</div>
 		<% end %>
 	</div>
 	<div class="col-md-6">
-		<h2>My Goals <small>Click to remove</small></h2>
+		<h3>My Goals <small>Click to remove</small></h3>
 		<% @user_goals.each do |user_goal| %>
-			<p><%= link_to user_goal, method: :delete, class: 'btn btn-primary' do %> <%= user_goal.goal.name %> <i class="glyphicon glyphicon-remove"></i><% end %> </p>
+						<div class="row">
+							<div class="col-sm-1">
+								<p><%= link_to user_goal, method: :delete, class: 'btn btn-danger btn-xs' do %>  <i class="fa fa-minus"></i><% end %></p>
+							</div>
+							<div class="col-sm-6">
+								<p><%= user_goal.goal.name %></p>
+							</div>
+						</div>
 		<% end %>
 	</div>
 </div>
+<div class="row">
+<div class="col-md-12">
 <%= link_to "Tell us what skills you already have", my_skills_path, class: goals_selected(@user_goals) %>
+</div></div>
+</div>
+</div>

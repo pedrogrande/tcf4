@@ -9,9 +9,9 @@ module MyGoalsHelper
 	end
 	def goals_selected(user_goals)
 		if user_goals.count > 0
-			'btn btn-success pull-right'
+			'btn btn-success pull-right btn-lg'
 		else
-			'btn btn-success pull-right disabled'
+			'btn btn-success pull-right btn-lg disabled'
 		end
 	end
 end
