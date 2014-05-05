@@ -10,7 +10,6 @@ class MySkillsController < ApplicationController
 	    end
 	  end
 	  @guest_user_skills = guest_user.guest_user_skills
-    @guest_user_skills.each do |gus|
-      
+    @skills
   end
 end
