@@ -1,0 +1,56 @@
+<h1 class="col-md-12">Don't pay for classes you don't need.</h1>
+	
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="#">Home</a> <span class="divider"></span></li>
+          <li class="active">Personalised programmes</li>
+        </ul>
+    </div>
+
+<div class="container">
+	<div class="col-full">
+	<p class="lead">Don't sit through classes that are covering stuff you already know. Save your money and choose modules that help you achieve your goals faster. Use our <strong>Programme Wizard</strong> to see your personalised programme.</p>
+
+	<h2>How it works</h2>
+
+     <div class="row" id="programme-boxes">
+    	<div class="col-md-4">
+        	<div class="box-style-3 green">
+            	<a href="<%= my_goals_path %>" title="All Courses">
+                	<img src="<%= asset_path 'one.png' %>" alt="">
+                    <h3>Decide on your goals</h3>
+                    <p>Choose from a range of goals - select what you want to achieve.</p>
+                    <br><br>
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+        	<div class="box-style-3 orange">
+            	<a href="<%= my_goals_path %>" title="Apply">
+                	<img src="<%= asset_path 'two.png' %>" alt="">
+                    <h3>Enter your current skills</h3>
+                    <p>Depending on your chosen goals, you will be asked what skills you already have.</p>
+                    <br>
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+        	<div class="box-style-3 red">
+            	<a href="<%= my_goals_path %>" title="Plan a visit">
+                	<img src="<%= asset_path 'three.png' %>" alt="">
+                    <h3>See your personalised programme</h3>
+                    <p>Abracadabra! We show you your personalised programme - which you can still modify at will.</p>
+                    <br>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+	    <div class="col-md-12">
+	    	<%= link_to "START NOW >>", my_goals_path, class: 'btn btn-success btn-lg pull-right' %>
+	    </div>
+	   </div>
+  </div>
+</div> <!-- end container-->

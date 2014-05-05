@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'personalised-programme' => 'personalised_programme#index'
+
+  get 'news-and-events' => 'news_and_events#index'
+
+  get 'community' => 'community#index'
+
   get 'people' => 'people#index'
 
   get 'all-courses' => 'all_courses#index'
@@ -67,11 +73,11 @@ Rails.application.routes.draw do
   resources :skill_groups
   resources :guest_users, only: :update
   resources :guest_user_goals, only: :destroy
-  get 'my_programme' => "my_programme#index"
+  get 'my-programme' => "my_programme#index"
 
-  get 'my_goals' => "my_goals#index"
+  get 'my-goals' => "my_goals#index"
 
-  get 'my_skills' => "my_skills#index"
+  get 'my-skills' => "my_skills#index"
 
   get 'admin' => 'admin#index'
 

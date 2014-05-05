@@ -24,23 +24,6 @@
   </div>
 
 <%= render 'layouts/footer' %>
-<!-- MEGAMENU --> 
-<script src="<%= asset_path 'jquery.easing.js' %>"></script>
-<script src="<%= asset_path 'megamenu.js' %>"></script>
-
-<!-- OTHER JS -->    
-
-<script src="<%= asset_path 'functions.js' %>"></script>
-<script src="<%= asset_path 'validate.js' %>"></script> 
-
-<!-- FANCYBOX -->
-<script  src="<%= asset_path 'jquery.fancybox.pack.js' %>" type="text/javascript"></script> 
-<script src="<%= asset_path 'jquery.fancybox-media.js' %>" type="text/javascript"></script> 
-<script src="<%= asset_path 'fancy_func.js' %>" type="text/javascript"></script> 
-
- <!-- REVOLUTION SLIDER -->
- <script src="rs-plugin/<%= asset_path 'jquery.themepunch.plugins.min.js' %>"></script>
- <script type="text/javascript" src="<%= asset_path 'jquery.themepunch.revolution.min.js' %>"></script>
- <script src="<%= asset_path 'revolutio-slider-func.js' %>"></script>
+<%= render 'layouts/javascripts' %>
 </body>
 </html>
