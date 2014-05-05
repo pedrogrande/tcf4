@@ -278,12 +278,12 @@ a.button_red_medium:hover, .button_red_medium:hover, .megamenu > li .drop-down-c
 /* #Site Header
 ================================================ */
 header{
-	background-color: #bdc3c7;
+	background-color:#ecf0f1;
 	padding:8px 0;
 }
 #menu-top{
 	float:right;
-	color:#d0dbeb;
+	color:#fff;
 	font-size:11px;
 	margin-right:30px;
 	margin-top:5px;
@@ -293,11 +293,11 @@ header{
 	zoom: 1; *display: inline;
 }
 #menu-top ul li a {
-	color:#d0dbeb;
+	color:#fff;
 }
 
 .ie7 #menu-top ul li a {
-	color:#d0dbeb;
+	color:#fff;
 	margin-left:5px;
 }
 nav{
@@ -1060,7 +1060,7 @@ a.accrodian-trigger:hover{ text-decoration:none; background:#099ad1 url(<%= asse
 .infomsg { background-color: #DEEEFA;border: 1px solid #AFD3F2; }
 .infomsg i { color: #AFD3F2; }
 .infomsg2 { background-color: #FFFFFF; border: 1px solid #AFD3F2; }
-a.clostalert { background: url("<%= asset_path 'messages.png' %>") no-repeat scroll 0 -310px transparent; cursor: pointer; height: 15px; overflow: hidden; position: absolute; right: 5px; text-indent: 9999px; top: 5px; width: 15px; }
+a.clostalert { background: url(<%= asset_path 'messages.png' %>) no-repeat scroll 0 -310px transparent; cursor: pointer; height: 15px; overflow: hidden; position: absolute; right: 5px; text-indent: 9999px; top: 5px; width: 15px; }
 
 /* tabs */
 .tab-content {
@@ -1092,9 +1092,9 @@ a.clostalert { background: url("<%= asset_path 'messages.png' %>") no-repeat scr
 /* 3. MEDIA QUERIES */
 /*============================================================================================*/
 @media (min-width: 768px) and (max-width: 1200px) {
-	input#email_newsletter, .form-search input  {
-	margin-bottom:5px;
-}
+		input#email_newsletter, .form-search input  {
+				margin-bottom:5px;
+		}
 	}
 @media (min-width: 768px) and (max-width: 979px) {
 	.box-style-2 img {
@@ -1148,12 +1148,10 @@ input.dateinput {
 		height:45px;
 		margin-bottom:10px;
 }
-
  #menu-top {
 		text-align:center;
 		float:none;
 		margin:0;
-}
 }	
 header {
 	margin-left:-20px;
