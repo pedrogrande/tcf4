@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :testimonials
+
+  get 'testimonial' => 'testimonial#index'
+
   get 'personalised-programme' => 'personalised_programme#index'
 
   get 'news-and-events' => 'news_and_events#index'

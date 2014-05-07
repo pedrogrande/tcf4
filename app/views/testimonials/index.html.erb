@@ -1,0 +1,78 @@
+<h1>Listing testimonials</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quote</th>
+      <th>Text</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @testimonials.each do |testimonial| %>
+      <tr>
+        <td><%= testimonial.name %></td>
+        <td><%= testimonial.quote %></td>
+        <td><%= testimonial.text %></td>
+        <td><%= testimonial.image %></td>
+        <td><%= link_to 'Show', testimonial %></td>
+        <td><%= link_to 'Edit', edit_testimonial_path(testimonial) %></td>
+        <td><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Testimonial', new_testimonial_path %>
+
+<h1 class="col-md-12">Testimonials</h1>
+  <div class="col-md-12">
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a><span class="divider"></span></li>
+      <li class="active">Testimonials</li>
+    </ul>
+  </div>
+  <!-- =========================Start Col left section ============================= -->   
+  <aside class="col-md-4 ">
+  <div class="col-left">
+  <% if @testimonials %>
+    <% @testimonials.each do |testimonial| %>
+      <h4><%= testimonial.name %></h4>
+      <p>
+        <%= testimonial.quote %>
+      </p>
+      <%= link_to 'Read more', testimonial, class: "button_red_small" %>
+      <hr>
+    <% end %>  
+  <% end %>    
+  </div><!--End col left -->
+    
+  <p><img src="<%= asset_path 'banner.jpg' %>" alt="Banner" class="img-rounded img-responsive"></p>
+  </aside>
+
+<!-- =========================Start Col right section ============================= --> 
+<section class="col-md-8  ">
+  <div class="col-right">
+       <div class="main-img">
+            <img src="<%= asset_path 'about.jpg' %>" alt="" class="img-responsive">
+            <p class="lead">"If you enjoy building things and seeing ideas come to life, then I would strongly recommend you give the guys at The Coder Factory a call." - Mark Collins</p>
+        </div>
+        <h3>Some of our success stories</h3>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="<%= asset_path 'banner.jpg' %>" class="img-thumbnail" width="300px">
+          </div>  
+          <div class="col-md-4">
+            <img src="<%= asset_path 'banner.jpg' %>" class="img-thumbnail" width="300px">
+          </div> 
+          <div class="col-md-4">
+            <img src="<%= asset_path 'banner.jpg' %>" class="img-thumbnail" width="300px">
+          </div> 
+        </div>
+    </div><!-- end col right-->
+  </section>

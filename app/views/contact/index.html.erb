@@ -10,23 +10,15 @@
 		<div class="col-left">
 			<h3>Address</h3>
 			<ul>
-				<li><i class="icon-home"></i> 11 Fifth Ave, Loftus - NEW JERSEY, US</li>
-				<li><i class="icon-phone"></i> Telephone: + 61 (2) 8093 3400</li>
-				<li><i class="icon-phone-sign"></i> Fax: +61 (2) 9542 3599</li>
-				<li><i class="icon-envelope"></i> Email: <a href="#">submissions@domain.com</a></li>
+				<li><i class="fa fa-home"></i> 91 Campbell St, SURRY HILLS, 2010</li>
+            	<li><i class="fa fa-phone"></i>Telephone:<a href="tel:">1300 884 095</a></li>
+                <li><i class="fa fa-envelope"></i> Email: <a href="mailto:info@thecoderfactory.com">info@thecoderfactory.com</a></li>
 			</ul>
 			<hr>
-			<iframe height="250" src="https://maps.google.it/maps?f=q&amp;source=s_q&amp;hl=it&amp;geocode=&amp;q=new+york&amp;sll=40.714353,-74.005973&amp;sspn=0.868126,2.422485&amp;ie=UTF8&amp;hq=&amp;hnear=New+York,+Stati+Uniti&amp;t=m&amp;z=10&amp;iwloc=A&amp;ll=40.714353,-74.005973&amp;output=embed" style="border:0;">
-			</iframe>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.359167752272!2d151.21128380000002!3d-33.880402599999925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae1811387103%3A0x7a867b842fe716b2!2s91+Campbell+St!5e0!3m2!1sen!2sau!4v1399440599942" width="600" height="450" frameborder="0" style="border:0"></iframe>
 			<br/>
-			<small><a href="https://maps.google.it/maps?f=q&amp;source=embed&amp;hl=it&amp;geocode=&amp;q=new+york&amp;sll=40.714353,-74.005973&amp;sspn=0.868126,2.422485&amp;ie=UTF8&amp;hq=&amp;hnear=New+York,+Stati+Uniti&amp;t=m&amp;z=10&amp;iwloc=A&amp;ll=40.714353,-74.005973" style="text-align:left">View bigger</a></small>
-            <hr>
-             <p>Get directions writing your start point.</p>
-            <form action="http://maps.google.com/maps" method="get" target="_blank">
-                <input type="text" name="saddr"  placeholder="Enter your location" class="col-md-3" />
-                <input type="hidden" name="daddr" value="New York, NY 11430" /> <!-- Write here your end point -->
-                <input type="submit" value="Get directions" class=" button_medium" />
-            </form>    
+			<small><a href="https://www.google.com.au/maps/place/91+Campbell+St/@-33.8804026,151.2112838,17z/data=!3m1!4b1!4m2!3m1!1s0x6b12ae1811387103:0x7a867b842fe716b2?hl=en" style="text-align:left">View bigger</a></small>
+            <hr>  
 		</div>
 		<p>
 			<%= render 'layouts/banner' %>
@@ -37,7 +29,7 @@
 		<section class="col-md-8 ">
 		<div class="col-right">
 			<p class="lead">
-				An utinam reprimique duo, <strong>putant mandamus cu qui</strong>. Priaeque iuvaret nominati et, ad mea clita numquam. Maluisset dissentiunt et per, dico liber erroribus vis te. Dolor consul graecis nec ut, scripta eruditi scriptorem et nam.
+				We love to hear your goals and are always open to any questions, feedback or suggestions. Feel free to contact us!
 			</p>
 			<hr>
 			<h4>General Enquire or Apply</h4>
@@ -92,46 +84,5 @@
 				</div>
 				<hr>
 			</form>
-            
-			<h4>Plan a visit</h4>
-			<div id="message-visit"></div>
-			<form method="post" action="assets/visit.php" id="visit">
-				<div class="row">
-					<div class="col-md-6">
-						<label>Name <span class="required">* </span></label>
-						<input type="text" id="name_visit">
-					</div>
-					<div class="col-md-6">
-						<label>Last name <span class="required">* </span></label>
-						<input type="text" id="lastname_visit">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<label>Email <span class="required">* </span></label>
-						<input type="email" id="email_visit">
-					</div>
-					<div class="col-md-6">
-						<label>Phone <span class="required">* </span></label>
-						<input type="text" id="phone_visit">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<div id="datetimepicker" class="input-append">
-							<label>Select a date <span class="required">* </span></label>
-							<input type="text" class=" dateinput" id="date_visit" readonly>
-							<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label><span class="required">*</span> Are you human? 3 + 1 =</label>
-						<input type="text" id="verify_visit" class="col-md-2">
-					</div>
-				</div>
-				<!-- end row-->
-				<input type="submit" id="submit-visit" value="Submit" class=" button_medium">
-			</form>
-            
 		</div><!-- end col right-->
 		</section>
