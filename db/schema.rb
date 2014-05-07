@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140507125807) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -279,7 +278,6 @@ ActiveRecord::Schema.define(version: 20140507125807) do
 
   add_index "skills", ["skill_group_id"], name: "index_skills_on_skill_group_id", using: :btree
 
-
   create_table "testimonials", force: true do |t|
     t.string   "name"
     t.string   "quote"
@@ -288,7 +286,6 @@ ActiveRecord::Schema.define(version: 20140507125807) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
 
   create_table "unit_sessions", force: true do |t|
     t.integer  "unit_id"
@@ -305,7 +302,6 @@ ActiveRecord::Schema.define(version: 20140507125807) do
 
   add_index "unit_sessions", ["location_id"], name: "index_unit_sessions_on_location_id", using: :btree
   add_index "unit_sessions", ["unit_id"], name: "index_unit_sessions_on_unit_id", using: :btree
-
 
   create_table "unit_skills", force: true do |t|
     t.integer  "unit_id"
