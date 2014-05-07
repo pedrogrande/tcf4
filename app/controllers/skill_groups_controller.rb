@@ -64,7 +64,7 @@ class SkillGroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_skill_group
-      @skill_group = SkillGroup.find(params[:id])
+      @skill_group = SkillGroup.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

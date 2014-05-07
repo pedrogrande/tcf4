@@ -1,0 +1,32 @@
+<%= simple_form_for(@location) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-group">
+    <%= f.input :name, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :city, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :building, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :street, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :suburb, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :state, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :postcode, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :country, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :map_link, input_html: { class: 'form-control'} %>
+  </div>
+  <%= f.button :submit %>
+  
+<% end %>

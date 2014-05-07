@@ -7,4 +7,7 @@ class Goal < ActiveRecord::Base
 	has_many :units, through: :goal_units
 	has_many :guest_user_goals
 	has_many :guest_users, through: :guest_user_goals
+
+	extend FriendlyId
+  friendly_id :name, use: :slugged
 end

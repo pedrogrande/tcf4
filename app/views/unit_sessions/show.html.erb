@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @unit_session.unit.name %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @unit_session.day %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @unit_session.date %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @unit_session.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @unit_session.end_time %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @unit_session.location.name %>
+</p>
+
+<p>
+  <strong>Number of places:</strong>
+  <%= @unit_session.number_of_places %>
+</p>
+
+<p>
+  <strong>Number of students registered:</strong>
+  <%= @unit_session.number_of_students_registered %>
+</p>
+
+<%= link_to 'Edit', edit_unit_session_path(@unit_session) %> |
+<%= link_to 'Back', unit_sessions_path %>

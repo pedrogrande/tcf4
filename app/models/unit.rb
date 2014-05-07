@@ -8,4 +8,15 @@ class Unit < ActiveRecord::Base
 	has_many :goals, through: :goal_units
 	has_many :programme_units
   has_many :programmes, through: :programme_units
+  has_many :unit_sessions
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
+  scope :active, -> { where(active: true) }
+  def self.skill_group_filter(skill_group)
+  	active.where("skill_group_id = ?", skill_group.id)
+  end
+
+
 end
