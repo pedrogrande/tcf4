@@ -1,0 +1,47 @@
+<!-- =========================Start Col left section ============================= -->
+<aside  class="col-md-4 ">
+	<div class="col-left">
+    <div class="widget">
+      <h3>Search modules</h3>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail2">Search box</label>
+            <input type="text" class="form-control" placeholder="search here..">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div><!-- End Search -->
+      <hr>
+      <ul class="submenu-col">
+          <li><a href="<%= all_courses_path %>" id="<%= 'active' if params[:skill_group].nil? and params[:goal].nil? %>">All Modules</a></li>
+      </ul>
+      <hr>
+      <h3>Modules by goals</h3>
+      <ul class="submenu-col">
+        <% @goals.each do |goal| %>
+            <% if goal.units.count > 0 %>
+              <li><a href="<%= all_courses_path(goal: goal) %>" id="<%= 'active' if params[:goal] == goal.slug %>"><%= goal.name %> <span class="label label-info pull-right"><%= goal.units.count %></span></a></li>
+            <% end %>
+          <% end %>
+        </ul>
+      <hr>
+
+      <h3>Modules by skills</h3>
+      <ul class="submenu-col">
+          <% @skill_groups.each do |skill_group| %>
+            <% if skill_group.units.count > 0 %>
+              <li><a href="<%= all_courses_path(skill_group: skill_group) %>" id="<%= 'active' if params[:skill_group] == skill_group.slug %>"><%= skill_group.name %> <span class="label label-info pull-right"><%= skill_group.units.count %></span></a></li>
+            <% end %>
+          <% end %>
+      </ul>
+      
+      
+      <hr>
+      
+      <h3>Upcoming Modules</h3>
+      <p>Suspendisse quis risus turpis, ut pharetra arcu. Donec adipiscing, quam non faucibus luctus, mi arcu blandit diam, at faucibus mi ante vel augue.</p>
+      <p><a href="#" class=" button_red_small">View Courses</a></p>
+            
+    </div>
+    <p><img src="<%= asset_path 'banner.jpg' %>" alt="Banner" class="img-responsive" ></p>
+</aside>
