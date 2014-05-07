@@ -8,28 +8,7 @@
     </ul>
 </div>
 
-<!-- =========================Start Col left section ============================= -->
-<aside  class="col-md-4 ">
-  <div class="col-left">
-      <h3>Browse Courses</h3>
-            <ul class="submenu-col">
-                <li><a href="<%= all_courses_path %>" id="active">All Modules</a></li>
-                <% @skill_groups.each do |skill_group| %>
-                  <% if skill_group.units.count > 0 %>
-                    <li><a href="<%= all_courses_path(skill_group: skill_group) %>"><%= skill_group.name %> <span class="badge"><%= skill_group.units.count %></span></a></li>
-                  <% end %>
-                <% end %>
-            </ul>
-            
-            <hr>
-            
-            <h5>Upcoming Courses</h5>
-            <p>Suspendisse quis risus turpis, ut pharetra arcu. Donec adipiscing, quam non faucibus luctus, mi arcu blandit diam, at faucibus mi ante vel augue.</p>
-            <p><a href="#" class=" button_red_small">View Courses</a></p>
-            
-    </div>
-    <p><img src="<%= asset_path 'banner.jpg' %>" alt="Banner" class="img-responsive" ></p>
-</aside>
+<%= render 'layouts/module_sidebar' %>
 
  <!-- =========================Start Col right section ============================= -->
 <section class="col-md-8  ">

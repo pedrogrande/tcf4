@@ -10,6 +10,7 @@ class UnitsController < ApplicationController
   # GET /units/1
   # GET /units/1.json
   def show
+    @goals = Goal.all
   end
 
   # GET /units/new
