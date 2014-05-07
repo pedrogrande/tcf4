@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+
   resources :testimonials
 
   get 'testimonial' => 'testimonial#index'
+
+  resources :locations
+
+  resources :unit_sessions
+
 
   get 'personalised-programme' => 'personalised_programme#index'
 

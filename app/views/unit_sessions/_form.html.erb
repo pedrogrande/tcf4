@@ -1,0 +1,31 @@
+<%= simple_form_for(@unit_session) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  <div class="form-group">
+    <%= f.association :unit, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :day, collection: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :date, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :start_time, default: { hour: 18, min: 00 }, minute_step: 30, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :end_time, default: { hour: 21, min: 00 }, minute_step: 30, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.association :location, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :number_of_places, collection: 5..20, input_html: { class: 'form-control' } %>
+  </div>
+  
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

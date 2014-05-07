@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507044921) do
+ActiveRecord::Schema.define(version: 20140507125807) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +76,10 @@ ActiveRecord::Schema.define(version: 20140507044921) do
     t.string   "icon"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "goals", ["slug"], name: "index_goals_on_slug", unique: true, using: :btree
 
   create_table "guest_user_goals", force: true do |t|
     t.integer  "guest_user_id"
@@ -113,6 +117,20 @@ ActiveRecord::Schema.define(version: 20140507044921) do
   end
 
   add_index "guest_users", ["user_id"], name: "index_guest_users_on_user_id", using: :btree
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.string   "building"
+    t.string   "street"
+    t.string   "suburb"
+    t.string   "state"
+    t.string   "postcode"
+    t.string   "country"
+    t.string   "map_link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "city"
+  end
 
   create_table "payments", force: true do |t|
     t.string   "payment_method"
@@ -236,7 +254,10 @@ ActiveRecord::Schema.define(version: 20140507044921) do
     t.string   "icon"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "skill_groups", ["slug"], name: "index_skill_groups_on_slug", unique: true, using: :btree
 
   create_table "skill_levels", force: true do |t|
     t.string   "name"
@@ -258,6 +279,7 @@ ActiveRecord::Schema.define(version: 20140507044921) do
 
   add_index "skills", ["skill_group_id"], name: "index_skills_on_skill_group_id", using: :btree
 
+
   create_table "testimonials", force: true do |t|
     t.string   "name"
     t.string   "quote"
@@ -266,6 +288,24 @@ ActiveRecord::Schema.define(version: 20140507044921) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+
+  create_table "unit_sessions", force: true do |t|
+    t.integer  "unit_id"
+    t.string   "day"
+    t.date     "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "number_of_places"
+    t.integer  "number_of_students_registered"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "location_id"
+  end
+
+  add_index "unit_sessions", ["location_id"], name: "index_unit_sessions_on_location_id", using: :btree
+  add_index "unit_sessions", ["unit_id"], name: "index_unit_sessions_on_unit_id", using: :btree
+
 
   create_table "unit_skills", force: true do |t|
     t.integer  "unit_id"
@@ -293,9 +333,11 @@ ActiveRecord::Schema.define(version: 20140507044921) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "units", ["skill_group_id"], name: "index_units_on_skill_group_id", using: :btree
+  add_index "units", ["slug"], name: "index_units_on_slug", unique: true, using: :btree
 
   create_table "user_goals", force: true do |t|
     t.integer  "user_id"
@@ -321,6 +363,18 @@ ActiveRecord::Schema.define(version: 20140507044921) do
   add_index "user_skills", ["skill_id"], name: "index_user_skills_on_skill_id", using: :btree
   add_index "user_skills", ["user_id", "skill_id"], name: "index_user_skills_on_user_id_and_skill_id", unique: true, using: :btree
   add_index "user_skills", ["user_id"], name: "index_user_skills_on_user_id", using: :btree
+
+  create_table "user_unit_sessions", force: true do |t|
+    t.integer  "unit_id"
+    t.integer  "unit_session_id"
+    t.boolean  "attended"
+    t.boolean  "completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_unit_sessions", ["unit_id"], name: "index_user_unit_sessions_on_unit_id", using: :btree
+  add_index "user_unit_sessions", ["unit_session_id"], name: "index_user_unit_sessions_on_unit_session_id", using: :btree
 
   create_table "user_units", force: true do |t|
     t.integer  "user_id"
