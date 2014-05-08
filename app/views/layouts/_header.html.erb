@@ -1,7 +1,7 @@
 <header>
 	<div class="container">
    	  <div class="row">
-    	<div class="col-md-4" id="logo"><h1><a href="/">Coder Factory</a></h1></div>
+    	<div class="col-md-4" id="logo"><h1><a href="/"><%= image_tag 'logo4.png', class: 'logo' %></a></h1></div>
         <div class="col-md-8">
         
         	
@@ -10,7 +10,11 @@
             	<ul>
                 	<li><a href="/" title="Home">Home</a> | </li>
                     <li><a href="<%= contact_path %>" title="Contact">Contact</a> | </li>
-                    <li><a href="<%= new_user_session_path %>" title="Sign in">Sign in</a></li>
+                    <% if user_signed_in? %>
+                        <li><%= link_to destroy_user_session_path, method: :delete do %>Sign out<% end %></li>
+                    <% else %>
+                        <li><a href="<%= new_user_session_path %>" title="Sign in">Sign in</a></li>
+                    <% end %>
                 </ul>
             </div>
 

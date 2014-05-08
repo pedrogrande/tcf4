@@ -10,17 +10,19 @@
 		<li><a href="#" class="drop-down">Technology Education</a>
 		<!-- Begin Item -->
         <div class="drop-down-container" id="icon-menu">
+            
             <div class="row">
-                <% @skill_groups.each do |skill_group| %>
-                    <div class="col-md-3"><a href="<%= all_courses_path %>" title="All courses"><i class="fa fa-<%= skill_group.icon %> fa-3x"></i><%= skill_group.name %></a></div>
-                <% end %>
-                <div class="col-md-3"><a href="<%= all_courses_path %>" title="All courses"><i class="fa fa-list fa-3x"></i>All modules </a></div>
-                <div class="col-md-3"><a href="<%= all_courses_path %>" title="All courses"><i class="fa fa-star fa-3x"></i>Popular modules</a></div>
-                <div class="col-md-3"><a href="<%= all_courses_path %>" title="All courses"><i class="fa fa-anchor fa-3x"></i>Beginner Modules</a></div>
+                <div class="col-md-12"><h3>Programmes</h3></div>
                  <div class="col-md-3"><a href="<%= personalised_programme_path %>" title="Receive your personalised programme"><i class="fa fa-magic fa-3x"></i>Personalised programme </a></div>
                 <div class="col-md-3"><a href="<%= all_courses_path %>" title="Popular programmes"><i class="fa fa-star fa-3x"></i>Popular programmes</a></div>
                 <div class="col-md-3"><a href="<%= all_courses_path %>" title="Foundation programme"><i class="fa fa-anchor fa-3x"></i>Foundation programme</a></div>
                 <div class="col-md-3"><a href="<%= all_courses_path %>" title="Web app coder programme"><i class="fa fa-certificate fa-3x"></i>Web App programme</a></div>
+            </div>
+            <div class="row orange">
+            <div class="col-md-12"><h3>Skills</h3></div>
+                <% @skill_groups.each do |skill_group| %>
+                    <div class="col-md-3"><a href="<%= all_courses_path %>" title="All courses"><i class="fa fa-<%= skill_group.icon %> fa-3x"></i><%= skill_group.name %></a></div>
+                <% end %>
             </div><!-- End row -->
         </div><!-- End Item Container -->
         </li><!-- End Item -->
@@ -35,9 +37,8 @@
             <div class="drop-down-container" id="icon-menu">
                 <div class="row">
                     <div class="col-md-3"><a href="<%= about_path %>" title="About us"><i class="fa fa-info-circle fa-3x"></i>About us </a></div>
+                    <div class="col-md-3"><a href="<%= people_path %>" title="People"><i class="fa fa-group fa-3x"></i>Teachers & Mentors </a></div>
                     <div class="col-md-3"><a href="<%= community_path %>" title="Community"><i class="fa fa-smile-o fa-3x"></i>Community </a></div>
-                    <div class="col-md-3"><a href="<%= people_path %>" title="People"><i class="fa fa-group fa-3x"></i>People </a></div>
-                    <div class="col-md-3"><a href="<%= news_and_events_path %>" title="News & Events"><i class="fa fa-calendar fa-3x"></i>News & Events </a></div>
                 </div>
             </div>
 
