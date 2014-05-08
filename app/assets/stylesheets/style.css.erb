@@ -17,7 +17,8 @@ CSS STRUCTURE:
 /* 1.  SITE STRUCTURE and TYPOGRAPHY */
 /*============================================================================================*/
 body {
-	background:#f8f8f8 url(<%= asset_path 'geometry.png' %>) repeat;
+	/*background:#f8f8f8 url(<%= asset_path 'geometry.png' %>) repeat;*/
+	background-color: #ecf0f1;
 	font:13px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #555;
 	-webkit-font-smoothing: antialiased !important;	
@@ -278,7 +279,7 @@ a.button_red_medium:hover, .button_red_medium:hover, .megamenu > li .drop-down-c
 /* #Site Header
 ================================================ */
 header{
-	background-color:#3498db;
+	background-color:#ecf0f1;
 	padding:25px 0;
 }
 header a {
@@ -286,7 +287,7 @@ header a {
 }
 #menu-top{
 	float:right;
-	color:#fff;
+	color:#00AEEF;
 	font-size:12px;
 	margin-right:30px;
 	margin-top:5px;
@@ -296,7 +297,7 @@ header a {
 	zoom: 1; *display: inline;
 }
 #menu-top ul li a {
-	color:#fff;
+	color:#00AEEF;
 }
 
 .ie7 #menu-top ul li a {
@@ -305,7 +306,7 @@ header a {
 }
 nav{
 	width:100%;
-	background:#95a5a6;
+	background:#00AEEF;
 	/* Old browsers */
 	/*background:#0099cc -moz-linear-gradient(top,rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%);*/
 	/* FF3.6+*/
@@ -416,6 +417,16 @@ footer {
 	position:relative;
 }
 .col-full {
+	padding:30px 30px 15px 30px;
+	background-color:#fff;
+	border: 1px solid #e2e2e2;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	margin-bottom:30px;
+	position:relative;
+}
+.col-center {
 	padding:30px 30px 15px 30px;
 	background-color:#fff;
 	border: 1px solid #e2e2e2;
@@ -860,7 +871,7 @@ ul.list_4 li{background:url(<%= asset_path 'arrow_4.png' %>) no-repeat 4px 6px;l
 	-webkit-transition: background .8s ease; 
 	-moz-transition: background .8s ease;
 	margin-bottom:15px;
-	background: #0099cc;
+	background: #00AEEF;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
@@ -870,7 +881,7 @@ ul.list_4 li{background:url(<%= asset_path 'arrow_4.png' %>) no-repeat 4px 6px;l
 	 float:right; margin: 0 0 15px 20px
 }
 .box-style-2 h3 {
-	color: #FF9;
+	color: #FFF;
 	font-size:28px;
 }
 .box-style-2.green a:hover  {
