@@ -1,0 +1,22 @@
+<!-- =========================Start Col left section ============================= -->
+<aside  class="col-md-4 ">
+  <div class="col-left">
+      <h3>Programmes</h3>
+      <ul class="submenu-col">
+          <li><a href="<%= popular_programmes_path %>" id="<%= 'active' if current_page?(popular_programmes_path) %>">Popular programmes</a></li>
+          <% @popular_programmes.each do |popular_programme| %>
+            <li><a href="<%= popular_programme_path(popular_programme) %>" id="<%= 'active' if current_page?('/popular_programmes/' + popular_programme.slug) %>"><%= popular_programme.name %></a></li>
+          <% end %>
+
+          <li><a href="<%= personalised_programme_path %>" id="<%= 'active' if current_page?('/personalised-programme') %>">Personalised programme</a></li>
+          <li><a href="#">Design your own programme</a></li>
+      </ul>
+      <hr>
+      
+      <h3>Upcoming Modules</h3>
+      <p>Suspendisse quis risus turpis, ut pharetra arcu. Donec adipiscing, quam non faucibus luctus, mi arcu blandit diam, at faucibus mi ante vel augue.</p>
+      <p><a href="<%= all_courses_path %>" class=" button_red_small">View Courses</a></p>
+            
+    </div>
+    <p><img src="<%= asset_path 'banner.jpg' %>" alt="Banner" class="img-responsive" ></p>
+</aside>

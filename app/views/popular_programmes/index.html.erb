@@ -1,0 +1,33 @@
+<h1>Listing popular_programmes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tagline</th>
+      <th>Description</th>
+      <th>Total points</th>
+      <th>Credit point pack</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @popular_programmes.each do |popular_programme| %>
+      <tr>
+        <td><%= popular_programme.name %></td>
+        <td><%= popular_programme.tagline %></td>
+        <td><%= popular_programme.description %></td>
+        <td><%= popular_programme.total_points %></td>
+        <td><%= popular_programme.credit_point_pack %></td>
+        <td><%= link_to 'Show', popular_programme %></td>
+        <td><%= link_to 'Edit', edit_popular_programme_path(popular_programme) %></td>
+        <td><%= link_to 'Destroy', popular_programme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Popular programme', new_popular_programme_path %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Popular programme:</strong>
+  <%= @weekend_programme.popular_programme %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @weekend_programme.location %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @weekend_programme.day %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @weekend_programme.date %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @weekend_programme.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @weekend_programme.end_time %>
+</p>
+
+<p>
+  <strong>Number of places:</strong>
+  <%= @weekend_programme.number_of_places %>
+</p>
+
+<p>
+  <strong>Number of students registered:</strong>
+  <%= @weekend_programme.number_of_students_registered %>
+</p>
+
+<%= link_to 'Edit', edit_weekend_programme_path(@weekend_programme) %> |
+<%= link_to 'Back', weekend_programmes_path %>

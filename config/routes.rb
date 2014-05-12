@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :weekend_programmes
+
+  resources :popular_programmes
   resources :testimonials
 
   get 'testimonial' => 'testimonial#index'

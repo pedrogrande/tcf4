@@ -1,0 +1,39 @@
+<h1>Listing weekend_programmes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Popular programme</th>
+      <th>Location</th>
+      <th>Day</th>
+      <th>Date</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Number of places</th>
+      <th>Number of students registered</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weekend_programmes.each do |weekend_programme| %>
+      <tr>
+        <td><%= weekend_programme.popular_programme %></td>
+        <td><%= weekend_programme.location %></td>
+        <td><%= weekend_programme.day %></td>
+        <td><%= weekend_programme.date %></td>
+        <td><%= weekend_programme.start_time %></td>
+        <td><%= weekend_programme.end_time %></td>
+        <td><%= weekend_programme.number_of_places %></td>
+        <td><%= weekend_programme.number_of_students_registered %></td>
+        <td><%= link_to 'Show', weekend_programme %></td>
+        <td><%= link_to 'Edit', edit_weekend_programme_path(weekend_programme) %></td>
+        <td><%= link_to 'Destroy', weekend_programme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Weekend programme', new_weekend_programme_path %>
