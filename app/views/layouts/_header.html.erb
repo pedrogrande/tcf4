@@ -11,7 +11,12 @@
                 	<li><a href="/" title="Home">Home</a> | </li>
                     <li><a href="<%= contact_path %>" title="Contact">Contact</a> | </li>
                     <% if user_signed_in? %>
-                        <li><%= link_to destroy_user_session_path, method: :delete do %>Sign out<% end %></li>
+                        <li><%= link_to destroy_user_session_path, method: :delete do %>Sign out<% end %> | </li>
+                        <% if current_user.profile %>
+                            <li><%= link_to profile_path(current_user.profile) do %>My profile<% end %> | </li>
+                        <% else %>
+                            <li><%= link_to new_profile_path do %>Create your profile<% end %> | </li>
+                        <% end %>
                     <% else %>
                         <li><a href="<%= new_user_session_path %>" title="Sign in">Sign in</a></li>
                     <% end %>
