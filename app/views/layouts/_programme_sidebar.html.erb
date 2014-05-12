@@ -18,5 +18,5 @@
       <p><a href="<%= all_courses_path %>" class=" button_red_small">View Courses</a></p>
             
     </div>
-    <p><img src="<%= asset_path 'banner.jpg' %>" alt="Banner" class="img-responsive" ></p>
+    <p><a href="<%= @banner.link %>" title="<%= @banner.name %>"><img src="<%= asset_path @banner.image %>" alt="<%= @banner.name %>" class="img-responsive" ></a></p>
 </aside>
