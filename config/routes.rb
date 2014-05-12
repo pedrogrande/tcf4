@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :banners
+
   resources :weekend_programmes
 
   resources :popular_programmes
