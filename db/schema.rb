@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507125807) do
+ActiveRecord::Schema.define(version: 20140512122822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,6 +169,31 @@ ActiveRecord::Schema.define(version: 20140507125807) do
   end
 
   add_index "points_transactions", ["user_id"], name: "index_points_transactions_on_user_id", using: :btree
+
+  create_table "popular_programme_units", force: true do |t|
+    t.integer  "popular_programme_id"
+    t.integer  "unit_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "popular_programme_units", ["popular_programme_id"], name: "index_popular_programme_units_on_popular_programme_id", using: :btree
+  add_index "popular_programme_units", ["unit_id"], name: "index_popular_programme_units_on_unit_id", using: :btree
+
+  create_table "popular_programmes", force: true do |t|
+    t.string   "name"
+    t.string   "tagline"
+    t.text     "description"
+    t.integer  "total_points"
+    t.integer  "credit_point_pack_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+    t.string   "image"
+  end
+
+  add_index "popular_programmes", ["credit_point_pack_id"], name: "index_popular_programmes_on_credit_point_pack_id", using: :btree
+  add_index "popular_programmes", ["slug"], name: "index_popular_programmes_on_slug", unique: true, using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -418,5 +443,22 @@ ActiveRecord::Schema.define(version: 20140507125807) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
+  create_table "weekend_programmes", force: true do |t|
+    t.integer  "popular_programme_id"
+    t.integer  "location_id"
+    t.string   "day"
+    t.date     "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "number_of_places"
+    t.integer  "number_of_students_registered"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "end_date"
+  end
+
+  add_index "weekend_programmes", ["location_id"], name: "index_weekend_programmes_on_location_id", using: :btree
+  add_index "weekend_programmes", ["popular_programme_id"], name: "index_weekend_programmes_on_popular_programme_id", using: :btree
 
 end

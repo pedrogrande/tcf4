@@ -3,7 +3,7 @@
      <div class="row" id="main-boxes">
     	<div class="col-md-4">
         	<div class="box-style-2 green">
-            	<a href="all-courses.html" title="All Courses">
+            	<a href="/popular_programmes/beginner-coder-weekend-programme" title="Beginner Coder Weekend Workshop">
                 	<img src="<%= asset_path 'icon-home-course.png' %>" alt="">
                     <h3>Beginner Workshop</h3>
                     <p>Been keen to learn coding? Struggling to teach yourself online? This workshop is for you.</p>
@@ -14,7 +14,7 @@
         
         <div class="col-md-4">
         	<div class="box-style-2 red">
-            	<a href="contact.html" title="Plan a visit">
+            	<a href="<%= community_path %>" title="Join our community">
                 	<img src="<%= asset_path 'icon-home-visit.png' %>" alt="">
                     <h3>Join our community</h3>
                     <p>Be a part of the fast growing Coder Factory community of tech startup entrepreneurs and coders.</p>
@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-4">
             <div class="box-style-2 orange">
-                <a href="contact.html" title="Apply">
+                <a href="<%= personalised_programme_path %>" title="Personalised Programme">
                     <img src="<%= asset_path 'icon-home-apply.png' %>" alt="">
                     <h3>Personalised programmes</h3>
                     <p>Learn only what you need to achieve your individual goals. Try the Personalised Programme Wizard.</p>
@@ -109,7 +109,7 @@
         <% end %>
         
         
-        <p class="text-center"><a href="contact.html" class="button_large">View all courses </a></p>
+        <p class="text-center"><a href="<%= all_courses_path %>" class="button_large">View all courses </a></p>
         
     </div>
     </section>
