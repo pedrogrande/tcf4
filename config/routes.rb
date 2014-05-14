@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :enquiries
+
   resources :banners
 
   resources :weekend_programmes

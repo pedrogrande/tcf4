@@ -27,62 +27,12 @@
         
         <!-- =========================Start Col right section ============================= -->
 		<section class="col-md-8 ">
-		<div class="col-right">
-			<p class="lead">
-				We love to hear your goals and are always open to any questions, feedback or suggestions. Feel free to contact us!
-			</p>
-			<hr>
-			<h4>General Enquire or Apply</h4>
-            
-			<div id="message-contact"></div>
-			<form method="post" action="assets/contact.php" id="contactform">
-				<div class="row">
-					<div class="col-md-6">
-						<label>Name <span class="required">* </span></label>
-						<input type="text" id="name_contact">
-					</div>
-					<div class="col-md-6">
-						<label>Last name <span class="required">* </span></label>
-						<input type="text" id="lastname_contact">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<label>Email <span class="required">* </span></label>
-						<input type="email" id="email_contact">
-					</div>
-					<div class="col-md-6">
-						<label>Phone <span class="required">* </span></label>
-						<input type="text" id="phone_contact">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<label>Select a department</label>
-						<select id="subject_contact" class="col-md-6">
-							<option value="Administration">Administration</option>
-							<option value="Admissions">Admissions</option>
-							<option value="Courses">Courses</option>
-							<option value="Apply">Apply</option>
-						</select>
-					</div>
-				</div>
-                <div class="row">
-					<div class="col-md-6">
-						<label>Message <span class="required">*</span></label>
-						<textarea rows="5" id="message_contact" class="col-md-6"></textarea>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<label><span class="required">*</span> Are you human? 3 + 1 =</label>
-						<input type="text" id="verify_contact" class="col-md-6">
-					</div>
-					<div class="button-align span3">
-						<input type="submit" id="submit-contact" value="Submit" class=" button_medium">
-					</div>
-				</div>
+			<div class="col-right">
+				<p class="lead">
+					We love to hear your goals and are always open to any questions, feedback or suggestions. Feel free to contact us!
+				</p>
 				<hr>
-			</form>
-		</div><!-- end col right-->
+				<h4>General Enquire or Apply</h4>
+				<%= render 'enquiries/form' %>
+			</div><hr>
 		</section>
