@@ -7,43 +7,59 @@
     </div>
 
 <div class="container">
-	<div class="col-full">
-	<h2>Select your goals</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-left">
+				<h2>Decide on your goals</h2>
+				<p>These are instructions on how to choose your goals.</p>
+				<p>Perhaps there are some examples to help people decide on their goals.</p>
+				<hr>
 
-<div class="row">
-	<div class="col-md-6">
-		<h3>Available goals <small>Click to add</small></h3>
-		<% @goals.each do |goal| %>
-			
-					<% if goal_not_chosen?(goal) %>
-						<div class="row">
-							<div class="col-sm-1">
-								<p><%= link_to choose_goal_path(goal), method: :post, class: 'btn btn-success btn-xs' do %>  <i class="fa fa-plus"></i><% end %></p>
-							</div>
-							<div class="col-sm-6">
-								<p><%= goal.name %></p>
-							</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="goal-box">
+							<h3>Available goals <small>Click to add</small></h3>
+							<% @goals.each do |goal| %>
+								<% if goal_not_chosen?(goal) %>
+									<div class="row">
+										<div class="col-sm-1">
+											<p><%= link_to choose_goal_path(goal), method: :post, class: 'btn btn-success btn-xs' do %>  <i class="fa fa-plus"></i><% end %></p>
+										</div>
+										<div class="col-sm-6">
+											<p><%= goal.name %></p>
+										</div>
+									</div>
+								<% end %>
+							<% end %>
 						</div>
-					<% end %>
-		<% end %>
-	</div>
-	<div class="col-md-6">
-		<h3>My Goals <small>Click to remove</small></h3>
-		<% @user_goals.each do |user_goal| %>
-						<div class="row">
-							<div class="col-sm-1">
-								<p><%= link_to user_goal, method: :delete, class: 'btn btn-danger btn-xs' do %>  <i class="fa fa-minus"></i><% end %></p>
+					</div>
+					<div class="col-md-6">
+						<div class="goal-box">
+							<h3>My Goals <small>Click to remove</small></h3>
+							<% @user_goals.each do |user_goal| %>
+								<div class="row">
+									<div class="col-sm-1">
+										<p><%= link_to user_goal, method: :delete, class: 'btn btn-danger btn-xs' do %>  <i class="fa fa-minus"></i><% end %></p>
+									</div>
+									<div class="col-sm-6">
+										<p><%= user_goal.goal.name %></p>
+									</div>
+								</div>
+							<% end %>
 							</div>
-							<div class="col-sm-6">
-								<p><%= user_goal.goal.name %></p>
-							</div>
-						</div>
-		<% end %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<% if params[:programme] != 'new' %>
+							<p class="pull-right">
+								<%= link_to "Save and return to dashboard", dashboard_path, class: 'btn btn-success btn-lg' %>
+							</p>
+						<% else %>
+							<%= link_to "Tell us what skills you already have", my_skills_path(programme: 'new'), class: goals_selected(@user_goals) %>
+						<% end %>
+					</div>
+			</div>
+		</div>
 	</div>
-</div>
-<div class="row">
-<div class="col-md-12">
-<%= link_to "Tell us what skills you already have", my_skills_path, class: goals_selected(@user_goals) %>
-</div></div>
-</div>
 </div>

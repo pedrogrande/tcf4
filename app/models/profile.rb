@@ -3,7 +3,6 @@ class Profile < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   validates :name, presence: true
-  PROFILE_COMPLETION_POINTS = 10
   before_save :calculate_profile_completion_percentage
 
   def number_of_empty_attributes(profile)

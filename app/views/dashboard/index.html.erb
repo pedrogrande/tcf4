@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1 class="col-md-12">My Coder Factory Dashboard</h1>
-<% if current_user.has_role? :applicant and current_user.programmes.count > 0 %>
-  <%= render 'purchase_points' %>
-<% end %>
+
 <aside  class="col-md-3">
   <div class="col-left">
     <div class="widget">
@@ -38,54 +36,37 @@
       <p><strong>Profile completion: </strong><%= @profile.completion %></p>
 
       <br>
-      <%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-default btn-xs' %>
+      <%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-default' %>
     </div>
   </div>
 </aside>
 <div class="col-md-9">
   <div class="row">
-    <div class="col-md-6">
-      <div class="col-left">
-        <div class="widget">
-          <h3>My skills</h3>
-          <% if @user_skills.count > 0 %>
-            <table class="table table-resonsive">
-              <tr>
-                <th>Skill</th>
-                <th class="text-center">Level</th>
-              </tr>
-              <% @user_skills.each do |user_skill| %>
-                  <tr>
-                    <td><%= user_skill.skill.name %></td>
-                    <td><span class="label label-<%= skill_label(user_skill.skill_level) %> center-block"><%= skill_level_name(user_skill.skill_level) %></span></td>
-                  </tr>
-              <% end %>
-            </table>
-          <% else %>
-            <%= link_to "Add my skills", my_skills_path, class: 'btn btn-success' %>
-          <% end %>
-          <%= link_to "Manage my skills", my_skills_path, class: 'btn btn-default' %>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="col-left">
         <div class="widget">
           <h3>My goals</h3>
-          <hr>
+          
             <% if @profile.user.goals.count > 0 %>
               <table class="table table-resonsive">
                 <tr>
-                  <th>Goal</th>
-                  <th>% Achieved</th>
+                  <th width="50%">Goal</th>
+                  <th class="text-center">% Achieved</th>
                 </tr>
                 <% @profile.user.goals.each do |goal| %>
                   <tr>
                     <td><%= goal.name %></td>
-                    <td></td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                          <span class="sr-only">40% Complete (success)</span>
+                        </div>
+                      </div>
+                    </td>
                   </tr>
                 <% end %>
               </table>
+              <hr>
             <% else %>
               <%= link_to "Add my goals", my_goals_path, class: 'btn btn-success' %>
             <% end %>
@@ -93,8 +74,38 @@
           </div>
         </div>
       </div>
+      <div class="col-md-12">
+      <div class="col-left">
+        <div class="widget">
+          <h3>My skills</h3>
+          <% if @user_skills.count > 0 %>
+            <table class="table table-resonsive">
+              <tr>
+                <th width="50%">Skill</th>
+                <th class="text-center">Level</th>
+              </tr>
+              <% @user_skills.each do |user_skill| %>
+                  <tr>
+                    <td><%= user_skill.skill.name %></td>
+                    <td>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-<%= skill_label(user_skill.skill_level) %>" role="progressbar" aria-valuenow="<%= user_skill.skill_level %>" aria-valuemin="0" aria-valuemax="5" style="width: <%= user_skill.skill_level / 5.0 * 100 %>%">
+                          <span class="sr-only">40% Complete (success)</span>
+                        </div>
+                      </div>
+
+                    </td>
+                  </tr>
+              <% end %>
+            </table>
+            <hr>
+          <% else %>
+            <%= link_to "Add my skills", my_skills_path, class: 'btn btn-success' %>
+          <% end %>
+          <%= link_to "Manage my skills", my_skills_path, class: 'btn btn-default' %>
+        </div>
+      </div>
     </div>
-    <div class="row">
       <div class="col-md-12">
         <div class="col-left">
           <div class="widget">
@@ -116,7 +127,12 @@
             <% else %>
               <p>No programmes</p>
             <% end %>
-            <%= link_to "Create a programme", new_programme_path, class: 'btn btn-success' %>
+            <hr>
+            <h4>Add a programme</h4>
+            <p>
+              <%= link_to "Choose a popular programme", new_programme_path, class: 'btn btn-primary' %> 
+              <%= link_to "Try the Personalised Programme Wizard", my_goals_path(programme: 'new'), class: 'btn btn-success' %>
+            </p>
           </div>
         </div>
       </div>
@@ -153,4 +169,4 @@
       </div>
     </div>
   </div>
-</div>
+

@@ -39,6 +39,7 @@ class ProgrammesController < ApplicationController
   # GET /programmes/new
   def new
     @skill_groups = SkillGroup.all
+
     if !current_user
       @user = guest_user
       if @user.programme_id.nil?
@@ -46,24 +47,43 @@ class ProgrammesController < ApplicationController
       else
         @programme = Programme.find(@user.programme_id)
       end
-      # @user = current_user
-    end
-
-    @user.goals.each do |goal|
-      goal.units.each do |unit|
-        unit.skills.each do |skill|
-          skill.unit_skills.each do |unit_skill|
-            user_skill = @user.guest_user_skills.where(skill_id: skill.id).first
-            if user_skill.skill_level < unit_skill.after_skill_level and !@programme.units.include?(unit)
-              @programme.units << unit
+      @user.goals.each do |goal|
+        goal.units.each do |unit|
+          unit.skills.each do |skill|
+            skill.unit_skills.each do |unit_skill|
+              user_skill = @user.guest_user_skills.where(skill_id: skill.id).first
+              if user_skill.skill_level < unit_skill.after_skill_level and !@programme.units.include?(unit)
+                @programme.units << unit
+              end
             end
           end
         end
       end
+      @programme.save
+      @user.update_attributes(programme_id: @programme.id)
+      redirect_to my_programme_path(programme: @programme.id)
+    else
+      @user = current_user
+      @programme = Programme.new
+      @user.goals.each do |goal|
+        goal.units.each do |unit|
+          unit.skills.each do |skill|
+            skill.unit_skills.each do |unit_skill|
+              user_skill = @user.user_skills.where(skill_id: skill.id).first
+              if user_skill.skill_level < unit_skill.after_skill_level and !@programme.units.include?(unit)
+                @programme.units << unit
+              end
+            end
+          end
+        end
+      end
+      @programme.user = current_user
+      @programme.save
+      redirect_to my_programme_path(programme: @programme.id)
     end
-    @programme.save
-    @user.update_attributes(programme_id: @programme.id)
-    redirect_to my_programme_path(programme: @programme.id)
+
+    
+    
   end
 
   # GET /programmes/1/edit

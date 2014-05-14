@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-sm-3">
+		<p><%= user_skill.skill.name %></p>
+	</div>
+	<div class="col-sm-1">
+		<%= link_to "None", choose_user_skill_path(user_skill, skill_level: 0), class: button(user_skill, 0), remote: true %>
+	</div>
+	<div class="col-sm-2">
+		<%= link_to "Beginner", choose_user_skill_path(user_skill, skill_level: 1), class: button(user_skill, 1), remote: true %>
+	</div>
+	<div class="col-sm-2">
+		<%= link_to "Experienced", choose_user_skill_path(user_skill, skill_level: 2), class: button(user_skill, 2), remote: true %>
+	</div>
+	<div class="col-sm-2">
+		<%= link_to "Advanced", choose_user_skill_path(user_skill, skill_level: 3), class: button(user_skill, 3), remote: true %>
+	</div>
+	<div class="col-sm-2">
+		<%= link_to "I have taught it", choose_user_skill_path(user_skill, skill_level: 5), class: button(user_skill, 5), remote: true %>
+	</div>
+</div>

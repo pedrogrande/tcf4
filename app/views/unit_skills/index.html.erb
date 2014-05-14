@@ -14,8 +14,8 @@
   <tbody>
     <% @unit_skills.each do |unit_skill| %>
       <tr>
-        <td><%= unit_skill.unit %></td>
-        <td><%= unit_skill.skill %></td>
+        <td><%= unit_skill.unit.name %></td>
+        <td><%= unit_skill.skill.name %></td>
         <td><%= unit_skill.before_skill_level %></td>
         <td><%= unit_skill.after_skill_level %></td>
         <td><%= link_to 'Show', unit_skill %></td>
