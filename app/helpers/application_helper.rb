@@ -3,15 +3,19 @@ module ApplicationHelper
 		
 	end
 
-	def skill_level(level_number)
+	def skill_level_name(level_number)
 		if level_number == 0
 			'None'
 		elsif level_number == 1
 			'Beginner'
 		elsif level_number == 2
-			'Intermediate'
-		elsif level_number == 3
 			'Experienced'
+		elsif level_number == 3
+			'Advanced'
+		elsif level_number == 5
+			'Expert'
+		elsif level_number == 4
+			'Almost expert'
 		end
 	end
 
@@ -22,5 +26,17 @@ module ApplicationHelper
 			'warning'
 		end
 			
+	end
+
+	def skill_label(skill_level)
+		if skill_level == 1
+			'warning'
+		elsif skill_level == 2
+			'info'
+		elsif skill_level == 3
+			'primary'
+		elsif skill_level == 5
+			'success'
+		end
 	end
 end

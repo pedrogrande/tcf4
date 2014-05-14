@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'dashboard' => 'dashboard#index'
+
   resources :banners
 
   resources :weekend_programmes
@@ -67,7 +69,11 @@ Rails.application.routes.draw do
 
   resources :unit_skills
 
-  resources :user_skills
+  resources :user_skills do
+    member do
+      get :choose
+    end
+  end
 
   resources :goals do
     member do

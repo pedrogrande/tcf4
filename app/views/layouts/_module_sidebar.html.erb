@@ -18,7 +18,7 @@
       <hr>
       <h3>Modules by goals</h3>
       <ul class="submenu-col">
-        <% @goals.each do |goal| %>
+        <% @menu_goals.each do |goal| %>
             <% if goal.units.count > 0 %>
               <li><a href="<%= all_courses_path(goal: goal) %>" id="<%= 'active' if params[:goal] == goal.slug %>"><%= goal.name %> <span class="label label-info pull-right"><%= goal.units.count %></span></a></li>
             <% end %>
@@ -28,7 +28,7 @@
 
       <h3>Modules by skills</h3>
       <ul class="submenu-col">
-          <% @skill_groups.each do |skill_group| %>
+          <% @menu_skill_groups.each do |skill_group| %>
             <% if skill_group.units.count > 0 %>
               <li><a href="<%= all_courses_path(skill_group: skill_group) %>" id="<%= 'active' if params[:skill_group] == skill_group.slug %>"><%= skill_group.name %> <span class="label label-info pull-right"><%= skill_group.units.count %></span></a></li>
             <% end %>

@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :get_skill_groups, :get_goals, :get_banner
 
   def get_skill_groups
-    @skill_groups = SkillGroup.all
+    @menu_skill_groups = SkillGroup.all
   end
 
   def get_goals
-    @goals = Goal.all
+    @menu_goals = Goal.all
   end
 
   def get_banner

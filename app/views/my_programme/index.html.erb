@@ -1,109 +1,103 @@
-<h1>My Personalised Programme</h1>
+<h1 class="col-md-12">My personalised programme</h1>
+<div class="col-md-12">
+  <ul class="breadcrumb">
+    <li><a href="#">Home</a> <span class="divider"></span></li>
+    <li class="active">My personalised programme</li>
+  </ul>
+</div>
 
-<div class="row">
-<div class="col-md-6">
-	
-		<h3>Programme modules</h3>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-left">
+				<h2>Programme modules</h2>
+				<p class="lead">Here are the list of modules that will help you achieve your goals. Add or remove modules as you wish, then enrol in the programme below.</p>
 
-			<table class="table">
-				<tr>
-					<th>Module</th>
-					<th>Skills</th>
-					<th>Skill level</th>
-					<th>Credit points</th>
-					<th></th>
-				</tr>
-				<% @programme.units.each do |unit| %>
-				<tr>
-					<td><%= unit.name %></td>
-					<td><% unit.skills.each do |skill| %><%= skill.name %><br><% end %></td>
-					<td><%= unit.unit_skills.first.after_skill_level %></td>
-					<td><%= unit.workshop_credits %></td>
-					<td><%= link_to "Remove", remove_unit_programme_path(@programme, unit: unit), method: :delete, class: "btn btn-default btn-xs"%></td>
-				</tr>
-				<% end %>
-				<tr>
-
-					<th colspan="3">Workshop credit points total</th>
-					<th><%= programme_credits(@programme) %></th>
-					<th></th>
-				</tr>
-			</table>
-<hr>
-<h3>Other recommended modules</h3>
-	
-			<div class="row">
-				<% @units.each do |unit| %>
-					<% if !@programme.units.include?(unit) %>
-						<div class="col-md-6">
-							<div class="panel panel-<%= panel_color(unit.skill_group) %>">
-								<div class="panel-heading">
-									<p class="panel-title"><i class="glyphicon glyphicon-<%= unit.icon %>"></i> <%= unit.name %></p>
-								</div>
-								<div class="panel-body">
-									<p class="lead"><%= unit.tagline %></p>
-									<p><%= unit.description %></p>
-									<%= link_to "Add to programme", add_unit_programme_path(@programme, unit: unit), class: 'btn btn-primary' %>
-								</div>
-							</div>
-						</div>
+				<table class="table table-responsive">
+					<tr>
+						<th>Module</th>
+						<th>Skills</th>
+						<th>Skill level</th>
+						<th>Credit points</th>
+						<th></th>
+					</tr>
+					<% @programme.units.each do |unit| %>
+					<tr>
+						<td><%= unit.name %></td>
+						<td><% unit.skills.each do |skill| %><%= skill.name %><br><% end %></td>
+						<td><%= unit.unit_skills.first.after_skill_level %></td>
+						<td><%= unit.workshop_credits %></td>
+						<td><%= link_to "Remove", remove_unit_programme_path(@programme, unit: unit.id), method: :delete, class: "btn btn-default btn-xs"%></td>
+					</tr>
 					<% end %>
-				<% end %>
-		
+					<tr>
+
+						<th colspan="3">Workshop credit points total</th>
+						<th><%= programme_credits(@programme) %></th>
+						<th></th>
+					</tr>
+				</table>
+				<hr>
 			</div>
-		
-
-	
-</div>
-<div class="col-md-6">
-<% if @programme.units.count > 0 %>
-<div class="well">
-		<h2>Enrol in my personalised programme</h2>
-		<p>Enrol in your personalised programme now and receive <strong>5 free credit points</strong>.</p>
-		<%= simple_form_for @user do |f| %>
-			<div class="form-group">
-  			<%= f.input :email, placeholder: 'Your email', autofocus: true, label: false, input_html: { class: 'form-control', required: true} %>
-  		</div>
-			<div class="form-group">
-  			<%= f.input :name, placeholder: 'Your name', label: false, input_html: { class: 'form-control'} %>
-  		</div>
-			<div class="form-group">
-  			<%= f.input :phone, placeholder: 'Your contact number', label: false, input_html: { class: 'form-control'} %>
-  		</div>
-  		<%= f.input :converted, as: :hidden, input_html: { value: true } %>
-  		<%= f.input :enrolled, as: :hidden, input_html: { value: true } %>
-  		<%= f.input :programme_id, as: :hidden, input_html: { value: @programme.id } %>
-  		<div class="form-group">
-  			<%= f.submit 'Enrol in my personalised programme', class: 'btn btn-success btn-lg' %>
-  		</div>
-  			
-  	<% end %>
-  	<br>
-		<ul>
-		<li>You can swap out modules at any time</li>
-		<li>Choose from online or in-class workshops</li>
-		<li>Choose workshops at times that suit you</li>
-		<li>Credit points are valid for 12 months</li>
-		<li>Access to the Coder Factory tools are included with your programme enrolment</li>
-
-		</ul>
-  	
+		</div>
 	</div>
-	<div class="well">
-	<a href="<%= save_programme_path(@programme) %>" class="btn btn-primary">Save for later</a> 
-	</div>
-		
-
-		<% else %>
-		<h4>Nothing to do here - any chance you want to come and teach? :)</h4>
-	<% end %>
-		
-
-
-</div>
-</div>
-<div class="row">
-<div class="col-md-6">
-
+	<div class="row">
+		<aside class="col-md-8">
+			<div class="col-left">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Other recommended modules</h2>
+						<table class="table table-responsive">
+							<tr>
+								<th>Module</th>
+								<th>Skills</th>
+								<th>Credit points</th>
+								<th></th>
+							</tr>
+							<% @recommended_units.each do |recommended_unit| %>
+								<% if !@programme.units.include?(recommended_unit) %>
+									<tr>
+										<td><%= recommended_unit.name %></td>
+										<td><% recommended_unit.skills.each do |skill| %><%= skill.name %><br><% end %></td>
+										<td><%= recommended_unit.workshop_credits %></td>
+										<td><%= link_to "Add to programme", add_unit_programme_path(@programme, unit: recommended_unit.id), class: 'btn btn-primary btn-sm' %></td>
+									</tr>
+								<% end %>
+							<% end %>
+						</table>
+					</div>
+				</div>
+			</div>
+		</aside>
+		<aside class="col-md-4">
+			<div class="col-left light-green">
+				<% if @programme.units.count > 0 %>
+					<% if current_user %>
+						<h3>Add this programme to your profile</h3>
+						<%= link_to "Save programme", dashboard_path, class: 'btn btn-success' %>
+					<% else %>
+						<h2>Enrol here</h2>
+						<p>Receive <strong>5 free credit points</strong>.</p>
+						<%= simple_form_for @user do |f| %>
+							<div class="form-group">
+				  			<%= f.input :email, placeholder: 'Your email', autofocus: true, label: false, input_html: { class: 'form-control', required: true} %>
+				  		</div>
+							<div class="form-group">
+				  			<%= f.input :name, placeholder: 'Your name', label: false, input_html: { class: 'form-control'} %>
+				  		</div>
+							<div class="form-group">
+				  			<%= f.input :phone, placeholder: 'Your contact number', label: false, input_html: { class: 'form-control'} %>
+				  		</div>
+				  		<%= f.input :converted, as: :hidden, input_html: { value: true } %>
+				  		<%= f.input :enrolled, as: :hidden, input_html: { value: true } %>
+				  		<%= f.input :programme_id, as: :hidden, input_html: { value: @programme.id } %>
+				  		<div class="form-group">
+				  			<%= f.submit 'Enrol', class: 'btn btn-success btn-lg' %>
+				  		</div>
+				  	<% end %>
+				  <% end %>
+				<% end %>
+			</div>
+		</aside>
 	</div>
 </div>

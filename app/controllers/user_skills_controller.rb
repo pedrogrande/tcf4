@@ -1,6 +1,11 @@
 class UserSkillsController < ApplicationController
-  before_action :set_user_skill, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_skill, only: [:show, :edit, :update, :destroy, :choose]
+  respond_to :html, :js
 
+  def choose
+    @user_skill.update_attribute(:skill_level, params[:skill_level])
+    respond_with @user_skill, :location => :my_skills
+  end
   # GET /user_skills
   # GET /user_skills.json
   def index

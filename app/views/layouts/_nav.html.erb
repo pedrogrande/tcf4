@@ -8,29 +8,28 @@
 		<li><a href="<%= root_path %>" class="nodrop-down">Home</a></li>
 
 		<li><a href="#" class="drop-down">Technology Education</a>
-		<!-- Begin Item -->
-        <div class="drop-down-container" id="icon-menu">
-            
-            <div class="row">
-                <div class="col-md-12"><h3>Programmes</h3></div>
-                 <div class="col-md-3"><a href="<%= personalised_programme_path %>" title="Receive your personalised programme"><i class="fa fa-magic fa-3x"></i>Personalised programme </a></div>
-                <div class="col-md-3"><a href="<%= popular_programmes_path %>" title="Popular programmes"><i class="fa fa-star fa-3x"></i>Popular programmes</a></div>
-                <div class="col-md-3"><a href="/popular_programmes/beginner-coder-weekend-programme" title="Beginner programme"><i class="fa fa-anchor fa-3x"></i>Beginner programme</a></div>
-                <div class="col-md-3"><a href="<%= all_courses_path %>" title="Web app coder programme"><i class="fa fa-certificate fa-3x"></i>Design your own programme</a></div>
-            </div>
-            <div class="row orange">
-            <div class="col-md-12"><h3>Skills</h3></div>
-                <% @skill_groups.each do |skill_group| %>
-                    <% if skill_group.units.count > 0 %>
-                        <div class="col-md-3"><a href="<%= all_courses_path(skill_group: skill_group) %>" title="All courses"><i class="fa fa-<%= skill_group.icon %> fa-3x"></i><%= skill_group.name %></a></div>
+    		<!-- Begin Item -->
+            <div class="drop-down-container" id="icon-menu">
+                
+                <div class="row">
+                    <div class="col-md-12"><h3>Programmes</h3></div>
+                     <div class="col-md-3"><a href="<%= personalised_programme_path %>" title="Receive your personalised programme"><i class="fa fa-magic fa-3x"></i>Personalised programme </a></div>
+                    <div class="col-md-3"><a href="<%= popular_programmes_path %>" title="Popular programmes"><i class="fa fa-star fa-3x"></i>Popular programmes</a></div>
+                    <div class="col-md-3"><a href="/popular_programmes/beginner-coder-weekend-programme" title="Beginner programme"><i class="fa fa-anchor fa-3x"></i>Beginner programme</a></div>
+                    <div class="col-md-3"><a href="<%= all_courses_path %>" title="Web app coder programme"><i class="fa fa-certificate fa-3x"></i>Design your own programme</a></div>
+                </div>
+                <div class="row orange">
+                <div class="col-md-12"><h3>Skills</h3></div>
+                    <% @menu_skill_groups.each do |skill_group| %>
+                        <% if skill_group.units.count > 0 %>
+                            <div class="col-md-3"><a href="<%= all_courses_path(skill_group: skill_group) %>" title="All courses"><i class="fa fa-<%= skill_group.icon %> fa-3x"></i><%= skill_group.name %></a></div>
+                        <% end %>
                     <% end %>
-                <% end %>
-            </div><!-- End row -->
-        </div><!-- End Item Container -->
+                </div><!-- End row -->
+            </div><!-- End Item Container -->
         </li><!-- End Item -->
 
         
-        </li><!-- End Item -->
         
         
 		<li><a href="<%= free_tutorials_path %>" class="nodrop-down">Free Tutorials</a></li>

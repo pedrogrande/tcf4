@@ -10,8 +10,9 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @programme = current_user.programmes.last
+    @programme = @profile.user.programmes.last
     @credit_point_packs = CreditPointPack.available.order_by_price
+    @user_skills = @profile.user.user_skills.order_by_skill_level
   end
 
   # GET /profiles/new
@@ -27,6 +28,7 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
+    @profile.user = current_user
 
     respond_to do |format|
       if @profile.save
