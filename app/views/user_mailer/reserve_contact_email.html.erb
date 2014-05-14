@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Your message has been recieved.</h1>
+    
+    <table>
+      <tr>
+        <th>Name:</th>
+        <td><%= @enquiry.name %></td>
+      </tr>
+      <tr>
+        <th>Last Name:</th>
+        <td><%= @enquiry.last_name %></td>
+      </tr>  
+      <tr>
+        <th>Email:</th>
+        <td><%= @enquiry.email %></td>
+      </tr>
+      <tr>
+        <th>Phone:</th>
+        <td><%= @enquiry.phone %></td>
+      </tr>
+      <tr>
+        <th>Message:</th>
+        <td><%= @enquiry.content %></td>
+      </tr>
+      
+    </table>
+  </body>
+</html>
