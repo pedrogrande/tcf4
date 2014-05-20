@@ -1,3 +1,4 @@
+source 'https://code.stripe.com'
 source 'https://rubygems.org'
 
 
@@ -23,6 +24,7 @@ gem 'country_select'
 gem 'friendly_id'
 gem "font-awesome-rails"
 gem 'jquery-turbolinks'
+gem 'stripe'
 group :development do
   gem "better_errors"
   gem 'quiet_assets'

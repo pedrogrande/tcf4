@@ -3,6 +3,10 @@ module ApplicationHelper
 		
 	end
 
+	def formatted_price(amount)
+    sprintf("$%0.2f", amount / 100.0)
+  end
+
 	def skill_level_name(level_number)
 		if level_number == 0
 			'None'

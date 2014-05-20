@@ -52,8 +52,10 @@ class ProgrammesController < ApplicationController
           unit.skills.each do |skill|
             skill.unit_skills.each do |unit_skill|
               user_skill = @user.guest_user_skills.where(skill_id: skill.id).first
-              if user_skill.skill_level < unit_skill.after_skill_level and !@programme.units.include?(unit)
-                @programme.units << unit
+              if user_skill
+                if user_skill.skill_level < unit_skill.after_skill_level and !@programme.units.include?(unit)
+                  @programme.units << unit
+                end
               end
             end
           end

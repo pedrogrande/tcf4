@@ -1,54 +1,81 @@
+<!-- <h1 class="col-md-12">Purchase Coder Factory Credit Points</h1>
+<div class="col-md-12">
+  <ul class="breadcrumb">
+    <li><a href="#">Home</a> <span class="divider"></span></li>
+    <li class="active">Purchase Coder Factory Credit Points</li>
+  </ul>
+</div> -->
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-left">
 
-  <% if @purchase.credit_point_pack %>
-    <h4>You are purchasing the <%= @purchase.credit_point_pack.name %></h4>
-    <p>Purchase credit points: <%= @purchase.credit_points %></p>
-<p>Purchase price: AUD <%= @purchase.price / 100 %></p>
+        <% if @purchase.credit_point_pack %>
+          <h4>You are purchasing the <%= @purchase.credit_point_pack.name %></h4>
+          <p class="lead">Your current credit points: <%= @user.points_table.current %></p>
+          <p class="lead">Purchase credit points: <%= @purchase.credit_points %></p>
+          <p class="lead">Balance after purchase: <%= @purchase.credit_points + @user.points_table.current %>
+          <p class="lead">Purchase price: AUD <%= @purchase.price / 100 %></p>
+        <% else %>
+          <h4>You are purchasing <%= @purchase.credit_points %> credit points</h4>
+          <p>Reminder: A Credit Point Package = Save $$ + More Points to spend on modules!</p>
+          <table class="table">
+            <% @credit_point_packs.each do |pack| %>
+              <tr>
+                <th><%= pack.name %></th>
+                <td class="right-align">AUD <%= pack.price/100 %></td>
+                <td><%= link_to upgrade_to_pack_purchase_path(@purchase, credit_point_pack: pack), method: :patch do %><%= pack.number_of_points %> credit points<% end %></td>
+                <td><%= number_to_currency(pack.price/pack.number_of_points/100.0) %> per point</td>
+              </tr>
+            <% end %>
+          </table>
+        <% end %>
 
-  <% else %>
-    <h4>You are purchasing <%= @purchase.credit_points %> credit points</h4>
+        
+        <h3>Pay to start scheduling your courses.</h3>
+        
+        <h2>Payment</h2>
+        <% if @error %>
+          <%= @error %>
+        <% end %>
+          
+        <% if @purchase.price > 50000 %>
+          <h3>Pay upfront & save</h3>
+          <p>Your price: <%= formatted_price(@purchase.price) %></p>
+        <% else %>
+          <h3>Your price: <%= formatted_price(@purchase.price) %></h3>
+        <% end %>
 
-    <p>Reminder: A Credit Point Package = Save $$ + More Points to spend on modules!</p>
-    <table class="table">
-      <% @credit_point_packs.each do |pack| %>
-        <tr>
-          <th><%= pack.name %></th>
-          <td class="right-align">AUD <%= pack.price/100 %></td>
-          <td><%= link_to upgrade_to_pack_purchase_path(@purchase, credit_point_pack: pack), method: :patch do %><%= pack.number_of_points %> credit points<% end %></td>
-          <td><%= number_to_currency(pack.price/pack.number_of_points/100.0) %> per point</td>
-        </tr>
-      <% end %>
-      </table>
+        <%= form_tag payments_path(guid: @purchase.guid, amount: @purchase.price) do %>
+          <script src="https://checkout.stripe.com/v2/checkout.js"
+            class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="Coder Factory"
+            data-description="<%= @user.profile.name %>'s payment"
+            data-image="<%= asset_path 'stripe-logo.png' %>"
+            data-amount="<%= @purchase.price %>"
+            data-email="<%= @user.email %>"
+            data-label="Pay full amount"></script>
+        <% end %>
+        <% if @purchase.price > 50000 %>
+          
+          <h3>Reserve your place with a $500 deposit</h3>
+          <p>We'll email you with your future payment options.</p>
 
-  <% end %>
-
-  <h3>Choose your payment method:</h3>
-  <p class="lead">Pay by credit card or direct debit and start scheduling your courses now.</p>
-  <!-- Nav tabs -->
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#credit" data-toggle="tab"><%= fa_stacked_icon "credit-card inverse", base: "circle" %> Credit Card</a></li>
-  <li><a href="#debit" data-toggle="tab"><%= fa_stacked_icon "calendar inverse", base: "circle" %> Direct Debit</a></li>
-  <li><a href="#bank" data-toggle="tab"><%= fa_stacked_icon "money inverse", base: "circle" %> Bank Transfer</a></li>
-</ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane active" id="credit">
-  	<br>
-  	<a href="#" class="btn btn-success">
-      Pay total: 
-      <%= number_to_currency(@purchase.price/100) %>
-    </a> 
-    <% if @purchase.price > 50000 %>
-      <a href="#" class="btn btn-primary">
-        Pay deposit of $500.00
-      </a>
-    <% end %>
- 	</div>
-  <div class="tab-pane" id="bank">Bank Transfer</div>
-  <div class="tab-pane" id="debit">Direct Debit</div>
+          <%= form_tag payments_path(guid: @purchase.guid, amount: 50000) do %>
+            <script src="https://checkout.stripe.com/v2/checkout.js"
+              class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-name="Coder Factory"
+              data-description="<%= @user.profile.name %>'s deposit"
+              data-image="<%= asset_path 'stripe-logo.png' %>"
+              data-amount="50000"
+              data-email="<%= @user.email %>"
+              data-label="Pay deposit of $500"></script>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-<br>

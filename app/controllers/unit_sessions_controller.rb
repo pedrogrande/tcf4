@@ -25,6 +25,7 @@ class UnitSessionsController < ApplicationController
   # POST /unit_sessions.json
   def create
     @unit_session = UnitSession.new(unit_session_params)
+    @unit_session.day = Date::DAYNAMES[@unit_session.date.wday]
 
     respond_to do |format|
       if @unit_session.save
@@ -40,6 +41,7 @@ class UnitSessionsController < ApplicationController
   # PATCH/PUT /unit_sessions/1
   # PATCH/PUT /unit_sessions/1.json
   def update
+    @unit_session.update_attributes(day: Date::DAYNAMES[@unit_session.date.wday])
     respond_to do |format|
       if @unit_session.update(unit_session_params)
         format.html { redirect_to @unit_session, notice: 'Unit session was successfully updated.' }

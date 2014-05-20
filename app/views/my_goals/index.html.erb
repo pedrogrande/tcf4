@@ -51,12 +51,13 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<% if params[:programme] != 'new' %>
+					
+						<% if params[:programme] == 'new' or !current_user %>
+							<%= link_to "Tell us what skills you already have", my_skills_path(programme: 'new'), class: goals_selected(@user_goals) %>
+						<% else %>
 							<p class="pull-right">
 								<%= link_to "Save and return to dashboard", dashboard_path, class: 'btn btn-success btn-lg' %>
 							</p>
-						<% else %>
-							<%= link_to "Tell us what skills you already have", my_skills_path(programme: 'new'), class: goals_selected(@user_goals) %>
 						<% end %>
 					</div>
 			</div>

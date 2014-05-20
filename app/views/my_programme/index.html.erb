@@ -1,16 +1,8 @@
-<h1 class="col-md-12">My personalised programme</h1>
-<div class="col-md-12">
-  <ul class="breadcrumb">
-    <li><a href="#">Home</a> <span class="divider"></span></li>
-    <li class="active">My personalised programme</li>
-  </ul>
-</div>
-
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-8">
 			<div class="col-left">
-				<h2>Programme modules</h2>
+				<h2>My personalised programme</h2>
 				<p class="lead">Here are the list of modules that will help you achieve your goals. Add or remove modules as you wish, then enrol in the programme below.</p>
 
 				<table class="table table-responsive">
@@ -40,35 +32,6 @@
 				<hr>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<aside class="col-md-8">
-			<div class="col-left">
-				<div class="row">
-					<div class="col-md-12">
-						<h2>Other recommended modules</h2>
-						<table class="table table-responsive">
-							<tr>
-								<th>Module</th>
-								<th>Skills</th>
-								<th>Credit points</th>
-								<th></th>
-							</tr>
-							<% @recommended_units.each do |recommended_unit| %>
-								<% if !@programme.units.include?(recommended_unit) %>
-									<tr>
-										<td><%= recommended_unit.name %></td>
-										<td><% recommended_unit.skills.each do |skill| %><%= skill.name %><br><% end %></td>
-										<td><%= recommended_unit.workshop_credits %></td>
-										<td><%= link_to "Add to programme", add_unit_programme_path(@programme, unit: recommended_unit.id), class: 'btn btn-primary btn-sm' %></td>
-									</tr>
-								<% end %>
-							<% end %>
-						</table>
-					</div>
-				</div>
-			</div>
-		</aside>
 		<aside class="col-md-4">
 			<div class="col-left light-green">
 				<% if @programme.units.count > 0 %>
@@ -98,6 +61,40 @@
 				  <% end %>
 				<% end %>
 			</div>
+			<div class="col-left">
+				<h3>Or save your programme for later.</h3>
+				<p><a href="#" class="btn btn-primary">Save programme</a></p>
+			</div>
 		</aside>
+	</div>
+	<div class="row">
+		<aside class="col-md-8">
+			<div class="col-left">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Other recommended modules</h2>
+						<table class="table table-responsive">
+							<tr>
+								<th>Module</th>
+								<th>Skills</th>
+								<th>Credit points</th>
+								<th></th>
+							</tr>
+							<% @recommended_units.each do |recommended_unit| %>
+								<% if !@programme.units.include?(recommended_unit) %>
+									<tr>
+										<td><%= recommended_unit.name %></td>
+										<td><% recommended_unit.skills.each do |skill| %><%= skill.name %><br><% end %></td>
+										<td><%= recommended_unit.workshop_credits %></td>
+										<td><%= link_to "Add to programme", add_unit_programme_path(@programme, unit: recommended_unit.id), class: 'btn btn-primary btn-sm' %></td>
+									</tr>
+								<% end %>
+							<% end %>
+						</table>
+					</div>
+				</div>
+			</div>
+		</aside>
+		
 	</div>
 </div>

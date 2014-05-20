@@ -15,6 +15,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
+    @user = current_user
     @purchase = Purchase.find_by!(guid: params[:guid])
     @credit_point_packs = CreditPointPack.available.order_by_price
   end
@@ -26,17 +27,33 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
-    @payment = Payment.new(payment_params)
+    purchase = Purchase.find_by!(guid: params[:guid])
+      amount = params[:amount]
+      token = params[:stripeToken]
 
-    respond_to do |format|
-      if @payment.save
-        format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
-        format.json { render :show, status: :created, location: @payment }
-      else
-        format.html { render :new }
-        format.json { render json: @payment.errors, status: :unprocessable_entity }
+      stripe_customer = Stripe::Customer.create(
+        :card => token,
+        :description => purchase.user.profile.name
+      )
+
+      begin
+        charge = Stripe::Charge.create(
+          amount:   amount, 
+          currency:   "aud",
+          customer:   stripe_customer.id
+        )
+        @payment = Payment.credit_card_payment(purchase, amount)
+        purchase.update_attributes(stripe_id: stripe_customer.id, payment_id: @payment.id)
+        PointsTransaction.purchase_points(purchase)
+        
+        # PurchaseMailer.response(purchase, amount).deliver
+        redirect_to dashboard_path
+      rescue Stripe::CardError => e
+        # The card has been declined or
+        # some other error has occured
+        @error = e
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /payments/1

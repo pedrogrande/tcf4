@@ -11,11 +11,20 @@ class User < ActiveRecord::Base
 	has_many :units, through: :user_units
   has_many :purchases
   has_many :posts
+  has_many :points_transactions
+  has_many :payments
   
 	accepts_nested_attributes_for :user_skills
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+
+  after_create :initialise_points_table
+
+  def initialise_points_table
+    @points_table = PointsTable.create!(user_id: self.id, current: 0)
+    @points_table.save
+  end
 
   def self.create_user_from_guest(guest_user)
   	if !User.where(email: guest_user.email)
