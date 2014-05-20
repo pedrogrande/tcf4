@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'thanks' => 'thanks#index'
+
   get 'dashboard' => 'dashboard#index'
 
   resources :enquiries

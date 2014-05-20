@@ -1,24 +1,65 @@
-<p id="notice"><%= notice %></p>
+<h1 class="col-md-12">Testimonials</h1>
+<div class="col-md-12">
+	<ul class="breadcrumb">
+		<li><a href="index.html">Home</a><span class="divider"></span></li>
+		<li><a><%= link_to 'Testimonials', testimonials_path %></a><span class="divider"></span></li>
+		<li class="active"><%= @testimonial.name %></li>
+	</ul>
+</div>
+  <!-- =========================Start Col left section ============================= -->   
+<aside class="col-md-4 ">
+<div class="col-left">
+	<% if @testimonials %>
+		<% @testimonials.each do |testimonial| %>
+		  <h4><%= testimonial.name %></h4>
+		  <p>
+		    <%= testimonial.quote %>
+		  </p>
+		  <%= link_to 'Read more', testimonial, class: "button_red_small" %>
+		  <hr>
+		<% end %>  
+	<% end %>    
+</div><!--End col left -->
+    
+  <p><img src="<%= asset_path 'banner.jpg' %>" alt="Banner" class="img-rounded img-responsive"></p>
+  </aside>
 
-<p>
-  <strong>Name:</strong>
-  <%= @testimonial.name %>
-</p>
-
-<p>
-  <strong>Quote:</strong>
-  <%= @testimonial.quote %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @testimonial.text %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @testimonial.image %>
-</p>
-
-<%= link_to 'Edit', edit_testimonial_path(@testimonial) %> |
-<%= link_to 'Back', testimonials_path %>
+<!-- =========================Start Col right section ============================= --> 
+<section class="col-md-8  ">
+  <div class="col-right">
+       <div class="main-img">
+            <img src="<%= asset_path 'about.jpg' %>" alt="" class="img-responsive">
+            <p class="lead"><%= @testimonial.quote %> - <%= @testimonial.name %></p>
+        </div>
+        <div class="post_info clearfix">
+            <div class="post-left">
+                    <ul>
+                      <li><i class="fa fa-calendar-o"></i> On <%= @testimonial.created_at.strftime('%v') %></li>
+                        <li><i class="fa fa-user"></i> <%= @testimonial.name %></li>
+                        <li><i class="fa fa-tags"></i> <%= @testimonial.courses %></li>
+                    </ul>
+               </div>
+               <div class="post-right"><i class="fa fa-comments"></i> <a href="#">1000 </a>Comments</div>  
+               </div>
+        <div class="row">
+        	<div class="col-md-12">
+        <%= @testimonial.text.html_safe %>
+        	</div>
+          
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="<%= asset_path 'banner.jpg' %>" class="img-thumbnail" width="300px">
+          </div>  
+          <div class="col-md-4">
+            <img src="<%= asset_path 'banner.jpg' %>" class="img-thumbnail" width="300px">
+          </div> 
+          <div class="col-md-4">
+            <img src="<%= asset_path 'banner.jpg' %>" class="img-thumbnail" width="300px">
+          </div> 
+        </div>
+        <hr>
+        <%= link_to 'Back to Testimonials', testimonials_path, class: "button_red_small"  %>
+    </div><!-- end col right-->
+  </section>

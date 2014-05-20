@@ -31,7 +31,7 @@ class EnquiriesController < ApplicationController
         UserMailer.contact_email(@enquiry).deliver
         UserMailer.contact_email_admin(@enquiry).deliver
 
-        format.html { redirect_to '/contact', notice: 'Thanks for getting in touch!' }
+        format.html { redirect_to '/thanks', notice: 'Thanks for getting in touch!' }
         format.json { render :show, status: :created, location: @enquiry }
       else
         format.html { render :new }
