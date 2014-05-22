@@ -3,7 +3,7 @@
 <div class="col-md-12">
     <ul class="breadcrumb">
       <li><a href="<%= root_path %>">Home</a> <span class="divider"></span></li>
-      <li><a href="<%= all_courses_path %>">All Modules</a> <span class="divider"></span></li>
+      <li><a href="<%= all_workshops_path %>">All Workshops</a> <span class="divider"></span></li>
       <li class="active"><%= @unit.name %></li>
     </ul>
 </div>
@@ -38,7 +38,7 @@
         <div class="widget borders widget-table">
           
           <div class="widget-header">
-            <h3>Module detail </h3>
+            <h3>Workshop detail </h3>
           </div> <!-- .widget-header -->
           <div class="widget-content">
             <p><%= @unit.description.html_safe %></p>

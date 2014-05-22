@@ -11,6 +11,8 @@ class Unit < ActiveRecord::Base
   has_many :unit_sessions
   has_many :popular_programme_units
   has_many :popular_programmes, through: :popular_programme_units
+  has_many :cart_units
+  has_many :carts, through: :cart_units
 
   extend FriendlyId
   friendly_id :name, use: :slugged

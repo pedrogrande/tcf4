@@ -22,7 +22,7 @@ gem 'rolify'
 gem 'simple_form', '~> 3.1.0.rc1'
 gem 'country_select'
 gem 'friendly_id'
-gem "font-awesome-rails"
+gem "font-awesome-rails", '~> 4.1.0.0'
 gem 'jquery-turbolinks'
 gem 'stripe'
 group :development do
