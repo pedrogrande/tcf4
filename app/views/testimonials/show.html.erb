@@ -7,19 +7,25 @@
 	</ul>
 </div>
   <!-- =========================Start Col left section ============================= -->   
-<aside class="col-md-4 ">
-<div class="col-left">
-	<% if @testimonials %>
-		<% @testimonials.each do |testimonial| %>
-		  <h4><%= testimonial.name %></h4>
-		  <p>
-		    <%= testimonial.quote %>
-		  </p>
-		  <%= link_to 'Read more', testimonial, class: "button_red_small" %>
-		  <hr>
-		<% end %>  
-	<% end %>    
-</div><!--End col left -->
+  <aside class="col-md-4 ">
+  <div class="col-left">
+  <div class="widget">
+        <h4>Recent testimonials</h4>
+        <hr>
+  <% if @testimonials %>
+    <% @testimonials.each do |testimonial| %>
+      <ul class="recent_testimonials">
+        <li>
+          <%= testimonial.name %>   <i class="fa fa-calendar-o"></i>  <%= testimonial.created_at.strftime('%v') %>
+          <div><h5><a href="#"><%= testimonial.quote %></a></h5></div>
+        </li>
+      </ul> 
+      <%= link_to 'Read more', testimonial, class: "button_red_small" %>
+      <hr>
+    <% end %>  
+  <% end %>  
+  </div><!-- End widget -->  
+  </div><!--End col left -->
     
   <p><img src="<%= asset_path 'banner.jpg' %>" alt="Banner" class="img-rounded img-responsive"></p>
   </aside>
@@ -36,7 +42,7 @@
                     <ul>
                       <li><i class="fa fa-calendar-o"></i> On <%= @testimonial.created_at.strftime('%v') %></li>
                         <li><i class="fa fa-user"></i> <%= @testimonial.name %></li>
-                        <li><i class="fa fa-tags"></i> <%= @testimonial.courses %></li>
+                        <li><i class="fa fa-book"></i> <%= @testimonial.courses %></li>
                     </ul>
                </div>
                <div class="post-right"><i class="fa fa-comments"></i> <a href="#">1000 </a>Comments</div>  

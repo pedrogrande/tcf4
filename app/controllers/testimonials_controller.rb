@@ -10,6 +10,7 @@ class TestimonialsController < ApplicationController
   # GET /testimonials/1
   # GET /testimonials/1.json
   def show
+    @testimonials = Testimonial.all
   end
 
   # GET /testimonials/new
