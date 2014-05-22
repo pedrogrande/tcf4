@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140520053359) do
 
   # These are extensions that must be enabled in order to support this database
@@ -249,6 +250,8 @@ ActiveRecord::Schema.define(version: 20140520053359) do
     t.integer  "unit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "points"
+    t.integer  "price"
   end
 
   add_index "programme_units", ["programme_id", "unit_id"], name: "index_programme_units_on_programme_id_and_unit_id", unique: true, using: :btree

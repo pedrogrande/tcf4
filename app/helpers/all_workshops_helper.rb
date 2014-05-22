@@ -1,0 +1,2 @@
+module AllWorkshopsHelper
+end

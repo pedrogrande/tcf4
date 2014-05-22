@@ -8,16 +8,63 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-4">
 				
 				<div class="col-left">
 					<h2>Grade your skills</h2>
 					<p>These are instructions on how to grade your skills.</p>
 					<p>Perhaps there are some examples to help people decide their skill level.</p>
-					<hr>
+
+					<div class="row">
+						<div class="col-sm-4">
+							<p><span class="btn btn-default btn-xs">-</span></p>
+						</div>
+						<div class="col-sm-8">
+							<p> No skills in this area</p>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-4">
+							<p><span class="btn btn-default btn-xs">Noob</span></p>
+						</div>
+						<div class="col-sm-8">
+							<p> You have played around</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<p><span class="btn btn-default btn-xs">Experienced</span></p>
+						</div>
+						<div class="col-sm-8">
+							<p> You have some decent skills</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<p><span class="btn btn-default btn-xs">Advanced</span></p>
+						</div>
+						<div class="col-sm-8">
+							<p> You have serious experience</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<p><span class="btn btn-default btn-xs">Expert</span></p>
+						</div>
+						<div class="col-sm-8">
+							<p> You could teach this class.</p>
+						</div>
+					</div>
+					
+
+				</div>
+			</div>
+			<div class="col-md-8">
 						<% if @user_skills %>
 							<% @skill_groups.each do |skill_group| %>
 								<% if skill_group.skills.count > 0 %>
+								<div class="col-right">
 									<div class="skill-group">
 										<h3><%= skill_group.name %></h3>
 
@@ -29,7 +76,7 @@
 												</div>
 											<% end %>
 										<% end %>
-									</div>
+									</div></div>
 								<% end %>
 							<% end %>
 						<% end %>
@@ -37,6 +84,7 @@
 						<% if @guest_user_skills %>
 							<% @skill_groups.each do |skill_group| %>
 								<% if skill_group.skills.count > 0 %>
+								<div class="col-right">
 									<div class="skill-group">
 										<h3><%= skill_group.name %></h3>
 
@@ -48,7 +96,7 @@
 												</div>
 											<% end %>
 										<% end %>
-									</div>
+									</div></div>
 								<% end %>
 							<% end %>
 						<% end %>
@@ -63,7 +111,7 @@
 							<%= link_to 'Save and return to profile', profile_path(current_user.profile), class: 'btn btn-success btn-lg' %> 
 						<% end %>
 
-					</div></div>
+					</div>
 				</div>
 			</div>
 		</div>
