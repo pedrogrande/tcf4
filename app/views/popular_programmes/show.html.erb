@@ -63,15 +63,16 @@
         <% end %>  
                      
                      </div>
-                   </div><!-- end strip-->
-                    
+                <!-- end strip-->
+                    <h3>Units of study</h3>
                <hr>
-                   <h3>Units of study</h3>
+                   
         <% @units.each do |unit| %>
         <div class="strip-lessons">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="box-style-one borders"><img src="<%= asset_path 'lessons.png' %>" alt=""><h5><%= unit.skill_group.name %></h5></div>
+                    <div class="box-style-one <%= box_color(unit.skill_group) %>"><i class="fa fa-<%= unit.skill_group.icon %> fa-5x"></i> 
+                       <h5><%= unit.skill_group.name %></h5></div>
                 </div>
                 <div class="col-md-9">
 

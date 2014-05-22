@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'enrol' => 'enrol#index'
+
+  get 'all-workshops' => "all_workshops#index"
+
   get 'dashboard' => 'dashboard#index'
 
   resources :enquiries
@@ -27,7 +31,7 @@ Rails.application.routes.draw do
 
   get 'people' => 'people#index'
 
-  get 'all-courses' => 'all_courses#index'
+  # get 'all-courses' => 'all_courses#index'
 
   resources :points_transactions
 
@@ -97,7 +101,7 @@ Rails.application.routes.draw do
   resources :skill_groups
   resources :guest_users, only: :update
   resources :guest_user_goals, only: :destroy
-  get 'my-programme' => "my_programme#index"
+  resources :my_programmes, only: [:index, :new]
 
   get 'my-goals' => "my_goals#index"
 

@@ -32,6 +32,15 @@ module ApplicationHelper
 			
 	end
 
+	def box_color(skill_group)
+		if skill_group.name == 'Web Design'
+			'orange'
+		elsif skill_group.name == 'Programming Skills'
+			'green'
+		end
+			
+	end
+
 	def skill_label(skill_level)
 		if skill_level == 1
 			'warning'
