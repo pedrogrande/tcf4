@@ -13,7 +13,7 @@
       </div><!-- End Search -->
       <hr>
       <ul class="submenu-col">
-          <li><a href="<%= all_workshops_path %>" id="<%= 'active' if params[:skill_group].nil? and params[:goal].nil? %>">All Workshops</a></li>
+          <li><a href="<%= all_workshops_path %>" id="<%= 'active' if params[:skill_group].nil? and params[:goal].nil? %>">All Workshops<span class="label label-info pull-right"><%= Unit.all.count %></span></a></li>
       </ul>
       <hr>
       <h3>Workshops by goals</h3>
@@ -43,5 +43,5 @@
       <p><a href="<%= all_workshops_path %>" class=" button_red_small">View Courses</a></p>
             
     </div>
-    <p><a href="<%= @banner.link %>" title="<%= @banner.name %>"><img src="<%= @banner.image %>" alt="<%= @banner.name %>" class="img-responsive" ></a></p>
+    <p><a href="<%= @banner.link %>" title="<%= @banner.name %>"><img src="<%= asset_path @banner.image %>" alt="<%= @banner.name %>" class="img-responsive" ></a></p>
 </aside>

@@ -1,40 +1,77 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
-			<div class="box-style-1 borders">
-				<h2>My programme</h2>
-				<p class="lead">Here are the workshops you have selected.</p>
+		<div class="col-md-9">
+			<div class="box-style-1">
+				<h2>Your programme</h2>
+				<p class="lead">Here <%= 'is'.pluralize(@programme.units.count) %> the <span class="label label-default"><%= @programme.units.count %></span> <%= 'workshop'.pluralize(@programme.units.count) %> you have selected.</p>
 
-				<table class="table table-responsive">
-					<tr>
-						<th>Module</th>
-						<th>Skills</th>
-						<th>Skill level</th>
-						<th>Credit points</th>
-						<th></th>
-					</tr>
-					<% @programme.units.each do |unit| %>
-						<tr>
-							<td><%= unit.name %></td>
-							<td><% unit.skills.each do |skill| %><%= skill.name %><br><% end %></td>
-							<td><span class="label label-<%= skill_label(unit.unit_skills.first.after_skill_level) %> center-block"><%= skill_level_name(unit.unit_skills.first.after_skill_level) %></span></td>
-							<td class="text-center"><%= unit.workshop_credits %></td>
-							<td></td>
-						</tr>
-					<% end %>
-					<tr>
+				<div class="row">
+					<div class="col-sm-5">
+						<p><strong>Module</strong></p>
+					</div>
+					<div class="col-sm-1">
+						<p class="text-center"><strong>Remove</strong></p>
+					</div>
+					<div class="col-sm-2">
+						<p><strong>Skills</strong></p>
+					</div>
+					<div class="col-sm-2">
+						<p class="text-center"><strong>Skill level</strong></p>
+					</div>
+					<div class="col-sm-2">
+						<p class="text-center"><strong>Credit points</strong></p>
+					</div>
+				</div>
 
-						<th colspan="3">Workshop credit points total</th>
-						<th class="text-center"><%= programme_credits(@programme) %></th>
-						<th></th>
-					</tr>
-				</table>
-				<hr>
-					<p>
-						<%= link_to "Find more workshops", all_workshops_path, class: 'btn btn-primary' %> 
-						<%= link_to "Enrol in programme", new_purchase_path, class: 'btn btn-success' %>
-					</p>
-					<br>
+				<% @programme.units.each do |unit| %>
+					<div class="row table-row">
+						<div class="col-sm-4">
+							<p><span class="mini-box <%= box_color(unit.skill_group) %>"><i class="fa fa-<%= unit.skill_group.icon %> fa-border"></i></span> <%= unit.name %></p>
+						</div>
+						<div class="col-sm-1">
+							<p class="text-center"><%= link_to remove_unit_programme_path(@programme, unit: unit.id), method: :delete do %><i class="fa fa-trash-o fa-lg"></i> <% end %></p>
+						</div>
+						<div class="col-sm-2">
+							<p class="text-center"><%= unit.workshop_credits %></p>
+						</div>
+						<div class="col-sm-3">
+							<p><% unit.skills.each do |skill| %><%= skill.name %><br><% end %></p>
+						</div>
+						<div class="col-sm-2">
+							<p class="text-center"><% if unit.unit_skills.count > 0 %><span class="label label-<%= skill_label(unit.unit_skills.first.after_skill_level) %> center-block"><%= skill_level_name(unit.unit_skills.first.after_skill_level) %></span><% end %></p>
+						</div>
+					</div>
+				<% end %>
+
+				<div class="row table-row">
+					<div class="col-sm-9">
+						<p class="text-danger">TOTAL CREDIT POINTS REQUIRED FOR PROGRAMME</p>
+					</div>
+					<div class="col-sm-2">
+						<p class="text-center text-danger"><%= programme_credits(@programme) %></p>
+					</div>
+					<div class="col-sm-1">
+						<p class="text-center text-danger">$<%= programme_credits(@programme) * PRICE_PER_POINT %></p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-5">
+						<p><strong>Module</strong></p>
+					</div>
+					<div class="col-sm-2">
+						<p><strong>Skills</strong></p>
+					</div>
+					<div class="col-sm-2">
+						<p class="text-center"><strong>Skill level</strong></p>
+					</div>
+					<div class="col-sm-2">
+						<p class="text-center"><strong>Credit points</strong></p>
+					</div>
+					<div class="col-sm-1">
+						<p class="text-center"><strong>Remove</strong></p>
+					</div>
+				</div>
 
 			</div>
 		</div>

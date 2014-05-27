@@ -1,4 +1,5 @@
 class AllCoursesController < ApplicationController
+  layout 'public'
   def index
   	@goals = Goal.all
   	if params[:skill_group]

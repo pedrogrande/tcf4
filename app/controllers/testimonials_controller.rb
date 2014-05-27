@@ -1,5 +1,6 @@
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
+  layout 'public', only: :show
 
   # GET /testimonials
   # GET /testimonials.json

@@ -1,4 +1,5 @@
 class MySkillsController < ApplicationController
+  layout 'public'
   def index
     @skill_groups = SkillGroup.all
     if current_user

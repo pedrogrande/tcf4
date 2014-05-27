@@ -8,17 +8,20 @@
             
             <div id="menu-top">
             	<ul>
-                	<li><a href="/" title="Home">Home</a> | </li>
-                    <li><a href="<%= contact_path %>" title="Contact">Contact</a> | </li>
+                	<li><a href="/" title="Home"><i class="fa fa-home fa-border"></i> Home</a>  </li>
+                    <li><a href="<%= contact_path %>" title="Contact"><i class="fa fa-phone fa-border"></i> Contact</a>  </li>
                     <% if user_signed_in? %>
-                        <li><%= link_to destroy_user_session_path, method: :delete do %>Sign out<% end %> | </li>
+                        <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-sign-out fa-border"></i> Sign out<% end %>  </li>
                         <% if current_user.profile %>
-                            <li><%= link_to profile_path(current_user.profile) do %>My profile<% end %> | </li>
+                            <li><%= link_to profile_path(current_user.profile) do %><i class="fa fa-user fa-border"></i> My profile<% end %>  </li>
                         <% else %>
-                            <li><%= link_to new_profile_path do %>Create your profile<% end %> | </li>
+                            <li><%= link_to new_profile_path do %>Create your profile<% end %> </li>
                         <% end %>
                     <% else %>
-                        <li><a href="<%= new_user_session_path %>" title="Sign in">Sign in</a></li>
+                        <li><a href="<%= new_user_session_path %>" title="Sign in"><i class="fa fa-sign-in fa-border"></i> Sign in</a></li>
+                    <% end %>
+                    <% if @cached_guest_user and @cached_guest_user.programme %>
+                        <li><%= link_to new_my_programme_path do %><i class="fa fa-list fa-border"></i> My programme<% end %></li>
                     <% end %>
                 </ul>
             </div>

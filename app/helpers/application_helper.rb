@@ -1,6 +1,12 @@
 module ApplicationHelper
-	def profile_percentage(user)
-		
+
+	def programme_credits(programme)
+		programme.units.map(&:workshop_credits).sum
+	end
+
+	def find_pack(programme)
+		@credit_point_pack = CreditPointPack.where('number_of_points >= ?', programme_credits(programme)).order(number_of_points: :asc).first
+		@credit_point_pack
 	end
 
 	def formatted_price(amount)
@@ -37,6 +43,8 @@ module ApplicationHelper
 			'orange'
 		elsif skill_group.name == 'Programming Skills'
 			'green'
+		elsif skill_group.name == 'Web App Development'
+			'blue'
 		end
 			
 	end
@@ -52,4 +60,5 @@ module ApplicationHelper
 			'success'
 		end
 	end
+
 end

@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  layout 'public', only: :new
 
   # GET /payments
   # GET /payments.json
