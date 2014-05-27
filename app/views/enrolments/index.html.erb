@@ -19,7 +19,7 @@
         <td><%= enrolment.created_at.strftime('%e %b %y @ %H:%M') %></td>
         <td><%= enrolment.popular_programme.name %></td>
         <td><%= enrolment.weekend_programme.location.city + ': ' + enrolment.weekend_programme.date.strftime('%e %b %y') %></td>
-        <td>$<%= enrolment.payment.payment_price / 100 %></td>
+        <td><% if enrolment.payment %>$<%= enrolment.payment.payment_price / 100 %><% end %></td>
         <td><%= link_to edit_enrolment_path(enrolment) do %><i class="fa fa-pencil"></i> <% end %></td>
         <td><%= link_to enrolment, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash-o"></i> <% end %></td>
       </tr>
