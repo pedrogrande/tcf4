@@ -12,7 +12,7 @@ class PopularProgrammesController < ApplicationController
   # GET /popular_programmes/1.json
   def show
     @units = @popular_programme.units
-    @popular_programmes = PopularProgramme.all
+    @popular_programmes = PopularProgramme.order_by_price
   end
 
   # GET /popular_programmes/new
@@ -75,7 +75,7 @@ class PopularProgrammesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def popular_programme_params
-      params.require(:popular_programme).permit(:name, :image, :tagline, :description, :total_points, :credit_point_pack_id, :unit_ids => [])
+      params.require(:popular_programme).permit(:icon, :price, :name, :image, :tagline, :description, :total_points, :credit_point_pack_id, :unit_ids => [])
       
     end
 

@@ -4,14 +4,14 @@
   <hr>
 
       <h3>Scheduled programmes</h3>
-<% @programmes.each do |programme| %>
+			<% @programmes.each do |programme| %>
         <div class="strip-courses">
           <div class="title-course">
-            <h3><span class="all-caps"><%= programme.popular_programme.name %></span> </h3>
+            <h3><span class="all-caps"><%= link_to programme.popular_programme.name, programme.popular_programme %></span> </h3>
             <ul >
             	<li><span class="label label-primary"><%= programme.location.city %></span></li>
               <li><i class="fa fa-male"></i><i class="fa fa-female"></i> Places left: <span class="badge"><%= programme.number_of_places %></span></li>
-              <li><i class="fa fa-bookmark"></i> $<%= programme.popular_programme.price %></li>
+              <li class="text-primary"><i class="fa fa-star"></i> $<%= programme.popular_programme.price %></li>
             </ul>
           </div>
           <div class="description">
@@ -31,7 +31,7 @@
               </div>
               <div class="col-xs-4">
                 <h4>Enrol</h4>
-                <a href="<%= new_my_programme_path(popular_programme: programme.id, location: programme.location) %>" class="btn btn-success"><i class="fa fa-book"></i> Book this programme</a>
+                <a href="<%= new_enrolment_path(intake: programme.id) %>" class="btn btn-success"><i class="fa fa-book"></i> Book this programme</a>
 
               </div>
             </div>

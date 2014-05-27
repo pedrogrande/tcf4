@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-
+  resources :enrolments do
+    member do
+      get :thanks
+    end
+  end
 
   get 'thanks' => 'thanks#index'
 

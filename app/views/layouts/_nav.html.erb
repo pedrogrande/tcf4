@@ -5,29 +5,11 @@
 	<!-- Begin Mega Menu Container -->
 	<ul class="megamenu">
 		<!-- Begin Mega Menu -->
-		<li><a href="<%= root_path %>" class="nodrop-down">Home</a></li>
-
-		<li><a href="/popular_programmes/beginner-coder-weekend-programme" title="Foundation Programme" class="nodrop-down"><i class="fa fa-anchor"></i>&nbsp;Foundation programme</a></li>
-
-        <li><a href="/popular_programmes/web-application-developer-programme" title="Web App Developer Programme" class="nodrop-down"><i class="fa fa-graduation-cap"></i>&nbsp;Web app developer programme</a></li>
-
-        
-        
-        
 		
-        <li><a href="<%= blog_path %>" class="nodrop-down">Blog</a></li>
-        <li><a href="#" class="drop-down">About <span class="caret"></span></a>
-            <div class="drop-down-container" id="icon-menu">
-                <div class="row">
-                    <div class="col-md-3"><a href="<%= about_path %>" title="About us"><i class="fa fa-info-circle fa-3x"></i>About us </a></div>
-                    <div class="col-md-3"><a href="<%= people_path %>" title="People"><i class="fa fa-group fa-3x"></i>Teachers & Mentors </a></div>
-                    <div class="col-md-3"><a href="<%= community_path %>" title="Community"><i class="fa fa-smile-o fa-3x"></i>Community </a></div>
-                    <div class="col-md-3"><a href="<%= testimonials_path %>" title="Testimonials"><i class="fa fa-smile-o fa-3x"></i>Testimonials </a></div>
-                </div>
-            </div>
-
-        </li>
-        <li><a href="<%= contact_path %>" class="nodrop-down">Contact</a></li>
+		<% @popular_programmes.each do |popular_programme| %>
+			<li><a href="<%= popular_programme_path(popular_programme) %>" title="<%= popular_programme.name %>" class="nodrop-down"><i class="fa fa-<%= popular_programme.icon %>"></i>&nbsp;<%= popular_programme.name %></a></li>
+		<% end %>
+		
 
 	</ul><!-- End Mega Menu -->
 </div>
