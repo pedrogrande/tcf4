@@ -46,6 +46,7 @@ class PaymentsController < ApplicationController
           customer:   stripe_customer.id
         )
         @payment = Payment.credit_card_payment(amount)
+        enrolment.weekend_programme.adjust_student_numbers
         enrolment.update_attributes(stripe_id: stripe_customer.id, payment_id: @payment.id)
         # PointsTransaction.enrolment_points(enrolment)
         
