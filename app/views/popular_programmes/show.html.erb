@@ -61,7 +61,7 @@
               </div>
               <div class="col-xs-4">
                 <h4>Enrol</h4>
-                <a href="<%= new_my_programme_path(popular_programme: @popular_programme.id, location: weekend_programme.location) %>" class="btn btn-success"><i class="fa fa-book"></i> Book this programme</a>
+                <a href="<%= new_enrolment_path(intake: weekend_programme.id) %>" class="btn btn-success"><i class="fa fa-book"></i> Book this programme</a>
 
               </div>
             </div>
