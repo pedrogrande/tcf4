@@ -97,13 +97,13 @@
 	background: #f39c12;
 }
 .orange  {
-	background: #f39c12;
+	color: #f39c12;
 }
 .green  {
-	background: #2ecc71;
+	color: #2ecc71;
 }
 .blue {
-	background: #00AEEF;
+	color: #00AEEF;
 }
 .btn {
 	border-radius: 0;
@@ -176,7 +176,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
-  background-color: #ffffff;
+  background-color: transparent;
   border-bottom: 4px solid #e2e2e2;
 
    box-shadow:0 0 0px #e3e3e3 inset;
@@ -207,4 +207,23 @@ select {
 }
 .title-course a:hover{
 	color: #fff;
+}
+.circle {
+	background: url(<%= asset_path 'orange-square.png');
+}
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.panel-heading {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.panel-footer {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }

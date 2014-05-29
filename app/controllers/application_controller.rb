@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
   def get_popular_programmes
     @popular_programmes = PopularProgramme.order_by_price
   end
-  # def get_skill_groups
-  #   @menu_skill_groups = SkillGroup.all
-  # end
+  
 
   # def get_goals
   #   @menu_goals = Goal.all

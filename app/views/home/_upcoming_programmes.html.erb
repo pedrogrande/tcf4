@@ -10,7 +10,7 @@
             <h3><span class="all-caps"><%= link_to programme.popular_programme.name, programme.popular_programme %></span> </h3>
             <ul >
             	<li><span class="label label-primary"><%= programme.location.city %></span></li>
-              <li><i class="fa fa-male"></i><i class="fa fa-female"></i> Places left: <span class="badge"><%= programme.number_of_places %></span></li>
+              <li><i class="fa fa-male"></i><i class="fa fa-female"></i> Places left: <span class="label label-danger"><%= programme.number_of_places %></span></li>
               <li class="text-primary"><i class="fa fa-star"></i> $<%= programme.popular_programme.price %></li>
             </ul>
           </div>

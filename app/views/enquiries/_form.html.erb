@@ -3,27 +3,27 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.input :name, input_html: { class: 'form-control'}, placeholder: "Name", :autofocus => true  %>
+        <%= f.input :name, label: false, input_html: { class: 'form-control' }, placeholder: "First Name", :autofocus => true  %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.input :last_name, input_html: { class: 'form-control'}, placeholder: "Last Name"  %>
+        <%= f.input :last_name, label: false, input_html: { class: 'form-control'}, placeholder: "Last Name"  %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.input :email, input_html: { class: 'form-control'}, placeholder: "Email"  %>
+        <%= f.input :email, label: false, input_html: { class: 'form-control'}, placeholder: "Email"  %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.input :phone, input_html: { class: 'form-control'}, placeholder: "Phone"  %>
+        <%= f.input :phone, label: false, input_html: { class: 'form-control'}, placeholder: "Phone"  %>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="form-group">
-        <%= f.input :content, input_html: { class: 'form-control'}, placeholder: "How can we help?"  %>
+        <%= f.input :content, label: false, input_html: { class: 'form-control', rows: 7}, placeholder: "How can we help?"  %>
       </div>
     </div>    
     <div class="col-md-12">
