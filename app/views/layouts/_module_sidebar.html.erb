@@ -1,29 +1,10 @@
 <!-- =========================Start Col left section ============================= -->
 <aside  class="col-md-4 ">
 	<div class="col-left">
-    <div class="widget">
-      <h3>Search workshops</h3>
-        <form class="form-inline" role="form">
-          <div class="form-group">
-            <label class="sr-only" for="exampleInputEmail2">Search box</label>
-            <input type="text" class="form-control" placeholder="search here..">
-          </div>
-          <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-      </div><!-- End Search -->
-      <hr>
+    
       <ul class="submenu-col">
           <li><a href="<%= all_workshops_path %>" id="<%= 'active' if params[:skill_group].nil? and params[:goal].nil? %>">All Workshops<span class="label label-info pull-right"><%= Unit.all.count %></span></a></li>
       </ul>
-      <hr>
-      <h3>Workshops by goals</h3>
-      <ul class="submenu-col">
-        <% @menu_goals.each do |goal| %>
-            <% if goal.units.count > 0 %>
-              <li><a href="<%= all_workshops_path(goal: goal) %>" id="<%= 'active' if params[:goal] == goal.slug %>"><%= goal.name %> <span class="label label-info pull-right"><%= goal.units.count %></span></a></li>
-            <% end %>
-          <% end %>
-        </ul>
       <hr>
 
       <h3>Workshops by skills</h3>

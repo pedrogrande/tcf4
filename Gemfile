@@ -25,6 +25,7 @@ gem 'friendly_id'
 gem "font-awesome-rails", '~> 4.1.0.0'
 gem 'jquery-turbolinks'
 gem 'stripe'
+gem 'will_paginate', '~> 3.0'
 group :development do
   gem "better_errors"
   gem 'quiet_assets'

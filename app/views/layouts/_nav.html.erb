@@ -7,7 +7,14 @@
 		<!-- Begin Mega Menu -->
 		
 		<% @popular_programmes.each do |popular_programme| %>
-			<li><a href="<%= popular_programme_path(popular_programme) %>" title="<%= popular_programme.name %>" class="nodrop-down"><i class="fa fa-<%= popular_programme.icon %>"></i>&nbsp;<%= popular_programme.name %></a></li>
+			<li>
+				<a href="<%= popular_programme_path(popular_programme) %>" title="<%= popular_programme.name %>" class="nodrop-down">
+					
+					<i class="fa fa-<%= popular_programme.icon %>"></i>
+					&nbsp;
+					<%= popular_programme.name %>
+				</a>
+			</li>
 		<% end %>
 		
 

@@ -17,7 +17,14 @@
       
     </div>
 
-    <h2><i class="fa fa-<%= @popular_programme.icon %>"></i> <%= @popular_programme.name %></h2>
+    <h2>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-<%= @popular_programme.icon %> fa-stack-1x fa-inverse"></i>
+      </span>
+      
+      <%= @popular_programme.name %>
+    </h2>
     <p class="lead"></p>
     <p><%= @popular_programme.description.html_safe %> </p>
     <div class="row">
@@ -49,7 +56,6 @@
               <div class="col-xs-4">
                 <h4> Where</h4>
                 <%= weekend_programme.location.name %> [<%= link_to 'map', weekend_programme.location.map_link %>]<br>
-                <% if !weekend_programme.location.building.blank? %><%= weekend_programme.location.building %><br><% end %>
                 <%= weekend_programme.location.street %><br>
                 <%= weekend_programme.location.suburb %> <%= weekend_programme.location.state %>  <%= weekend_programme.location.postcode %><br>
               </div>
@@ -70,37 +76,35 @@
       <% end %>
     <% end %>  
 
-      <h3 id="included">Included workshops</h3>
+      <h3>Included workshops</h3>
       <hr>
-                   
-      <% @units.each do |unit| %>
-        <div class="strip-lessons">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="box-style-one <%= box_color(unit.skill_group) %>"><i class="fa fa-<%= unit.skill_group.icon %> fa-5x"></i> 
-                       <h5><%= unit.skill_group.name %></h5></div>
-                </div>
-                <div class="col-md-9">
+      <div class="row">            
+      <% @units.each_with_index do |unit, index| %>
 
-                        <h4><a href="<%= unit_path(unit) %>"><%= unit.name %></a> </h4>
-                        <p class="labels">
-                          <% if unit.unit_skills.count > 0 %>
-                            <span class="label label-<%= skill_label(unit.unit_skills.first.after_skill_level) %>"><%= skill_level_name(unit.unit_skills.first.after_skill_level) %></span>&nbsp;
-                          <% end %>
-                          
-                          <span class="label label-info"><%= pluralize(unit.duration_minutes / 60.0, 'hour') %> </span>
-                        </p>
-                        <p class="lead"><%= unit.tagline %></p>
-                    
-                        
-
-                        
-                </div>
-            </div>
-        </div><!-- End Strip course -->
+        <% if index%2 == 0 %>
+          </div>
+          <div class="row">
         <% end %>
-        <%= link_to programmes_path, class: 'btn btn-lg btn-primary' do %><i class="fa fa-plus-circle"></i> Save to wish list <% end %>
-          <%= link_to programmes_path, class: 'btn btn-lg btn-success' do %><i class="fa fa-arrow-circle-o-right"></i> Start this programme<% end %>
+      <div class="col-sm-6">
+        <div class="panel panel-<%= panel_color(unit.skill_group) %>">
+          <div class="panel-heading">
+              <h2 class="panel-title"><%= unit.name %></h2>
+          </div>
+          <div class="panel-body">
+              <p class="labels">
+              <span class="label label-<%= panel_color(unit.skill_group) %>"><%= unit.skill_group.name %></span>
+              <% if unit.unit_skills.count > 0 %>
+                <span class="label label-<%= skill_label(unit.unit_skills.first.after_skill_level) %>"><%= skill_level_name(unit.unit_skills.first.after_skill_level) %></span>
+              <% end %>
+              <span class="label label-default"><%= pluralize(unit.duration_minutes / 60.0, 'hour') %></span>
+            </p>
+            <p class="lead"><%= unit.tagline %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <%= link_to programmes_path, class: 'btn btn-lg btn-success' do %><i class="fa fa-arrow-circle-o-right"></i> Start this programme<% end %>
     </div><!-- end col right-->
   
 </section>

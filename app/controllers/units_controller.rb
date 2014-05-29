@@ -5,12 +5,14 @@ class UnitsController < ApplicationController
   # GET /units.json
   def index
     @units = Unit.all
+    @menu_skill_groups = SkillGroup.all
   end
 
   # GET /units/1
   # GET /units/1.json
   def show
     @goals = Goal.all
+    @menu_skill_groups = SkillGroup.all
   end
 
   # GET /units/new

@@ -1,0 +1,10 @@
+     <hr>
+      <h3>Workshops by goals</h3>
+      <ul class="submenu-col">
+        <% @menu_goals.each do |goal| %>
+            <% if goal.units.count > 0 %>
+              <li><a href="<%= all_workshops_path(goal: goal) %>" id="<%= 'active' if params[:goal] == goal.slug %>"><%= goal.name %> <span class="label label-info pull-right"><%= goal.units.count %></span></a></li>
+            <% end %>
+          <% end %>
+        </ul>
+      <hr>
