@@ -1,0 +1,42 @@
+<div class="col-right">
+  <h2>Upcoming Coder Factory Programmes</h2>
+  <p class="lead">Check out our upcoming programmes in your area. </p>
+  <hr>
+
+      <h3>Scheduled programmes</h3>
+			<% @programmes.each do |programme| %>
+        <div class="strip-courses">
+          <div class="title-course">
+            <h3><span class="all-caps"><%= link_to programme.popular_programme.name, programme.popular_programme %></span> </h3>
+            <ul >
+            	<li><span class="label label-primary"><%= programme.location.city %></span></li>
+              <li><i class="fa fa-male"></i><i class="fa fa-female"></i> Places left: <span class="badge"><%= programme.number_of_places %></span></li>
+              <li class="text-primary"><i class="fa fa-star"></i> $<%= programme.popular_programme.price %></li>
+            </ul>
+          </div>
+          <div class="description">
+            <div class="row">
+              <div class="col-xs-4">
+                <h4> Where</h4>
+                <%= programme.location.name %> [<%= link_to 'map', programme.location.map_link %>]<br>
+                <% if !programme.location.building.blank? %><%= programme.location.building %><br><% end %>
+                <%= programme.location.street %><br>
+                <%= programme.location.suburb %> <%= programme.location.state %>  <%= programme.location.postcode %><br>
+              </div>
+              <div class="col-xs-4">
+                <h4> When</h4>
+                <%= programme.day %><br>
+                <%= programme.date.strftime('%e %B') %> - <%= programme.end_date.strftime('%e %B %Y') %><br>
+                <%= programme.start_time.strftime('%l:%M%P') %> - <%= programme.end_time.strftime('%l:%M%P') %><br>
+              </div>
+              <div class="col-xs-4">
+                <h4>Enrol</h4>
+                <a href="<%= new_enrolment_path(intake: programme.id) %>" class="btn btn-success"><i class="fa fa-book"></i> Book this programme</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+	</div>

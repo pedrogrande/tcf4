@@ -1,0 +1,64 @@
+<h1 class="col-md-12"><i class="fa fa-edit"></i> Registration <small>Step 1 of 2</small></h1>
+<hr><br>
+<div class="col-md-5">
+	<div class="col-left">
+		<h2>Your selected programme</h2>
+		<hr class="double">
+		<div class="row">
+	    <div class="col-sm-4 text-right">
+	      <p class="lead">Programme</p>
+	    </div>
+	    <div class="col-sm-8">
+	    	<p class="lead"><strong><%= @weekend_programme.popular_programme.name %></strong></p>
+	    </div>
+  	</div>
+  	<hr class="double">
+
+		<div class="row">
+	    <div class="col-sm-4 text-right">
+	      <p class="lead">Days</p>
+	    </div>
+	    <div class="col-sm-8">
+	    	<p class="lead"><strong><%= @weekend_programme.day %></strong></p>
+	    </div>
+  	</div>
+  	<hr class="double">
+		<div class="row">
+	    <div class="col-sm-4 text-right">
+	      <p class="lead">Start date</p>
+	    </div>
+	    <div class="col-sm-8">
+	    	<p class="lead"><strong><%= @weekend_programme.date.strftime('%e %b %Y') %></strong></p>
+	    </div>
+  	</div>
+  	<hr class="double">
+		<div class="row">
+	    <div class="col-sm-4 text-right">
+	      <p class="lead">Location</p>
+	    </div>
+	    <div class="col-sm-8">
+	    	<p class="lead"><strong><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></strong></p>
+	    </div>
+  	</div>
+  	<hr class="double">
+		<div class="row">
+	    <div class="col-sm-4 text-right">
+	      <p class="lead">Price</p>
+	    </div>
+	    <div class="col-sm-8">
+	    	<p class="lead"><strong>$<%= @weekend_programme.popular_programme.price %></strong></p>
+	    </div>
+  	</div>
+  	<hr class="double">
+
+
+	</div>
+</div>
+<div class="col-md-7">
+	<div class="col-right">
+		<h2>1. Complete your details <small>All fields are required</small></h2>
+		<hr class="double">
+		<%= render 'form' %>
+	</div>
+</div>
+	

@@ -1,5 +1,6 @@
 class ProgrammesController < ApplicationController
   before_action :set_programme, only: [:show, :edit, :update, :destroy, :save, :remove_unit, :add_unit, :enrol]
+  layout 'public', except: :index
 
   def save
     @user = guest_user

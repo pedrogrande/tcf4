@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  layout 'public'
   def index
   	@user = current_user
   	@profile = @user.profile

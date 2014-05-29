@@ -1,4 +1,5 @@
 class MyProgrammesController < ApplicationController
+  layout 'public'
   def index
   	@programme = Programme.find(params[:programme])
   	@units = Unit.all
@@ -8,17 +9,39 @@ class MyProgrammesController < ApplicationController
 
   def new
     @guest_user = guest_user
-    @unit = Unit.find(params[:unit])
+    if params[:popular_programme]
+      @popular_programme = PopularProgramme.find(params[:popular_programme])
+    end
+    if params[:location]
+      @location = Location.find(params[:location])
+    end
     if !@guest_user.programme
       @programme = Programme.new
     	@programme.guest_user = @guest_user
-    	@programme.units << @unit
+      if params[:unit]
+        @unit = Unit.find(params[:unit])
+      	@programme.units << @unit
+      elsif @popular_programme
+        @popular_programme.units.each do |unit|
+          @programme.units << unit
+        end
+      end
       @programme.save
     else
       @programme = @guest_user.programme
-      if !@programme.units.include?(@unit)
-        @programme.units << @unit
+      if params[:unit]
+        @unit = Unit.find(params[:unit])
+        if !@programme.units.include?(@unit)
+          @programme.units << @unit
+        end
+      elsif @popular_programme
+        @popular_programme.units.each do |unit|
+          if !@programme.units.include?(unit)
+            @programme.units << unit
+          end
+        end
       end
+      @programme.save
     end
     @units = Unit.all
     @recommended_units = @units

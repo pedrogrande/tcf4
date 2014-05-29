@@ -1,81 +1,137 @@
-<!-- <h1 class="col-md-12">Purchase Coder Factory Credit Points</h1>
-<div class="col-md-12">
-  <ul class="breadcrumb">
-    <li><a href="#">Home</a> <span class="divider"></span></li>
-    <li class="active">Purchase Coder Factory Credit Points</li>
-  </ul>
-</div> -->
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="col-left">
-
-        <% if @purchase.credit_point_pack %>
-          <h4>You are purchasing the <%= @purchase.credit_point_pack.name %></h4>
-          <p class="lead">Your current credit points: <%= @user.points_table.current %></p>
-          <p class="lead">Purchase credit points: <%= @purchase.credit_points %></p>
-          <p class="lead">Balance after purchase: <%= @purchase.credit_points + @user.points_table.current %>
-          <p class="lead">Purchase price: AUD <%= @purchase.price / 100 %></p>
-        <% else %>
-          <h4>You are purchasing <%= @purchase.credit_points %> credit points</h4>
-          <p>Reminder: A Credit Point Package = Save $$ + More Points to spend on modules!</p>
-          <table class="table">
-            <% @credit_point_packs.each do |pack| %>
-              <tr>
-                <th><%= pack.name %></th>
-                <td class="right-align">AUD <%= pack.price/100 %></td>
-                <td><%= link_to upgrade_to_pack_purchase_path(@purchase, credit_point_pack: pack), method: :patch do %><%= pack.number_of_points %> credit points<% end %></td>
-                <td><%= number_to_currency(pack.price/pack.number_of_points/100.0) %> per point</td>
-              </tr>
-            <% end %>
-          </table>
-        <% end %>
-
-        
-        <h3>Pay to start scheduling your courses.</h3>
-        
-        <h2>Payment</h2>
-        <% if @error %>
-          <%= @error %>
-        <% end %>
-          
-        <% if @purchase.price > 50000 %>
-          <h3>Pay upfront & save</h3>
-          <p>Your price: <%= formatted_price(@purchase.price) %></p>
-        <% else %>
-          <h3>Your price: <%= formatted_price(@purchase.price) %></h3>
-        <% end %>
-
-        <%= form_tag payments_path(guid: @purchase.guid, amount: @purchase.price) do %>
-          <script src="https://checkout.stripe.com/v2/checkout.js"
-            class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-name="Coder Factory"
-            data-description="<%= @user.profile.name %>'s payment"
-            data-image="<%= asset_path 'stripe-logo.png' %>"
-            data-amount="<%= @purchase.price %>"
-            data-email="<%= @user.email %>"
-            data-label="Pay full amount"></script>
-        <% end %>
-        <% if @purchase.price > 50000 %>
-          
-          <h3>Reserve your place with a $500 deposit</h3>
-          <p>We'll email you with your future payment options.</p>
-
-          <%= form_tag payments_path(guid: @purchase.guid, amount: 50000) do %>
-            <script src="https://checkout.stripe.com/v2/checkout.js"
-              class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-name="Coder Factory"
-              data-description="<%= @user.profile.name %>'s deposit"
-              data-image="<%= asset_path 'stripe-logo.png' %>"
-              data-amount="50000"
-              data-email="<%= @user.email %>"
-              data-label="Pay deposit of $500"></script>
-          <% end %>
-        <% end %>
+<h1 class="col-md-12"><i class="fa fa-edit"></i> Registration <small>Step 2 of 2</small></h1>
+<hr><br>
+<div class="col-md-5">
+  <div class="col-left">
+    <h2>Your selected programme</h2>
+    <hr class="double">
+    <div class="row">
+      <div class="col-sm-4 text-right">
+        <p class="lead">Programme</p>
+      </div>
+      <div class="col-sm-8">
+        <p class="lead"><strong><%= @weekend_programme.popular_programme.name %></strong></p>
       </div>
     </div>
+    <hr class="double">
+
+    <div class="row">
+      <div class="col-sm-4 text-right">
+        <p class="lead">Days</p>
+      </div>
+      <div class="col-sm-8">
+        <p class="lead"><strong><%= @weekend_programme.day %></strong></p>
+      </div>
+    </div>
+    <hr class="double">
+    <div class="row">
+      <div class="col-sm-4 text-right">
+        <p class="lead">Start date</p>
+      </div>
+      <div class="col-sm-8">
+        <p class="lead"><strong><%= @weekend_programme.date.strftime('%e %b %Y') %></strong></p>
+      </div>
+    </div>
+    <hr class="double">
+    <div class="row">
+      <div class="col-sm-4 text-right">
+        <p class="lead">Location</p>
+      </div>
+      <div class="col-sm-8">
+        <p class="lead"><strong><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></strong></p>
+      </div>
+    </div>
+    <hr class="double">
+    <div class="row">
+      <div class="col-sm-4 text-right">
+        <p class="lead">Price</p>
+      </div>
+      <div class="col-sm-8">
+        <p class="lead"><strong>$<%= @weekend_programme.popular_programme.price %></strong></p>
+      </div>
+    </div>
+    <hr class="double">
+
+
   </div>
 </div>
+<div class="col-md-7">
+  <div class="col-right">
+    <h2 class="text-muted">1. Complete your details <span class="text-success"><i class="fa fa-check-square-o"></i></span></h2>
+    <hr class="double">
+    <h2>2. Make a payment. <small></small></h2>
+    <hr class="double">
+    <p class="lead">Visa, MasterCard, and American Express are accepted and payments are processed through <a href="https://stripe.com/" target="_blank">Stripe</a>.</p> 
+    <p class="lead">Please choose one of the following options. </p>
+    <hr class="double">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3 class="text-center">Pay upfront and save</h3>
+        <form accept-charset="UTF-8" action="/payments?amount=<%= @popular_programme.price * 100 %>&amp;guid=<%= @enrolment.guid %>" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" /></div>
+            <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
+     
+            <input 
+                type="submit" 
+                class="btn btn-success btn-xl btn-block"
+                value="Pay $<%= @popular_programme.price %>"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-amount="<%= @popular_programme.price * 100 %>"
+                data-currency="aud"
+                data-name="Coder Factory"
+                data-email="<%= @enrolment.email %>"
+                data-image="<%= asset_path 'logo23.png' %>"
+                data-description="<%= @popular_programme.name %>"
+            />
+     
+            
+          </form>
+          <hr>
+          <p class="lead text-center">No more to pay!</p>
+        </div>
+        <div class="col-sm-6">
+        <h3 class="text-center">Pay a deposit*</h3>
+          <form accept-charset="UTF-8" action="/payments?amount=10000&amp;guid=<%= @enrolment.guid %>" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" /></div>
+              
+          
+              <input 
+                  type="submit" 
+                  class="btn btn-success btn-xl btn-block"
+                  value="Pay $100"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-amount="10000"
+                  data-currency="aud"
+                  data-name="Coder Factory"
+                  data-email="<%= @enrolment.email %>"
+                  data-image="<%= asset_path 'logo23.png' %>"
+                  data-description="Deposit on <%= @popular_programme.name %>"
+              />
+          
+              
+            </form>
+            <hr>
+            <p class="lead text-center">* A choice of payment plans will be provided and incur a 5% processing fee.</p>
+        </div>
+
+
+
+  </div>
+</div>
+<script src="https://checkout.stripe.com/v2/checkout.js"></script>
+              
+              <script>
+              $(document).ready(function() {
+                  $(':submit').on('click', function(event) {
+                      event.preventDefault();
+          
+                      var $button = $(this),
+                          $form = $button.parents('form');
+          
+                      var opts = $.extend({}, $button.data(), {
+                          token: function(result) {
+                              $form.append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: result.id })).submit();
+                          }
+                      });
+          
+                      StripeCheckout.open(opts);
+                  });
+              });
+              </script>

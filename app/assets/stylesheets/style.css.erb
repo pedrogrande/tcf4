@@ -16,23 +16,16 @@ CSS STRUCTURE:
 /* 1.  SITE STRUCTURE and TYPOGRAPHY */
 /*============================================================================================*/
 @import url(http://fonts.googleapis.com/css?family=Comfortaa:400,700);
-body {
-	background:#f8f8f8 url(<%= asset_path 'mac.jpg' %>) fixed;
-	background-position: cover cover;
-	/*background-color: #FEE;*/
-	font:13px/20px "Roboto", Helvetica, Arial, sans-serif;
-	color: #444;
-	-webkit-font-smoothing: antialiased !important;	
-}
+
 /** Typography **/
 h1,
-h3,
+h2,
 h3,
 h4,
 h5,
 h6 {
   margin: 0 0 10px 0;
-  font-family: Comfortaa;
+  font-family: inherit;
   font-weight: bold;
   line-height: 20px;
   color: inherit;
@@ -132,7 +125,7 @@ input[type="color"],
   -moz-transition: border linear .2s, box-shadow linear .2s;
   -o-transition: border linear .2s, box-shadow linear .2s;
   transition: border linear .2s, box-shadow linear .2s;
-  /*margin-bottom:20px;*/
+  margin-bottom:20px;
 }
 
 .ie7 input.ie7-margin {
@@ -152,7 +145,7 @@ input#email_newsletter, .form-search input {
 label {
   display: block;
   margin-bottom: 5px;
-  font-size:12px;
+  font-size:18px;
   font-weight:600;
 }
 .breadcrumb {
@@ -166,13 +159,13 @@ label {
 	height: 32px; 
 	width: 157px; 
 	display: block;
-	background: url(<%= asset_path 'twitter_btn.png' %>) no-repeat;
+	/*background: url(<%= asset_path 'twitter_btn.png' %>) no-repeat;*/
 	margin-top:15px;
 }
 
 .fb {
 	width: 157px; 
-	background: url(<%= asset_path 'fb_btn.png' %>) no-repeat; 	
+	/*background: url(<%= asset_path 'fb_btn.png' %>) no-repeat; 	*/
 }
 .twitter:active, .fb:active {top: 1px;}
 .twitter:hover, .fb:hover {
@@ -282,7 +275,7 @@ a.button_red_medium:hover, .button_red_medium:hover, .megamenu > li .drop-down-c
 ================================================ */
 header{
 	background-color:#fff;
-	padding:10px 0 0 0;
+	padding:20px 0 20px 0;
 }
 header a {
 	color: #fff;
@@ -296,10 +289,15 @@ header a {
 }
 #menu-top ul li{
 	display:inline-block;
+	padding-right: 20px;
 	zoom: 1; *display: inline;
 }
 #menu-top ul li a {
 	color:#00AEEF;
+}
+#menu-top ul li a:hover {
+	color:#F39C12;
+	text-decoration: none;
 }
 
 .ie7 #menu-top ul li a {
@@ -321,7 +319,8 @@ nav{
 	/*background:#0099cc -ms-linear-gradient(top,rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%);*/
 	/* IE10+*/
 	/*background:#0099cc linear-gradient(top,rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%);*/
-	margin-bottom:20px;
+	margin-bottom:23px;
+	padding: 2px 0 3px;
 	color:#fff;
 }
 #phone {
@@ -342,7 +341,7 @@ nav{
 /* #Site Footer
 ================================================ */
 footer {
-	background-color:#95a5a6;
+	background-color:transparent;
 	color:#fff;
 	border-top: 1px solid #e0eaf0;
 	width:100%;
@@ -434,16 +433,6 @@ footer a {
 .col-full h2{
 	margin-top: 0;
 }
-.col-center {
-	padding:30px 30px 15px 30px;
-	background-color:#fff;
-	border: 1px solid #e2e2e2;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;
-	margin-bottom:30px;
-	position:relative;
-}
 .col-right{
 	padding:30px 30px 15px 30px;
 	background-color:#fff;
@@ -480,9 +469,9 @@ ul.submenu-col li a {
 }
 ul.submenu-col li a#active {
 	background:#099ad1 url(<%= asset_path 'arrow.png' %>) no-repeat  96% center;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
 	color:#fff;
 }
 ul.submenu-col li a:hover {
@@ -1050,7 +1039,7 @@ span.required{ font-size: 13px; color: #ff6666; } /* Select the colour of the * 
 	overflow:hidden;
 	position:relative;
 }
-.main-img p.lead {
+.main-img p {
 	background-color:#000;
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
 	filter: alpha(opacity=70);

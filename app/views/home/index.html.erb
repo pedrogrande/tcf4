@@ -60,45 +60,8 @@
             </div>
             <%= render 'layouts/banner' %>
     </div>
-<section class="col-md-8">
-    <div class="col-right">
-        <h2>Upcoming classes</h2>
-        <p class="lead">Check out our upcoming workshops. You can come along to just a single session or add as many as you like to your current programme. </p>
-        <hr>
-        <% @unit_sessions.each do |unit_session| %>
-        <div class="strip-lessons">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="box-style-one <%= box_color(unit_session.unit.skill_group) %>"><i class="fa fa-<%= unit_session.unit.skill_group.icon %> fa-5x"></i> <h5><%= unit_session.unit.skill_group.name %> </h5></div>
-                </div>
-                <div class="col-md-9">
-
-                        <h4><a href="<%= unit_path(unit_session.unit) %>"><%= unit_session.unit.name %></a> <small><%= unit_session.location.city %></small></h4>
-                        <h4><span class="label label-<%= skill_label(unit_session.unit.unit_skills.first.after_skill_level) %>"><%= skill_level_name(unit_session.unit.unit_skills.first.after_skill_level) %></span> <span class="label label-default"><%= unit_session.unit.workshop_credits %> credit points</span></h4>
-                        <p><%= unit_session.unit.tagline %></p>
-                    
-                        <p>
-                            <% if !user_signed_in? %>
-                                <a href="<%= new_my_programme_path(unit: unit_session.unit.id) %>" class="btn btn-success"><i class="fa fa-shopping-cart"></i> Add to personal programme</a> 
-                            <% else %>
-                                <a href="#" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add to my programme</a>
-                            <% end %>
-                        </p>
-                        <ul class="data-lessons">
-                            <li><i class="fa fa-calendar"></i> <%= unit_session.start_time.strftime('%l:%M%P') %> <%= unit_session.day %>, <%= unit_session.date.strftime('%d %B %Y') %></li>
-                            <li><i class="fa fa-clock-o"></i> Duration: <%= (unit_session.end_time - unit_session.start_time)/3600 %> hours</li>
-                            
-                            <li><i class="fa fa-map-marker"></i> <a href="<%= unit_session.location.map_link %>" target="_blank"><%= unit_session.location.name %></a></li>
-                        </ul>
-                </div>
-            </div>
-        </div><!-- End Strip course -->
-        <% end %>
-        
-        
-        <p class="text-center"><a href="<%= all_workshops_path %>" class="button_large">View all workshops </a></p>
-        
-    </div>
+    <section class="col-md-8">
+        <%= render 'upcoming_programmes' %>
     </section>
   </div>
    </div><!-- end container-->

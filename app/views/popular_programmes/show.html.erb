@@ -1,8 +1,8 @@
-<h1 class="col-md-12"><%= @popular_programme.name %></h1>
+<h1 class="col-md-12"><i class="fa fa-<%= @popular_programme.icon %>"></i> <%= @popular_programme.name %></h1>
   <div class="col-md-12">
         <ul class="breadcrumb">
           <li><a href="<%= root_path %>">Home</a> <span class="divider"></span></li>
-          <li><a href="<%= popular_programmes_path %>">Popular Programmes</a> <span class="divider"></span></li>
+          <li><a href="<%= popular_programmes_path %>">Coder Factory Programmes</a> <span class="divider"></span></li>
           <li class="active"><%= @popular_programme.name %></li>
         </ul>
     </div>
@@ -10,64 +10,70 @@
 <%= render 'layouts/programme_sidebar' %>
  
 <section class="col-md-8">
-    <div class="col-right">
+  <div class="col-right">
     <div class="main-img">
-            <img src="<%= asset_path @popular_programme.image %>" alt="<%= asset_path @popular_programme.image %>" class="img-responsive">
-            <p class="lead"><%= @popular_programme.tagline %></p>
-        </div>  
-        <h2>Programme details</h2>
-        <p><%= @popular_programme.description.html_safe %> </p>
-        
-        <% if @popular_programme.weekend_programmes.count > 0 %>
-        <hr>
-        <h3>Scheduled programmes</h3>
-        
-                <% @popular_programme.weekend_programmes.each do |weekend_programme| %>
-                  <div class="strip-courses">
-                   <div class="title-course">
-                   <h3><span class="all-caps"><%= weekend_programme.location.city %></span></h3>
-                      <ul >
+      <img src="<%= asset_path @popular_programme.image %>" alt="<%= asset_path @popular_programme.image %>" class="img-responsive">
+      <p class="lead"><%= @popular_programme.tagline %></p>
+      
+    </div>
 
-                          <li><i class="fa fa-male"></i><i class="fa fa-female"></i> Places left: <span class="badge"><%= weekend_programme.number_of_places %></span></li>
-                           <li><i class="fa fa-bookmark"></i> ID: 012</li>
-                      </ul>
-                    </div>
-                    <div class="description">
-                     <div class="row">
-                         <div class="col-xs-4">
-                         <h4> Where</h4>
-                          <%= weekend_programme.location.name %> [<%= link_to 'map', weekend_programme.location.map_link %>]<br>
-                          <% if !weekend_programme.location.building.blank? %><%= weekend_programme.location.building %><br><% end %>
-                          <%= weekend_programme.location.street %><br>
-                          <%= weekend_programme.location.suburb %> <%= weekend_programme.location.state %>  <%= weekend_programme.location.postcode %><br>
-                           
-                         </div>
-                         <div class="col-xs-4">
-                         <h4> When</h4>
-                            <%= weekend_programme.day %><br>
-                            <%= weekend_programme.date.strftime('%e') %> - <%= weekend_programme.end_date.strftime('%e %B %Y') %><br>
-                            <%= weekend_programme.start_time.strftime('%l:%M%P') %> - <%= weekend_programme.end_time.strftime('%l:%M%P') %><br>
-                          </div>
-                          <div class="col-xs-4">
-                          <h6>Exact number of credit points</h6>
-                            <a href="course-detail.html" class="btn btn-primary btn-sm"><i class="fa fa-arrow-circle-o-right"></i> <%= @popular_programme.total_points %> Credit points for $<%= @popular_programme.total_points * PRICE_PER_POINT / 100 %> </a>
-                            <h6>Credit Point Pack: <%= @popular_programme.credit_point_pack.name %></h6>
-                            <a href="course-detail.html" class="btn btn-success"><i class="fa fa-arrow-circle-o-right"></i> <%= @popular_programme.credit_point_pack.number_of_points %> points for $<%= @popular_programme.credit_point_pack.price / 100 %> </a>
-                         </div>
-                      </div>
-                      </div>
-                      
-                         
-                        <% end %>
+    <h2><i class="fa fa-<%= @popular_programme.icon %>"></i> <%= @popular_programme.name %></h2>
+    <p class="lead"></p>
+    <p><%= @popular_programme.description.html_safe %> </p>
+    <div class="row">
+    <div class="col-sm-6">
+      <p class="lead">Included workshops: <span class="label label-default"><%= @popular_programme.units.count %></span> 
+      <br><small><a href="#included">See workshops below</a></small></p>
+    </div>
+    <div class="col-sm-6">
+    
+      <p>Price of programme: $<%= @popular_programme.price %></p>
+    </div>
+  </div>
+
+    <% if @popular_programme.weekend_programmes.count > 0 %>
+      
+      <hr>
+      <h3>Scheduled programmes</h3>
+      <% @popular_programme.weekend_programmes.each do |weekend_programme| %>
+        <div class="strip-courses">
+          <div class="title-course">
+            <h3><span class="all-caps"><%= weekend_programme.location.city %></span></h3>
+            <ul >
+              <li><i class="fa fa-male"></i><i class="fa fa-female"></i> Places left: <span class="badge"><%= weekend_programme.number_of_places %></span></li>
               
-        <% end %>  
-                     
-                     </div>
-                <!-- end strip-->
-                    <h3>Units of study</h3>
-               <hr>
+            </ul>
+          </div>
+          <div class="description">
+            <div class="row">
+              <div class="col-xs-4">
+                <h4> Where</h4>
+                <%= weekend_programme.location.name %> [<%= link_to 'map', weekend_programme.location.map_link %>]<br>
+                <% if !weekend_programme.location.building.blank? %><%= weekend_programme.location.building %><br><% end %>
+                <%= weekend_programme.location.street %><br>
+                <%= weekend_programme.location.suburb %> <%= weekend_programme.location.state %>  <%= weekend_programme.location.postcode %><br>
+              </div>
+              <div class="col-xs-4">
+                <h4> When</h4>
+                <%= weekend_programme.day %><br>
+                <%= weekend_programme.date.strftime('%e %B') %> - <%= weekend_programme.end_date.strftime('%e %B %Y') %><br>
+                <%= weekend_programme.start_time.strftime('%l:%M%P') %> - <%= weekend_programme.end_time.strftime('%l:%M%P') %><br>
+              </div>
+              <div class="col-xs-4">
+                <h4>Enrol</h4>
+                <a href="<%= new_enrolment_path(intake: weekend_programme.id) %>" class="btn btn-success"><i class="fa fa-book"></i> Book this programme</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>  
+
+      <h3 id="included">Included workshops</h3>
+      <hr>
                    
-        <% @units.each do |unit| %>
+      <% @units.each do |unit| %>
         <div class="strip-lessons">
             <div class="row">
                 <div class="col-md-3">
@@ -77,8 +83,14 @@
                 <div class="col-md-9">
 
                         <h4><a href="<%= unit_path(unit) %>"><%= unit.name %></a> </h4>
-                        <h4><span class="label label-default"><%= unit.workshop_credits %> credit points</span></h4>
-                        <p><%= unit.tagline %></p>
+                        <p class="labels">
+                          <% if unit.unit_skills.count > 0 %>
+                            <span class="label label-<%= skill_label(unit.unit_skills.first.after_skill_level) %>"><%= skill_level_name(unit.unit_skills.first.after_skill_level) %></span>&nbsp;
+                          <% end %>
+                          
+                          <span class="label label-info"><%= pluralize(unit.duration_minutes / 60.0, 'hour') %> </span>
+                        </p>
+                        <p class="lead"><%= unit.tagline %></p>
                     
                         
 
@@ -87,8 +99,8 @@
             </div>
         </div><!-- End Strip course -->
         <% end %>
-        <%= link_to programmes_path, class: 'btn btn-lg btn-primary' do %><i class="fa fa-plus-circle"></i> Add to Wish List <% end %>
-          <%= link_to programmes_path, class: 'btn btn-lg btn-success' do %><i class="fa fa-arrow-circle-o-right"></i> Enrol<% end %>
+        <%= link_to programmes_path, class: 'btn btn-lg btn-primary' do %><i class="fa fa-plus-circle"></i> Save to wish list <% end %>
+          <%= link_to programmes_path, class: 'btn btn-lg btn-success' do %><i class="fa fa-arrow-circle-o-right"></i> Start this programme<% end %>
     </div><!-- end col right-->
   
 </section>
