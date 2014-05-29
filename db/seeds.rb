@@ -10,13 +10,13 @@ Role.create!([
   {name: "student", resource_id: nil, resource_type: nil}
 ])
 puts 'SETTING UP DEFAULT USER LOGIN'
-admin = User.create! :email => 'admin@example.com', :password => 'password', :password_confirmation => 'password'
+admin = User.create! :email => 'admin1@example.com', :password => 'password', :password_confirmation => 'password'
 puts 'New user created: ' << admin.email
-prospect = User.create! :email => 'prospect@example.com', :password => 'password', :password_confirmation => 'password'
+prospect = User.create! :email => 'prospect1@example.com', :password => 'password', :password_confirmation => 'password'
 puts 'New user created: ' << prospect.email
-applicant = User.create! :email => 'applicant@example.com', :password => 'password', :password_confirmation => 'password'
+applicant = User.create! :email => 'applicant1@example.com', :password => 'password', :password_confirmation => 'password'
 puts 'New user created: ' << applicant.email
-student = User.create! :email => 'student@example.com', :password => 'password', :password_confirmation => 'password'
+student = User.create! :email => 'student1@example.com', :password => 'password', :password_confirmation => 'password'
 puts 'New user created: ' << student.email
 admin.add_role :admin
 prospect.add_role :prospect
