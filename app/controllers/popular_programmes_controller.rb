@@ -13,6 +13,7 @@ class PopularProgrammesController < ApplicationController
   def show
     @units = @popular_programme.units
     @popular_programmes = PopularProgramme.order_by_price
+    @weekend_programmes = @popular_programme.weekend_programmes.future_by_date_ascending
   end
 
   # GET /popular_programmes/new

@@ -75,6 +75,6 @@ class EnrolmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enrolment_params
-      params.require(:enrolment).permit(:first_name, :last_name, :phone, :email, :address, :suburb, :state, :postcode, :country, :popular_programme_id, :weekend_programme_id, :paid)
+      params.require(:enrolment).permit(:about, :first_name, :last_name, :phone, :email, :address, :suburb, :state, :postcode, :country, :popular_programme_id, :weekend_programme_id, :paid)
     end
 end
