@@ -7,10 +7,9 @@
       <th>Location</th>
       <th>Day</th>
       <th>Date</th>
-      <th>Start time</th>
-      <th>End time</th>
+      <th>Time</th>
       <th>Number of places</th>
-      <th>Number of students registered</th>
+      <th>Students registered</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,13 +17,12 @@
   <tbody>
     <% @weekend_programmes.each do |weekend_programme| %>
       <tr>
-        <td><%= weekend_programme.popular_programme %></td>
-        <td><%= weekend_programme.location %></td>
+        <td><%= weekend_programme.popular_programme.name %></td>
+        <td><%= weekend_programme.location.name %></td>
         <td><%= weekend_programme.day %></td>
-        <td><%= weekend_programme.date %></td>
-        <td><%= weekend_programme.start_time %></td>
-        <td><%= weekend_programme.end_time %></td>
-        <td><%= weekend_programme.number_of_places %></td>
+        <td><%= weekend_programme.date.strftime('%d %b %y') %></td>
+        <td><%= weekend_programme.start_time.strftime('%H:%M') %> - <%= weekend_programme.end_time.strftime('%H:%M') %></td>
+        <td class="text-center"><%= weekend_programme.number_of_places %></td>
         <td><%= weekend_programme.number_of_students_registered %></td>
         <td><%= link_to 'Show', weekend_programme %></td>
         <td><%= link_to 'Edit', edit_weekend_programme_path(weekend_programme) %></td>

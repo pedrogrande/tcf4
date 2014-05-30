@@ -3,15 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :get_skill_groups, :get_goals, :get_banner
+  before_action :get_popular_programmes, :get_banner
 
-  def get_skill_groups
-    @menu_skill_groups = SkillGroup.all
+  def get_popular_programmes
+    @popular_programmes = PopularProgramme.order_by_price
   end
+  
 
-  def get_goals
-    @menu_goals = Goal.all
-  end
+  # def get_goals
+  #   @menu_goals = Goal.all
+  # end
 
   def get_banner
     @banner = Banner.first

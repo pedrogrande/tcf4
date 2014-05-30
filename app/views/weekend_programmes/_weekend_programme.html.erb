@@ -1,0 +1,38 @@
+<div class="strip-courses">
+          <div class="title-course">
+            <h3><i class="fa fa-<%= weekend_programme.popular_programme.icon %> fa-border"></i> <span class="all-caps"><%= link_to weekend_programme.popular_programme.name, weekend_programme.popular_programme %></span> </h3>
+            <ul >
+            	<li><span class="label label-primary"><%= weekend_programme.location.city %></span></li>
+              
+            </ul>
+          </div>
+          <div class="description">
+            <div class="row">
+              <div class="col-xs-4">
+                <h4> Where</h4>
+                <ul class="list_2">
+                <li><strong><%= link_to weekend_programme.location.name, weekend_programme.location %></strong></li>
+                
+                <li><%= weekend_programme.location.street %></li>
+                <li><%= weekend_programme.location.suburb %> <%= weekend_programme.location.state %>  <%= weekend_programme.location.postcode %></li>
+                </ul>
+
+              </div>
+              <div class="col-xs-4">
+                <h4> When</h4>
+                <ul class="list_2">
+                <li><strong><%= weekend_programme.day %></strong></li>
+                <li><%= weekend_programme.date.strftime('%e %B') %> - <%= weekend_programme.end_date.strftime('%e %B %Y') %></li>
+                <li><%= weekend_programme.start_time.strftime('%l:%M%P') %> - <%= weekend_programme.end_time.strftime('%l:%M%P') %></li>
+                </ul>
+              </div>
+              <div class="col-xs-4">
+                <h4>Enrol <small> <%= pluralize(weekend_programme.number_of_places, "place") %> left</span></small></h4>
+               
+
+                <a href="<%= new_enrolment_path(intake: weekend_programme.id) %>" class="btn btn-success btn-block"><i class="fa fa-book"></i> Book this programme</a>
+
+              </div>
+            </div>
+          </div>
+        </div>

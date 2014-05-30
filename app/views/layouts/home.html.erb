@@ -15,6 +15,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
   <![endif]-->
   <%= render 'layouts/icons' %>
+  
 </head>
 <body>
 	<%= render 'layouts/header' %>
@@ -23,5 +24,18 @@
 		<%= yield %>
   <%= render 'layouts/footer' %>
   <%= render 'layouts/javascripts' %>
+  <script>
+    $(document).ready(function() {
+      $.vegas('overlay');
+      $.vegas({
+        src:'<%= asset_path 'mac.jpg' %>',
+        fade: 1000,
+        loading: true
+      });
+      $.vegas('overlay', {
+        src: null
+      });
+    });
+  </script>
 </body>
 </html>

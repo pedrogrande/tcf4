@@ -1,6 +1,8 @@
 class AllWorkshopsController < ApplicationController
+  layout 'public'
   def index
 		@goals = Goal.all
+		@menu_skill_groups = SkillGroup.all
 		if params[:skill_group]
 			@skill_group = SkillGroup.friendly.find(params[:skill_group])
 			@units = @skill_group.units

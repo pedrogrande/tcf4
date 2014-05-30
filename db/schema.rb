@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521051439) do
+ActiveRecord::Schema.define(version: 20140530032139) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +53,32 @@ ActiveRecord::Schema.define(version: 20140521051439) do
     t.datetime "updated_at"
     t.text     "content"
   end
+
+  create_table "enrolments", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "address"
+    t.string   "suburb"
+    t.string   "state"
+    t.string   "postcode"
+    t.string   "country"
+    t.integer  "popular_programme_id"
+    t.integer  "weekend_programme_id"
+    t.boolean  "paid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "price"
+    t.string   "guid"
+    t.string   "stripe_id"
+    t.integer  "payment_id"
+    t.text     "about"
+  end
+
+  add_index "enrolments", ["payment_id"], name: "index_enrolments_on_payment_id", using: :btree
+  add_index "enrolments", ["popular_programme_id"], name: "index_enrolments_on_popular_programme_id", using: :btree
+  add_index "enrolments", ["weekend_programme_id"], name: "index_enrolments_on_weekend_programme_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -210,6 +237,8 @@ ActiveRecord::Schema.define(version: 20140521051439) do
     t.datetime "updated_at"
     t.string   "slug"
     t.string   "image"
+    t.integer  "price"
+    t.string   "icon"
   end
 
   add_index "popular_programmes", ["credit_point_pack_id"], name: "index_popular_programmes_on_credit_point_pack_id", using: :btree

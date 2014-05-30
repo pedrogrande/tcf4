@@ -3,6 +3,7 @@ class PopularProgramme < ActiveRecord::Base
   has_many :popular_programme_units
   has_many :units, through: :popular_programme_units
   has_many :weekend_programmes
+  has_many :enrolments
   
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -12,5 +13,9 @@ class PopularProgramme < ActiveRecord::Base
   def update_points
   	self.total_points = self.units.sum(:workshop_credits)
   	self.credit_point_pack = CreditPointPack.best_option(self.total_points)
+  end
+
+  def self.order_by_price
+    order(price: :asc)
   end
 end

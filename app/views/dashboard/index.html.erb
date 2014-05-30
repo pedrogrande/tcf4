@@ -42,6 +42,36 @@
 </aside>
 <div class="col-md-9">
   <div class="row">
+
+    <div class="col-md-12">
+      <div class="col-right">
+        <div class="widget">
+          <h3>My programmes</h3>
+          <% if @profile.user.programmes.count > 0 %>
+            <table class="table table-resonsive">
+              <tr>
+              <th>Programme</th>
+              <th></th>
+              </tr>
+              <% @profile.user.programmes.each do |programme| %>
+                <tr>
+                  <td><%= @profile.name + "'s programme" %></td>
+                  <td><%= link_to 'Edit', edit_programme_path(programme) %></td>
+                </tr>
+              <% end %>
+            </table>
+          <% else %>
+            <p>No programmes</p>
+          <% end %>
+          <hr>
+          <h4>Add a programme</h4>
+          <p>
+            <%= link_to "Choose a popular programme", new_programme_path, class: 'btn btn-primary' %> 
+            <%= link_to "Try the Personalised Programme Wizard", my_goals_path(programme: 'new'), class: 'btn btn-success' %>
+          </p>
+        </div>
+      </div>
+    </div>
     <div class="col-md-12">
       <div class="col-right">
         <div class="widget">
@@ -106,36 +136,6 @@
         </div>
       </div>
     </div>
-      <div class="col-md-12">
-        <div class="col-right">
-          <div class="widget">
-            <h3>My programmes</h3>
-            <hr>
-            <% if @profile.user.programmes.count > 0 %>
-              <table class="table table-resonsive">
-                <tr>
-                <th>Programme</th>
-                <th></th>
-                </tr>
-                <% @profile.user.programmes.each do |programme| %>
-                  <tr>
-                    <td><%= @profile.name + "'s programme" %></td>
-                    <td><%= link_to 'Edit', edit_programme_path(programme) %></td>
-                  </tr>
-                <% end %>
-              </table>
-            <% else %>
-              <p>No programmes</p>
-            <% end %>
-            <hr>
-            <h4>Add a programme</h4>
-            <p>
-              <%= link_to "Choose a popular programme", new_programme_path, class: 'btn btn-primary' %> 
-              <%= link_to "Try the Personalised Programme Wizard", my_goals_path(programme: 'new'), class: 'btn btn-success' %>
-            </p>
-          </div>
-        </div>
-      </div>
       <div class="col-md-12">
         <div class="col-right">
           <div class="widget">

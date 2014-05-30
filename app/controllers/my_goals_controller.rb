@@ -1,4 +1,5 @@
 class MyGoalsController < ApplicationController
+  layout 'public'
   def index
   	@goals = Goal.all
   	if current_user

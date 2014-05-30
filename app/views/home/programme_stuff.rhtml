@@ -1,0 +1,44 @@
+<p>This programme (<%= programme_credits(@programme) %> credit points) would normally be $<%= programme_credits(@programme) * PRICE_PER_POINT / 100 %> but you can get a <%= next_suitable_point_pack(@programme) %> which gives you an extra <%= extra_points_from_pack(@programme) %> credit points to use on more workshops.
+
+
+<p class="lead">Save $$$ and earn free workshops by buying a credit point pack.</p>
+				<p class="lead">Buy a <%= find_pack(@programme).name %> for <%= formatted_price(find_pack(@programme).price) %>. </p>
+
+				<table class="table table-responsive">
+					<tr>
+						<th>Module</th>
+						<th>Skills</th>
+						<th>Skill level</th>
+						<th class="text-center">Credit points</th>
+						<th></th>
+					</tr>
+					<% @programme.units.each do |unit| %>
+						<tr>
+							<td><span class="mini-box <%= box_color(unit.skill_group) %>"><i class="fa fa-<%= unit.skill_group.icon %> fa-border"></i></span> <%= unit.name %></td>
+							<td><% unit.skills.each do |skill| %><%= skill.name %><br><% end %></td>
+							<td><% if unit.unit_skills.count > 0 %><span class="label label-<%= skill_label(unit.unit_skills.first.after_skill_level) %> center-block"><%= skill_level_name(unit.unit_skills.first.after_skill_level) %></span><% end %></td>
+							<td class="text-center"><%= unit.workshop_credits %></td>
+							<td class="text-center"><%= link_to remove_unit_programme_path(@programme, unit: unit.id), method: :delete do %><i class="fa fa-trash-o fa-lg"></i> <% end %></td>
+						</tr>
+					<% end %>
+					<tr>
+						<td colspan="3"><p class="text-danger">TOTAL CREDIT POINTS REQUIRED FOR PROGRAMME</p></td>
+						<td class="text-center"><p class="text-danger"><%= programme_credits(@programme) %></p></td>
+						<td class="text-center"><p class="text-danger">$<%= programme_credits(@programme) * PRICE_PER_POINT %></p></td>
+					</tr>
+					<tr>
+						<td><p class="lead text-primary">Get more points and save cash with a Credit Point Pack.</p></td>
+						<td colspan="2"><%= link_to "Start this programme", new_purchase_path, class: 'btn btn-success btn-lg' %></td>
+						<td class="text-center"><p class="text-primary lead">100</p></td>
+						<td class="text-center"><p class="text-primary lead">$400</p></td>
+					</tr>
+					<tr>
+					<td colspan="3"><%= link_to "Find more workshops", all_workshops_path, class: 'btn btn-primary' %></td>
+					<td colspan="2"></td>
+					</tr>
+					<!-- <tr class="success">
+						<td colspan="3"></td>
+						<td class="text-center">+ 20</td>
+						<td class="text-center">- $80</td>
+					</tr>
+ -->				</table>

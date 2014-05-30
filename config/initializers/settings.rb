@@ -1,3 +1,3 @@
 # constant for price per credit point in cents
-  PRICE_PER_POINT = 600
+  PRICE_PER_POINT = 6
   PROFILE_COMPLETION_POINTS = 10
