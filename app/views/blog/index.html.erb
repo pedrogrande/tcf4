@@ -7,116 +7,111 @@
 </div>
 <!-- =========================Start Col left section ============================= -->
 <aside class="col-md-4">
-	<div class="col-left">
-		<div class="sidebar">
+  <div class="col-left">
+    <div class="sidebar">
         
-			<div class="widget">
-				<form class="form-inline" role="form">
-					<div class="form-group">
-						<label class="sr-only" for="exampleInputEmail2">Search box</label>
-						<input type="text" class="form-control" placeholder="search here..">
-					</div>
-					<button type="submit" class="btn btn-primary">Search</button>
-				</form>
-			</div><!-- End Search -->
+       <div class="widget">
+        <h4>Stay up to date with us!</h4>
+            
+            <div id="message-newsletter"></div>
+              <form action="http://thecoderfactory.us7.list-manage1.com/subscribe/post?u=1c644187b6d7e06d32bcae158&amp;id=2afdc8b0c3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div class="form-group">
+                    <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" required></div><!-- 
+                    real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_1c644187b6d7e06d32bcae158_2afdc8b0c3" value=""></div>
+                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success"></div>
+                </form>
+          </div>
+      </div>
+
+      <hr>
       
-			<div class="widget">
-				<h4>Text widget</h4>
-				<p>
-					Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-				</p>
-			</div><!-- End widget -->
+      <div class="widget">
+        <h4>Featured Article</h4>
+        <p>
+          when live add featured article lead and link
+        </p>
+        <p><a href="#" class="button_medium">Read more</a></p>
+      </div><!-- End widget -->
+
+      <hr>
+
+      <div class="widget">
+        <h4>Recent articles from coder factory</h4>
+        <% if @posts %>
+          <% @posts.limit(3).each do |post| %>
+            <ul class="recent_post">
+              <li>
+                <i class="fa fa-calendar-o"></i>  <%= post.created_at.strftime('%A, %e %B %Y') %>
+                <div><a href="<%= post_path(post) %>"><%= post.title %> </a></div>
+              </li>
+            </ul>
+          <% end %>
+        <% end %>
+      </div><!-- End widget -->
+
+      <hr>
+
+      <div class="widget tags">
+      <h4>Categories</h4>      
+      <ul class="submenu-col">
+        <% if @categories %>
+          <% @categories.each do |cat| %>
             
-			<hr>
+              <li><a href="#"><%= cat.name %></a></li>
             
-			<div class="widget">
-				<h4>Recent post</h4>
-				<ul class="recent_post">
-					<li>
-                    	<i class="fa fa-calendar-o"></i>  16th July, 2020 <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
-                    </li>
-					<li>
-                    	<i class="fa fa-calendar-o"></i>  16th July, 2020 <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
-                    </li>
-					<li>
-                    	<i class="fa fa-calendar-o"></i>  16th July, 2020 <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
-                    </li>
-				</ul>
-			</div><!-- End widget -->
+          <% end %>
+         <% end %> 
+      </ul>
+      </div>
+
+      <hr>
             
-			<hr>
-			<div class="widget tags">
-				<h4>Tags</h4>
-				<a href="#">Lorem ipsum</a>
-				<a href="#">Dolor</a>
-				<a href="#">Long established</a>
-				<a href="#">Sit amet</a>
-				<a href="#">Latin words</a>
-				<a href="#">Excepteur sint</a>
-			</div><!-- End widget -->
+      <div class="widget tags">
+        <h4>Tags</h4>
+        <a href="#">Lorem ipsum</a>
+        <a href="#">Dolor</a>
+        <a href="#">Long established</a>
+        <a href="#">Sit amet</a>
+        <a href="#">Latin words</a>
+        <a href="#">Excepteur sint</a>
+      </div><!-- End widget -->
             
-		</div><!-- end siedebar  -->
-	</div><!-- end  col left -->
+      <hr>
+            
+    </div>
+  <!-- </div> --><!-- end  col left -->
   <%= render 'layouts/banner' %>
   </aside>
  
 <section class="col-md-8">
-	<div class="col-right">
-    	<% @posts.each do |post| %>
-		    	<div class="post">
-		          <h2><a href="<%= post_path(post) %>"><%= post.title %></a></h2>
-		          <a href="#"><img src="<%= asset_path post.image %>" alt="" class="img-responsive" ></a>
-		         	<div class="post_info clearfix">
-		             <div class="post-left">
-		                    <ul>
-		                    	<li><i class="fa fa-calendar-o"></i> On <span>12 Nov 2020</span></li>
-		                        <li><i class="fa fa-user"></i> By <a href="#">John Smith</a></li>
-		                        <li><i class="fa fa-tags"></i> Tags <a href="#">Works</a> <a href="#">Personal</a></li>
-		                    </ul>
-		               </div>
-		               <div class="post-right"><i class="fa fa-comments"></i> <a href="#">25 </a>Comments</div>  
-		               </div>                                
-		          		<p><%= post.lead %></p>
-		           		<p><a href="blog_post.html" class="button_medium">Read more</a></p>
-		       </div> <!-- end post -->
+  <div class="col-right">
+      <% @posts.each do |post| %>
+          <div class="post">
+              <h2><a href="<%= post_path(post) %>"><%= post.title %></a></h2>
+
+              <% if post.image.blank? %>
+                <a href="<%= post_path(post) %>"><img src="<%= asset_path 'about.jpg' %>" alt="" class="img-responsive"></a>
+              <% else %>
+                <a href="<%= post_path(post) %>"><img src="<%= asset_path post.image %>" alt="" class="img-responsive" ></a>
+              <% end %>
+
+              <div class="post_info clearfix">
+                 <div class="post-left">
+                        <ul>
+                          <li><i class="fa fa-calendar-o"></i> On <span><%= post.created_at.strftime('%A, %e %B %Y') %></span></li>
+                            <li><i class="fa fa-user"></i> By <a><% post.user.profile.name if post.user.profile %></a></li>
+                            <li><i class="fa fa-tags"></i> Tags <a href="#">tag</a></li>
+                        </ul>
+                   </div>
+<!--                   <div class="post-right"><i class="fa fa-comments"></i> <a href="#">25 </a>Comments</div>  
+ -->                   </div>                                
+                  <p><%= post.lead %></p>
+                  <p><a href="<%= post_path(post) %>" class="button_medium">Read more</a></p>
+           </div> <!-- end post -->
        <% end %>
-       <div class="post">
-           <h2><a href="blog_post.html">Duis aute irure dolor in reprehenderit</a></h2>
-               <img src="<%= asset_path 'blog-2.jpg' %>" alt="" class="img-responsive" >
-           <div class="post_info clearfix">
-            <div class="post-left">
-                    <ul>
-                    	<li><i class="fa fa-calendar-o"></i> On <span>12 Nov 2020</span></li>
-                        <li><i class="fa fa-user"></i> By <a href="#">John Smith</a></li>
-                        <li><i class="fa fa-tags"></i> Tags <a href="#">Works</a> <a href="#">Personal</a></li>
-                    </ul>
-               </div>
-               <div class="post-right"><i class="fa fa-comments"></i> <a href="#">25 </a>Comments</div>  
-               </div>                                
-          		<p>Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus...</p>
-           		<p><a href="blog_post.html" class="button_medium">Read more</a></p>
-       </div> <!-- end post -->
-       
-       
-       <div class="post">
-           <h2><a href="blog_post.html">Duis aute irure dolor in reprehenderit</a></h2>
-               <img src="<%= asset_path 'blog-3.jpg' %>" alt="" class="img-responsive" >
-           <div class="post_info clearfix">
-            <div class="post-left">
-                    <ul>
-                    	<li><i class="fa fa-calendar-o"></i> On <span>12 Nov 2020</span></li>
-                        <li><i class="fa fa-user"></i> By <a href="#">John Smith</a></li>
-                        <li><i class="fa fa-tags"></i> Tags <a href="#">Works</a> <a href="#">Personal</a></li>
-                    </ul>
-               </div>
-               <div class="post-right"><i class="fa fa-comments"></i> <a href="#">25 </a>Comments</div>  
-               </div>                                
-          		<p>Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus...</p>
-           		<p><a href="blog_post.html" class="button_medium">Read more</a></p>
-       </div> <!-- end post -->
-       
+       <%= will_paginate @posts %>
        <hr>
-           
            <div class="pagination-centered">
                <ul class="pagination">
                     <li><a href="#">Prev</a></li>
