@@ -52,7 +52,8 @@ input[type="color"],
   <%= render 'layouts/nav' %>
   <div class="container">
     <div class="row">
-    <%= link_to "Admin", admin_path, class: 'btn btn-xs btn-default' %>
+    <%= link_to "Admin", admin_path, class: 'btn btn-xs btn-default' %> 
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-xs btn-default' %>
     <hr>
 		  <%= yield %>
     </div>
