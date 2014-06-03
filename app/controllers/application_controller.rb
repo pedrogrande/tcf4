@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
      end
   end
 
+
   private
 
   def create_guest_user

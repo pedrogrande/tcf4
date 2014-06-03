@@ -18,53 +18,50 @@
     </div>
 
     <h2>
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-<%= @popular_programme.icon %> fa-stack-1x fa-inverse"></i>
+      <span class="fa-stack">
+        <i class="fa fa-circle-thin fa-stack-2x"></i>
+        <i class="fa fa-<%= @popular_programme.icon %> fa-stack-1x"></i>
       </span>
       
       <%= @popular_programme.name %>
     </h2>
-    <p class="lead"></p>
-    <p><%= @popular_programme.description.html_safe %> </p>
-    <div class="row">
-    <div class="col-sm-6">
-      <p class="lead">Included workshops: <span class="label label-default"><%= @popular_programme.units.count %></span> 
-      <br><small><a href="#included">See workshops below</a></small></p>
-    </div>
-    <div class="col-sm-6">
     
-      <p>Price of programme: $<%= @popular_programme.price %></p>
-    </div>
+    <p><%= @popular_programme.description.html_safe %> </p>
   </div>
 
+    <!-- Programme numbers -->
+    <%= render 'programme_numbers' %>
+
+    <!-- Scheduled programmes -->
     <% if @popular_programme.weekend_programmes.count > 0 %>
-      
-      <hr>
+    <div class="scheduled">
       <h3>Scheduled programmes</h3>
       <%= render @weekend_programmes %>
+    </div>
     <% end %>  
 
-      <h3>Included workshops</h3>
-      <hr>
-      <div class="row">            
-      <% @units.each_with_index do |unit, index| %>
 
-        <% if index%2 == 0 %>
-          </div>
-          <div class="row">
-        <% end %>
-      <div class="col-sm-6">
+    <!-- Included workshops -->
+    <div class="scheduled">
+      <h3>Included workshops</h3>
+      <div class="included-workshops">
+      
+
+      <div class="row">            
+      <% @units.each do |unit| %>
+
+       
+      <div class="col-sm-12">
         <div class="panel panel-<%= panel_color(unit.skill_group) %>">
           <div class="panel-heading">
-              <h2 class="panel-title"><%= unit.name %></h2>
+              <p class="panel-title"><%= unit.name %></p>
           </div>
           <div class="panel-body">
               <p class="labels">
               <span class="label label-<%= panel_color(unit.skill_group) %>"><%= unit.skill_group.name %></span>
-              <% if unit.unit_skills.count > 0 %>
-                <span class="label label-<%= skill_label(unit.unit_skills.first.after_skill_level) %>"><%= skill_level_name(unit.unit_skills.first.after_skill_level) %></span>
-              <% end %>
+              
+                <span class="label label-<%= skill_label(unit.skill_level) %>"><%= skill_level_name(unit.skill_level) %></span>
+              
               <span class="label label-default"><%= pluralize(unit.duration_minutes / 60.0, 'hour') %></span>
             </p>
             <p class="lead"><%= unit.tagline %></p>
@@ -73,7 +70,16 @@
       </div>
       <% end %>
 
-      <%= link_to programmes_path, class: 'btn btn-lg btn-success' do %><i class="fa fa-arrow-circle-o-right"></i> Start this programme<% end %>
-    </div><!-- end col right-->
+      
+    </div>
+
+    <%= link_to programmes_path, class: 'btn btn-lg btn-success btn-lg' do %><i class="fa fa-arrow-circle-o-right"></i> Start this programme<% end %>
+    
   
 </section>
+
+
+
+
+
+

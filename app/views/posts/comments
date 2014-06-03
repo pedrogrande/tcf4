@@ -1,0 +1,48 @@
+    <!-- 
+  <h4>4 comments</h4>
+  <div id="comments">
+    <ol>
+        
+      <li>
+      <div class="avatar"><a href="#"><img src="<%= asset_path 'avatar1.jpg' %>" alt=""></a></div>
+      <div class="comment_right clearfix">
+        <div class="comment_info">Posted by <a href="#">Anna Smith</a><span>|</span> 25 apr 2019 <span>|</span><a href="#">Reply</a></div>
+        <p>
+          Nam cursus tellus quis magna porta adipiscing. Donec et eros leo, non pellentesque arcu. Curabitur vitae mi enim, at vestibulum magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sit amet sem a urna rutrumeger fringilla. Nam vel enim ipsum, et congue ante.
+        </p>
+      </div>
+      <ul>
+        <li>
+        <div class="avatar"><a href="#"><img src="<%= asset_path 'avatar2.jpg' %>" alt=""></a></div>
+        <div class="comment_right clearfix">
+          <div class="comment_info">Posted by <a href="#">Tom Sawyer</a><span>|</span> 25 apr 2019 <span>|</span><a href="#">Reply</a></div>
+          <p>
+             Nam cursus tellus quis magna porta adipiscing. Donec et eros leo, non pellentesque arcu. Curabitur vitae mi enim, at vestibulum magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sit amet sem a urna rutrumeger fringilla. Nam vel enim ipsum, et congue ante.
+          </p>
+          <p>
+            Aenean iaculis sodales dui, non hendrerit lorem rhoncus ut. Pellentesque ullamcorper venenatis elit idaipiscingi Duis tellus neque, tincidunt eget pulvinar sit amet, rutrum nec urna. Suspendisse pretium laoreet elit vel ultricies. Maecenas ullamcorper ultricies rhoncus. Aliquam erat volutpat.
+          </p>
+        </div>
+        </li>
+      </ul>
+      </li>
+            
+      <li>
+      <div class="avatar"><a href="#"><img src="<%= asset_path 'avatar3.jpg' %>" alt=""></a></div>
+      <div class="comment_right clearfix">
+        <div class="comment_info">Posted by <a href="#">Adam White</a><span>|</span> 25 apr 2019 <span>|</span><a href="#">Reply</a></div>
+        <p>Cursus tellus quis magna porta adipiscin</p>
+      </div>
+      </li>
+            
+    </ol>
+  </div>
+    
+<!--   <h4>Leave a comment</h4>
+  <form action="#" method="post">
+    <input class="col-md-5" type="text" name="name" value="Name" onfocus="if (this.value == 'Name') this.value = '';" onblur="if (this.value == '') this.value = 'Name';"/>
+    <input class="col-md-5" type="text" name="mail" value="Email" onfocus="if (this.value == 'Email') this.value = '';" onblur="if (this.value == '') this.value = 'Email';"/>
+    <textarea name="message" rows="4" class="col-md-7" onfocus="if (this.value == 'Message...') this.value = '';" onblur="if (this.value == '') this.value = 'Message...';">Message...</textarea>
+    <input type="reset" class="button_medium" value="Clear form"/>
+    <input type="submit" class="button_medium" value="Post Comment"/>
+  </form> -->

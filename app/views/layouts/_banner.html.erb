@@ -1,1 +1,1 @@
-<p><img src="<%= asset_path 'banner.jpg' %>" alt="Banner" class="img-responsive" ></p>
+<p><%= link_to @banner.link do %><%= image_tag @banner.image, alt: "Banner", class: "img-responsive banner" %><% end %></p>

@@ -62,4 +62,15 @@ module ApplicationHelper
 		end
 	end
 
+	
+  def build_tag(tag)
+    tag.name + 
+    " <span class='label label-info'>" + 
+    tag.taggings_count.to_s + 
+    "</span>"
+  end
+
+	def how_many_hours(popular_programme)
+		popular_programme.units.sum(:duration_minutes) / 60
+	end
 end

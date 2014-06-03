@@ -1,9 +1,26 @@
  <div id="menu-top">
             	<ul>
-                	<li><a href="/" title="Home"><i class="fa fa-home fa-border"></i> Home</a>  </li>
-                	<li><a href="<%= blog_path %>" title="Blog"><i class="fa fa-file-text-o fa-border"></i> Blog</a>  </li>
-                    <li><a href="<%= about_path %>" title="About"><i class="fa fa-info-circle fa-border"></i> About</a>  </li>
-                    <li><a href="<%= contact_path %>" title="Contact"><i class="fa fa-phone fa-border"></i> Contact</a>  </li>
+                	<li>
+                		<a href="/" title="Home" class="<%= 'active' if current_page?(root_path) %>">
+                			<span class="fa-stack">
+				                <i class="fa fa-circle-thin fa-stack-2x"></i>
+				                <i class="fa fa-home fa-stack-1x"></i>
+				              </span>
+                			Home
+                		</a>  
+                	</li>
+                	<li><a href="<%= blog_path %>" title="Blog" class="<%= 'active' if current_page?(blog_path) %>"><span class="fa-stack">
+				                <i class="fa fa-circle-thin fa-stack-2x"></i>
+				                <i class="fa fa-file-text-o fa-stack-1x"></i>
+				              </span> Blog</a>  </li>
+                    <li><a href="<%= about_path %>" title="About" class="<%= 'active' if current_page?(about_path) %>"><span class="fa-stack">
+				                <i class="fa fa-circle-thin fa-stack-2x"></i>
+				                <i class="fa fa-info fa-stack-1x"></i>
+				              </span> About</a>  </li>
+                    <li><a href="<%= contact_path %>" title="Contact" class="<%= 'active' if current_page?(contact_path) %>"><span class="fa-stack">
+				                <i class="fa fa-circle-thin fa-stack-2x"></i>
+				                <i class="fa fa-phone fa-stack-1x"></i>
+				              </span> Contact</a>  </li>
                     
                     
                 </ul>

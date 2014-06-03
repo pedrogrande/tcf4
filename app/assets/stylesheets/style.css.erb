@@ -15,7 +15,7 @@ CSS STRUCTURE:
 /*============================================================================================*/
 /* 1.  SITE STRUCTURE and TYPOGRAPHY */
 /*============================================================================================*/
-@import url(http://fonts.googleapis.com/css?family=Comfortaa:400,700);
+
 
 /** Typography **/
 h1,
@@ -66,18 +66,14 @@ p {
   margin: 0 0 10px 0;
 }
 /** Lists **/
-ul,
-ol {
+/*ul{
   padding: 0;
   margin: 0 0 0;
   list-style:none;
 }
-ul ul,
-ul ol,
-ol ol,
-ol ul {
+ul ul{
   margin-bottom: 0;
-}
+}*/
 li {
   line-height: 20px;
 }
@@ -407,14 +403,14 @@ footer a {
 	margin-bottom:0px;
 }
 .feat i {
-	color:#F39C12;
+	color:#F4BA43;
 	left:0; 
 	position:absolute;
 }
 /* #Courses
 ================================================ */
 .col-left {
-	padding:30px 30px 15px 30px;
+	padding:20px 20px 15px 20px;
 	background-color:#EEE;
 	border: 1px solid #e2e2e2;
 	-webkit-border-radius: 0px;
@@ -766,7 +762,12 @@ ul.recent_post li:last-child, ul.latest_news li:last-child{
 }
 .post img {border-radius:5px;
 }
-.post-left {float:left;
+.post-left {
+	float:left;
+}
+.post-left ul {
+	padding-left: 0;
+	margin-left: 0;
 }
 .post-left ul li {
 	float:left;
@@ -851,7 +852,7 @@ ul.list_4 li{background:url(<%= asset_path 'arrow_4.png' %>) no-repeat 4px 6px;l
 }
 .box-style-1{
 	padding:30px 30px 10px 30px;  
-	background: #eaf9ff; 
+	background: #fff; 
 	box-shadow: 0; 
 	-webkit-box-shadow: 0; 
 	-moz-box-shadow: 0; 
@@ -1132,13 +1133,13 @@ a.clostalert { background: url(<%= asset_path 'messages.png' %>) no-repeat scrol
 	 display:block;
 }
 .box-style-2.green a  {
-	background: #669933;
+	background: #E85F62;
 }
 .box-style-2.orange a  {
-	background: #fab90c;
+	background: #FD7900;
 }
 .box-style-2.red a  {
-	background: #ff6666;
+	background: #C51728;
 }
 .box-style-2.green a:hover, .box-style-2.orange a:hover, .box-style-2.red a:hover {
 	background:#2d343e ; 

@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140530032139) do
-
+ActiveRecord::Schema.define(version: 20140602035929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -249,12 +248,13 @@ ActiveRecord::Schema.define(version: 20140530032139) do
     t.text     "lead"
     t.text     "content"
     t.string   "image"
-    t.string   "publish"
     t.integer  "user_id"
     t.integer  "category_id"
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "publish"
+    t.date     "published_date"
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
@@ -355,6 +355,25 @@ ActiveRecord::Schema.define(version: 20140530032139) do
 
   add_index "skills", ["skill_group_id"], name: "index_skills_on_skill_group_id", using: :btree
 
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
   create_table "testimonials", force: true do |t|
     t.string   "name"
     t.string   "quote"
@@ -408,6 +427,7 @@ ActiveRecord::Schema.define(version: 20140530032139) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "skill_level"
   end
 
   add_index "units", ["skill_group_id"], name: "index_units_on_skill_group_id", using: :btree

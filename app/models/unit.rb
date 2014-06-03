@@ -26,5 +26,9 @@ class Unit < ActiveRecord::Base
   	where
   end
 
+  def self.order_by_skill_level
+    order(skill_level: :asc)
+  end
+
 
 end

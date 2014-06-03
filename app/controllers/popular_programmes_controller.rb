@@ -11,7 +11,7 @@ class PopularProgrammesController < ApplicationController
   # GET /popular_programmes/1
   # GET /popular_programmes/1.json
   def show
-    @units = @popular_programme.units
+    @units = @popular_programme.units.order_by_skill_level
     @popular_programmes = PopularProgramme.order_by_price
     @weekend_programmes = @popular_programme.weekend_programmes.future_by_date_ascending
   end

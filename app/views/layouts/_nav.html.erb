@@ -10,7 +10,10 @@
 			<li>
 				<a href="<%= popular_programme_path(popular_programme) %>" title="<%= popular_programme.name %>" class="nodrop-down">
 					
-					<i class="fa fa-<%= popular_programme.icon %> fa-border"></i>
+					<span class="fa-stack fa-lg">
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-<%= popular_programme.icon %> fa-stack-1x fa-inverse"></i>
+              </span>
 					&nbsp;
 					<%= popular_programme.name %>
 				</a>

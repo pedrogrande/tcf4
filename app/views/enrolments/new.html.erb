@@ -9,7 +9,7 @@
 	      <p class="lead">Programme</p>
 	    </div>
 	    <div class="col-sm-8">
-	    	<p class="lead"><strong><%= @weekend_programme.popular_programme.name %></strong></p>
+	    	<p class="lead"><span class="details"><%= @weekend_programme.popular_programme.name %></span></p>
 	    </div>
   	</div>
   	<hr class="double">
@@ -19,7 +19,17 @@
 	      <p class="lead">Days</p>
 	    </div>
 	    <div class="col-sm-8">
-	    	<p class="lead"><strong><%= @weekend_programme.day %></strong></p>
+	    	<p class="lead"><span class="details"><%= @weekend_programme.day %></span></p>
+	    </div>
+  	</div>
+  	<hr class="double">
+
+		<div class="row">
+	    <div class="col-sm-4 text-right">
+	      <p class="lead">Times</p>
+	    </div>
+	    <div class="col-sm-8">
+	    	<p class="lead"><span class="details"><%= @weekend_programme.start_time.strftime('%l:%M%P') %> - <%= @weekend_programme.end_time.strftime('%l:%M%P') %></span></p>
 	    </div>
   	</div>
   	<hr class="double">
@@ -28,7 +38,7 @@
 	      <p class="lead">Start date</p>
 	    </div>
 	    <div class="col-sm-8">
-	    	<p class="lead"><strong><%= @weekend_programme.date.strftime('%e %b %Y') %></strong></p>
+	    	<p class="lead"><span class="details"><%= @weekend_programme.date.strftime('%e %b %Y') %></span></p>
 	    </div>
   	</div>
   	<hr class="double">
@@ -37,7 +47,7 @@
 	      <p class="lead">Location</p>
 	    </div>
 	    <div class="col-sm-8">
-	    	<p class="lead"><strong><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></strong></p>
+	    	<p class="lead"><span class="details"><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></span></p>
 	    </div>
   	</div>
   	<hr class="double">
@@ -46,7 +56,7 @@
 	      <p class="lead">Price</p>
 	    </div>
 	    <div class="col-sm-8">
-	    	<p class="lead"><strong>$<%= @weekend_programme.popular_programme.price %></strong></p>
+	    	<p class="lead"><span class="details">$<%= @weekend_programme.popular_programme.price %></span></p>
 	    </div>
   	</div>
   	<hr class="double">

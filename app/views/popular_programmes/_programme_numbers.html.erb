@@ -1,0 +1,37 @@
+<div class="facts">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>The numbers:</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <p class="text-center extra-margin-bottom"><strong>No. workshops</strong></p>
+      </div>
+      <div class="col-sm-3">
+        <p class="text-center extra-margin-bottom"><strong>Class room hours</strong></p>
+      </div>
+      <div class="col-sm-3">
+        <p class="text-center extra-margin-bottom"><strong>Weeks of study</strong></p>
+      </div>
+      <div class="col-sm-3">
+        <p class="text-center extra-margin-bottom"><strong>Price (AUD)</strong></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <p class="text-center"><span class="label label-primary mega">&nbsp;<%= @popular_programme.units.count %>&nbsp;</span></p>
+      </div>
+      <div class="col-sm-3">
+        <p class="text-center"><span class="label label-primary mega">&nbsp;<%= how_many_hours(@popular_programme) %>&nbsp;</span></p>
+      </div>
+      <div class="col-sm-3">
+        <p class="text-center"><span class="label label-primary mega">&nbsp;<%= how_many_hours(@popular_programme) / 6 %>&nbsp;</span></p>
+      </div>
+      <div class="col-sm-3">
+        <p class="text-center"><span class="label label-primary mega"><%= @popular_programme.price %><sup>*</sup></span></p>
+        <br>
+        <p class="text-center terms"><sup>*</sup> <%= link_to "Payment plans available", payment_plans_path %></p>
+      </div>
+    </div>
+    </div>

@@ -1,128 +1,59 @@
-<h1 class="col-md-12">Blog</h1>
-<div class="col-md-12">
+<% if @tag %>
+  <h1 class="col-md-12">Posts tagged with: <em><%= @tag %></em></h1>
+  <div class="col-md-12">
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a> <span class="divider"></span></li>
+      <li><a href="<%= blog_path %>">Blog</a> <span class="divider"></span></li>
+      <li class="active">Posts tagged with: <em><%= @tag %></em></li>
+    </ul>
+</div>
+<% elsif @category %>
+  <h1 class="col-md-12">Posts in category: <em><%= @category.name %></em></h1>
+  <div class="col-md-12">
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a> <span class="divider"></span></li>
+      <li><a href="<%= blog_path %>">Blog</a> <span class="divider"></span></li>
+      <li class="active">Posts in category: <em><%= @tag %></em></li>
+    </ul>
+</div>
+<% else %>
+  <h1 class="col-md-12">Blog</h1>
+  <div class="col-md-12">
     <ul class="breadcrumb">
       <li><a href="/">Home</a> <span class="divider"></span></li>
       <li class="active">Blog</li>
     </ul>
 </div>
+<% end %>
+
 <!-- =========================Start Col left section ============================= -->
-<aside class="col-md-4">
-  <div class="col-left">
-    <div class="sidebar">
-        
-       <div class="widget">
-        <h4>Stay up to date with us!</h4>
-            
-            <div id="message-newsletter"></div>
-              <form action="http://thecoderfactory.us7.list-manage1.com/subscribe/post?u=1c644187b6d7e06d32bcae158&amp;id=2afdc8b0c3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <div class="form-group">
-                    <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" required></div><!-- 
-                    real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
-                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_1c644187b6d7e06d32bcae158_2afdc8b0c3" value=""></div>
-                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success"></div>
-                </form>
-          </div>
-      </div>
-
-      <hr>
-      
-      <div class="widget">
-        <h4>Featured Article</h4>
-        <p>
-          when live add featured article lead and link
-        </p>
-        <p><a href="#" class="button_medium">Read more</a></p>
-      </div><!-- End widget -->
-
-      <hr>
-
-      <div class="widget">
-        <h4>Recent articles from coder factory</h4>
-        <% if @posts %>
-          <% @posts.limit(3).each do |post| %>
-            <ul class="recent_post">
-              <li>
-                <i class="fa fa-calendar-o"></i>  <%= post.created_at.strftime('%A, %e %B %Y') %>
-                <div><a href="<%= post_path(post) %>"><%= post.title %> </a></div>
-              </li>
-            </ul>
-          <% end %>
-        <% end %>
-      </div><!-- End widget -->
-
-      <hr>
-
-      <div class="widget tags">
-      <h4>Categories</h4>      
-      <ul class="submenu-col">
-        <% if @categories %>
-          <% @categories.each do |cat| %>
-            
-              <li><a href="#"><%= cat.name %></a></li>
-            
-          <% end %>
-         <% end %> 
-      </ul>
-      </div>
-
-      <hr>
-            
-      <div class="widget tags">
-        <h4>Tags</h4>
-        <a href="#">Lorem ipsum</a>
-        <a href="#">Dolor</a>
-        <a href="#">Long established</a>
-        <a href="#">Sit amet</a>
-        <a href="#">Latin words</a>
-        <a href="#">Excepteur sint</a>
-      </div><!-- End widget -->
-            
-      <hr>
-            
-    </div>
-  <!-- </div> --><!-- end  col left -->
-  <%= render 'layouts/banner' %>
-  </aside>
+<%= render 'layouts/blog_sidebar' %>
  
 <section class="col-md-8">
-  <div class="col-right">
+  
+
       <% @posts.each do |post| %>
-          <div class="post">
-              <h2><a href="<%= post_path(post) %>"><%= post.title %></a></h2>
+      <div class="row">
+      <div class="col-sm-12">
+        <div class="post-img">
+          
 
-              <% if post.image.blank? %>
-                <a href="<%= post_path(post) %>"><img src="<%= asset_path 'about.jpg' %>" alt="" class="img-responsive"></a>
-              <% else %>
-                <a href="<%= post_path(post) %>"><img src="<%= asset_path post.image %>" alt="" class="img-responsive" ></a>
-              <% end %>
+            <% if post.image.blank? %>
+              <a href="<%= post_path(post) %>"><img src="<%= asset_path 'about.jpg' %>" alt="" class="img-responsive"></a>
+            <% else %>
+              <a href="<%= post_path(post) %>"><img src="<%= asset_path post.image %>" alt="" class="img-responsive" ></a>
+            <% end %>
+            <p class="lead text-center"><%= post.title %></p>
 
-              <div class="post_info clearfix">
-                 <div class="post-left">
-                        <ul>
-                          <li><i class="fa fa-calendar-o"></i> On <span><%= post.created_at.strftime('%A, %e %B %Y') %></span></li>
-                            <li><i class="fa fa-user"></i> By <a><% post.user.profile.name if post.user.profile %></a></li>
-                            <li><i class="fa fa-tags"></i> Tags <a href="#">tag</a></li>
-                        </ul>
-                   </div>
-<!--                   <div class="post-right"><i class="fa fa-comments"></i> <a href="#">25 </a>Comments</div>  
- -->                   </div>                                
-                  <p><%= post.lead %></p>
-                  <p><a href="<%= post_path(post) %>" class="button_medium">Read more</a></p>
-           </div> <!-- end post -->
+        </div>
+
+        </div> 
+      </div>
+      <br>
        <% end %>
+       <div class="col-right">
        <%= will_paginate @posts %>
-       <hr>
-           <div class="pagination-centered">
-               <ul class="pagination">
-                    <li><a href="#">Prev</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">Next</a></li>
-              </ul>
-          </div><!-- end pagination-->
+       
     
     </div><!-- end col-right-->
 </section> <!-- end section-->

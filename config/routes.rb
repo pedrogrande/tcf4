@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'payment-plans' => 'payment_plans#index'
+
   resources :enrolments do
     member do
       get :thanks
