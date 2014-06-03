@@ -1,0 +1,39 @@
+<div class="col-left">
+  <div class="sidebar">
+    <div class="widget">
+      <h4>Other locations</h4>
+      <% @locations.each do |location| %>
+        <% if @location != location %>
+          <p>
+            <%= link_to location do %>
+              <span class="fa-stack">
+                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                <i class="fa fa-map-marker fa-stack-1x"></i>
+              </span>
+              <%= location.name + ', ' + location.city %>
+            <% end %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <hr class="double">
+    <div class="widget">
+      <h4>Keep in the loop</h4>
+      <div id="message-newsletter">
+      </div>
+      <form action="http://thecoderfactory.us7.list-manage1.com/subscribe/post?u=1c644187b6d7e06d32bcae158&amp;id=2afdc8b0c3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div class="form-group">
+          <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" required>
+        </div>
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+        <div style="position: absolute; left: -5000px;">
+          <input type="text" name="b_1c644187b6d7e06d32bcae158_2afdc8b0c3" value="">
+        </div>
+        <div class="clear">
+          <input type="submit" value="Stay informed" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

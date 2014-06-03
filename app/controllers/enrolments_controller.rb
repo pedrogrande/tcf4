@@ -1,6 +1,8 @@
 class EnrolmentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
   before_action :set_enrolment, only: [:show, :edit, :update, :destroy]
   layout 'public', only: [:new, :edit, :thanks]
+  impressionist :actions=>[:new]
   # GET /enrolments
   # GET /enrolments.json
   def index

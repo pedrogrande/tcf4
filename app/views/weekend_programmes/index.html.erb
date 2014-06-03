@@ -1,4 +1,4 @@
-<h1>Listing weekend_programmes</h1>
+<h1>Future Programmes <small><%= link_to 'New Weekend programme', new_weekend_programme_path, class: 'btn btn-success btn-xs' %></small></h1>
 
 <table class="table">
   <thead>
@@ -32,6 +32,41 @@
   </tbody>
 </table>
 
-<br>
+<hr class="double">
 
-<%= link_to 'New Weekend programme', new_weekend_programme_path %>
+
+<h1>Archived Programmes <small><%= link_to 'New Weekend programme', new_weekend_programme_path, class: 'btn btn-success btn-xs' %></small></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Popular programme</th>
+      <th>Location</th>
+      <th>Day</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Number of places</th>
+      <th>Students registered</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @past_programmes.each do |past_programme| %>
+      <tr>
+        <td><%= past_programme.popular_programme.name %></td>
+        <td><%= past_programme.location.name %></td>
+        <td><%= past_programme.day %></td>
+        <td><%= past_programme.date.strftime('%d %b %y') %></td>
+        <td><%= past_programme.start_time.strftime('%H:%M') %> - <%= past_programme.end_time.strftime('%H:%M') %></td>
+        <td class="text-center"><%= past_programme.number_of_places %></td>
+        <td><%= past_programme.number_of_students_registered %></td>
+        <td><%= link_to 'Show', past_programme %></td>
+        <td><%= link_to 'Edit', edit_past_programme_path(past_programme) %></td>
+        <td><%= link_to 'Destroy', past_programme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

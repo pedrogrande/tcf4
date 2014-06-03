@@ -1,6 +1,8 @@
 class PopularProgrammesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
   before_action :set_popular_programme, only: [:show, :edit, :update, :destroy]
-  layout 'public', only: [:index, :show]
+  layout 'public', only: [:show]
+  impressionist :actions=>[:show]
 
   # GET /popular_programmes
   # GET /popular_programmes.json

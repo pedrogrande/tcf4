@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  layout 'public', only: [:show, :index]
+  layout 'public', only: :show
 
   # GET /locations
   # GET /locations.json
@@ -11,6 +12,8 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @locations = Location.all
+    @weekend_programmes = @location.weekend_programmes.future_by_date_ascending
   end
 
   # GET /locations/new
@@ -65,11 +68,11 @@ class LocationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_location
-      @location = Location.find(params[:id])
+      @location = Location.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:name, :building, :street, :suburb, :state, :postcode, :country, :map_link, :city)
+      params.require(:location).permit(:phone, :website, :image, :embed_map, :logo, :name, :building, :street, :suburb, :state, :postcode, :country, :map_link, :city)
     end
 end

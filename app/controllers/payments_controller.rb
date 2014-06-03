@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
   before_action :set_payment, only: :show
   layout 'public', only: :new
 

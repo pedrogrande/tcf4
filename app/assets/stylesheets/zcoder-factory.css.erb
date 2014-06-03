@@ -1,6 +1,6 @@
 body {
 	font-size: 18px;
-	font-family: Nunito, Oxygen, Helvetica, Arial, serif;
+	font-family: Asap, Oxygen, Helvetica, Arial, serif;
 	line-height: 1.5em;
 	color: #222;
 	-webkit-font-smoothing: antialiased !important;	
@@ -186,9 +186,9 @@ ol li, ul li{
 	padding: .2em .3em;
 }
 .facts {
-	background: #A65900;
+	background: rgba(0,0,0,0.7);
 	padding: 30px 30px 30px;
-	margin-top: -10px;
+	margin-top: 10px;
 }
 .facts p {
 	color: white;
@@ -215,8 +215,14 @@ ol li, ul li{
 	margin-bottom: 25px;
 }
 .scheduled h3 {
-	margin-left: 10px;
+	margin-left: 0px;
 	color: #ecf0f1
+}
+
+.scheduled h2 {
+	margin-left: 20px;
+	margin-bottom: 0px;
+	/*color: #ecf0f1*/
 }
 .included-workshops {
 	margin-top: 0px;
@@ -250,22 +256,30 @@ nav{
 	padding-left: 0px;
 }
 .post-img {
-	margin:0px -30px 30px 0px; 
+	margin:-30px -30px 20px -30px; 
+	overflow:hidden;
+	position:relative;
 }
-.post-img img {
+.blog-img {
+	margin:-30px -30px -60px -30px; 
+	overflow:hidden;
+	position:relative;
+}
+.post-img img, .blog-img img {
 	width: 100%;
-	border: 1px #ecf0f1 solid;
+	/*border: 1px #ecf0f1 solid;*/
 }
-.post-img p {
-	background-color:#FFF;
+.post-img h2, .blog-img h2 {
+	background-color:#000;
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
 	filter: alpha(opacity=70);
 	opacity:0.7;
 	position: absolute;
 	bottom:-20px;
 	padding:15px 20px;
-	color:#333;
-	line-height:24px;
+	color:#FFF;
+	font-size: 1.5em;
+	line-height:1.3em;
 	width: 100%;
 }
 .banner	{

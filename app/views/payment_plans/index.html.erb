@@ -1,2 +1,37 @@
-<h1>PaymentPlans#index</h1>
-<p>Find me in app/views/payment_plans/index.html.erb</p>
+<h1 class="col-md-12">Payment plans</h1>
+  <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="<%= root_path %>">Home</a> <span class="divider"></span></li>
+          <li class="active">Payment plans</li>
+        </ul>
+    </div>
+
+<div class="row">
+	<aside  class="col-md-4">
+  	<%= render 'layouts/programme_sidebar' %>
+	</aside>
+
+ 
+<section class="col-md-8">
+  <div class="col-right">
+  <h2>Payment plans are available on all programmes</h2>
+  	<p>We want to make our programmes affordable for everyone so we are proud to offer flexible payment options.</p>
+  	<h3>Pay upfront</h3>
+  	<p>Either pay the full programme fee when you enrol, or pay the deposit and then the remainder of the programme fee before the first day of your workshops and pay the published rate.</p>
+
+  	<h3>Pay weekly</h3>
+  	<p>For programmes that last longer than two weeks, you can choose to pay the deposit upon enrolling, then the remainder of the fee in weekly installments.</p>
+  	<p>eg. The Web App Developer Basic course is $2150. Less $100 deposit = $2050. The programme takes 8 weeks to complete so 8 remaining payments of $270.</p>
+
+  	<h3>Pay fortnightly</h3>
+  	<p>For programmes that last longer than two weeks, you can choose to pay the deposit upon enrolling, then the remainder of the fee in fortnightly installments.</p>
+  	<p>eg. The Web App Developer Basic course is $2150. Less $100 deposit = $2050. The programme takes 8 weeks to complete so 4 remaining payments of $540.</p>
+
+  	<h3>Pay monthly</h3>
+  	<p>For programmes that last longer than four weeks, you can choose to pay the deposit upon enrolling, then the remainder of the fee in monthly installments.</p>
+  	<p>eg. The Web App Developer Basic course is $2150. Less $100 deposit = $2050. The programme takes 8 weeks to complete so 2 remaining payments of $1080.</p>
+  	<h3>
+  </div>
+</section>
+</div>
+<br>

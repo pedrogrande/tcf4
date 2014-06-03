@@ -4,6 +4,8 @@ class PopularProgramme < ActiveRecord::Base
   has_many :units, through: :popular_programme_units
   has_many :weekend_programmes
   has_many :enrolments
+
+  is_impressionable
   
   extend FriendlyId
   friendly_id :name, use: :slugged

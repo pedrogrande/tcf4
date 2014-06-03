@@ -1,44 +1,52 @@
-<p id="notice"><%= notice %></p>
+<h1 class="col-md-12"><i class="fa fa-map-marker"></i> <%= @location.name %>, <%= @location.city %></h1>
+  <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><a href="<%= root_path %>">Home</a> <span class="divider"></span></li>
+          <li class="active"><%= @location.name %></li>
+        </ul>
+    </div>
 
+<div class="row">
+  <div class="col-sm-4 hidden-xs">
+    <%= render 'layouts/location_sidebar' %>
+  </div>
+
+ 
+<section class="col-md-8">
+  <div class="col-right">
+
+<h2>
+  <span class="fa-stack">
+    <i class="fa fa-circle-thin fa-stack-2x"></i>
+    <i class="fa fa-map-marker fa-stack-1x"></i>
+  </span>
+  <%= @location.name %>, <%= @location.city %>
+</h2>
+<div class="row">
+<div class="col-sm-5">
+<h3>Address</h3>
 <p>
-  <strong>Name:</strong>
-  <%= @location.name %>
+  <%= @location.street %><br>
+  <%= @location.suburb %> <%= @location.state %> <%= @location.postcode %>
 </p>
-
 <p>
-  <strong>Building:</strong>
-  <%= @location.building %>
+  <%= link_to @location.map_link, class: 'btn btn-default', target: '_blank' do %><i class="fa fa-map-marker"></i> Map Link<% end %>
+  <%= link_to @location.website, class: 'btn btn-default', target: '_blank' do %><i class="fa fa-globe"></i> Website<% end %>
 </p>
+<%= cl_image_tag @location.logo, class: 'img-responsive' %>
+</div>
+<div class="col-sm-7">
+  <%= @location.embed_map.html_safe if @location.embed_map %>
+</div>
+</div>
 
-<p>
-  <strong>Street:</strong>
-  <%= @location.street %>
-</p>
-
-<p>
-  <strong>Suburb:</strong>
-  <%= @location.suburb %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @location.state %>
-</p>
-
-<p>
-  <strong>Postcode:</strong>
-  <%= @location.postcode %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @location.country %>
-</p>
-
-<p>
-  <strong>Map link:</strong>
-  <%= @location.map_link %>
-</p>
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+</div>
+<% if @weekend_programmes %>
+<div class="scheduled">
+      <h3>Scheduled programmes</h3>
+      <%= render @weekend_programmes %>
+    </div>
+    <% end %>  
+</section>
+</div>
+<br>

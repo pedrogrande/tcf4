@@ -2,17 +2,23 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :category
 
+	is_impressionable
 	# validates :title, :lead, :content, :category_id, :slug, presence: true
 
 	extend FriendlyId
-	friendly_id :slug, use: :slugged
+	friendly_id :title, use: :slugged
 	acts_as_taggable
-
-	def self.published
-		where(publish: true)
-	end
+	mount_uploader :image, PostImageUploader
 
 	def self.published_in_reverse_chron_order
-		published.order(published_date: :desc)
+		reverse_chron_order.where(publish: true)
+	end
+
+	def self.reverse_chron_order
+		order(published_date: :desc)
+	end
+
+	def self.popular_posts
+		order(impressions_count: :desc)
 	end
 end

@@ -2,12 +2,12 @@
   <div class="col-md-12">
         <ul class="breadcrumb">
           <li><a href="<%= root_path %>">Home</a> <span class="divider"></span></li>
-          <li><a href="<%= popular_programmes_path %>">Coder Factory Programmes</a> <span class="divider"></span></li>
           <li class="active"><%= @popular_programme.name %></li>
         </ul>
     </div>
-
-<%= render 'layouts/programme_sidebar' %>
+<aside  class="col-md-4">
+  <%= render 'layouts/programme_sidebar' %>
+</aside>
  
 <section class="col-md-8">
   <div class="col-right">

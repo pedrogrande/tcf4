@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require ckeditor-jquery
 //= require jquery.vegas.min
 //= bootstrap

@@ -1,19 +1,22 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   layout 'public', only: :show
-
+  
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order('id DESC')
+    @posts = Post.reverse_chron_order
     @categories = Category.all
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    impressionist(@post, @post.title)
     @posts = Post.limit(3).order('id DESC')
     @categories = Category.all
+    @popular_posts = Post.popular_posts.limit(3)
   end
 
   # GET /posts/new

@@ -2,7 +2,10 @@
 <div class="row">
 <div class="col-md-4">
 <h2>Users</h2>
-
+<h3>Enrolled Students</h3>
+<h4><%= link_to "Enrolments", enrolments_path %> [<%= Enrolment.all.count %>]</h4>
+<h4>Current students</h4>
+<h4>Past students</h4>
 <h4><%= link_to "Profiles", profiles_path %></h4>
 
 <h3>Prospective Students</h3>
@@ -10,10 +13,7 @@
 <h4>Constulations</h4>
 <h4>Registrations</h4>
 
-<h3>Enrolled Students</h3>
-<h4><%= link_to "Enrolments", enrolments_path %> [<%= Enrolment.all.count %>]</h4>
-<h4>Current students</h4>
-<h4>Past students</h4>
+
 
 
 <h3>Events</h3>
@@ -23,7 +23,7 @@
 
 <div class="col-md-4">
 <h2>Website</h2>
-<h3>Posts</h3>
+<h3><%= link_to 'Posts', posts_path %> [<%= Post.count %>] <small><%= link_to "New", new_post_path, class: 'btn btn-success btn-xs' %></small></h3>
 <h4>My posts</h4>
 <h4>Other posts</h4>
 <h4>Post categories</h4>
@@ -35,6 +35,10 @@
 </div>
 <div class="col-md-4">
 <h2>Classes</h2>
+<h3><%= link_to "Current programmes", popular_programmes_path %> [<%= PopularProgramme.count %>]</h3>
+<h3><%= link_to "Scheduled programmes", weekend_programmes_path %> [<%= WeekendProgramme.count %>]</h3>
+<h3><%= link_to "Locations", locations_path %> [<%= Location.count %>]</h3>
+<br>
 <h4><%= link_to "Skill Groups", skill_groups_path %> [<%= SkillGroup.count %>]</h4>
 <h4><%= link_to "Skills", skills_path %> [<%= Skill.count %>]</h4>
 <h4><%= link_to "Goals", goals_path %> [<%= Goal.count %>]</h4>

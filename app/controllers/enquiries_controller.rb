@@ -1,4 +1,5 @@
 class EnquiriesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
   before_action :set_enquiry, only: [:show, :edit, :update, :destroy]
 
   # GET /enquiries

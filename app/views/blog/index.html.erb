@@ -26,34 +26,33 @@
 </div>
 <% end %>
 
-<!-- =========================Start Col left section ============================= -->
-<%= render 'layouts/blog_sidebar' %>
- 
-<section class="col-md-8">
-  
+<div class="row">
+  <aside class="col-md-4 hidden-xs">
+    <%= render 'layouts/blog_sidebar' %>
 
-      <% @posts.each do |post| %>
-      <div class="row">
-      <div class="col-sm-12">
-        <div class="post-img">
-          
+  <%= render 'layouts/banner' %>
+  </aside>
 
+  <section class="col-md-8">
+    <% @posts.each do |post| %>
+      <div class="col-right">
+        <div class="post">
+          <div class="blog-img">
             <% if post.image.blank? %>
-              <a href="<%= post_path(post) %>"><img src="<%= asset_path 'about.jpg' %>" alt="" class="img-responsive"></a>
+              <a href="<%= post_path(post) %>"><img src="<%= asset_path 'PLAY.png' %>" alt="" class="img-responsive"></a>
             <% else %>
-              <a href="<%= post_path(post) %>"><img src="<%= asset_path post.image %>" alt="" class="img-responsive" ></a>
+                <a href="<%= post_path(post) %>"><img src="<%= asset_path post.image %>" alt="" class="img-responsive" ></a>
             <% end %>
-            <p class="lead text-center"><%= post.title %></p>
-
+            <h2 class="lead text-center"><%= post.title %></h2>
+          </div>
         </div>
-
-        </div> 
       </div>
       <br>
-       <% end %>
-       <div class="col-right">
-       <%= will_paginate @posts %>
-       
-    
-    </div><!-- end col-right-->
-</section> <!-- end section-->
+    <% end %>
+    <% if Post.all.count > 5 %>
+      <div class="col-right">
+        <%= will_paginate @posts %>
+      </div><!-- end col-right-->
+    <% end %>
+  </section> <!-- end section-->
+</div>

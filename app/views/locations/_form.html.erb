@@ -27,6 +27,19 @@
   <div class="form-group">
     <%= f.input :map_link, input_html: { class: 'form-control'} %>
   </div>
+  <div class="form-group">
+    <%= f.input :embed_map, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :website, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= image_tag @location.logo, width: '100px' %>
+    <%= f.input :logo, as: :file %>
+  </div>
+  <div class="form-group">
+    <%= f.input :image, as: :file %>
+  </div>
   <%= f.button :submit %>
   
 <% end %>

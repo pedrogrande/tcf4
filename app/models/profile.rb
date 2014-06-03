@@ -5,6 +5,8 @@ class Profile < ActiveRecord::Base
   validates :name, presence: true
   before_save :calculate_profile_completion_percentage
 
+  is_impressionable
+  
   def number_of_empty_attributes(profile)
   	count = 0
   	profile.attributes.each do |name, value|
