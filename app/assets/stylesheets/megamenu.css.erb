@@ -26,8 +26,8 @@ CSS STRUCTURE:
 	display:inline;
 	border:none;
 	margin:0;
-/*	background-color:transparent;
-	padding: 17px 0 10px 15px;*/
+	background-color:transparent;
+	padding: 14px 0 15px 15px;
 	-webkit-transition: background-color 0.4s ease-out;
 	-moz-transition: background-color 0.4s ease-out;
 	-o-transition: background-color 0.4s ease-out;
@@ -35,37 +35,37 @@ CSS STRUCTURE:
 	transition: background-color 0.4s ease-out;
 	}
 .megamenu > li:hover{
-	/*background-color:$brand-warning;*/
-	/*box-shadow: inset 2px 0 5px -5px  rgba(0,174,255, 0.50), inset -5px 0 5px -5px rgba(0, 0, 0, 0.50); 
-	-webkit-box-shadow: inset 2px 0 5px -5px  rgba(0,174,255, 0.50), inset -5px 0 5px -5px rgba(0, 0, 0, 0.50); 
-	-moz-box-shadow:  inset 2px 0 5px -5px  rgba(0,174,255, 0.50), inset -5px 0 5px -5px rgba(0, 0, 0, 0.50);*/ 
-	/*color: $brand-warning;*/
+	background-color:#006e92;
+	box-shadow: inset 5px 0 5px -5px  rgba(0, 0, 0, 0.35), inset -5px 0 5px -5px rgba(0, 0, 0, 0.35); 
+	-webkit-box-shadow: inset 5px 0 5px -5px  rgba(0, 0, 0, 0.35), inset -5px 0 5px -5px rgba(0, 0, 0, 0.35); 
+	-moz-box-shadow:  inset 5px 0 5px -5px  rgba(0, 0, 0, 0.35), inset -5px 0 5px -5px rgba(0, 0, 0, 0.35); 
+	color:#fff;
 	text-decoration:none;
 	}
-/*.megamenu > li.active {
-	background-color:#00AEEF;
+.megamenu > li.active {
+	background-color:#006e92;
 	box-shadow: inset 5px 0 5px -5px  rgba(0, 0, 0, 0.35), inset -5px 0 5px -5px rgba(0, 0, 0, 0.35); 
 	-webkit-box-shadow: inset 5px 0 5px -5px  rgba(0, 0, 0, 0.35), inset -5px 0 5px -5px rgba(0, 0, 0, 0.35); 
 	-moz-box-shadow:  inset 5px 0 5px -5px  rgba(0, 0, 0, 0.35), inset -5px 0 5px -5px rgba(0, 0, 0, 0.35); 
 	color:#fff;
 	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);	
-}*/
+}
 .megamenu > li a.drop-down, .megamenu > li a.nodrop-down {
-	line-height:50px;
+	line-height:48px;
 	outline:0;
 	text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
 	text-decoration:none;
 	color:#fff;
 	font-weight:700;
-	text-transform:none;
-	font-size:18px;
+	text-transform:uppercase;
+	font-size:16px;
 		}
 		
 		.megamenu > li a.drop-down {
-			/*background-image:url("<%= asset_path 'arrow-down-white.png' %>");
+			background-image:url(<%= asset_path 'arrow-down-white.png' %>);
 			background-repeat: no-repeat;
-			background-position:right 20px;*/
-			padding:14px 10px 15px 0;
+			background-position:right 20px;
+			padding:14px 30px 15px 0;
 			color:#fff;
 		}
 		.megamenu > li a.nodrop-down {
@@ -73,18 +73,18 @@ CSS STRUCTURE:
 		}
 		.megamenu > li a.drop-down:hover {
 			cursor:pointer;
-			/*background-image:url("<%= asset_path 'arrow-down-white.png' %>");*/
-			color:$brand-warning;
+			background-image:url(<%= asset_path 'arrow-down-white.png' %>);
+			color:#fff;
 		}
 		
-		/*.megamenu > li .nodrop-down:hover {
+		.megamenu > li .nodrop-down:hover {
 			cursor:pointer;
 			background-image: none;
 			color:#fff;
-		}*/
+		}
 		.megamenu> li.active .drop-down{
 			cursor:pointer;
-			background-image:url("<%= asset_path 'arrow-down-white.png' %>");
+			background-image:url(<%= asset_path 'arrow-down-white.png' %>);
 			color:#fff;
 		}
 		 .megamenu > li.active .nodrop-down {
@@ -92,7 +92,7 @@ CSS STRUCTURE:
 		}
 	
 		a#megamenu-button-mobile {
-			background-image:url("<%= asset_path 'menu-down.png' %>");
+			background-image:url(<%= asset_path 'menu-down.png' %>);
 			background-repeat: no-repeat;
 			background-position:98% 13px;
 			padding:12px 20px 12px 0;
@@ -105,7 +105,7 @@ CSS STRUCTURE:
 			text-decoration:none;
 		}
 		a#megamenu-button-mobile.active {
-			background-image:url("<%= asset_path 'menu-up.png' %>");
+			background-image:url(<%= asset_path "menu-up.png" %>);
 			background-position:98% 11px;
 			box-shadow:none;
 		}
