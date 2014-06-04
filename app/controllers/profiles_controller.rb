@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  layout 'public', only: [:show, :edit]
+  layout 'public', only: [:show]
   impressionist :actions=>[:show]
 
   # GET /profiles
@@ -13,9 +13,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @programme = @profile.user.programmes.last
-    @credit_point_packs = CreditPointPack.available.order_by_price
-    @user_skills = @profile.user.user_skills.order_by_skill_level
+    @user = @profile.user
+    @posts = @user.posts.published_in_reverse_chron_order.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /profiles/new
@@ -76,6 +75,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :phone, :profile_picture, :user_id, :slug)
+      params.require(:profile).permit(:name, :phone, :profile_picture, :user_id, :slug, :google_plus, :linkedin, :twitter, :github, :website, :show_email, :title, :info)
     end
 end

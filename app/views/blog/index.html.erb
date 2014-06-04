@@ -49,10 +49,13 @@
       </div>
       <br>
     <% end %>
-    <% if Post.all.count > 5 %>
+    <% if Post.all.count > 3 %>
       <div class="col-right">
+      <div class="apple_pagination">
         <%= will_paginate @posts %>
+        </div>
       </div><!-- end col-right-->
     <% end %>
   </section> <!-- end section-->
 </div>
+<br>

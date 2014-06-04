@@ -51,10 +51,17 @@ input[type="color"],
 	<%= render 'layouts/header' %>
   <%= render 'layouts/nav' %>
   <div class="container">
+  <% if user_signed_in? %>
     <div class="row">
     <%= link_to "Admin", admin_path, class: 'btn btn-xs btn-default' %> 
     <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-xs btn-default' %>
+    <% if current_user.profile %>
+      <%= link_to "My profile", profile_path(current_user.profile), class: 'btn btn-default btn-xs' %>
+    <% else %>
+      <%= link_to "Create your profile", new_profile_path, class: 'btn btn-warning btn-xs' %>
+    <% end %>
     <hr>
+  <% end %>
 		  <%= yield %>
     </div>
   </div>

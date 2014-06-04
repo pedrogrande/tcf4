@@ -22,10 +22,9 @@
       <h2><a href="<%= post_url %>"><%= @post.title %></a></h2>
     </div>
     <div class="post_info clearfix">
-      <i class="fa fa-calendar-o"></i> <%= @post.created_at.strftime('%A, %e %B %Y') %>
+      <i class="fa fa-calendar-o"></i> <%= @post.published_date.strftime('%A, %e %B %Y') %>
       &nbsp; <i class="fa fa-user"></i> By <a href="#"><%= @post.user.profile.name if @post.user.profile %></a> 
-      &nbsp;
-      <i class="fa fa-tags"></i> Tags <% @post.tag_list.each do |tag| %><%= link_to tag, blog_path(tag: tag), class: 'btn btn-xs btn-default' %> <% end %>
+      
       </div>
      
     <p class="lead">

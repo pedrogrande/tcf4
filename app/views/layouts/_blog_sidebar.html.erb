@@ -57,14 +57,7 @@
       </ul>
       </div>
 
-      <hr>
-            
-      <div class="widget tags">
-        <h4>Tags</h4>
-        <% Post.tag_counts.each do |tag| %>
-          <%= link_to blog_path(tag: tag.name) do %><%= tag.name %><% end %>
-        <% end %>
-      </div><!-- End widget -->
+      
             
       <hr>
             

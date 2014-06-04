@@ -1,156 +1,102 @@
-<p id="notice"><%= notice %></p>
+<h1 class="col-md-12"><%= @profile.name %></h1>
+  <div class="col-md-12">
+    <ul class="breadcrumb">
+      <li><a href="<%= root_path %>">Home</a><span class="divider"></span></li>
+      <li class="active"><%= @profile.name %></li>
+    </ul>
+  </div>
 
-<h1 class="col-md-12">My Coder Factory Dashboard</h1>
-<% if current_user.has_role? :applicant and current_user.programmes.count > 0 %>
-  <%= render 'purchase_points' %>
-<% end %>
-<aside  class="col-md-3">
+<aside class="col-md-4">
   <div class="col-left">
     <div class="widget">
-      <h3>My details</h3>
+      <h3>About me</h3>
       <hr>
-      <p>
-        <strong>Name:</strong>
-        <%= @profile.name %>
+      <p class="text-center">
+        <% if @profile.profile_picture %>
+          <%= cl_image_tag @profile.profile_picture, class: 'img-responsive img-circle center-block'  %>
+        <% end %>
+        <strong><span><%= @profile.name %></span></strong><br>
+        <%= @profile.title %>
       </p>
+      <p class="text-justify"><%= @profile.info %></p>
+      <div class="row">
+      <div class="col-md-6 links">
+      <ul class="fa-ul">
+        <li>
+          <span class="fa-stack">
+            <i class="fa fa-circle-thin fa-stack-2x"></i>
+            <i class="fa fa-google-plus fa-stack-1x"></i>
+          </span> 
+          <%= link_to "Google+", @profile.google_plus %>
+        </li>
+        <li>
+          <span class="fa-stack">
+            <i class="fa fa-circle-thin fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x"></i>
+          </span> 
+          <%= link_to "Twitter", @profile.twitter %>
+        </li>
+        </ul>
+        </div>
+        <div class="col-md-6 links">
+        <ul class="fa-ul">
 
-      <p>
-        <strong>Phone:</strong>
-        <%= @profile.phone %>
-      </p>
+        <li>
+          <span class="fa-stack">
+            <i class="fa fa-circle-thin fa-stack-2x"></i>
+            <i class="fa fa-linkedin fa-stack-1x"></i>
+          </span> 
+          <%= link_to "LinkedIn", @profile.linkedin %>
+        </li>
+        <li>
+          <span class="fa-stack">
+            <i class="fa fa-circle-thin fa-stack-2x"></i>
+            <i class="fa fa-globe fa-stack-1x"></i>
+          </span> 
+          <%= link_to "Website", @profile.website %>
+        </li>
+      </ul>
+      </div></div>
 
-      <p>
-        <strong>Profile picture:</strong>
-        <%= @profile.profile_picture %>
-      </p>
-
-      <p>
-        <strong>Role:</strong>
-        <% @profile.user.roles.each do |role| %><span class="label label-default"><%= role.name %></span> <% end %>
-      </p>
-
-      <p>
-      <strong>Points:</strong>
-      <% if current_user.points_table %>
-      <%= current_user.points_table.current %>
-      <% end %>
-      </p>
-      <p><strong>Profile completion: </strong><%= @profile.completion %></p>
-
+     
       <br>
-      <%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-default btn-xs' %>
+      <% if user_signed_in? %>
+        <% if @profile == current_user.profile %>
+          <%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-default btn-xs' %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </aside>
-<div class="col-md-9">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="col-left">
-        <div class="widget">
-          <h3>My skills</h3>
-          <% if @user_skills.count > 0 %>
-            <table class="table table-resonsive">
-              <tr>
-                <th>Skill</th>
-                <th class="text-center">Level</th>
-              </tr>
-              <% @user_skills.each do |user_skill| %>
-                  <tr>
-                    <td><%= user_skill.skill.name %></td>
-                    <td><span class="label label-<%= skill_label(user_skill.skill_level) %> center-block"><%= skill_level_name(user_skill.skill_level) %></span></td>
-                  </tr>
-              <% end %>
-            </table>
-          <% else %>
-            <%= link_to "Add my skills", my_skills_path, class: 'btn btn-success' %>
-          <% end %>
-          <%= link_to "Manage my skills", my_skills_path, class: 'btn btn-default' %>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="col-left">
-        <div class="widget">
-          <h3>My goals</h3>
-          <hr>
-            <% if @profile.user.goals.count > 0 %>
-              <table class="table table-resonsive">
-                <tr>
-                  <th>Goal</th>
-                  <th>% Achieved</th>
-                </tr>
-                <% @profile.user.goals.each do |goal| %>
-                  <tr>
-                    <td><%= goal.name %></td>
-                    <td></td>
-                  </tr>
-                <% end %>
-              </table>
-            <% else %>
-              <%= link_to "Add my goals", my_goals_path, class: 'btn btn-success' %>
-            <% end %>
-            <%= link_to "Manage my goals", my_goals_path, class: 'btn btn-default' %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="col-left">
-          <div class="widget">
-            <h3>My programmes</h3>
-            <hr>
-            <% if @profile.user.programmes.count > 0 %>
-              <table class="table table-resonsive">
-                <tr>
-                <th>Programme</th>
-                <th></th>
-                </tr>
-                <% @profile.user.programmes.each do |programme| %>
-                  <tr>
-                    <td><%= @profile.name + "'s programme" %></td>
-                    <td><%= link_to 'Edit', edit_programme_path(programme) %></td>
-                  </tr>
-                <% end %>
-              </table>
-            <% else %>
-              <p>No programmes</p>
-            <% end %>
-            <%= link_to "Create a programme", new_programme_path, class: 'btn btn-success' %>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="col-left">
-          <div class="widget">
-            <h3>My modules</h3>
-            <hr>
-            <% if @profile.user.goals.count > 0 %>
-              <% @profile.user.goals.each do |goal| %>
-                <h3>Goal: <%= goal.name %></h3>
-                <table class="table table-resonsive">
-                  <tr>
-                    <th>Module</th>
-                    <th>Progress</th>
-                  </tr>
-                  <% goal.units.each do |unit| %>
-                    <tr>
-                      <td><%= unit.name %></td>
-                      <td>
-                        <% if !@profile.user.units.include?(unit) %>
-                          <%= link_to "Add module to programme", root_path, class: 'btn btn-default' %>
-                        <% end %>
+<div class="col-md-8">
+  <% if @posts.count > 0 %>
+    
+      <h2 class="white">Recent posts</h2>
 
-                      </td>
-                    </tr>
-                  <% end %>
-                </table>
-              <% end %>
+        <% @posts.each do |post| %>
+      <div class="col-right">
+        <div class="post">
+          <div class="blog-img">
+            <% if post.image.blank? %>
+              <a href="<%= post_path(post) %>"><img src="<%= asset_path 'PLAY.png' %>" alt="" class="img-responsive"></a>
+            <% else %>
+                <a href="<%= post_path(post) %>"><img src="<%= asset_path post.image %>" alt="" class="img-responsive" ></a>
             <% end %>
-
+            <h2 class="lead text-center"><%= post.title %></h2>
           </div>
         </div>
       </div>
-    </div>
+      <br>
+    <% end %>
+    <% if @posts.all.count > 3 %>
+      <div class="col-right">
+      <div class="apple_pagination">
+        <%= will_paginate @posts %>
+        </div>
+      </div><!-- end col-right-->
+    <% end %>
+
+      </div>
+    <% end %>
   </div>
-</div>
+

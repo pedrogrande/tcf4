@@ -4,7 +4,7 @@ class WeekendProgrammesController < ApplicationController
   # GET /weekend_programmes
   # GET /weekend_programmes.json
   def index
-    @weekend_programmes = WeekendProgramme.future_programmes
+    @weekend_programmes = WeekendProgramme.future_by_date_ascending
     @past_programmes = WeekendProgramme.past_programmes
   end
 

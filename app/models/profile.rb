@@ -2,6 +2,7 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   extend FriendlyId
   friendly_id :name, use: :slugged
+  mount_uploader :profile_picture, ProfilePictureUploader
   validates :name, presence: true
   before_save :calculate_profile_completion_percentage
 
