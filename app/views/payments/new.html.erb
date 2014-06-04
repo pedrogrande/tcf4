@@ -1,5 +1,6 @@
 <h1 class="col-md-12"><i class="fa fa-edit"></i> Registration <small>Step 2 of 2</small></h1>
 <hr><br>
+<div class="row">
 <div class="col-md-5">
   <div class="col-left">
     <h2>Your selected programme</h2>
@@ -9,7 +10,7 @@
         <p class="lead">Programme</p>
       </div>
       <div class="col-sm-8">
-        <p class="lead"><strong><%= @weekend_programme.popular_programme.name %></strong></p>
+        <p class="lead"><span class="details"><%= @weekend_programme.popular_programme.name %></span></p>
       </div>
     </div>
     <hr class="double">
@@ -19,7 +20,17 @@
         <p class="lead">Days</p>
       </div>
       <div class="col-sm-8">
-        <p class="lead"><strong><%= @weekend_programme.day %></strong></p>
+        <p class="lead"><span class="details"><%= @weekend_programme.day %></span></p>
+      </div>
+    </div>
+    <hr class="double">
+
+    <div class="row">
+      <div class="col-sm-4 text-right">
+        <p class="lead">Times</p>
+      </div>
+      <div class="col-sm-8">
+        <p class="lead"><span class="details"><%= @weekend_programme.start_time.strftime('%l:%M%P') %> - <%= @weekend_programme.end_time.strftime('%l:%M%P') %></span></p>
       </div>
     </div>
     <hr class="double">
@@ -28,7 +39,7 @@
         <p class="lead">Start date</p>
       </div>
       <div class="col-sm-8">
-        <p class="lead"><strong><%= @weekend_programme.date.strftime('%e %b %Y') %></strong></p>
+        <p class="lead"><span class="details"><%= @weekend_programme.date.strftime('%e %b %Y') %></span></p>
       </div>
     </div>
     <hr class="double">
@@ -37,7 +48,7 @@
         <p class="lead">Location</p>
       </div>
       <div class="col-sm-8">
-        <p class="lead"><strong><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></strong></p>
+        <p class="lead"><span class="details"><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></span></p>
       </div>
     </div>
     <hr class="double">
@@ -46,7 +57,7 @@
         <p class="lead">Price</p>
       </div>
       <div class="col-sm-8">
-        <p class="lead"><strong>$<%= @weekend_programme.popular_programme.price %></strong></p>
+        <p class="lead"><span class="details">$<%= @weekend_programme.popular_programme.price %></span></p>
       </div>
     </div>
     <hr class="double">
@@ -60,7 +71,8 @@
     <hr class="double">
     <h2>2. Make a payment. <small></small></h2>
     <hr class="double">
-    <p class="lead">Visa, MasterCard, and American Express are accepted and payments are processed through <a href="https://stripe.com/" target="_blank">Stripe</a>.</p> 
+    <p class="lead">Visa, MasterCard, and American Express are accepted and payments are processed through <a href="#stripe">Stripe</a>.</p> 
+    
     <p class="lead">Please choose one of the following options. </p>
     <hr class="double">
     <div class="row">
@@ -71,7 +83,7 @@
      
             <input 
                 type="submit" 
-                class="btn btn-success btn-xl btn-block"
+                class="btn btn-warning btn-xl btn-block"
                 value="Pay $<%= @popular_programme.price %>"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                 data-amount="<%= @popular_programme.price * 100 %>"
@@ -88,50 +100,60 @@
           <p class="lead text-center">No more to pay!</p>
         </div>
         <div class="col-sm-6">
-        <h3 class="text-center">Pay a deposit*</h3>
-          <form accept-charset="UTF-8" action="/payments?amount=10000&amp;guid=<%= @enrolment.guid %>" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" /></div>
-              
-          
+          <h3 class="text-center">Pay a deposit*</h3>
+            <form accept-charset="UTF-8" action="/payments?amount=10000&amp;guid=<%= @enrolment.guid %>" method="post">
+              <div style="display:none">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+              </div>
+            
               <input 
-                  type="submit" 
-                  class="btn btn-success btn-xl btn-block"
-                  value="Pay $100"
-                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                  data-amount="10000"
-                  data-currency="aud"
-                  data-name="Coder Factory"
-                  data-email="<%= @enrolment.email %>"
-                  data-image="<%= asset_path 'logo23.png' %>"
-                  data-description="Deposit on <%= @popular_programme.name %>"
-              />
-          
-              
-            </form>
-            <hr>
-            <p class="lead text-center">* A choice of payment plans will be provided and incur a 5% processing fee.</p>
+                    type="submit" 
+                    class="btn btn-warning btn-xl btn-block"
+                    value="Pay $100"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-amount="10000"
+                    data-currency="aud"
+                    data-name="Coder Factory"
+                    data-email="<%= @enrolment.email %>"
+                    data-image="<%= asset_path 'logo23.png' %>"
+                    data-description="Deposit on <%= @popular_programme.name %>"
+                />
+            
+                
+              </form>
+              <hr>
+              <p class="lead text-center">* A choice of <a href="<%= payment_plans_path %>" target="_blank" alt="Payment plan">payment plans</a> is available and incur a 5% processing fee.</p>
         </div>
-
-
-
+      </div>
+    </div>
+    <br>
+    <div class="col-right">
+    <h3>Stripe credit card payments</h3>
+    <p id="stripe"><small>We use <a href="https://stripe.com/" target="_blank">Stripe</a> as our payment provider. That way, you can be sure that your payment is properly handled and your credit card information is stored securely. The Coder Factory does not store any credit card information at all. To use stripe you don’t have to do anything -- it processes your payment without the necessity for you to create an account or register anywhere.</small></p>
+    </div>
   </div>
-</div>
+  </div>
+  <div class="row">
+  <div class="break"></div>
+  </div>
 <script src="https://checkout.stripe.com/v2/checkout.js"></script>
               
-              <script>
-              $(document).ready(function() {
-                  $(':submit').on('click', function(event) {
-                      event.preventDefault();
-          
-                      var $button = $(this),
-                          $form = $button.parents('form');
-          
-                      var opts = $.extend({}, $button.data(), {
-                          token: function(result) {
-                              $form.append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: result.id })).submit();
-                          }
-                      });
-          
-                      StripeCheckout.open(opts);
-                  });
-              });
-              </script>
+<script>
+$(document).ready(function() {
+    $(':submit').on('click', function(event) {
+        event.preventDefault();
+
+        var $button = $(this),
+            $form = $button.parents('form');
+
+        var opts = $.extend({}, $button.data(), {
+            token: function(result) {
+                $form.append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: result.id })).submit();
+            }
+        });
+
+        StripeCheckout.open(opts);
+    });
+});
+</script>

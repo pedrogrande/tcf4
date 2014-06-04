@@ -1,5 +1,5 @@
 class EnrolmentsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:new, :create, :thanks]
   before_action :set_enrolment, only: [:show, :edit, :update, :destroy]
   layout 'public', only: [:new, :edit, :thanks]
   impressionist :actions=>[:new]

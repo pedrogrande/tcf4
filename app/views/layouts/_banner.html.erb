@@ -1,1 +1,1 @@
-<p><%= link_to @banner.link do %><%= image_tag @banner.image, alt: "Banner", class: "img-responsive banner" %><% end %></p>
+<p><%= link_to @banner.link do %><%= image_tag @banner.image, alt: @banner.name, title: @banner.name, class: "img-responsive banner", target: '_blank' %><% end %></p>
