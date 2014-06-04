@@ -45,19 +45,23 @@
   <%= @enrolment.country %>
 </p>
 
+<p><strong>Reason for wanting to learn to code</strong>
+<%= @enrolment.about %>
+</p>
+
 <p>
-  <strong>Popular programme:</strong>
+  <strong>Programme:</strong>
   <%= @enrolment.popular_programme.name %>
 </p>
 
 <p>
-  <strong>Weekend programme:</strong>
+  <strong>Intake:</strong>
   <%= @enrolment.weekend_programme.location.city %>
 </p>
 
 <p>
   <strong>Paid:</strong>
-$<%= @enrolment.payment.payment_price / 100 %>
+$<%= @enrolment.payment.payment_price / 100 if @enrolment.payment %>
 </p>
 
 <%= link_to 'Edit', edit_enrolment_path(@enrolment) %> |

@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "Coder Factory Enquiry <enquiries@thecoderfactory.com>"
+  default from: "Coder Factory Enquiry <enquiry@thecoderfactory.com>"
 
   def contact_email(enquiry)
   	@enquiry = enquiry

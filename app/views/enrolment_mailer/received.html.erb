@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Enrolment received</h1>
+    	<p>
+    	  <strong>First name:</strong>
+    	  <%= @enrolment.first_name %>
+    	</p>
+
+    	<p>
+    	  <strong>Last name:</strong>
+    	  <%= @enrolment.last_name %>
+    	</p>
+
+    	<p>
+    	  <strong>Phone:</strong>
+    	  <%= @enrolment.phone %>
+    	</p>
+
+    	<p>
+    	  <strong>Email:</strong>
+    	  <%= @enrolment.email %>
+    	</p>
+
+    	<p>
+    	  <strong>Address:</strong>
+    	  <%= @enrolment.address %>
+    	</p>
+
+    	<p>
+    	  <strong>Suburb:</strong>
+    	  <%= @enrolment.suburb %>
+    	</p>
+
+    	<p>
+    	  <strong>State:</strong>
+    	  <%= @enrolment.state %>
+    	</p>
+
+    	<p>
+    	  <strong>Postcode:</strong>
+    	  <%= @enrolment.postcode %>
+    	</p>
+
+    	<p>
+    	  <strong>Country:</strong>
+    	  <%= @enrolment.country %>
+    	</p>
+
+    	<p><strong>Reason for wanting to learn to code</strong>
+    	<%= @enrolment.about %>
+    	</p>
+
+    	<p>
+    	  <strong>Popular programme:</strong>
+    	  <%= @enrolment.popular_programme.name %>
+    	</p>
+
+    	<p>
+    	  <strong>Weekend programme:</strong>
+    	  <%= @enrolment.weekend_programme.location.city %>
+    	</p>
+
+    	<p>
+    	  <strong>Paid:</strong>
+    	$<%= @enrolment.payment.payment_price / 100 if @enrolment.payment %>
+    	</p>
+
+    	<%= link_to 'Link to Enrolment', enrolment_url(@enrolment) %>
+
+
+  </body>
+</html>

@@ -247,7 +247,7 @@
 				<tr>
 					<td>
 						<p><img src="http://res.cloudinary.com/coder-factory/image/upload/v1401909689/logo-footer_ksgy8i.png" /></p>
-						<h3>Thanks for connecting with us, <%= @enquiry.name %> </h3>
+						<h3>Thanks for enrollling at Coder Factory, <%= @enrolment.first_name %> </h3>
 						<!-- A Real Hero (and a real human being) -->
 						<p><img src="http://res.cloudinary.com/coder-factory/image/upload/v1401907457/class-compressor_wkztgw.png" /></p><!-- /hero -->
 						
@@ -256,8 +256,16 @@
 							If you'd like to ask us any more questions,  <a href="http://localhost:3000/contact">You can do it Now! &raquo;</a>
 						</p><!-- /Callout Panel -->
 						
-						<h3>Your message has been recieved.</h3>
-						<p><%= @enquiry.content %></p>
+						<h3>Your enrolment has been recieved and we will send you more details shortly.</h3>
+						<p>
+						  <strong>Programme:</strong>
+						  <%= @enrolment.popular_programme.name %>
+						</p>
+
+						<p>
+						  <strong>Intake:</strong>
+						  <%= @enrolment.weekend_programme.location.city %>
+						</p>
 												
 						<br/>
 						<br/>							
