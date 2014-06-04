@@ -7,7 +7,6 @@
       <th class="text-right">Price</th>
       <th class="text-right">Future Intakes</th>
       <th class="text-right">Past Intakes</th>
-      <th>Credit point pack</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -19,7 +18,6 @@
         <td class="text-right"><%= popular_programme.price %></td>
         <td class="text-right"><%= popular_programme.weekend_programmes.future_programmes.count if popular_programme.weekend_programmes.future_programmes %></td>
         <td class="text-right"><%= popular_programme.weekend_programmes.past_programmes.count if popular_programme.weekend_programmes.past_programmes %></td>
-        <td><%= popular_programme.credit_point_pack.name %></td>
         <td><%= link_to 'Edit', edit_popular_programme_path(popular_programme) %></td>
         <td><%= link_to 'Destroy', popular_programme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -30,15 +30,19 @@
       <% if @popular_posts %>
       <hr>
       <div class="widget">
-        <h4>Popular articles</h4>
+        <h4>Popular posts</h4>
+        <div class="row">
           <% @popular_posts.each do |post| %>
-            <ul class="fa-ul">
-              <li>
-                <i class="fa-li fa fa-calendar-o"></i>  <%= post.created_at.strftime('%A, %e %B %Y') %>
-                <div><a href="<%= post_path(post) %>"><%= post.title %> </a></div>
-              </li>
-            </ul>
+          <div class="col-md-12 popular-post">
+            <%= cl_image_tag post.image, class: 'pull-left' %> 
+            <p>
+              <a href="<%= post_path(post) %>"><%= post.title %> </a>
+            </p>
+                 </div>
+                
+              
           <% end %>
+          </div>
       </div><!-- End widget -->
       <% end %>
 
