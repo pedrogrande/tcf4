@@ -1,3 +1,9 @@
+<%= content_for :page_title, @popular_programme.name %>
+<%= content_for :link, popular_programme_url(@popular_programme) %>
+<%= content_for :title, @popular_programme.name + ' Locations: Sydney, Melbourne, Brisbane, Gold Coast, Adelaide, Perth' %>
+<%= content_for :description, @popular_programme.name + ': ' + @popular_programme.tagline + ' Next start date: ' + @popular_programme.weekend_programmes.first.date.strftime('%e %h %Y').to_s %>
+<%= content_for :image, @popular_programme.image %>
+
 <h1 class="col-md-12"><i class="fa fa-<%= @popular_programme.icon %>"></i> <%= @popular_programme.name %></h1>
   <div class="col-md-12">
         <ul class="breadcrumb">
@@ -72,9 +78,11 @@
 
       
     </div>
-
-    <%= link_to programmes_path, class: 'btn btn-lg btn-success btn-lg' do %><i class="fa fa-arrow-circle-o-right"></i> Start this programme<% end %>
-    
+    <% if @popular_programme.weekend_programmes.count > 0 %>
+      <% @popular_programme.weekend_programmes.each do |weekend_programme| %>
+        <%= link_to new_enrolment_path(intake: weekend_programme.id), class: 'btn btn-lg btn-success btn-lg' do %><i class="fa fa-book"></i> Book in for <%= weekend_programme.location.city %><% end %>
+      <% end %>
+    <% end %>
   
 </section>
 <aside class="col-md-4 visible-xs visible-sm">

@@ -13,6 +13,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @user = @post.user
+    @profile = @user.profile
     impressionist(@post, @post.title)
     @posts = Post.limit(3).order('id DESC')
     @categories = Category.all

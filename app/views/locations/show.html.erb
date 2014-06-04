@@ -1,3 +1,7 @@
+<%= content_for :page_title, 'Coder Factory Locations - ' + @location.name + ', ' + @location.city %>
+<%= content_for :title, 'Coder Factory Locations - ' + @location.name + ', ' + @location.city %>
+<%= content_for :description, 'Coder Factory workshop locations include ' + @location.name + 'in ' + @location.city + ', ' + @location.state + ', ' + @location.country %>
+
 <h1 class="col-md-12"><i class="fa fa-map-marker"></i> <%= @location.name %>, <%= @location.city %></h1>
   <div class="col-md-12">
         <ul class="breadcrumb">

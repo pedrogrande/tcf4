@@ -1,3 +1,9 @@
+<%= content_for :page_title, @profile.name + ', ' + @profile.title + ' at Coder Factory' %>
+<%= content_for :title, @profile.name + ', ' + @profile.title + ' at Coder Factory' %>
+<%= content_for :description, @profile.info %>
+<%= content_for :image, @profile.profile_picture %>
+<%= content_for :author, @profile.name %>
+
 <h1 class="col-md-12"><%= @profile.name %></h1>
   <div class="col-md-12">
     <ul class="breadcrumb">

@@ -1,3 +1,10 @@
+<%= content_for :page_title, @post.title + ' (Coder Factory blog post)' %>
+<%= content_for :title, @post.title + ' (Coder Factory blog post)' %>
+<%= content_for :description, @post.title + ': ' + @post.lead.html_safe %>
+<%= content_for :image, @post.image %>
+<%= content_for :author, @profile.name if @profile %>
+
+
 <h1 class="col-md-12"><%= @post.title %></h1>
   <div class="col-md-12">
     <ul class="breadcrumb">
@@ -22,13 +29,15 @@
       <h2><a href="<%= post_url %>"><%= @post.title %></a></h2>
     </div>
     <div class="post_info clearfix">
-      <i class="fa fa-calendar-o"></i> <%= @post.published_date.strftime('%A, %e %B %Y') %>
-      &nbsp; <i class="fa fa-user"></i> By <a href="#"><%= @post.user.profile.name if @post.user.profile %></a> 
       
+      <% if @profile %>
+       <span class="author vcard"><a rel="author" href="<%= @profile.google_plus %>?rel=author"><%= cl_image_tag @profile.profile_picture, class: 'img-circle blog-profile' %> <%= @profile.name %></a> 
+      <% end %>
+      &nbsp; <i class="fa fa-calendar-o"></i> <abbr class="published" title="Published on <%= @post.published_date.strftime('%A, %e %B %Y, %l:%M%P') %>"><%= @post.published_date.strftime('%A, %e %B %Y') %></abbr>
       </div>
      
     <p class="lead">
-       <%= @post.lead %>
+       <%= @post.lead.html_safe %>
     </p>
     <p><%= @post.content.html_safe %></p>
     <div class="post-left">
