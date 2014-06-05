@@ -257,15 +257,28 @@
 						</p><!-- /Callout Panel -->
 						
 						<h3>Your enrolment has been recieved and we will send you more details shortly.</h3>
+						<h4>Here are the details of the programme you are enrolled in:
 						<p>
 						  <strong>Programme:</strong>
 						  <%= @enrolment.popular_programme.name %>
 						</p>
-
 						<p>
-						  <strong>Intake:</strong>
-						  <%= @enrolment.weekend_programme.location.city %>
+						  <strong>Location:</strong>
+						  <%= @enrolment.weekend_programme.location.name %>, <%= @enrolment.weekend_programme.location.city %>
 						</p>
+						<p>
+						  <strong>Days:</strong>
+						  <%= @enrolment.weekend_programme.day %>
+						</p>
+						<p>
+						  <strong>Dates:</strong>
+						  <%= @enrolment.weekend_programme.date.strftime('%d %b %y') %> to <%= @enrolment.weekend_programme.end_date.strftime('%d %b %y') %>
+						</p>
+						<p>
+						  <strong>Times:</strong>
+						  <%= @enrolment.weekend_programme.start_time.strftime('%l:%M%P') %> to <%= @enrolment.weekend_programme.end_time.strftime('%l:%M%P') %>
+						</p>
+						<h4>We're looking forward to seeing you soon.</h4>
 												
 						<br/>
 						<br/>							

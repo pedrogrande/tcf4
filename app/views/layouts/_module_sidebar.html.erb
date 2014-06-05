@@ -1,5 +1,6 @@
 <!-- =========================Start Col left section ============================= -->
 <aside  class="col-md-4 ">
+  <%= render 'layouts/banner' %>
 	<div class="col-left">
     
       <ul class="submenu-col">
@@ -24,5 +25,5 @@
       <p><a href="<%= all_workshops_path %>" class=" button_red_small">View Courses</a></p>
             
     </div>
-    <p><a href="<%= @banner.link %>" title="<%= @banner.name %>"><img src="<%= asset_path @banner.image %>" alt="<%= @banner.name %>" class="img-responsive" ></a></p>
+    
 </aside>

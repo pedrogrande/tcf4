@@ -1,9 +1,50 @@
 <h1 class="col-md-12">Welcome to the Coder Factory family.</h1>
 
 <hr><br>
-<div class="col-md-5">
-  <div class="col-left">
-  <p class="lead">Stuff goes here</p>
+
+ <div class="col-md-8">
+ <div class="col-right">
+ <h2>You have joined a fast growing community of coders and you're going to have fun, be inspired and have more hope for the future.</h2>
+ <p class="lead">You can get started on your journey now by joining the following groups.</p>
+<div class="row"><div class="col-md-5">
+ <p><a href="https://facebook.com/groups/thecoderfactory" target="_blank" class="btn btn-default btn-block">Coder Factory Facebook Group</a></p>
+ <p><a href="http://www.meetup.com/Sunday-Coder-Club/" target="_blank" class="btn btn-default btn-block">Sunday Coder Club - Sydney</a></p>
+ <p><a href="http://www.meetup.com/Brisbane-Coder-Club/" target="_blank" class="btn btn-default btn-block">Sunday Coder Club - Brisbane</a></p>
+ </div></div>
+ </div>
+ <div class="break"><br></div>
+ </div>
+<div class="col-md-4">
+  <%= render 'layouts/banner' %>
+  <div class="col-left"><div class="widget">
+        <h4>Keep in the loop</h4>
+            
+            <div id="message-newsletter"></div>
+              <form action="http://thecoderfactory.us7.list-manage1.com/subscribe/post?u=1c644187b6d7e06d32bcae158&amp;id=2afdc8b0c3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div class="form-group">
+                    <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" required></div><!-- 
+                    real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_1c644187b6d7e06d32bcae158_2afdc8b0c3" value=""></div>
+                    <div class="clear"><input type="submit" value="Stay informed" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success"></div>
+                </form>
+          </div>
+          <div class="break"><br></div>
+        <div class="widget">
+        <h4>Featured Article</h4>
+        <div class="col-md-12 popular-post">
+            <%= cl_image_tag @post.image, class: 'pull-left' if @post.image %> 
+            <p>
+              <a href="<%= post_path(@post) %>"><%= @post.title %> </a>
+            </p>
+        </div>
+
+                
+      </div><!-- End widget -->
+      <div class="break"><br></div>
+      </div>
+
+
+
 
   </div>
  </div>
