@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
   root 'home#index'
   devise_for :users
+  get "/courses/web-app-coder-ruby-on-rails", to: redirect('/popular_programmes/web-app-developer-deluxe')
+  get "/courses/web-app-coder-angular-and-node", to: redirect('/popular_programmes/web-app-developer-deluxe')
+  get "/ruby_on_rails_course_scholarship", to: redirect('/')
+  get "/courses/web-app-coder-pro", to: redirect('/popular_programmes/web-app-developer-deluxe')
+  get "/courses/beginner-coder-weekend-workshop-melbourne", to: redirect('/popular_programmes/beginner-coder-weekend-programme')
+  get "/courses/beginner-coder-weekend-workshop-melbourne-adelaide", to: redirect('/popular_programmes/beginner-coder-weekend-programme')
+  get "/courses/expert-coder", to: redirect('/popular_programmes/web-app-developer-deluxe')
+  get "/courses/angular-coder", to: redirect('/popular_programmes/web-app-developer-deluxe')
+  get "/courses/beginner-coder-weekend-workshop-melbourne-adelaide-sydney-brisbane-perth", to: redirect('/popular_programmes/beginner-coder-weekend-programme')
+  get "/courses/rails-coder-web-application-development-course", to: redirect('/popular_programmes/web-application-developer-programme')
+  get "/courses/angular-coder-frontend-javascript-framework-course", to: redirect('/popular_programmes/web-application-developer-programme')
+  get "/web-development-and-javascript-courses", to: redirect('/')
   resources :popular_programmes
   resources :enrolments do
     member do

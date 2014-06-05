@@ -31,6 +31,8 @@ gem 'impressionist'
 gem 'ckeditor_rails', :git => 'https://github.com/tsechingho/ckeditor-rails'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'sitemap_generator'
+gem 'whenever', :require => false
 group :development do
   gem "better_errors"
   gem 'quiet_assets'
