@@ -5,14 +5,14 @@ class Enrolment < ActiveRecord::Base
   
   is_impressionable
 
-  # validates :first_name, 
-  # 					:last_name,
-  # 					:email, 
-  # 					:address, 
-  # 					:suburb, 
-  # 					:state, 
-  # 					:postcode, 
-  # 					presence: true
+  validates :first_name, 
+  					:last_name,
+  					:email, 
+  					:address, 
+  					:suburb, 
+  					:state, 
+  					:postcode, 
+  					presence: true
 
   before_create :populate_guid
   def self.reverse_order
