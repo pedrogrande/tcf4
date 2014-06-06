@@ -1,7 +1,6 @@
 class DropTaggings < ActiveRecord::Migration
   def change
-  	drop_table :taggings
-    drop_table :tags
+  
     
     create_table :tags do |t|
       t.string :name

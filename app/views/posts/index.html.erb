@@ -19,7 +19,7 @@
         <td><% if post.publish %><span class="label label-success">Published</span><% end %></td>
         <td><%= post.published_date.strftime('%l %b %y') %></td>
         <td><%= post.user.profile.name if post.user.profile %></td>
-        <td><%= post.category.name %></td>
+        <td><%= post.category.name if post.category %></td>
         <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning btn-xs' %></td>
         <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
       </tr>
