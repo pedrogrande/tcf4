@@ -4,10 +4,4 @@
  User-agent: *
  Sitemap: https://thecoderfactory.com/sitemap.xml.gz
  Disallow: /admin
- Disallow: /
- Disallow: 
- Disallow: 
- Disallow: 
- Disallow: 
- Disallow: 
 
