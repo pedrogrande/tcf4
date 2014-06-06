@@ -51,12 +51,12 @@
 
 <p>
   <strong>Programme:</strong>
-  <%= @enrolment.popular_programme.name %>
+  <%= @enrolment.popular_programme.name if @enrolment.popular_programme %>
 </p>
 
 <p>
   <strong>Intake:</strong>
-  <%= @enrolment.weekend_programme.location.city %>
+  <%= @enrolment.weekend_programme.location.city if @enrolment.weekend_programme %>
 </p>
 
 <p>
