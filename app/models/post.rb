@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :category
 
-	is_impressionable
+	is_impressionable :counter_cache => true
 	# validates :title, :lead, :content, :category_id, :slug, presence: true
 
 	extend FriendlyId
