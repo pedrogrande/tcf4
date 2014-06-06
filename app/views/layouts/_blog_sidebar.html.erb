@@ -28,7 +28,7 @@
         <div class="row">
           <% @popular_posts.each do |post| %>
           <div class="col-md-12 popular-post">
-            <%= cl_image_tag post.image, class: 'pull-left' %> 
+            <span class="pull-left"><%= cl_image_tag(post.image, :width => 100, :height => 50, :crop => :fill) %> </span>
             <p>
               <a href="<%= post_path(post) %>"><%= post.title %> </a>
             </p>

@@ -1,16 +1,34 @@
 <%= simple_form_for(@unit) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :tagline %>
-    <%= f.input :description %>
-    <%= f.input :duration_minutes %>
-    <%= f.input :icon %>
-    <%= f.association :skill_group %>
-    <%= f.input :unit_code %>
-    <%= f.input :workshop_credits %>
-    <%= f.input :online_credits %>
+  <div class="form-group">
+    <%= f.input :name, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :tagline, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :description, input_html: { class: 'form-control', rows: 10} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :duration_minutes, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :icon, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.association :skill_group, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :unit_code, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :workshop_credits, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :online_credits, input_html: { class: 'form-control'} %>
+  </div>
+  <div class="checkbox">
     <%= f.input :active %>
   </div>
 
