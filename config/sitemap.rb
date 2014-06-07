@@ -22,4 +22,8 @@ SitemapGenerator::Sitemap.create do
   Location.find_each do |location|
     add location_path(location), :lastmod => location.updated_at
   end
+
+  Unit.find_each do |unit|
+    add unit_path(unit), :lastmod => unit.updated_at
+  end
 end

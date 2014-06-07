@@ -1,7 +1,7 @@
 class UnitsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   before_action :set_unit, only: [:show, :edit, :update, :destroy]
-  layout 'public', only: [:show, :index]
+  layout 'public', only: [:show]
 
   # GET /units
   # GET /units.json

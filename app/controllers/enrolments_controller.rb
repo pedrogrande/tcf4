@@ -12,7 +12,8 @@ class EnrolmentsController < ApplicationController
   def thanks
     @enrolment = Enrolment.find(params[:id])
     @post = Post.published_in_reverse_chron_order.popular_posts.first
-    EnrolmentMailer.response(@enrolment).deliver
+    EnrolmentMailerJob.new.async.perform(@enrolment.id)
+    UpdateStudentNumberJob.new.async.perform(@enrolment.id)
   end
   # GET /enrolments/1
   # GET /enrolments/1.json
@@ -38,7 +39,7 @@ class EnrolmentsController < ApplicationController
 
     respond_to do |format|
       if @enrolment.save
-        EnrolmentMailer.received(@enrolment).deliver
+        # EnrolmentMailer.received(@enrolment).deliver
         format.html { redirect_to new_payment_path(enrolment: @enrolment.guid) }
         format.json { render :show, status: :created, location: @enrolment }
       else

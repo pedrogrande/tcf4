@@ -3,5 +3,6 @@ class AboutController < ApplicationController
 	layout 'public'
 	impressionist
   def index
+  	@profiles = Profile.all
   end
 end

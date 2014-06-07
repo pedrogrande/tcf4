@@ -20,4 +20,9 @@ class EnrolmentMailer < ActionMailer::Base
     @enrolment = enrolment
     mail(to: "info@thecoderfactory.com", subject: "Coder Factory Enrolment received")
   end
+
+  def paid(enrolment)
+    @enrolment = enrolment
+    mail(to: "info@thecoderfactory.com", subject: "Coder Factory Enrolment PAID")
+  end
 end

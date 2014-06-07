@@ -18,7 +18,7 @@
 <section class="col-lg-8">
   <div class="col-right">
     <div class="main-img">
-      <img src="<%= asset_path @popular_programme.image %>" alt="<%= asset_path @popular_programme.image %>" class="img-responsive">
+      <img src="<%= asset_path @popular_programme.image %>" alt="<%= asset_path @popular_programme.image %>" class="img-responsive hidden-xs">
       <p class="lead"><%= @popular_programme.tagline %></p>
       
     </div>
@@ -31,9 +31,10 @@
       
       <%= @popular_programme.name %>
     </h2>
-  
-    
-    <p><%= @popular_programme.description.html_safe %> </p>
+
+    <div class="text-justify">
+      <p><%= @popular_programme.description.html_safe %> </p>
+    </div>
   </div>
 
     <!-- Programme numbers -->
@@ -41,7 +42,7 @@
 
     <!-- Scheduled programmes -->
     <% if @popular_programme.weekend_programmes.count > 0 %>
-    <div class="scheduled">
+    <div class="scheduled" id="scheduled">
       <h3>Scheduled programmes</h3>
       <%= render @weekend_programmes %>
     </div>
@@ -72,6 +73,10 @@
               <span class="label label-default"><%= pluralize(unit.duration_minutes / 60.0, 'hour') %></span>
             </p>
             <p class="lead"><%= unit.tagline %></p>
+            <% if unit.outcome %>
+              <p><strong>Outcome:</strong></p>
+              <p><%= unit.outcome %></p>
+            <% end %>
           </div>
         </div>
       </div>
@@ -79,11 +84,7 @@
 
       
     </div>
-    <% if @popular_programme.weekend_programmes.count > 0 %>
-      <% @popular_programme.weekend_programmes.each do |weekend_programme| %>
-        <%= link_to new_enrolment_path(intake: weekend_programme.id), class: 'btn btn-lg btn-success btn-lg' do %><i class="fa fa-book"></i> Book in for <%= weekend_programme.location.city %><% end %>
-      <% end %>
-    <% end %>
+    <a href="#scheduled" class="btn btn-success btn-xl">Book this programme</a>
   
 </section>
 <aside class="col-md-4 visible-xs visible-sm">

@@ -23,23 +23,23 @@
   <!-- =========================Start Col right section ============================= -->
 <section class="col-md-8">
   <div class="col-right">
-  <div class="post">
+  <div itemscope itemtype="http://schema.org/Article" class="post">
     <div class="post-img">
-      <img src="<%= asset_path @post.image %>" alt="<%= @post.title %>" class="img-responsive">
-      <h2><a href="<%= post_url %>"><%= @post.title %></a></h2>
+      <img itemprop="image" src="<%= asset_path @post.image %>" alt="<%= @post.title %>" class="img-responsive">
+      <h2><a href="<%= post_url %>"><span itemprop="name"><%= @post.title %></span></a></h2>
     </div>
     <div class="post_info clearfix">
       
       <% if @profile %>
-       <span class="author vcard"><a rel="author" href="<%= @profile.google_plus %>?rel=author"><%= cl_image_tag @profile.profile_picture, class: 'img-circle blog-profile' %> <%= @profile.name %></a> 
+       <span class="author vcard"><a rel="author" href="<%= @profile.google_plus %>?rel=author"><%= cl_image_tag @profile.profile_picture, class: 'img-circle blog-profile' %> <span itemprop="author" itemscope itemtype="http://schema.org/Person"><%= @profile.name %></span></a> 
       <% end %>
-      &nbsp; <i class="fa fa-calendar-o"></i> <abbr class="published" title="Published on <%= @post.published_date.strftime('%A, %e %B %Y, %l:%M%P') %>"><%= @post.published_date.strftime('%A, %e %B %Y') %></abbr>
+      &nbsp; <i class="fa fa-calendar-o"></i> <abbr class="published" itemprop="datePublished" content="<%= @post.published_date.strftime('%Y-%m-%d') %>" title="Published on <%= @post.published_date.strftime('%A, %e %B %Y, %l:%M%P') %>"><%= @post.published_date.strftime('%A, %e %B %Y') %></abbr>
       </div>
      
-    <p class="lead">
+    <p class="lead" itemprop="articleSection">
        <%= @post.lead.html_safe %>
     </p>
-    <p><%= @post.content.html_safe %></p>
+    <div itemprop="articleBody" class="text-justify"><p><%= @post.content.html_safe %></p></div>
     <div class="post-left">
         <i class="fa fa-book"></i> Posted in <%= link_to @post.category.name, blog_path(category: @post.category), class: 'btn btn-xs btn-default' %></li>
          

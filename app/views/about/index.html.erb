@@ -10,21 +10,9 @@
 		</ul>
 	</div>
 	<!-- =========================Start Col left section ============================= -->   
-	<aside class="col-md-4 ">
+	<aside class="col-md-12 ">
 	<div class="col-left">
-		<h4>Mission</h4>
-		<p>
-			Empowering the citizens of the world to embrace their technological future.
-		</p>
-		<hr>
-        
-		<h4>Strategies</h4>
-		<p>
-			The Coder Factory provides education in the latest web design and application development technologies to enable people to empower themselves and improve the lives of their family, their communities and their world.
-		</p>
-		<a href="blog" class="btn btn-sm btn-default">Read more</a>
-		<hr>
-
+		
 		<!-- <h4>Testimonials</h4>
 		<p>
 			Our graduates have the skills, knowledge and confidence to build their own tech startups and create apps that make a difference in the world, help advance their careers and enrich their personal life.
@@ -39,35 +27,121 @@
 			<li>See your personalised programme</li>
 		</ul>
 		<p><a href="personalised-programme.html" class=" button_medium">Start now</a></p> -->
-	</div><!--End col left -->
-    
-	<p><%= render 'layouts/banner' %></p>
-	</aside>
+	
 
 <!-- =========================Start Col right section ============================= --> 
-<section class="col-md-8  ">
-	<div class="col-right">
-       <div class="main-img">
-            <img src="<%= asset_path 'about.jpg' %>" alt="" class="img-responsive">
-            <p class="lead">"If you enjoy building things and seeing ideas come to life, then I would strongly recommend you give the guys at The Coder Factory a call." - Mark Collins</p>
-        </div>
-    <p>The Coder Factory helps you become a confident coder with flexible part time courses. Build fun and exciting projects that could make your dreams come true.</p>
 
+       <div class="row ">
+       <h2 class="col-md-12">Our mission</h2>
+			<div class="col-md-6">
+				<center><a href="#" class="" style="cursor:none;"><img class="img-circle img-responsive" alt="Future2" src="<%= asset_path 'future.jpg' %>" /></a></center>
+				<h2 class="text-center">Technology education.</h2>
+				<p class="grey text-justify">The Coder Factory provides education in the latest web design and application development technologies to enable people to empower themselves and improve the lives of their family, their communities and their world.</p>
+			</div>
+	 		<div class="col-md-6">
+				<center><a href="#" class="" style="cursor:none;"><img class="img-circle img-responsive" alt="Streak" src="<%= asset_path 'streak.jpg' %>" /></a></center>
+	 			<h2 class="text-center">Change your future!</h2>
+				<p class="grey text-justify">Our graduates have the skills, knowledge and confidence to build their own tech startups and create apps that make a difference in the world, help advance their careers and enrich their personal life.</p>
+			</div>
+	 		<div class="col-md-6">
+				<center><a href="#" class="" style="cursor:none;"><img class="img-circle img-responsive" alt="Superpower" src="<%= asset_path 'super.jpg' %>" /></a></center>
+				<h2 class="text-center">Coding is a super power!</h2>
+	 			<p class="grey text-justify">Once you know how to code, a whole new world of possibilities open up to you. You now have the power to code for the rest of your life.</p>
+				
+			</div>
+	 		<div class="col-md-6">
+				<center><a href="#" class="" style="cursor:none;"><img class="img-circle img-responsive" alt="Ipad" src="<%= asset_path 'ipad.jpg' %>" /></a></center>
+				<h2 class="text-center">Change the world.</h2>
+				<p class="grey text-justify">Will the apps you create revolutionise the world as we know it? Solve world hunger? Eliminate poverty? Bring about peace for all mankind?</p>
+			</div>
+			 
+		</div>
 
-<h5>Why us?</h5>
-<ul class=" list_3">
-    <li>Fun, face-to-face classes</li>
-    <li>Learn fast</li>
-    <li> Busy with life? We're flexible</li>    
-    <li>Learn the latest tech</li>
-    <li>Build &amp; launch real apps</li>
-    <li>Network and collaborate</li>
-</ul>
+		<hr>
+		<div class="wrapper row">
+		<div class="col-md-4">
+			<h3 class="smaller-margin">
+				<span class="square-icons blue">
+				<i class="fa fa-globe"></i> </span>
+				Aims
+			</h3>
+			<p class="text-justify">Advance technology education in Australia and globally to help improve the work and lives of people everywhere.</p>
+		</div>
+		<div class="col-md-4">
+			<h3 class="smaller-margin">
+				<span class="square-icons blue">
+				<i class="fa fa-flag-checkered"></i> </span>
+				Goals
+			</h3>
+			<p class="text-justify">Support tech startup entrepreneurs and app developers through education, networking opportunities and media exposure.</p>
+		</div>
+		<div class="col-md-4">
+			<h3 class="smaller-margin">
+				<span class="square-icons blue">
+				<i class="fa fa-calendar"></i> </span>
+				Plans
+			</h3>
+			<p class="text-justify">Undertake initiatives that encourage more people to learn coding and better their lives.</p>
+		</div>
+	</div>
+	<br>
+	<div class="wrapper row">
+		<div class="col-md-4">
+			<h3 class="smaller-margin">
+				<span class="square-icons blue">
+				<i class="fa fa-code"></i> </span>
+				Advice
+			</h3>
+			<p class="text-justify">Provide web application development advice and services for innovative tech startup founders and small businesses.</p>
+		</div>
+		<div class="col-md-4">
+			<h3 class="smaller-margin">
+				<span class="square-icons blue">
+				<i class="fa fa-group"></i> </span>
+				Community
+			</h3>
+			<p class="text-justify">Promote and encourage a supportive and welcoming coder community through entertaining and inclusive events.</p>
+		</div>
+		<div class="col-md-4">
+			<h3 class="smaller-margin">
+				<span class="square-icons blue">
+				<i class="fa fa-rocket"></i> </span>
+				Future
+			</h3>
+			<p class="text-justify">Explore technologies that help the world's population lead peaceful, happy lives.</p>
+		</div>
+	</div>
+<hr>
+<h2>The team</h2>
+		<div class="row">
+		<% @profiles.each do |profile| %>
+		<div class="col-md-3">
+			<p class="text-center">
+        <% if profile.profile_picture %>
+          <%= cl_image_tag profile.profile_picture, class: 'img-responsive img-circle center-block', width: '180px'  %>
+        <% end %>
+        <strong><span><%= link_to profile.name, profile %></span></strong><br>
+        <%= profile.title %>
+      </p>
+      </div>
+		<% end %>
+		</div>
+<!-- <h4>Why us?</h4>
+<ul class="fa-ul">
+    <li><i class="fa-li fa fa-arrow-circle-right"></i> Fun, face-to-face classes</li>
+    <li><i class="fa-li fa fa-arrow-circle-right"></i> Learn fast</li>
+    <li><i class="fa-li fa fa-arrow-circle-right"></i> Busy with life? We're flexible</li>    
+    <li><i class="fa-li fa fa-arrow-circle-right"></i> Learn the latest tech</li>
+    <li><i class="fa-li fa fa-arrow-circle-right"></i> Build &amp; launch real apps</li>
+    <li><i class="fa-li fa fa-arrow-circle-right"></i> Network and collaborate</li>
+</ul> -->
 
 <!-- <h5>Don't pay for classes you don't need</h5>
 <p>You don't need to sit through classes that are covering stuff you already know. Save your money and choose modules that help you achieve your goals faster. Use our <a href="personalised-programme.html">Personalised Programme Wizard </a>to find out what modules are right for you.</p>
 <hr>
    <p class="text-center"><a href="people.html" class="button_large">Meet the team </a></p> -->
 
-		</div><!-- end col right-->
-	</section>
+		</div><!--End col left -->
+    
+	<p><%= render 'layouts/banner' %></p>
+	</aside>
