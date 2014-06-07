@@ -72,6 +72,6 @@ class UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_params
-      params.require(:unit).permit(:name, :tagline, :description, :duration_minutes, :icon, :skill_group_id, :unit_code, :workshop_credits, :online_credits, :active)
+      params.require(:unit).permit(:name, :tagline, :description, :duration_minutes, :icon, :skill_group_id, :unit_code, :workshop_credits, :online_credits, :active, :skill_level)
     end
 end
