@@ -11,39 +11,37 @@
 
  <!-- =========================Start Col right section ============================= -->
 <section class="col-md-8  ">
-  <div class="col-right">
-      
-        
-        <div class="strip-lessons">
-        <h2 class="module-heading"><a href="<%= unit_path(@unit) %>"><%= @unit.name %></a> <small><%= @unit.unit_code %></small></h2>
-        <hr>
-        <div class="row">
-          <div class="col-md-3">
-              <div class="box-style-one borders"><img src="<%= asset_path 'lessons.png' %>" alt=""><h5><%= @unit.skill_group.name %></h5></div>
-            </div>
-          <div class="col-md-9">
-             
-              <p class="lead"><%= @unit.tagline %></p>
-                        
+        <div class="panel panel-<%= panel_color(@unit.skill_group) %>">
+          <div class="panel-heading">
+              <h2 class="panel-title"><%= @unit.name %>
           </div>
-
-        </div><!-- End Strip course -->
-        <hr>
-        <p>
-              </p>
-        
-        <div class="widget borders widget-table">
-          
-          <div class="widget-header">
-            <h3>Workshop detail </h3>
-          </div> <!-- .widget-header -->
-          <div class="widget-content">
+          <div class="panel-body">
+            <p class="lead"><%= @unit.tagline %></p>
             <p><%= @unit.description.html_safe %></p>
-            <h4>Duration: <%= @unit.duration_minutes.to_f / 60 %> hours</h4>
-            
-          </div> <!-- .widget-content -->
-
-       
-           
-    </div><!-- end col right--> 
+            <div class="row unit-details">
+            <div class="col-md-4 text-center">
+              <h4>Skill group</h4>
+              <span class="label label-<%= panel_color(@unit.skill_group) %>"><%= @unit.skill_group.name %></span>
+            </div>
+            <div class="col-md-4 text-center">
+            <h4>Skill level</h4>
+                <span class="label label-<%= skill_label(@unit.skill_level) %>"><%= skill_level_name(@unit.skill_level) %></span>
+            </div>
+            <div class="col-md-4 text-center">
+            <h4>Workshop duration</h4>
+              <span class="label label-default"><%= pluralize(@unit.duration_minutes / 60.0, 'hour') %></span>
+            </div>
+            </div>
+            <h3>Benefits of this workshop</h3>
+            <p><%= @unit.benefits.html_safe if @unit.benefits %></p>
+            <hr>
+            <h3>Learning objectives</h3>
+            <p><%= @unit.objectives.html_safe if @unit.objectives %></p>
+            <hr>
+            <h3>Workshop outcome</h3>
+            <p><%= @unit.outcome.html_safe if @unit.outcome %></p>
+          </div>
+        </div>
+        
+        
 </section>

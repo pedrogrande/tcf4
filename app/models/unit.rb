@@ -16,14 +16,16 @@ class Unit < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: :slugged
+  acts_as_taggable
 
   scope :active, -> { where(active: true) }
+
   def self.skill_group_filter(skill_group)
   	active.where("skill_group_id = ?", skill_group.id)
   end
 
   def self.beginner_units
-  	where
+  	where(skill_level, 1)
   end
 
   def self.order_by_skill_level

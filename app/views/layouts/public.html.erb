@@ -33,6 +33,7 @@
   <div class="<%= 'container' if !current_page?(root_path) %>">
   <div class="<%= 'row' if !current_page?(root_path) %>">
     <%= yield %>
+    
   </div></div>
   <%= render 'layouts/footer' %>
   <%= render 'layouts/javascripts' %>
