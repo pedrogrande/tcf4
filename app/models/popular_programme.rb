@@ -4,6 +4,7 @@ class PopularProgramme < ActiveRecord::Base
   has_many :units, through: :popular_programme_units
   has_many :weekend_programmes
   has_many :enrolments
+  has_many :specials
 
   is_impressionable
   

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :specials
+
   root 'home#index'
   devise_for :users
   get "/courses/web-app-coder-ruby-on-rails", to: redirect('/popular_programmes/web-app-developer-deluxe')

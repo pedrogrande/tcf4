@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607050919) do
+ActiveRecord::Schema.define(version: 20140608051928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -396,6 +396,22 @@ ActiveRecord::Schema.define(version: 20140607050919) do
   end
 
   add_index "skills", ["skill_group_id"], name: "index_skills_on_skill_group_id", using: :btree
+
+  create_table "specials", force: true do |t|
+    t.integer  "admin_id"
+    t.string   "recipient_email"
+    t.integer  "popular_programme_id"
+    t.integer  "weekend_programme_id"
+    t.integer  "dollar_discount"
+    t.integer  "percent_discount"
+    t.string   "guid"
+    t.date     "date_redeemed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "specials", ["popular_programme_id"], name: "index_specials_on_popular_programme_id", using: :btree
+  add_index "specials", ["weekend_programme_id"], name: "index_specials_on_weekend_programme_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

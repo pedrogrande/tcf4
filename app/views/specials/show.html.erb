@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @special.admin_id %>
+</p>
+
+<p>
+  <strong>Recipient email:</strong>
+  <%= @special.recipient_email %>
+</p>
+
+<p>
+  <strong>Popular programme:</strong>
+  <%= @special.popular_programme %>
+</p>
+
+<p>
+  <strong>Weekend programme:</strong>
+  <%= @special.weekend_programme %>
+</p>
+
+<p>
+  <strong>Dollar discount:</strong>
+  <%= @special.dollar_discount %>
+</p>
+
+<p>
+  <strong>Percent discount:</strong>
+  <%= @special.percent_discount %>
+</p>
+
+<p>
+  <strong>Guid:</strong>
+  <%= @special.guid %>
+</p>
+
+<p>
+  <strong>Date redeemed:</strong>
+  <%= @special.date_redeemed %>
+</p>
+
+<%= link_to 'Edit', edit_special_path(@special) %> |
+<%= link_to 'Back', specials_path %>

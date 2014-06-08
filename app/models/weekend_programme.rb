@@ -2,6 +2,7 @@ class WeekendProgramme < ActiveRecord::Base
   belongs_to :popular_programme
   belongs_to :location
   has_many :enrolments
+  has_many :specials
 
   def adjust_student_numbers
   	update_attributes(
