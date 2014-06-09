@@ -1,7 +1,7 @@
 <%= content_for :page_title, @post.title + ' (Coder Factory blog post)' %>
 <%= content_for :title, @post.title + ' (Coder Factory blog post)' %>
-<%= content_for :description, @post.title + ': ' + @post.lead.html_safe %>
-<%= content_for :image, cl_image_tag(@post.image) %>
+<%= content_for :description, @post.lead.html_safe %>
+<%= content_for :image, @post.image %>
 <%= content_for :author, @profile.name if @profile %>
 
 
