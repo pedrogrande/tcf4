@@ -60,7 +60,17 @@
 	      <p class="lead">Price</p>
 	    </div>
 	    <div class="col-sm-8">
-	    	<p class="lead"><span class="details">$<%= @weekend_programme.popular_programme.price %></span></p>
+	    	<p class="lead"><span class="details">$
+	    		<% if @special %>
+	    			<% if @special.date_redeemed.nil? %>
+	    				<%= @weekend_programme.popular_programme.price - @special.dollar_discount %> ($<%= @special.dollar_discount %> off)
+	    			<% else %>
+	    				<%= @weekend_programme.popular_programme.price %> (Promotion has already been redeemed)
+	    			<% end %>
+	    		<% else %>
+	    			<%= @weekend_programme.popular_programme.price %>
+	    		<% end %>
+	    	</span></p>
 	    </div>
   	</div>
   	<hr class="double">

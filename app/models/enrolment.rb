@@ -2,6 +2,7 @@ class Enrolment < ActiveRecord::Base
   belongs_to :popular_programme
   belongs_to :weekend_programme
   belongs_to :payment
+  belongs_to :special
   
   is_impressionable
 

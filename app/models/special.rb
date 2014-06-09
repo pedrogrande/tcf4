@@ -1,6 +1,7 @@
 class Special < ActiveRecord::Base
   belongs_to :popular_programme
   belongs_to :weekend_programme
+  has_many :enrolments
 
   before_create :populate_guid
   after_create :set_programme, :set_discount

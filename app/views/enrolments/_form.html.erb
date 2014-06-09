@@ -39,11 +39,16 @@
   <%= f.input :about, label: false, input_html: { class: 'form-control', rows:5 }, placeholder: "Tell us a bit about why you want to learn to code" %>
   </div>
   <div class="form-group">
-    <%= f.association :popular_programme, as: :hidden, input_html: { class: 'form-control', value: @weekend_programme.popular_programme.id } %>
+    <%= f.input :popular_programme_id, as: :hidden, input_html: { class: 'form-control', value: @weekend_programme.popular_programme.id } %>
   </div>
   <div class="form-group">
-    <%= f.association :weekend_programme, as: :hidden, input_html: { class: 'form-control', value: @weekend_programme.id } %>
+    <%= f.input :weekend_programme_id, as: :hidden, input_html: { class: 'form-control', value: @weekend_programme.id } %>
   </div>
+  <% if @special %>
+    <% if @special.date_redeemed.nil? %>
+      <%= f.input :special_id, as: :hidden, input_html: { value: @special.id } %>
+    <% end %>
+  <% end %>
   <div class="row">
   <div class="col-sm-6">
   <!-- <p>By proceeding to payment, you agree to the Coder Factory <a href="">terms and conditions</a>.</p> -->

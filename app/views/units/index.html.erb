@@ -4,33 +4,22 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Tagline</th>
-      <th>Description</th>
       <th>Duration minutes</th>
-      <th>Icon</th>
       <th>Skill group</th>
-      <th>Unit code</th>
       <th>Workshop credits</th>
-      <th>Online credits</th>
       <th>Active</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @units.each do |unit| %>
       <tr>
-        <td><%= unit.name %></td>
-        <td><%= unit.tagline %></td>
-        <td><%= unit.description %></td>
+        <td><%= link_to unit.name, unit %></td>
         <td><%= unit.duration_minutes %></td>
-        <td><%= unit.icon %></td>
         <td><%= unit.skill_group.name %></td>
-        <td><%= unit.unit_code %></td>
         <td><%= unit.workshop_credits %></td>
-        <td><%= unit.online_credits %></td>
         <td><%= unit.active %></td>
-        <td><%= link_to 'Show', unit %></td>
         <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
         <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

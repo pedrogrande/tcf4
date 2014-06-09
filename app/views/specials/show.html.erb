@@ -2,7 +2,7 @@
 
 <p>
   <strong>Admin:</strong>
-  <%= @special.admin_id %>
+  <%= User.find(@special.admin_id).profile.name %>
 </p>
 
 <p>
@@ -11,13 +11,13 @@
 </p>
 
 <p>
-  <strong>Popular programme:</strong>
-  <%= @special.popular_programme %>
+  <strong>Programme:</strong>
+  <%= @special.popular_programme.name %>
 </p>
 
 <p>
-  <strong>Weekend programme:</strong>
-  <%= @special.weekend_programme %>
+  <strong>Intake:</strong>
+  <%= @special.weekend_programme.location.city + ': ' + @special.weekend_programme.date.strftime('%d-%b-%y') %>
 </p>
 
 <p>
@@ -31,8 +31,8 @@
 </p>
 
 <p>
-  <strong>Guid:</strong>
-  <%= @special.guid %>
+  <strong>URL to redeem:</strong>
+  <a href="https://thecoderfactory.com/enrolments/new/?intake=<%= @special.weekend_programme.id %>&special=<%= @special.guid %>">https://thecoderfactory.com/enrolments/new/?intake=<%= @special.weekend_programme.id %>&special=<%= @special.guid %></a>
 </p>
 
 <p>

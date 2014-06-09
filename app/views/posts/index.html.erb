@@ -15,7 +15,7 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= cl_image_tag(post.image, :width => 150, :height => 100, :crop => :fill) %> <%= link_to post do %><%= post.title %> <span class="label label-primary"><%= pluralize(post.impressions_count, 'view') %> </span> <% end %></td>
+        <td><%= cl_image_tag(post.image, :width => 150, :height => 100, :crop => :fill) %> <%= link_to post do %><%= post.title %> <span class="label label-primary"><%= pluralize(post.impressionist_count, 'view') %> </span> <% end %></td>
         <td><% if post.publish %><span class="label label-success">Published</span><% end %></td>
         <td><%= post.published_date.strftime('%l %b %y') %></td>
         <td><%= post.user.profile.name if post.user.profile %></td>

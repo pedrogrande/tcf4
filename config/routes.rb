@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   devise_for :users
+  resources :users
   get "/courses/web-app-coder-ruby-on-rails", to: redirect('/popular_programmes/web-app-developer-deluxe')
   get "/courses/web-app-coder-angular-and-node", to: redirect('/popular_programmes/web-app-developer-deluxe')
   get "/ruby_on_rails_course_scholarship", to: redirect('/')

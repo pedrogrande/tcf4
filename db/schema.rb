@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608051928) do
+ActiveRecord::Schema.define(version: 20140609033803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,10 +73,12 @@ ActiveRecord::Schema.define(version: 20140608051928) do
     t.string   "stripe_id"
     t.integer  "payment_id"
     t.text     "about"
+    t.integer  "special_id"
   end
 
   add_index "enrolments", ["payment_id"], name: "index_enrolments_on_payment_id", using: :btree
   add_index "enrolments", ["popular_programme_id"], name: "index_enrolments_on_popular_programme_id", using: :btree
+  add_index "enrolments", ["special_id"], name: "index_enrolments_on_special_id", using: :btree
   add_index "enrolments", ["weekend_programme_id"], name: "index_enrolments_on_weekend_programme_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|

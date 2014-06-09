@@ -5,11 +5,11 @@
     <tr>
       <th>Admin</th>
       <th>Recipient email</th>
-      <th>Popular programme</th>
-      <th>Weekend programme</th>
-      <th>Dollar discount</th>
-      <th>Percent discount</th>
-      <th>Date redeemed</th>
+      <th>Programme</th>
+      <th>Intake</th>
+      <th>$ discount</th>
+      <th>% discount</th>
+      <th>Redeemed</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,9 +20,9 @@
         <td><%= User.find(special.admin_id).profile.name %></td>
         <td><%= special.recipient_email %></td>
         <td><%= special.popular_programme.name %></td>
-        <td><%= special.weekend_programme.name %></td>
-        <td><%= special.dollar_discount %></td>
-        <td><%= special.percent_discount %></td>
+        <td><%= special.weekend_programme.location.city + ': ' + special.weekend_programme.date.strftime('%d-%b-%y') %></td>
+        <td class="text-center"><%= special.dollar_discount %></td>
+        <td class="text-center"><%= special.percent_discount %></td>
         <td><%= special.date_redeemed %></td>
         <td><%= link_to 'Show', special %></td>
         <td><%= link_to 'Edit', edit_special_path(special) %></td>

@@ -1,0 +1,5 @@
+<% @users.each do |user| %>
+
+<p><%= link_to user.email, user %> signed up <%= user.created_at.to_date %> <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+<% end %>

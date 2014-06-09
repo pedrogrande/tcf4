@@ -26,6 +26,10 @@ class EnrolmentsController < ApplicationController
     if params[:intake]
       @weekend_programme = WeekendProgramme.find(params[:intake]) 
     end
+    if params[:special]
+      @special = Special.find_by('guid = ?', params[:special])
+    end
+
   end
 
   # GET /enrolments/1/edit
