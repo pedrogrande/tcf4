@@ -21,6 +21,7 @@ class PaymentsController < ApplicationController
       @enrolment = Enrolment.find_by(guid: params[:enrolment])
       @weekend_programme = @enrolment.weekend_programme
       @popular_programme = @weekend_programme.popular_programme
+      @special = @enrolment.special
     end
   end
 
@@ -48,6 +49,7 @@ class PaymentsController < ApplicationController
         )
         @payment = Payment.credit_card_payment(amount)
         enrolment.update_attributes(stripe_id: stripe_customer.id, payment_id: @payment.id)
+        Special.has_been_redeemed(enrolment) if enrolment.special_id
         # PointsTransaction.enrolment_points(enrolment)
         
         # PurchaseMailer.response(purchase, amount).deliver

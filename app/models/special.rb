@@ -15,11 +15,16 @@ class Special < ActiveRecord::Base
   end
 
   def set_discount
-  	if self.dollar_discount > 0
+  	if dollar_discount.to_i > 0
   		update_attributes(percent_discount: self.weekend_programme.popular_programme.price / self.dollar_discount)
-  	elsif self.percent_discount > 0
+  	elsif percent_discount.to_i > 0
   		update_attributes(dollar_discount: self.weekend_programme.popular_programme.price * self.percent_discount / 100)
   	end
+  end
+
+  def self.has_been_redeemed(enrolment)
+    special = enrolment.special
+    special.update_attributes(date_redeemed: DateTime.now)
   end
 
   private

@@ -32,7 +32,7 @@
 
 <p>
   <strong>URL to redeem:</strong>
-  <a href="https://thecoderfactory.com/enrolments/new/?intake=<%= @special.weekend_programme.id %>&special=<%= @special.guid %>">https://thecoderfactory.com/enrolments/new/?intake=<%= @special.weekend_programme.id %>&special=<%= @special.guid %></a>
+  <%= link_to new_enrolment_url(intake: @special.weekend_programme.id, special: @special.guid), new_enrolment_url(intake: @special.weekend_programme.id, special: @special.guid) %>
 </p>
 
 <p>

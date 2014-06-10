@@ -57,8 +57,18 @@
         <p class="lead">Price</p>
       </div>
       <div class="col-sm-8">
-      
-        <p class="lead"><span class="details">$<%= @weekend_programme.popular_programme.price %></span></p>
+
+        <p class="lead"><span class="details">$
+          <% if @special %>
+            <% if @special.date_redeemed.nil? %>
+              <%= @weekend_programme.popular_programme.price - @special.dollar_discount %> <span class="text-danger">($<%= @special.dollar_discount %> off)</span>
+            <% else %>
+              <%= @weekend_programme.popular_programme.price %> (Promotion has already been redeemed)
+            <% end %>
+          <% else %>
+            <%= @weekend_programme.popular_programme.price %>
+          <% end %>
+        </span></p>
       </div>
     </div>
     <hr class="double">
@@ -79,15 +89,15 @@
     <div class="row">
       <div class="col-sm-6">
         <h3 class="text-center">Pay upfront and save</h3>
-        <form accept-charset="UTF-8" action="/payments?amount=<%= @popular_programme.price * 100 %>&amp;guid=<%= @enrolment.guid %>" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" /></div>
+        <form accept-charset="UTF-8" action="/payments?amount=<%= enrolment_price(@enrolment) %>&amp;guid=<%= @enrolment.guid %>" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" /></div>
             <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
      
             <input 
                 type="submit" 
                 class="btn btn-warning btn-xl btn-block"
-                value="Pay $<%= @popular_programme.price %>"
+                value="Pay $<%= enrolment_price(@enrolment) / 100 %>"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-amount="<%= @popular_programme.price * 100 %>"
+                data-amount="<%= enrolment_price(@enrolment) %>"
                 data-currency="aud"
                 data-name="Coder Factory"
                 data-email="<%= @enrolment.email %>"
