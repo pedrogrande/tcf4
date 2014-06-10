@@ -1,0 +1,65 @@
+<div class="col-left">
+    <div class="sidebar">
+      <div class="widget">
+        <h4>Next programme</h4>
+        <div class="programme">
+        <p class="lead"><i class="fa fa-<%= @weekend_programme.popular_programme.icon %>"></i> <%= link_to @weekend_programme.popular_programme.name, @weekend_programme.popular_programme %></p>
+        <p><strong>Starts: </strong><%= @weekend_programme.date.strftime('%d %B %Y') %>
+        <br>
+        <strong>Location: </strong><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></p>
+        </div>
+      </div>
+      <hr>
+      <% if @popular_post %>
+      <div class="widget">
+        <h4>Popular post</h4>
+        <div class="row">
+          
+          <div class="col-md-12 popular-post">
+            <span class="pull-left"><%= cl_image_tag(@popular_post.image, :width => 100, :height => 50, :crop => :fill) %> </span>
+            <p>
+              <a href="<%= post_path(@popular_post) %>"><%= @popular_post.title %> </a>
+            </p>
+          </div>
+        </div>
+      </div><!-- End widget -->
+      <% end %>
+      <hr>
+      <% if @latest_post %>
+      <div class="widget">
+        <h4>Latest post</h4>
+        <div class="row">
+          
+          <div class="col-md-12 popular-post">
+            <span class="pull-left"><%= cl_image_tag(@latest_post.image, :width => 100, :height => 50, :crop => :fill) %> </span>
+            <p>
+              <a href="<%= post_path(@latest_post) %>"><%= @latest_post.title %> </a>
+            </p>
+          </div>
+        </div>
+      </div><!-- End widget -->
+      <% end %>
+      
+      
+            
+      <hr>
+      <div class="widget">
+        <h4>Keep in the loop</h4>
+            
+            <div id="message-newsletter"></div>
+              <form action="http://thecoderfactory.us7.list-manage1.com/subscribe/post?u=1c644187b6d7e06d32bcae158&amp;id=2afdc8b0c3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div class="form-group">
+                    <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" required></div><!-- 
+                    real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_1c644187b6d7e06d32bcae158_2afdc8b0c3" value=""></div>
+                    <div class="clear"><input type="submit" value="Stay informed" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success"></div>
+                </form>
+          </div>
+      </div>
+
+      <hr>
+      
+            
+    </div>
+  <!-- </div> --><!-- end  col left -->
+  

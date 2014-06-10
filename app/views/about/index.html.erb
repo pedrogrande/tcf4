@@ -9,9 +9,13 @@
 			<li class="active">About us</li>
 		</ul>
 	</div>
-	<!-- =========================Start Col left section ============================= -->   
-	<aside class="col-md-12 ">
-	<div class="col-left">
+	<!-- =========================Start Col left section ============================= --> 
+	<aside class="col-md-4 hidden-xs hidden-sm">
+		<%= render 'layouts/about_sidebar' %>
+	</aside>
+
+	<aside class="col-md-8 ">
+	<div class="col-right">
 		
 		<!-- <h4>Testimonials</h4>
 		<p>
@@ -31,101 +35,71 @@
 
 <!-- =========================Start Col right section ============================= --> 
 
-       <div class="row ">
-       <h2 class="col-md-12">Our mission</h2>
-			<div class="col-md-6">
-				<center><a href="#" class="" style="cursor:none;"><img class="img-circle img-responsive" alt="Future2" src="<%= asset_path 'future.jpg' %>" /></a></center>
-				<h2 class="text-center">Technology education.</h2>
-				<p class="grey text-justify">The Coder Factory provides education in the latest web design and application development technologies to enable people to empower themselves and improve the lives of their family, their communities and their world.</p>
+    <div class="row ">
+	    <div class="col-md-12">
+		    <h2>Coder Factory: in one sentence</h2>
+		    <p>Coder Factory is a technology education provider catering to aspiring tech startup entrepreneurs and app developers.</p>
+				<hr>
 			</div>
-	 		<div class="col-md-6">
-				<center><a href="#" class="" style="cursor:none;"><img class="img-circle img-responsive" alt="Streak" src="<%= asset_path 'streak.jpg' %>" /></a></center>
-	 			<h2 class="text-center">Change your future!</h2>
-				<p class="grey text-justify">Our graduates have the skills, knowledge and confidence to build their own tech startups and create apps that make a difference in the world, help advance their careers and enrich their personal life.</p>
+			<div class="col-md-12">
+				<h2>Our vision</h2>
+				<p>To help more people become involved in the technology revolution by providing fun, empowering education.</p>
+			<hr>
 			</div>
-	 		<div class="col-md-6">
-				<center><a href="#" class="" style="cursor:none;"><img class="img-circle img-responsive" alt="Superpower" src="<%= asset_path 'super.jpg' %>" /></a></center>
-				<h2 class="text-center">Coding is a super power!</h2>
-	 			<p class="grey text-justify">Once you know how to code, a whole new world of possibilities open up to you. You now have the power to code for the rest of your life.</p>
-				
+			<div class="col-md-12">
+				<h2>Our mission</h2>
+				<p>Coder Factory provides education in the latest web and application development technologies. Graduates will be able to build their own tech startups or applications that help them in their careers and personal life.</p>
+				<p>Coder Factory is a beacon for advancing technology education in Australia and globally to help advance the work and lives of people everywhere.</p>
+				<p>Coder Factory undertakes a number of initiatives that encourage more people to learn coding and better their lives.</p>
+				<p>Coder Factory supports tech startup entrepreneurs through education, networking opportunities and media exposure.</p>
+				<p>Coder Factory provides coder community enriching events and development opportunities.</p>
 			</div>
-	 		<div class="col-md-6">
-				<center><a href="#" class="" style="cursor:none;"><img class="img-circle img-responsive" alt="Ipad" src="<%= asset_path 'ipad.jpg' %>" /></a></center>
-				<h2 class="text-center">Change the world.</h2>
-				<p class="grey text-justify">Will the apps you create revolutionise the world as we know it? Solve world hunger? Eliminate poverty? Bring about peace for all mankind?</p>
-			</div>
-			 
-		</div>
+			<div class="col-md-12">
+				<h2>Our values</h2>
+				<dl>
+					<dt>Student Success</dt>
+					<dd>We are dedicated to our students’ success - our students love us because we do everything we can to help them be successful and fulfill their dreams.
+					<br>-- If our students are successful, we will be successful</dd>
 
-		<hr>
-		<div class="wrapper row">
-		<div class="col-md-4">
-			<h3 class="smaller-margin">
-				<span class="square-icons blue">
-				<i class="fa fa-globe"></i> </span>
-				Aims
-			</h3>
-			<p class="text-justify">Advance technology education in Australia and globally to help improve the work and lives of people everywhere.</p>
-		</div>
-		<div class="col-md-4">
-			<h3 class="smaller-margin">
-				<span class="square-icons blue">
-				<i class="fa fa-flag-checkered"></i> </span>
-				Goals
-			</h3>
-			<p class="text-justify">Support tech startup entrepreneurs and app developers through education, networking opportunities and media exposure.</p>
-		</div>
-		<div class="col-md-4">
-			<h3 class="smaller-margin">
-				<span class="square-icons blue">
-				<i class="fa fa-calendar"></i> </span>
-				Plans
-			</h3>
-			<p class="text-justify">Undertake initiatives that encourage more people to learn coding and better their lives.</p>
-		</div>
-	</div>
-	<br>
-	<div class="wrapper row">
-		<div class="col-md-4">
-			<h3 class="smaller-margin">
-				<span class="square-icons blue">
-				<i class="fa fa-code"></i> </span>
-				Advice
-			</h3>
-			<p class="text-justify">Provide web application development advice and services for innovative tech startup founders and small businesses.</p>
-		</div>
-		<div class="col-md-4">
-			<h3 class="smaller-margin">
-				<span class="square-icons blue">
-				<i class="fa fa-group"></i> </span>
-				Community
-			</h3>
-			<p class="text-justify">Promote and encourage a supportive and welcoming coder community through entertaining and inclusive events.</p>
-		</div>
-		<div class="col-md-4">
-			<h3 class="smaller-margin">
-				<span class="square-icons blue">
-				<i class="fa fa-rocket"></i> </span>
-				Future
-			</h3>
-			<p class="text-justify">Explore technologies that help the world's population lead peaceful, happy lives.</p>
+					<dt>Amazing Student Experiences</dt>
+					<dd>First class student experiences - The Coder Factory cares for our students and their goals and dreams - the education delivery is continually improving, feedback is acted upon, the latest education technology is implemented.
+					<br>-- Keep improving everything, all the time, strive for perfection</dd>
+
+					<dt>Fostering Community Spirit</dt>
+					<dd>Foster community spirit - The Coder Factory contributes to the coder and startup communities around the world. 
+					<br>-- Take actions to make the world a better place by bringing people together</dd>
+
+					<dt>Diversity</dt>
+					<dd>Celebrate diversity by acknowledging that our differences are what make life interesting.
+					We acknowledge that we are all different and add our own value.<br>-- Deliberately strive for a team that is diverse</dd>
+
+					<dt>Honour and Respect</dt>
+					<dd>All our actions, writings, communications are honest, ethical and show respect to everyone. Everyone at Coder Factory acts with integrity and takes the moral high ground. 
+					<br>-- Integrity, honesty, ethical and moral practices</dd>
+				</dl>
+			</div>
+		
+		<div class="col-md-12">
+			<h2>The team</h2>
+			<div class="row">
+				<% @profiles.each do |profile| %>
+					<div class="col-md-4">
+						<p class="text-center">
+			        <% if profile.profile_picture %>
+			          <%= cl_image_tag profile.profile_picture, class: 'img-responsive img-circle center-block', width: '180px'  %>
+			        <% end %>
+			        <strong><span><%= link_to profile.name, profile %></span></strong><br>
+			        <%= profile.title %>
+			        <br>
+			        <%= link_to 'Read more', profile, class: 'btn btn-info btn-xs' %>
+			      </p>
+			      </div>
+					<% end %>
+			</div>
 		</div>
 	</div>
-<hr>
-<h2>The team</h2>
-		<div class="row">
-		<% @profiles.each do |profile| %>
-		<div class="col-md-3">
-			<p class="text-center">
-        <% if profile.profile_picture %>
-          <%= cl_image_tag profile.profile_picture, class: 'img-responsive img-circle center-block', width: '180px'  %>
-        <% end %>
-        <strong><span><%= link_to profile.name, profile %></span></strong><br>
-        <%= profile.title %>
-      </p>
-      </div>
-		<% end %>
-		</div>
+</div>
+
 <!-- <h4>Why us?</h4>
 <ul class="fa-ul">
     <li><i class="fa-li fa fa-arrow-circle-right"></i> Fun, face-to-face classes</li>
