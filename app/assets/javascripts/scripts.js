@@ -10,9 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery.turbolinks
-//= require jquery_ujs
-//= require ckeditor-jquery
-//= require jquery.vegas.min
-//= require bootstrap
+//= require jquery.easing.js
+//= require megamenu.js
+//= require functions.js
+//= require jquery.themepunch.plugins.min.js
+//= require jquery.themepunch.revolution.min.js
+//= require revolutio-slider-func.js
+//= require jquery.form-validator.min.js
+//= require vegas_custom.js

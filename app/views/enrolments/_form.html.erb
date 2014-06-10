@@ -1,4 +1,4 @@
-<%= simple_form_for(@enrolment) do |f| %>
+<%= simple_form_for(@enrolment, html: { novalidate: false }) do |f| %>
   <%= f.error_notification %>
   <div class="row">
     <div class="control-group string optional enrolment_first_name col-sm-6"><div class="controls"><input autofocus="autofocus" class="string optional form-control" id="enrolment_first_name" name="enrolment[first_name]" placeholder="Your first name" type="text" data-validation="required" /></div></div>

@@ -1,0 +1,11 @@
+$(document).ready(function() {
+  $.vegas('overlay');
+  $.vegas({
+    src:'<%= asset_path 'mac.jpg' %>',
+    fade: 1000,
+    loading: true
+  });
+  $.vegas('overlay', {
+    src: null
+  });
+});
