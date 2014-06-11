@@ -25,6 +25,8 @@ class EnrolmentsController < ApplicationController
     @enrolment = Enrolment.new
     if params[:intake]
       @weekend_programme = WeekendProgramme.find(params[:intake]) 
+    else
+      redirect_to root_path
     end
     if params[:special]
       @special = Special.find_by('guid = ?', params[:special])
