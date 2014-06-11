@@ -54,7 +54,7 @@
   <tbody>
     <% @past_programmes.each do |past_programme| %>
       <tr>
-        <td><%= link_to past_programme.popular_programme.name, weekend_programme %></td>
+        <td><%= link_to past_programme.popular_programme.name, past_programme %></td>
         <td><%= past_programme.location.city %></td>
         <td><%= past_programme.day %></td>
         <td><%= past_programme.date.strftime('%d %b %y') %></td>
@@ -62,7 +62,7 @@
         <td><%= past_programme.start_time.strftime('%H:%M') %> - <%= past_programme.end_time.strftime('%H:%M') %></td>
         <td class="text-center"><%= past_programme.number_of_places %></td>
         <td><%= past_programme.number_of_students_registered %></td>
-        <td><%= link_to 'Edit', edit_past_programme_path(past_programme) %></td>
+        <td><%= link_to 'Edit', edit_weekend_programme_path(past_programme) %></td>
         <td><%= link_to 'Destroy', past_programme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
