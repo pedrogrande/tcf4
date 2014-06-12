@@ -11,15 +11,23 @@ class WeekendProgramme < ActiveRecord::Base
   	)
   end
 
+  def self.active
+    where(active: true)
+  end
+
   def self.future_programmes
-  	where('date > ?', Date.today)
+  	active.where('date > ?', Date.today)
   end
 
   def self.future_by_date_ascending
   	self.future_programmes.order(date: :asc)
   end
 
+  def self.inactive
+    active.where('active = ? or active = ?', nil, false)
+  end
+
   def self.past_programmes
-    where('end_date <= ?', Date.today)
+    where('date <= ?', Date.today)
   end
 end

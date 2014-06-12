@@ -6,6 +6,7 @@ class WeekendProgrammesController < ApplicationController
   def index
     @weekend_programmes = WeekendProgramme.future_by_date_ascending
     @past_programmes = WeekendProgramme.past_programmes
+    @cancelled_programmes = WeekendProgramme.inactive
   end
 
   # GET /weekend_programmes/1
@@ -70,6 +71,6 @@ class WeekendProgrammesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def weekend_programme_params
-      params.require(:weekend_programme).permit(:end_date, :popular_programme_id, :location_id, :day, :date, :start_time, :end_time, :number_of_places, :number_of_students_registered)
+      params.require(:weekend_programme).permit(:active, :end_date, :popular_programme_id, :location_id, :day, :date, :start_time, :end_time, :number_of_places, :number_of_students_registered)
     end
 end

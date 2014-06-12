@@ -36,6 +36,8 @@ class EnrolmentsController < ApplicationController
 
   # GET /enrolments/1/edit
   def edit
+    @weekend_programme = @enrolment.weekend_programme
+    
   end
 
   # POST /enrolments

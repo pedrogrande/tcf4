@@ -18,6 +18,6 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every 12.hours do
+every 6.hours do
   rake "-s sitemap:refresh"
 end

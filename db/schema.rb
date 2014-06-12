@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609033803) do
+ActiveRecord::Schema.define(version: 20140611132449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -592,6 +592,7 @@ ActiveRecord::Schema.define(version: 20140609033803) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "end_date"
+    t.boolean  "active"
   end
 
   add_index "weekend_programmes", ["location_id"], name: "index_weekend_programmes_on_location_id", using: :btree

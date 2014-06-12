@@ -34,7 +34,7 @@
 <hr class="double">
 
 
-<h1>Archived Programmes <small><%= link_to 'New Weekend programme', new_weekend_programme_path, class: 'btn btn-success btn-xs' %></small></h1>
+<h1>Archived and Cancelled Programmes <small><%= link_to 'New Weekend programme', new_weekend_programme_path, class: 'btn btn-success btn-xs' %></small></h1>
 
 <table class="table">
   <thead>
@@ -47,6 +47,7 @@
       <th>Time</th>
       <th>Number of places</th>
       <th>Students registered</th>
+      <th>Cancelled?</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -62,8 +63,24 @@
         <td><%= past_programme.start_time.strftime('%H:%M') %> - <%= past_programme.end_time.strftime('%H:%M') %></td>
         <td class="text-center"><%= past_programme.number_of_places %></td>
         <td><%= past_programme.number_of_students_registered %></td>
+        <td><%= 'Cancelled' if !past_programme.active %></td>
         <td><%= link_to 'Edit', edit_weekend_programme_path(past_programme) %></td>
         <td><%= link_to 'Destroy', past_programme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% @cancelled_programmes.each do |cancelled_programme| %>
+      <tr>
+        <td><%= link_to cancelled_programme.popular_programme.name, cancelled_programme %></td>
+        <td><%= cancelled_programme.location.city %></td>
+        <td><%= cancelled_programme.day %></td>
+        <td><%= cancelled_programme.date.strftime('%d %b %y') %></td>
+        <td><%= cancelled_programme.end_date.strftime('%d %b %y') %></td>
+        <td><%= cancelled_programme.start_time.strftime('%H:%M') %> - <%= cancelled_programme.end_time.strftime('%H:%M') %></td>
+        <td class="text-center"><%= cancelled_programme.number_of_places %></td>
+        <td><%= cancelled_programme.number_of_students_registered %></td>
+        <td><%= 'Cancelled' if !cancelled_programme.active %></td>
+        <td><%= link_to 'Edit', edit_weekend_programme_path(cancelled_programme) %></td>
+        <td><%= link_to 'Destroy', cancelled_programme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
