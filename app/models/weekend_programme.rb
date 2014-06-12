@@ -20,7 +20,7 @@ class WeekendProgramme < ActiveRecord::Base
   end
 
   def self.future_by_date_ascending
-  	self.future_programmes.order(date: :asc)
+  	future_programmes.order(date: :asc)
   end
 
   def self.inactive
