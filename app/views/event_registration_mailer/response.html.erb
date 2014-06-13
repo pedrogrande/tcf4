@@ -247,38 +247,34 @@
 				<tr>
 					<td>
 						<p><img src="http://res.cloudinary.com/coder-factory/image/upload/v1401909689/logo-footer_ksgy8i.png" /></p>
-						<h3>Thanks for enrollling at Coder Factory, <%= @enrolment.first_name %> </h3>
+						<h3>Thanks for registering for <%= @event_registration.event.name %>, <%= @event_registration.first_name %> </h3>
 						<!-- A Real Hero (and a real human being) -->
 						<p><img src="http://res.cloudinary.com/coder-factory/image/upload/v1401907457/class-compressor_wkztgw.png" /></p><!-- /hero -->
 						
 						<!-- Callout Panel -->
 						<p class="callout">
-							If you'd like to ask us any questions,  <a href="https://thecoderfactory.com/contact">You can do it Now! &raquo;</a>
+							If you'd like to ask us any questions,  <a href="https://thecoderfactory.com/contact">You can do it here &raquo;</a>
 						</p><!-- /Callout Panel -->
 						
-						<h3>Your enrolment has been recieved and we will send you more details shortly.</h3>
-						<h4>Here are the details of the programme you are enrolled in:
+						<h3>Your registration has been recieved.</h3>
+						<h4>Here are the details of the event you have registered for:
 						<p>
-						  <strong>Programme:</strong>
-						  <%= @enrolment.popular_programme.name %>
+						  <strong>Event:</strong>
+						  <%= @event_registration.event.name %>
 						</p>
 						<p>
 						  <strong>Location:</strong>
-						  <%= link_to @enrolment.weekend_programme.location.name, location_url(@enrolment.weekend_programme.location) %>, <%= @enrolment.weekend_programme.location.city %>
+						  <%= link_to @event_registration.event.location.name, location_url(@event_registration.event.location) %>, <%= @event_registration.event.location.city %>
 						</p>
 						<p>
-						  <strong>Days:</strong>
-						  <%= @enrolment.weekend_programme.day %>
-						</p>
-						<p>
-						  <strong>Dates:</strong>
-						  <%= @enrolment.weekend_programme.date.strftime('%d %b %y') %> to <%= @enrolment.weekend_programme.end_date.strftime('%d %b %y') %>
+						  <strong>Date:</strong>
+						  <%= @event_registration.event.date.strftime('%d %b %y') %>
 						</p>
 						<p>
 						  <strong>Times:</strong>
-						  <%= @enrolment.weekend_programme.start_time.strftime('%l:%M%P') %> to <%= @enrolment.weekend_programme.end_time.strftime('%l:%M%P') %>
+						  <%= @event_registration.event.start_time.strftime('%l:%M%P') %> to <%= @event_registration.event.end_time.strftime('%l:%M%P') %>
 						</p>
-						<h4>We're looking forward to seeing you soon.</h4>
+						<h4>We're looking forward to seeing you there.</h4>
 												
 						<br/>
 						<br/>							
@@ -334,8 +330,7 @@
 				<table class="table">
 				<tr>
 					<td align="center">
-						<p>
-						</p>
+						
 					</td>
 				</tr>
 			</table>

@@ -19,6 +19,9 @@
     <br>
       <i class="fa fa-calendar fa-fw"></i>
     <%= event.date.strftime('%A, %e/%m/%y') %>
+    <br>
+      <i class="fa fa-clock-o fa-fw"></i>
+    <%= event.start_time.strftime('%l:%M%P') %> - <%= event.end_time.strftime('%l:%M%P') %>
   </div>
 
   <div class="col-sm-3">

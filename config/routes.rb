@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :events
-
   root 'home#index'
   devise_for :users
   resources :users, only: [:index, :destroy]
@@ -25,6 +23,10 @@ Rails.application.routes.draw do
   resources :categories
   resources :skill_groups
 
+  resources :event_registrations
+  get 'event-registration-thanks' => 'event_registration_thanks#index'
+
+  resources :events
   get 'free-tutorials' => 'tutorials#index'
   get 'blog' => 'blog#index'
   get 'contact' => 'contact#index'

@@ -6,7 +6,7 @@ class WeekendProgrammesController < ApplicationController
   def index
     @weekend_programmes = WeekendProgramme.future_by_date_ascending
     @past_programmes = WeekendProgramme.past_programmes
-    @cancelled_programmes = WeekendProgramme.inactive
+    @cancelled_programmes = WeekendProgramme.cancelled
   end
 
   # GET /weekend_programmes/1

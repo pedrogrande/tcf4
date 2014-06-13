@@ -23,7 +23,7 @@ class WeekendProgramme < ActiveRecord::Base
     future_programmes.order(date: :asc)
   end
 
-  def self.inactive
+  def self.cancelled
     active.where('active = ? or active = ?', nil, false)
   end
 
@@ -32,10 +32,10 @@ class WeekendProgramme < ActiveRecord::Base
   end
 
   def self.programmes_this_week
-    where('date >= ? and date < ?', Date.today, Date.today + 7).order(date: :asc)
+    active.where('date >= ? and date < ?', Date.today, Date.today + 7).order(date: :asc)
   end
 
   def self.programmes_next_week
-    where('date >= ? and date < ?', Date.today + 7, Date.today + 14).order(date: :asc)
+    active.where('date >= ? and date < ?', Date.today + 7, Date.today + 14).order(date: :asc)
   end
 end
