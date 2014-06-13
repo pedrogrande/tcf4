@@ -2,30 +2,29 @@
 <h2>
   <span class="fa-stack hidden-xs">
     <i class="fa fa-circle-thin fa-stack-2x"></i>
-    <i class="fa fa-<%= weekend_programme.popular_programme.icon %> fa-stack-1x"></i>
+    <i class="fa fa-map-marker fa-stack-1x"></i>
   </span>
-  <%= weekend_programme.popular_programme.name %> 
-  
+<%= scheduled_programme.location.city %>  
 </h2>
 <div class="row">
   <div class="col-sm-6">
     
       <i class="fa fa-map-marker fa-fw"></i>
     <span class="all-caps">
-      <%= weekend_programme.location.city %>
+      <%= scheduled_programme.location.city %>
     </span>: 
-    <%= link_to weekend_programme.location.name, weekend_programme.location, target: '_blank' %>
+    <%= link_to scheduled_programme.location.name, scheduled_programme.location, target: '_blank' %>
 
     <br>
       <i class="fa fa-calendar fa-fw"></i>
-    <%= weekend_programme.date.strftime('%A, %e/%m/%y') %>
+    <%= scheduled_programme.date.strftime('%A, %e/%m/%y') %>
     <br>
       <i class="fa fa-clock-o fa-fw"></i>
-    <%= weekend_programme.start_time.strftime('%l:%M%P') %> - <%= weekend_programme.end_time.strftime('%l:%M%P') %>
+    <%= @next_programme.start_time.strftime('%l:%M%P') %> - <%= @next_programme.end_time.strftime('%l:%M%P') %>
   </div>
 
   <div class="col-sm-3">
-    <%= link_to weekend_programme.popular_programme, class: 'btn btn-block btn-info' do %> 
+    <%= link_to scheduled_programme.popular_programme, class: 'btn btn-block btn-info' do %> 
       <span class="fa-stack">
         <i class="fa fa-circle-thin fa-stack-2x"></i>
         <i class="fa fa-info fa-stack-1x"></i>
@@ -34,7 +33,7 @@
     <% end %>
   </div>
   <div class="col-sm-3">
-    <%= link_to new_enrolment_path(intake: weekend_programme.id), class: 'btn btn-block btn-warning' do %>
+    <%= link_to new_enrolment_path(intake: scheduled_programme.id), class: 'btn btn-block btn-warning' do %>
       <span class="fa-stack">
         <i class="fa fa-circle-thin fa-stack-2x"></i>
         <i class="fa fa-edit fa-stack-1x"></i>

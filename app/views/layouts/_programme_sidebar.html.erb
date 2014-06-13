@@ -68,7 +68,9 @@
       <ul class="submenu-col">
           
           <% @popular_programmes.each do |popular_programme| %>
-            <li><a href="<%= popular_programme_path(popular_programme) %>" id="<%= 'active' if current_page?('/popular_programmes/' + popular_programme.slug) %>"><i class="fa fa-<%= popular_programme.icon %>"></i> <%= popular_programme.name %></a></li>
+          	<% if popular_programme != @popular_programme %>
+            	<li><a href="<%= popular_programme_path(popular_programme) %>"><i class="fa fa-<%= popular_programme.icon %>"></i> <%= popular_programme.name %></a></li>
+            <% end %>
           <% end %>
 
           
