@@ -29,29 +29,26 @@
       
       <%= @popular_programme.name %>
     </h2>
-  </div>
-  <%= render 'programme_numbers' %>
-  <div class="col-right" id="information">
+
     <div class="text-justify">
       <p><%= @popular_programme.description.html_safe %> </p>
     </div>
   </div>
 
     <!-- Programme numbers -->
-    
+    <%= render 'programme_numbers' %>
 
     <!-- Scheduled programmes -->
-    <% if @weekend_programmes.count > 0 %>
-    <div class="col-left">
+    <% if @popular_programme.weekend_programmes.count > 0 %>
     <div class="scheduled" id="scheduled">
       <h3>Scheduled programmes</h3>
       <%= render @weekend_programmes %>
-    </div></div>
+    </div>
     <% end %>  
 
 
     <!-- Included workshops -->
-    <div class="scheduled" id="workshops">
+    <div class="scheduled">
       <h3>Included workshops</h3>
       <div class="included-workshops">
       

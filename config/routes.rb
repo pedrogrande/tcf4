@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  resources :event_registrations
-
-  resources :events
-
   root 'home#index'
   devise_for :users
   resources :users, only: [:index, :destroy]
