@@ -3,10 +3,6 @@ Role.create!([
   {name: "admin", resource_id: nil, resource_type: nil},
   {name: "prospect", resource_id: nil, resource_type: nil},
   {name: "applicant", resource_id: nil, resource_type: nil},
-  {name: "student", resource_id: nil, resource_type: nil},
-  {name: "admin", resource_id: nil, resource_type: nil},
-  {name: "prospect", resource_id: nil, resource_type: nil},
-  {name: "applicant", resource_id: nil, resource_type: nil},
   {name: "student", resource_id: nil, resource_type: nil}
 ])
 puts 'SETTING UP DEFAULT USER LOGIN'
