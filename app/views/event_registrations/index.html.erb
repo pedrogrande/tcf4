@@ -1,0 +1,37 @@
+<h1>Listing event_registrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Guests</th>
+      <th>Optin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_registrations.each do |event_registration| %>
+      <tr>
+        <td><%= event_registration.event %></td>
+        <td><%= event_registration.first_name %></td>
+        <td><%= event_registration.last_name %></td>
+        <td><%= event_registration.email %></td>
+        <td><%= event_registration.phone %></td>
+        <td><%= event_registration.guests %></td>
+        <td><%= event_registration.optin %></td>
+        <td><%= link_to 'Show', event_registration %></td>
+        <td><%= link_to 'Edit', edit_event_registration_path(event_registration) %></td>
+        <td><%= link_to 'Destroy', event_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event registration', new_event_registration_path %>
