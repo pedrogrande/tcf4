@@ -1,70 +1,7 @@
 <!-- =========================Start Col left section ============================= -->
-	
+
   <div class="col-left">
-	  <div class="widget">
-	  	<div class="row">
-	  		<div class="col-md-12">
-			  	<h3>Next programme</h3>
-			  	<% if @next_programme %>
-			  		<i class="fa fa-map-marker fa-fw"></i>
-			  		<span class="all-caps">
-			  		  <%= @next_programme.location.city %>
-			  		</span>: 
-			  		<%= link_to @next_programme.location.name, @next_programme.location, target: '_blank' %>
-
-			  		<br>
-			  		  <i class="fa fa-calendar fa-fw"></i>
-			  		<%= @next_programme.date.strftime('%A, %e %B %Y') %>
-			  		<br>
-			  		  <i class="fa fa-clock-o fa-fw"></i>
-			  		<%= @next_programme.start_time.strftime('%l:%M%P') %> - <%= @next_programme.end_time.strftime('%l:%M%P') %>
-			  		<br>
-			  		  <i class="fa fa-dollar fa-fw"></i>
-			  		<%= @next_programme.popular_programme.price %>
-
-			  	</div>
-			  </div>
-	  		<div class="row">
-		  		<div class="col-md-12">
-		  		<br>
-			  		<%= link_to new_enrolment_path(intake: @next_programme.id), class: 'btn btn-lg btn-block btn-warning' do %>
-			  		      <span class="fa-stack">
-			  		        <i class="fa fa-circle-thin fa-stack-2x"></i>
-			  		        <i class="fa fa-edit fa-stack-1x"></i>
-			  		      </span>
-			  		      ENROL
-			  		    <% end %>
-			  	</div>
-			  </div>
-			  <% if @weekend_programmes.count > 1 %>
-		  		<div class="row">
-			  		<div class="col-md-12">
-			  		<br>
-			  		<a href="#scheduled" class="btn btn-info btn-block">More scheduled programmes</a>
-			  		</div>
-			  	</div>
-			  <% end %>
-		  		<div class="row">
-			  		<div class="col-md-12">
-			  		<br>
-			  		<a href="#information" class="btn btn-primary btn-block">More information</a>
-			  		</div>
-			  	</div>
-		  		<div class="row">
-			  		<div class="col-md-12">
-			  		<br>
-			  		<a href="#workshops" class="btn btn-success btn-block">Included workshops</a>
-			  		</div>
-			  	</div>
-		  	<% else %>
-	  		<p>There are currently no programmes scheduled. Please register your interest on our contact form, or sign up for our newsletter to stay informed of new scheduled programmes.</p>
-	  		</div></div>
-	  	<% end %>
-	  </div>
-	 </div>
-	 <div class="col-left">
-  	<div class="widget">
-      <h3>Other Programmes</h3>
+      <h3>Coder Factory Programmes</h3>
       <ul class="submenu-col">
           
           <% @popular_programmes.each do |popular_programme| %>
@@ -74,6 +11,5 @@
           
       </ul>
       
-    </div>
     </div>
     <%= render 'layouts/banner' %>

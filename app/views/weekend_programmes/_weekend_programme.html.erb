@@ -18,10 +18,7 @@
 
     <br>
       <i class="fa fa-calendar fa-fw"></i>
-    <%= weekend_programme.date.strftime('%A, %e %B %Y') %>
-    <br>
-      <i class="fa fa-clock-o fa-fw"></i>
-    <%= weekend_programme.start_time.strftime('%l:%M%P') %> - <%= weekend_programme.end_time.strftime('%l:%M%P') %>
+    <%= weekend_programme.date.strftime('%A, %e/%m/%y') %>
   </div>
 
   <div class="col-sm-3">
