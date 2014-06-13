@@ -35,7 +35,7 @@ gem 'sitemap_generator'
 gem 'whenever', :require => false
 gem 'sucker_punch', '~> 1.0'
 gem 'exception_notification'
-gem 'icalendar', '~> 2.0.1'
+# gem 'icalendar', '~> 2.0.1'
 group :development do
   gem "better_errors"
   gem 'quiet_assets'
