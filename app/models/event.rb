@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :location
+<<<<<<< HEAD
   extend FriendlyId
   friendly_id :name, use: :slugged
   require 'icalendar'
@@ -19,6 +20,8 @@ class Event < ActiveRecord::Base
     cal.add_event(event)
 		update_attributes(calendar_invite: cal.to_ical)
   end
+=======
+>>>>>>> parent of e51e713... fixed error in css
 
   def self.events_this_week
   	where('date >= ? and date < ?', Date.today, Date.today + 7).order(date: :asc)

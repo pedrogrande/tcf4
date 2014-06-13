@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140613071154) do
+=======
+ActiveRecord::Schema.define(version: 20140613044830) do
+>>>>>>> parent of e51e713... fixed error in css
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,9 +111,12 @@ ActiveRecord::Schema.define(version: 20140613071154) do
     t.datetime "updated_at"
     t.string   "icon"
     t.string   "link"
+<<<<<<< HEAD
     t.string   "slug"
     t.text     "calendar_invite"
     t.string   "calendar_invitation"
+=======
+>>>>>>> parent of e51e713... fixed error in css
   end
 
   add_index "events", ["location_id"], name: "index_events_on_location_id", using: :btree
