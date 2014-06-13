@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :location
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   def self.events_this_week
   	where('date >= ? and date < ?', Date.today, Date.today + 7).order(date: :asc)
