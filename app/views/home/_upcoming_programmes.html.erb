@@ -1,9 +1,37 @@
-<div class="col-right">
-  <h2>Upcoming Programmes</h2>
-  <p class="lead">Check out our upcoming programmes in your area. </p>
-</div>
-<div class="scheduled">
+<div class="col-left">
+  <div class="calendar-strip">
+  <% if @events_this_week and @programmes_this_week %>
+	  <h2>This week at <span class="lowercase name">coderfactory</span></h2>
+	  <hr>
+	  <% if @programmes_this_week.count > 0 %>
+	  	<p class="lead">Programmes starting this week:</p>
+	  	<%= render @programmes_this_week %>
+	  <% end %>
 
-			<%= render @weekend_programmes %>
-
+	  <% if @events_this_week.count > 0 %>
+		  <p class="lead">Events this week:</p>
+		  <%= render @events_this_week %>
+	  <% end %>
+	<% end %>
 	</div>
+</div>
+<div class="col-left">
+  <div class="calendar-strip">
+	  <% if @events_next_week and @programmes_next_week %>
+		  <h2>Next week at <span class="lowercase name">coderfactory</span></h2>
+  	  <% if @programmes_next_week.count > 0 %>
+  	  	<p class="lead">Programmes starting next week:</p>
+  	  	<%= render @programmes_next_week %>
+  	  <% end %>
+
+  	  <% if @events_next_week.count > 0 %>
+  		  <p class="lead">Events next week:</p>
+  		  <%= render @events_next_week %>
+  	  <% end %>
+	  <% end %>
+	</div>
+</div>
+
+
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611132449) do
+ActiveRecord::Schema.define(version: 20140613044830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,22 @@ ActiveRecord::Schema.define(version: 20140611132449) do
   add_index "enrolments", ["popular_programme_id"], name: "index_enrolments_on_popular_programme_id", using: :btree
   add_index "enrolments", ["special_id"], name: "index_enrolments_on_special_id", using: :btree
   add_index "enrolments", ["weekend_programme_id"], name: "index_enrolments_on_weekend_programme_id", using: :btree
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.string   "tagline"
+    t.text     "description"
+    t.date     "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "icon"
+    t.string   "link"
+  end
+
+  add_index "events", ["location_id"], name: "index_events_on_location_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
