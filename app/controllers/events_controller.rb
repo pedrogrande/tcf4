@@ -11,6 +11,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @location = @event.location
+    @event_registration = EventRegistration.new
   end
 
   # GET /events/new
