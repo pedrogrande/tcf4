@@ -6,6 +6,8 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "The Coder Factory offers a range of part time web app development and startup courses. Technologies taught include Ruby on Rails, Angular.js, HTML5, CSS3, jQuery and many others." %>">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
 <!-- HTML5 and CSS3-in older browsers-->
 <script src="<%= asset_path 'modernizr.custom.17475.js' %>"></script>
   <%= csrf_meta_tags %>
@@ -24,6 +26,9 @@
   <%= render 'layouts/facebook_pixel' %>
   <%= render 'layouts/google_analytics' %>
   <meta name="alexaVerifyID" content="Rf8ZhG3dP3bRnNXklUH61rlYkq8"/>
+  <style>
+  body {font-family: 'Play', 'Questrial', sans-serif;}
+  </style>
 </head>
 <body>
   <%= render 'layouts/header' %>

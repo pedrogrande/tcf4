@@ -1,6 +1,6 @@
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
-  layout 'public', only: :show
+  layout 'public', only: [:show]
 
   # GET /testimonials
   # GET /testimonials.json
@@ -71,6 +71,6 @@ class TestimonialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def testimonial_params
-      params.require(:testimonial).permit(:name, :quote, :text, :image, :courses)
+      params.require(:testimonial).permit(:name, :quote, :text, :image, :popular_programme_id, :featured)
     end
 end

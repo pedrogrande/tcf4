@@ -1,52 +1,18 @@
-<h1 class="col-md-12">Testimonials</h1>
-  <div class="col-md-12">
-    <ul class="breadcrumb">
-      <li><a href="index.html">Home</a><span class="divider"></span></li>
-      <li class="active">Testimonials</li>
-    </ul>
-  </div>
-  <!-- =========================Start Col left section ============================= -->   
-  <aside class="col-md-4 ">
-  <div class="col-left">
-  <div class="widget">
-        <h4>Recent testimonials</h4>
-        <hr>
-  <% if @testimonials %>
-    <% @testimonials.each do |testimonial| %>
-      <ul class="recent_testimonials">
-        <li>
-          <%= testimonial.name %>   <i class="fa fa-calendar-o"></i>  <%= testimonial.created_at.strftime('%v') %>
-          <div><h5><a href="#"><%= testimonial.quote %></a></h5></div>
-        </li>
-      </ul> 
-      <%= link_to 'Read more', testimonial, class: "button_red_small" %>
-      <hr>
-    <% end %>  
-  <% end %>  
-  </div><!-- End widget -->  
-  </div><!--End col left -->
-    
-  <p><img src="<%= asset_path 'banner.jpg' %>" alt="Banner" class="img-rounded img-responsive"></p>
-  </aside>
+<table class="table">
+<tr>
+<th>Name</th>
+<th>Programme</th>
+<th colspan="2"></th>
+</tr>
 
-<!-- =========================Start Col right section ============================= --> 
-<section class="col-md-8  ">
-  <div class="col-right">
-       <div class="main-img">
-            <img src="<%= asset_path 'about.jpg' %>" alt="" class="img-responsive">
-            <p class="lead">"If you enjoy building things and seeing ideas come to life, then I would strongly recommend you give the guys at The Coder Factory a call." - Mark Collins</p>
-        </div>
-        <h3>Some of our success stories</h3>
-        <div class="row">
-          <div class="col-md-4">
-            <img src="<%= asset_path 'banner.jpg' %>" class="img-thumbnail" width="300px">
-          </div>  
-          <div class="col-md-4">
-            <img src="<%= asset_path 'banner.jpg' %>" class="img-thumbnail" width="300px">
-          </div> 
-          <div class="col-md-4">
-            <img src="<%= asset_path 'banner.jpg' %>" class="img-thumbnail" width="300px">
-          </div> 
-        </div>
-    </div><!-- end col right-->
-  </section>
+<% @testimonials.each do |testimonial| %>
+<tr>
+<td><%= link_to testimonial.name, testimonial %></td>
+<td><%= testimonial.popular_programme.name %></td>
+<td><%= link_to 'Edit', edit_testimonial_path(testimonial) %></td>
+<td><%= link_to 'Delete', testimonial, method: :delete %></td>
+</tr>
+<% end %>
+</table>
+
+<%= link_to "Create testimonial", new_testimonial_path %>

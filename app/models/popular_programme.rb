@@ -5,6 +5,7 @@ class PopularProgramme < ActiveRecord::Base
   has_many :weekend_programmes
   has_many :enrolments
   has_many :specials
+  has_many :testimonials
 
   is_impressionable
   

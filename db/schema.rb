@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613114930) do
+ActiveRecord::Schema.define(version: 20140614004734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -470,8 +470,11 @@ ActiveRecord::Schema.define(version: 20140613114930) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "courses"
+    t.integer  "popular_programme_id"
+    t.boolean  "featured"
   end
+
+  add_index "testimonials", ["popular_programme_id"], name: "index_testimonials_on_popular_programme_id", using: :btree
 
   create_table "unit_sessions", force: true do |t|
     t.integer  "unit_id"

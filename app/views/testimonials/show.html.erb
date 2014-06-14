@@ -42,7 +42,7 @@
                     <ul>
                       <li><i class="fa fa-calendar-o"></i> On <%= @testimonial.created_at.strftime('%v') %></li>
                         <li><i class="fa fa-user"></i> <%= @testimonial.name %></li>
-                        <li><i class="fa fa-book"></i> <%= @testimonial.courses %></li>
+                        <li><i class="fa fa-book"></i> <%= @testimonial.popular_programme.name %></li>
                     </ul>
                </div>
                <div class="post-right"><i class="fa fa-comments"></i> <a href="#">1000 </a>Comments</div>  

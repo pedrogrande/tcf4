@@ -9,5 +9,6 @@ class HomeController < ApplicationController
   	@events_next_week = Event.events_next_week
   	@programmes_this_week = WeekendProgramme.programmes_this_week
   	@programmes_next_week = WeekendProgramme.programmes_next_week
+    @featured_testimonials = Testimonial.featured.limit(3)
   end
 end
