@@ -4,7 +4,7 @@
 <%= content_for :image, @profile.profile_picture %>
 <%= content_for :author, @profile.name %>
 
-<h1 class="col-md-12"><%= @profile.name %></h1>
+<h1 class="col-md-12"><%= @profile.name %>'s Profile</h1>
   <div class="col-md-12">
     <ul class="breadcrumb">
       <li><a href="<%= root_path %>">Home</a><span class="divider"></span></li>
@@ -14,15 +14,15 @@
 
 <aside class="col-md-4">
   <div class="col-left">
-    <div class="widget">
+    <div class="widget" itemscope itemtype="http://data-vocabulary.org/Person">
       <h3>About me</h3>
       <hr>
       <p class="text-center">
         <% if @profile.profile_picture %>
-          <%= cl_image_tag @profile.profile_picture, class: 'img-responsive img-circle center-block'  %>
+          <span itemprop="photo"><%= cl_image_tag @profile.profile_picture, class: 'img-responsive img-circle center-block'  %>
         <% end %>
-        <strong><span><%= @profile.name %></span></strong><br>
-        <%= @profile.title %>
+        <strong><span itemprop="name"><%= @profile.name %></span></strong><br>
+        <span itemprop="title"><%= @profile.title %></span>
       </p>
       <p class="text-justify"><%= @profile.info %></p>
       <div class="row">
@@ -59,7 +59,7 @@
             <i class="fa fa-circle-thin fa-stack-2x"></i>
             <i class="fa fa-globe fa-stack-1x"></i>
           </span> 
-          <%= link_to "Website", @profile.website %>
+          <span itemprop="name"><%= link_to "Website", @profile.website %></span>
         </li>
       </ul>
       </div></div>
