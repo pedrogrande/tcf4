@@ -28,7 +28,8 @@
             </div>
             <div class="col-md-4 text-center">
             <h4>Skill level</h4>
-                <span class="label label-<%= skill_label(@unit.skill_level) %>"><%= skill_level_name(@unit.skill_level) %></span>
+                <span class="label label-<%= skill_label(@unit.skill_level.number) %>">
+                <%= @unit.skill_level.name %></span>
             </div>
             <div class="col-md-4 text-center">
             <h4>Workshop duration</h4>

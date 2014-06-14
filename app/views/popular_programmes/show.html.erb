@@ -69,7 +69,7 @@
               <p class="labels">
               <span class="label label-<%= panel_color(unit.skill_group) %>"><%= unit.skill_group.name %></span>
               
-                <span class="label label-<%= skill_label(unit.skill_level) %>"><%= skill_level_name(unit.skill_level) %></span>
+                <span class="label label-<%= skill_label(unit.skill_level_id) %>"><%= skill_level_name(unit.skill_level) %></span>
               
               <span class="label label-default"><%= pluralize(unit.duration_minutes / 60.0, 'hour') %></span>
             </p>

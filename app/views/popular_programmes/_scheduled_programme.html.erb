@@ -20,7 +20,7 @@
     <%= scheduled_programme.date.strftime('%A, %e/%m/%y') %>
     <br>
       <i class="fa fa-clock-o fa-fw"></i>
-    <%= @next_programme.start_time.strftime('%l:%M%P') %> - <%= @next_programme.end_time.strftime('%l:%M%P') %>
+    <%= scheduled_programme.start_time.strftime('%l:%M%P') %> - <%= scheduled_programme.end_time.strftime('%l:%M%P') %>
   </div>
 
   <div class="col-sm-3">

@@ -1,5 +1,6 @@
 class Unit < ActiveRecord::Base
 	belongs_to :skill_group
+  belongs_to :skill_level
 	has_many :user_units
 	has_many :users, through: :user_units
 	has_many :unit_skills
@@ -25,11 +26,11 @@ class Unit < ActiveRecord::Base
   end
 
   def self.beginner_units
-  	where(skill_level, 1)
+  	where(skill_level_id, 1)
   end
 
   def self.order_by_skill_level
-    order(skill_level: :asc)
+    order(skill_level_id: :asc)
   end
 
 

@@ -1,6 +1,5 @@
 <!-- =========================Start Col left section ============================= -->
 <aside  class="col-md-4 ">
-  <%= render 'layouts/banner' %>
 	<div class="col-left">
     
       <ul class="submenu-col">
@@ -19,7 +18,17 @@
       
       
       <hr>
+      <h3>Workshops by skill level</h3>
+      <ul class="submenu-col">
+          <% @skill_levels.each do |skill_level| %>
+            
+              <li><a href="<%= all_workshops_path(skill_level: skill_level) %>" id="<%= 'active' if params[:skill_level] == skill_level.id %>"><%= skill_level.name %> <span class="label label-info pull-right"><%= skill_level.units.count %></span></a></li>
+            
+          <% end %>
+      </ul>
       
+      
+      <hr>
       <h3>Upcoming Workshops</h3>
       <p>Suspendisse quis risus turpis, ut pharetra arcu. Donec adipiscing, quam non faucibus luctus, mi arcu blandit diam, at faucibus mi ante vel augue.</p>
       <p><a href="<%= all_workshops_path %>" class=" button_red_small">View Courses</a></p>
