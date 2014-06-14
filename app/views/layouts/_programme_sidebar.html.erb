@@ -63,6 +63,17 @@
 	  </div>
 	 </div>
 	 <div class="col-left">
+	 <div class="widget">
+	 			<div class="box-style-2 ">
+	 		    	
+	 		        	<%= cl_image_tag(@popular_programme.testimonials.first.image, :width => 150, :height => 150, :crop => :fill, class: 'img-responsive img-circle') %>
+	 		            <p class="lead"><%= @popular_programme.testimonials.first.quote %><br><span class="text-muted">--<%= @popular_programme.testimonials.first.name %></span></p>
+	 		            <p><%= @popular_programme.testimonials.first.text.html_safe %></p>
+	 		        
+	 		    </div>
+	 </div>
+	 </div>
+	 <div class="col-left">
   	<div class="widget">
       <h3>Other Programmes</h3>
       <ul class="submenu-col">
