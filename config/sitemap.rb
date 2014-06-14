@@ -26,4 +26,8 @@ SitemapGenerator::Sitemap.create do
   Unit.find_each do |unit|
     add unit_path(unit), :lastmod => unit.updated_at
   end
+
+  Event.find_each do |event|
+    add event_path(event), :lastmod => event.updated_at
+  end
 end

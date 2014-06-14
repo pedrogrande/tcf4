@@ -17,35 +17,50 @@
 
  
 <section class="col-md-8">
-  <div class="col-left">
+  <div class="col-left" itemscope itemtype="http://schema.org/Event">
 
 <h2>
   <span class="fa-stack">
     <i class="fa fa-circle-thin fa-stack-2x"></i>
     <i class="fa fa-<%= @event.icon %> fa-stack-1x"></i>
   </span>
-  <%= @event.name %>, <%= @location.city %>
+  <span itemprop="name"><%= @event.name %>, <%= @location.city %></span>
+  <% if @event.price == 0 or @event.price.nil? %>
+    <span class="label label-success">FREE!</span>
+  <% end %>
 </h2>
 <div class="row">
 <div class="col-sm-12">
 <p class="lead"><%= @event.tagline %></p>
-<p><%= @event.description %></p>
+<p itemprop="description"><%= @event.description %></p>
 <hr>
 </div>
 <div class="col-sm-5">
 <h3>Where</h3>
-<p>
-  <%= link_to @location.name, @location %><br>
-  <%= @location.street %><br>
-  <%= @location.suburb %> <%= @location.state %> <%= @location.postcode %>
+<p itemprop="location" itemscope itemtype="http://schema.org/Place">
+  <span itemprop="name"><%= link_to @location.name, @location %><br></span>
+  <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+  <span itemprop="streetAddress"><%= @location.street %></span><br>
+  <span itemprop="addressLocality"><%= @location.suburb %></span> <span itemprop="addressRegion"><%= @location.state %></span> <span itemprop="postalCode"><%= @location.postcode %>
+  </span>
 </p>
 <hr>
 <h3>When</h3>
 <p>
-  <%= @event.date.strftime('%A, %e %B %Y') %><br>
+  <span itemprop="startDate" content="<%= @event.date.to_date.to_s + @event.start_time.strftime('T%H:%M').to_s %>"><%= @event.date.strftime('%A, %e %B %Y') %><br>
   <%= @event.start_time.strftime('%l:%M%P') %> - <%= @event.end_time.strftime('%l:%M%P') %>
 </p>
+<hr>
+<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+<h3>Price</h3>
+<p>
 
+<% if @event.price == 0 or @event.price.nil? %>
+    <span itemprop="price"><span class="label label-success">FREE!</span></span>
+<% else %>
+  <i class="fa fa-dollar"></i><span itemprop="price"><%= @event.price %></span>
+<% end %>
+</span></p>
 </div>
 <div class="col-sm-7">
   <%= @location.embed_map.html_safe if @location.embed_map %>
