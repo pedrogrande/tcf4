@@ -1,4 +1,5 @@
 <!-- Buttons start here. Copy this ul to your document. -->
+<% if @post.user.profile %>
                 <ul class="rrssb-buttons clearfix">
                     <li class="email">
 
@@ -22,7 +23,7 @@
                     </li>
                     <li class="twitter">
                         <!-- Replace href with your Meta and URL information  -->
-                        <a href="http://twitter.com/home?status=<%= CGI.escape(@post.title) %>%20by%20<%= @post.user.profile.twitter if @post.user.profile %>%20and%20@coderfactory%20<%= post_url(@post) %>" class="popup">
+                        <a href="http://twitter.com/home?status=<%= CGI.escape(@post.title) %>%20by%20<%= @post.user.profile.twitter %>%20and%20@coderfactory%20<%= post_url(@post) %>" class="popup">
                             <i class="fa fa-twitter fa-lg white"></i> &nbsp;&nbsp;
                         </a>
                     </li>
@@ -52,3 +53,4 @@
                     
                 </ul>
                 <!-- Buttons end here -->
+<% end %>
