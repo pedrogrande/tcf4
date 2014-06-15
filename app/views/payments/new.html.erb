@@ -80,7 +80,13 @@
   <div class="col-right">
     <h2 class="text-muted">1. Complete your details <span class="text-success"><i class="fa fa-check-square-o"></i></span></h2>
     <hr class="double">
-    <h2>2. Make a payment. <small></small></h2>
+    <% if @special and enrolment_price(@enrolment) == 0 %>
+    <h2 class="text-muted">2. Make a payment <span class="text-success"><i class="fa fa-check-square-o"></i></span></h2>
+    <hr class="double">
+      <h3>Nothing more to do here, lucky you!</h3>
+      <p><%= button_to "Confirm your enrolment", payments_path(amount: 0, guid: @enrolment.guid), method: :post, class: 'btn btn-success btn-xl' %></p>
+    <% else %>
+    <h2>2. Make a payment </h2>
     <hr class="double">
     <p class="lead">Visa, MasterCard, and American Express are accepted and payments are processed through <a href="#stripe">Stripe</a>.</p> 
     
@@ -151,7 +157,9 @@
 
   <div id="payment-plans" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <%= render 'layouts/payment_plans' %>
+  <% end %>
 </div>
+<% if enrolment_price(@enrolment) > 0 %>
 <script src="https://checkout.stripe.com/v2/checkout.js"></script>
               
 <script>
@@ -172,3 +180,4 @@ $(document).ready(function() {
     });
 });
 </script>
+<% end %>

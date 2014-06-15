@@ -33,7 +33,8 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     enrolment = Enrolment.find_by!(guid: params[:guid])
-      amount = params[:amount]
+    amount = params[:amount].to_i
+    if amount > 0
       token = params[:stripeToken]
 
       stripe_customer = Stripe::Customer.create(
@@ -60,6 +61,12 @@ class PaymentsController < ApplicationController
         @error = e
         render :new
       end
+    else
+      @payment = Payment.credit_card_payment(amount)
+      enrolment.update_attributes(payment_id: @payment.id)
+      Special.has_been_redeemed(enrolment) if enrolment.special_id
+      redirect_to thanks_enrolment_path(enrolment)
+    end
   end
 
   # PATCH/PUT /payments/1

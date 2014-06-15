@@ -22,18 +22,22 @@
             <p class="lead"><%= @unit.tagline %></p>
             <p><%= @unit.description.html_safe %></p>
             <div class="row unit-details">
-            <div class="col-md-4 text-center">
+            <div class="col-md-3 text-center">
               <h4>Skill group</h4>
               <span class="label label-<%= panel_color(@unit.skill_group) %>"><%= @unit.skill_group.name %></span>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-3 text-center">
             <h4>Skill level</h4>
                 <span class="label label-<%= skill_label(@unit.skill_level.number) %>">
                 <%= @unit.skill_level.name %></span>
             </div>
-            <div class="col-md-4 text-center">
-            <h4>Workshop duration</h4>
+            <div class="col-md-3 text-center">
+            <h4>Duration</h4>
               <span class="label label-default"><%= pluralize(@unit.duration_minutes / 60.0, 'hour') %></span>
+            </div>
+            <div class="col-md-3 text-center">
+            <h4>Price</h4>
+              <span class="label label-warning"><%= @unit.workshop_credits * PRICE_PER_POINT %></span>
             </div>
             </div>
             <h3>Benefits of this workshop</h3>
@@ -49,3 +53,9 @@
         
         
 </section>
+<div class="col-md-4">
+  
+  <%= render 'unit_sidebar' %>
+
+  
+</div>

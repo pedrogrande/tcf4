@@ -4,7 +4,7 @@
     <i class="fa fa-circle-thin fa-stack-2x"></i>
     <i class="fa fa-map-marker fa-stack-1x"></i>
   </span>
-<%= scheduled_programme.location.city %>  
+<%= scheduled_programme.location.city %>  <small><%= scheduled_programme.day %></small>
 </h2>
 <div class="row">
   <div class="col-sm-6">
@@ -17,7 +17,7 @@
 
     <br>
       <i class="fa fa-calendar fa-fw"></i>
-    <%= scheduled_programme.date.strftime('%A, %e/%m/%y') %>
+    <%= scheduled_programme.date.strftime('%e %B') %> - <%= scheduled_programme.end_date.strftime('%e %B %Y') %>
     <br>
       <i class="fa fa-clock-o fa-fw"></i>
     <%= scheduled_programme.start_time.strftime('%l:%M%P') %> - <%= scheduled_programme.end_time.strftime('%l:%M%P') %>

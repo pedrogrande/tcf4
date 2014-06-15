@@ -13,8 +13,8 @@ class UnitsController < ApplicationController
   # GET /units/1
   # GET /units/1.json
   def show
-    @goals = Goal.all
-    @menu_skill_groups = SkillGroup.all
+    @popular_programmes = @unit.popular_programmes
+    
   end
 
   # GET /units/new
