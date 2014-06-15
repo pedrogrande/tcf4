@@ -40,13 +40,16 @@
        <%= @post.lead.html_safe %>
     </p>
     <div itemprop="articleBody" class="text-justify"><p><%= @post.content.html_safe %></p></div>
-    <div class="post-left">
-        <i class="fa fa-book"></i> Posted in <%= link_to @post.category.name, blog_path(category: @post.category), class: 'btn btn-xs btn-default' %></li>
+    <hr>
+      <p class="lead">If this article would be of interest to your friends or family, we've made it easy to share it.</p>
+      <%= render 'layouts/share_buttons' %>
+      <hr>
+     <div>
+        <i class="fa fa-th-list"></i> Posted in <%= link_to @post.category.name, blog_path(category: @post.category), class: 'btn btn-xs btn-default' %></li>
          
       </div>
     </div>
   </div><!-- end post -->
-  <hr>
   <div class="col-right">
   <div id="disqus_thread"></div>
     <script type="text/javascript">

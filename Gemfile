@@ -1,4 +1,5 @@
 source 'https://code.stripe.com'
+source 'https://rails-assets.org'
 source 'https://rubygems.org'
 
 
@@ -36,6 +37,7 @@ gem 'whenever', :require => false
 gem 'sucker_punch', '~> 1.0'
 gem 'exception_notification'
 gem 'newrelic_rpm'
+gem 'rails-assets-RRSSB'
 group :development do
   gem "better_errors"
   gem 'quiet_assets'

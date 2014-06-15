@@ -7,6 +7,7 @@ GIT
 
 GEM
   remote: https://code.stripe.com/
+  remote: https://rails-assets.org/
   remote: https://rubygems.org/
   specs:
     actionmailer (4.1.1)
@@ -130,6 +131,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.1)
       sprockets-rails (~> 2.0)
+    rails-assets-RRSSB (1.6.0)
     railties (4.1.1)
       actionpack (= 4.1.1)
       activesupport (= 4.1.1)
@@ -223,6 +225,7 @@ DEPENDENCIES
   pg
   quiet_assets
   rails (= 4.1.1)
+  rails-assets-RRSSB
   rolify
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
