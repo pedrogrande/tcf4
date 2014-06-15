@@ -22,7 +22,7 @@
                     </li>
                     <li class="twitter">
                         <!-- Replace href with your Meta and URL information  -->
-                        <a href="http://twitter.com/home?status=<%= CGI.escape(@post.title) %>%20by%20<%= @post.user.profile.twitter %>%20and%20@coderfactory%20<%= post_url(@post) %>" class="popup">
+                        <a href="http://twitter.com/home?status=<%= CGI.escape(@post.title) %>%20by%20<%= @post.user.profile.twitter if @post.user.profile %>%20and%20@coderfactory%20<%= post_url(@post) %>" class="popup">
                             <i class="fa fa-twitter fa-lg white"></i> &nbsp;&nbsp;
                         </a>
                     </li>

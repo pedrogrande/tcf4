@@ -6,52 +6,55 @@
 
 
 <h1 class="col-md-12"><%= @post.title %></h1>
-  <div class="col-md-12">
-    <ul class="breadcrumb">
-      <li><a href="<%= root_path %>">Home</a><span class="divider"></span></li>
-      <li><a href="<%= blog_path %>">Blog</a><span class="divider"></span></li>
-      <li class="active"><%= @post.title %></li>
-    </ul>
-  </div>
-    
-<!-- =========================Start Col left section ============================= -->
-<aside class="col-md-4 hidden-xs">
-<%= render 'layouts/blog_sidebar' %>
-<%= render 'layouts/banner' %>
-</aside>
-    
-  <!-- =========================Start Col right section ============================= -->
+<div class="col-md-12">
+  <ul class="breadcrumb">
+    <li><a href="<%= root_path %>">Home</a><span class="divider"></span></li>
+    <li><a href="<%= blog_path %>">Blog</a><span class="divider"></span></li>
+    <li class="active"><%= @post.title %></li>
+  </ul>
+</div>
+<!-- =========================Start Col right section ============================= -->
 <section class="col-md-8">
-  <div class="col-right">
-  <div itemscope itemtype="http://schema.org/Article" class="post">
-    <div class="post-img">
-      <img itemprop="image" src="<%= asset_path @post.image %>" alt="<%= @post.title %>" class="img-responsive">
-      <h2><a href="<%= post_url %>"><span itemprop="name"><%= @post.title %></span></a></h2>
-    </div>
-    <div class="post_info clearfix">
-      
-      <% if @profile %>
-       <span class="author vcard"><a rel="author" href="<%= @profile.google_plus %>?rel=author"><%= cl_image_tag @profile.profile_picture, class: 'img-circle blog-profile', alt: @profile.name %> <span itemprop="author" itemscope itemtype="http://schema.org/Person"><%= @profile.name %></span></a> 
-      <% end %>
-      &nbsp; <i class="fa fa-calendar-o"></i> <abbr class="published" itemprop="datePublished" content="<%= @post.published_date.strftime('%Y-%m-%d') %>" title="Published on <%= @post.published_date.strftime('%A, %e %B %Y, %l:%M%P') %>"><%= @post.published_date.strftime('%A, %e %B %Y') %></abbr>
+  <div class="col-sidebar">
+    <div itemscope itemtype="http://schema.org/Article" class="post">
+      <div class="post-img">
+        <img itemprop="image" src="<%= asset_path @post.image %>" alt="<%= @post.title %>" class="img-responsive">
+        <h2><a href="<%= post_url %>"><span itemprop="name"><%= @post.title %></span></a></h2>
+      </div>
+      <div class="post_info clearfix">
+        <% if @profile %>
+          <span class="author vcard">
+            <a rel="author" href="<%= @profile.google_plus %>?rel=author">
+              <%= cl_image_tag @profile.profile_picture, class: 'img-circle blog-profile', alt: @profile.name %> 
+              <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <%= @profile.name %>
+              </span>
+            </a> 
+        <% end %>
+        &nbsp; 
+        <i class="fa fa-calendar-o"></i> 
+        <abbr class="published" itemprop="datePublished" content="<%= @post.published_date.strftime('%Y-%m-%d') %>" title="Published on <%= @post.published_date.strftime('%A, %e %B %Y, %l:%M%P') %>"><%= @post.published_date.strftime('%A, %e %B %Y') %></abbr>
       </div>
      
-    <p class="lead" itemprop="articleSection">
-       <%= @post.lead.html_safe %>
-    </p>
-    <div itemprop="articleBody" class="text-justify"><p><%= @post.content.html_safe %></p></div>
-    <hr>
+      <p class="lead" itemprop="articleSection">
+        <%= @post.lead.html_safe %>
+      </p>
+      <div itemprop="articleBody" class="text-justify">
+        <p>
+          <%= @post.content.html_safe %>
+        </p>
+      </div>
+      <hr>
       <p class="lead">If this article would be of interest to your friends or family, we've made it easy to share it.</p>
       <%= render 'layouts/share_buttons' %>
       <hr>
-     <div>
-        <i class="fa fa-th-list"></i> Posted in <%= link_to @post.category.name, blog_path(category: @post.category), class: 'btn btn-xs btn-default' %></li>
-         
-      </div>
+    
+      <i class="fa fa-th-list"></i> Posted in <%= link_to @post.category.name, blog_path(category: @post.category), class: 'btn btn-xs btn-default' %></li>
+       
     </div>
-  </div><!-- end post -->
-  <div class="col-right">
-  <div id="disqus_thread"></div>
+  </div>
+  <div class="col-sidebar">
+    <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'coderfactory'; // required: replace example with your forum shortname
@@ -67,10 +70,8 @@
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
   </div>
-    <br>
-</div><!-- end col-right-->
 </section><!-- end section-->
-<aside class="col-md-4 visible-xs">
+<aside class="col-md-4">
 <%= render 'layouts/blog_sidebar' %>
 <%= render 'layouts/banner' %>
 </aside>
