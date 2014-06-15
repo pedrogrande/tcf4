@@ -4,87 +4,35 @@
 
 <% if @weekend_programme %>
 <h1 class="col-md-12"><i class="fa fa-edit"></i> Registration <small>Step 1 of 2</small></h1>
-<hr><br>
-<div class="col-md-5">
-	<div class="col-left">
+<br><br><br>
+
+<div class="col-md-8">
+		<h2>1. Complete your details </h2>
+		<%= render 'form' %>
+</div>
+<div class="col-md-4">
+	<div class="col-sidebar">
 		<h2>Your selected programme</h2>
 		<hr class="double">
-		<div class="row">
-	    <div class="col-sm-4 text-right">
-	      <p class="lead">Programme</p>
-	    </div>
-	    <div class="col-sm-8">
-	    	<p class="lead"><span class="details"><%= @weekend_programme.popular_programme.name %></span></p>
-	    </div>
-  	</div>
-  	<hr class="double">
+		<p class="lead"><span class="details"><%= @weekend_programme.popular_programme.name %></span></p>
+		<p class="lead"><span class="details"><%= @weekend_programme.day %></span></p>
+		<p class="lead"><span class="details"><%= @weekend_programme.start_time.strftime('%l:%M%P') %> - <%= @weekend_programme.end_time.strftime('%l:%M%P') %></span></p>
+		<p class="lead"><span class="details"><%= @weekend_programme.date.strftime('%e %b %Y') %></span>
+		<p class="lead"><span class="details"><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></span></p>
+		<p class="lead">
+			<span class="details">$
+    		<% if @special %>
 
-		<div class="row">
-	    <div class="col-sm-4 text-right">
-	      <p class="lead">Days</p>
-	    </div>
-	    <div class="col-sm-8">
-	    	<p class="lead"><span class="details"><%= @weekend_programme.day %></span></p>
-	    </div>
-  	</div>
-  	<hr class="double">
-
-		<div class="row">
-	    <div class="col-sm-4 text-right">
-	      <p class="lead">Times</p>
-	    </div>
-	    <div class="col-sm-8">
-	    	<p class="lead"><span class="details"><%= @weekend_programme.start_time.strftime('%l:%M%P') %> - <%= @weekend_programme.end_time.strftime('%l:%M%P') %></span></p>
-	    </div>
-  	</div>
-  	<hr class="double">
-		<div class="row">
-	    <div class="col-sm-4 text-right">
-	      <p class="lead">Start date</p>
-	    </div>
-	    <div class="col-sm-8">
-	    	<p class="lead"><span class="details"><%= @weekend_programme.date.strftime('%e %b %Y') %></span></p>
-	    </div>
-  	</div>
-  	<hr class="double">
-		<div class="row">
-	    <div class="col-sm-4 text-right">
-	      <p class="lead">Location</p>
-	    </div>
-	    <div class="col-sm-8">
-	    	<p class="lead"><span class="details"><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></span></p>
-	    </div>
-  	</div>
-  	<hr class="double">
-		<div class="row">
-	    <div class="col-sm-4 text-right">
-	      <p class="lead">Price</p>
-	    </div>
-	    <div class="col-sm-8">
-	    	<p class="lead"><span class="details">$
-	    		<% if @special %>
-
-	    			<% if @special.date_redeemed.nil? %>
-	    				<%= @weekend_programme.popular_programme.price - @special.dollar_discount %> <span class="text-danger">($<%= @special.dollar_discount %> off)</span>
-	    			<% else %>
-	    				<%= @weekend_programme.popular_programme.price %> (Promotion has already been redeemed)
-	    			<% end %>
-	    		<% else %>
-	    			<%= @weekend_programme.popular_programme.price %>
-	    		<% end %>
-	    	</span></p>
-	    </div>
-  	</div>
-  	<hr class="double">
-
-
-	</div>
-</div>
-<div class="col-md-7">
-	<div class="col-right">
-		<h2>1. Complete your details </h2>
-		<hr class="double">
-		<%= render 'form' %>
+    			<% if @special.date_redeemed.nil? %>
+    				<%= @weekend_programme.popular_programme.price - @special.dollar_discount %> <span class="text-danger">($<%= @special.dollar_discount %> off)</span>
+    			<% else %>
+    				<%= @weekend_programme.popular_programme.price %> (Promotion has already been redeemed)
+    			<% end %>
+    		<% else %>
+    			<%= @weekend_programme.popular_programme.price %>
+    		<% end %>
+    	</span>
+	   </p>
 	</div>
 </div>
 <% else %>

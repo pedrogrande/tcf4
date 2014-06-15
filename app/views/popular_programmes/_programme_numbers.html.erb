@@ -7,19 +7,19 @@
     <div class="row">
       <div class="col-lg-3 col-sm-6">
         <p class="text-center extra-margin-bottom"><strong>No. workshops</strong></p>
-        <p class="text-center"><span class="label label-primary mega">&nbsp;<%= @popular_programme.units.count %>&nbsp;</span></p><br>
+        <p class="text-center"><span class="label label-info mega">&nbsp;<%= @popular_programme.units.count %>&nbsp;</span></p><br>
       </div>
       <div class="col-lg-3 col-sm-6">
         <p class="text-center extra-margin-bottom"><strong>Class hours</strong></p>
-        <p class="text-center"><span class="label label-primary mega">&nbsp;<%= how_many_hours(@popular_programme) %>&nbsp;</span></p><br>
+        <p class="text-center"><span class="label label-info mega">&nbsp;<%= how_many_hours(@popular_programme) %>&nbsp;</span></p><br>
       </div>
       <div class="col-lg-3 col-sm-6">
         <p class="text-center extra-margin-bottom"><strong>Study weeks</strong></p>
-        <p class="text-center"><span class="label label-primary mega">&nbsp;<%= how_many_hours(@popular_programme) / 6 %>&nbsp;</span></p><br>
+        <p class="text-center"><span class="label label-info mega">&nbsp;<%= how_many_hours(@popular_programme) / 6 %>&nbsp;</span></p><br>
       </div>
       <div class="col-lg-3 col-sm-6">
         <p class="text-center extra-margin-bottom"><strong>Price (AUD)</strong></p>
-        <p class="text-center"><small><span class="label label-primary mega"><%= @popular_programme.price %><sup>*</sup></small></span></p>
+        <p class="text-center"><small><span class="label label-info mega"><%= @popular_programme.price %><sup>*</sup></small></span></p>
         <br>
         <p class="text-center terms"><sup>*</sup> <a href="#" data-toggle="modal" data-target="#payment-plans">Upfront payment price. Payment plans available</a></p><br>
       </div>

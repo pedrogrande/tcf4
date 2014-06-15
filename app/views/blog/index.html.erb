@@ -30,16 +30,10 @@
 <% end %>
 
 <div class="row">
-  <aside class="col-md-4 hidden-xs">
-    <%= render 'layouts/blog_sidebar' %>
-
-  <%= render 'layouts/banner' %>
-  </aside>
+  
 
   <section class="col-md-8">
     <% @posts.each do |post| %>
-      <div class="col-right">
-        <div class="post">
           <div class="blog-img">
             <% if post.image.blank? %>
               <a href="<%= post_path(post) %>"><img src="<%= asset_path 'PLAY.png' %>" alt="" class="img-responsive"></a>
@@ -47,9 +41,7 @@
                 <a href="<%= post_path(post) %>"><img src="<%= asset_path post.image %>" alt="" class="img-responsive" ></a>
             <% end %>
             <h2 class="lead text-center"><%= post.title %></h2>
-          </div>
         </div>
-      </div>
       <br>
     <% end %>
     <% if Post.all.count > 10 %>
@@ -60,5 +52,10 @@
       </div><!-- end col-right-->
     <% end %>
   </section> <!-- end section-->
+  <aside class="col-md-4 hidden-xs">
+    <%= render 'layouts/blog_sidebar' %>
+
+  <%= render 'layouts/banner' %>
+  </aside>
 </div>
 <br>

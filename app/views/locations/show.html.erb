@@ -47,8 +47,10 @@
 </div>
 <% if @weekend_programmes %>
 <div class="scheduled">
-      <h3>Scheduled programmes</h3>
+      <div class="col-left">
+      <h3>Scheduled programmes at <%= @location.name %></h3>
       <%= render @weekend_programmes %>
+      <p>If you are interested in attending a Coder Factory workshop but these times don't suit you, please drop us a line via our <a href="/contact">contact page</a>.</p>
     </div>
     <% end %>  
 </section>

@@ -4,7 +4,10 @@
 <%= content_for :description, @popular_programme.name + ': ' + @popular_programme.tagline + ' Next start date: ' + @popular_programme.weekend_programmes.first.date.strftime('%e %h %Y').to_s %>
 <%= content_for :image, @popular_programme.image %>
 
-<h1 class="col-md-12"><i class="fa fa-<%= @popular_programme.icon %>"></i> <%= @popular_programme.name %></h1>
+<h1 class="col-md-12"><span class="fa-stack">
+        <i class="fa fa-circle-thin fa-stack-2x"></i>
+        <i class="fa fa-<%= @popular_programme.icon %> fa-stack-1x"></i>
+      </span> <%= @popular_programme.name %></h1>
   <div class="col-md-12">
         <ul class="breadcrumb">
           <li><a href="<%= root_path %>">Home</a> <span class="divider"></span></li>
@@ -15,23 +18,11 @@
  
 <section class="col-lg-8">
   <div class="col-right">
-    <div class="main-img">
-      <img src="<%= asset_path @popular_programme.image %>" alt="<%= @popular_programme.name %>" class="img-responsive hidden-xs">
-      <p class="lead"><%= @popular_programme.tagline %></p>
-      
-    </div>
-
-    <h2>
-      <span class="fa-stack">
-        <i class="fa fa-circle-thin fa-stack-2x"></i>
-        <i class="fa fa-<%= @popular_programme.icon %> fa-stack-1x"></i>
-      </span>
-      
-      <%= @popular_programme.name %>
-    </h2>
+    
+    
+    <p class="lead"><%= @popular_programme.tagline %></p>
   </div>
   <%= render 'programme_numbers' %>
-  <%= render 'promotion' %>
   <div class="col-right" id="information">
     <div class="text-justify">
       <p><%= @popular_programme.description.html_safe %> </p>
@@ -43,11 +34,11 @@
 
     <!-- Scheduled programmes -->
     <% if @weekend_programmes.count > 0 %>
-    <div class="col-left">
+    
     <div class="scheduled" id="scheduled">
       <h3>Scheduled programmes</h3>
       <%= render partial: "scheduled_programme", collection: @weekend_programmes %>
-    </div></div>
+    </div>
     <% end %>  
 
 
