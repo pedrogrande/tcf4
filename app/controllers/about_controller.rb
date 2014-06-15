@@ -4,7 +4,7 @@ class AboutController < ApplicationController
 	impressionist
   def index
   	@profiles = Profile.all
-  	@weekend_programme = WeekendProgramme.future_by_date_ascending.first
+  	@next_programme = WeekendProgramme.future_by_date_ascending.first
   	@latest_post = Post.published_in_reverse_chron_order.first
   	@popular_post = Post.popular_posts.first
   end

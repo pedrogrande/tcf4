@@ -1,14 +1,31 @@
 <div class="col-sidebar">
       <div class="widget">
-        <h4>Next programme</h4>
-        <div class="programme">
-        <p class="lead"><i class="fa fa-<%= @weekend_programme.popular_programme.icon %>"></i> <%= link_to @weekend_programme.popular_programme.name, @weekend_programme.popular_programme %></p>
-        <p><strong>Starts: </strong><%= @weekend_programme.date.strftime('%d %B %Y') %>
-        <br>
-        <strong>Location: </strong><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></p>
-        </div>
-      </div>
-      <hr>
+        <h3>Next programme</h3>
+          
+          <ul class="fa-ul">
+          <% if @next_programme %>
+            <li><i class="fa-li fa fa-map-marker"></i>
+              <span class="all-caps">
+                <%= @next_programme.location.city %>
+              </span>: 
+              <%= link_to @next_programme.location.name, @next_programme.location, target: '_blank' %>
+            </li>
+            <li>
+              <i class="fa-li fa fa-calendar"></i>
+              <%= @next_programme.day %><br>
+            <%= @next_programme.date.strftime('%e %B') %> - <%= @next_programme.end_date.strftime('%e %B %Y') %>
+            </li>
+            <li>
+              <i class="fa-li fa fa-clock-o"></i>
+            <%= @next_programme.start_time.strftime('%l:%M%P') %> - <%= @next_programme.end_time.strftime('%l:%M%P') %>
+            </li>
+            <li>
+              <i class="fa-li fa fa-dollar"></i>
+            <%= @next_programme.popular_programme.price %>
+            </li>
+            </ul>
+          <hr>
+          <% end %>
       <% if @popular_post %>
       <div class="widget">
         <h4>Popular post</h4>
