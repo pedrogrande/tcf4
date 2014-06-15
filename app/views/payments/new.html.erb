@@ -134,7 +134,7 @@
                 
               </form>
               <hr>
-              <p class="lead text-center">* A choice of <a href="<%= payment_plans_path %>" target="_blank" alt="Payment plan">payment plans</a> is available and incur a 5% processing fee.</p>
+              <p class="lead text-center">* A choice of <a href="#" data-toggle="modal" data-target="#payment-plans">payment plans</a> is available and incur a 5% processing fee.</p>
         </div>
       </div>
     </div>
@@ -148,6 +148,10 @@
   <div class="row">
   <div class="break"></div>
   </div>
+
+  <div id="payment-plans" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <%= render 'layouts/payment_plans' %>
+</div>
 <script src="https://checkout.stripe.com/v2/checkout.js"></script>
               
 <script>
