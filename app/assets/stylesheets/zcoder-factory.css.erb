@@ -453,12 +453,15 @@ position:absolute;
   .modal-content {
   position: relative;
   background: white;
-  border: 5px solid #00AEFF;
+  border: 1px solid #00AEFF;
   border-radius: 0px;
   outline: none;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
           box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   background-clip: padding-box;
+}
+.modal-body {
+	padding: -5px;
 }
 .modal-header {
 	background: #00AEFF;
@@ -510,6 +513,7 @@ position:absolute;
     height: 700px;
     display: block;
     position: relative;
+    padding-top: 10%;
     background: url('http://res.cloudinary.com/coder-factory/image/upload/v1402932558/landing_jagsi4.jpg') no-repeat;
 }
  
@@ -522,6 +526,9 @@ position:absolute;
     right: 0;
     position: absolute;
     z-index: -1;   
+}
+.hero h2 {
+	font-size:80px;
 }
 .page-title {
 	background: #00AEFF;

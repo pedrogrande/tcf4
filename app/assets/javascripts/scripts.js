@@ -18,3 +18,4 @@
 //= require revolutio-slider-func.js
 //= require jquery.form-validator.min.js
 //= require RRSSB
+//= require bootstrap.youtubepopup.min.js
