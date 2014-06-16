@@ -1,19 +1,12 @@
-<%= content_for :page_title, @post.title + ' (Coder Factory blog post)' %>
+<%= content_for :page_title, @post.title %>
 <%= content_for :title, @post.title + ' (Coder Factory blog post)' %>
 <%= content_for :description, @post.lead.html_safe %>
 <%= content_for :image, @post.image %>
 <%= content_for :author, @profile.name if @profile %>
+<%= content_for :icon, 'file-text-o' %>
+<%= content_for :breadcrumb, 'Blog' %>
+<%= content_for :breadcrumb_link, blog_path %>
 
-
-<h1 class="col-md-12"><%= @post.title %></h1>
-<div class="col-md-12">
-  <ul class="breadcrumb">
-    <li><a href="<%= root_path %>">Home</a><span class="divider"></span></li>
-    <li><a href="<%= blog_path %>">Blog</a><span class="divider"></span></li>
-    <li class="active"><%= @post.title %></li>
-  </ul>
-</div>
-<!-- =========================Start Col right section ============================= -->
 <section class="col-md-8">
   <div class="col-sidebar">
     <div itemscope itemtype="http://schema.org/Article" class="post">

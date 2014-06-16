@@ -1,40 +1,24 @@
-<%= content_for :page_title, 'Enrol in a Coder Factory programme' %>
+<%= content_for :page_title, 'Enrol' %>
+<%= content_for :icon, 'edit' %>
 <%= content_for :title, 'Enrol in a Coder Factory programme' %>
 <%= content_for :description, 'Enrol in a Coder Factory web application development programme or workshop. Our classes are fun.' %>
-
+<div class="container">
+      <div class="row">
 <% if @weekend_programme %>
 <h1 class="col-md-12"><i class="fa fa-edit"></i> Registration <small>Step 1 of 2</small></h1>
 <br><br><br>
 
 <div class="col-md-8 col-sidebar">
-		<h2>1. Complete your details </h2>
+		<h2>1. Register your details </h2>
 		<%= render 'form' %>
 </div>
 <div class="col-md-4">
 	<div class="col-sidebar">
-		<h2>Your selected programme</h2>
-		<hr class="double">
-		<p class="lead"><span class="details"><%= @weekend_programme.popular_programme.name %></span></p>
-		<p class="lead"><span class="details"><%= @weekend_programme.day %></span></p>
-		<p class="lead"><span class="details"><%= @weekend_programme.start_time.strftime('%l:%M%P') %> - <%= @weekend_programme.end_time.strftime('%l:%M%P') %></span></p>
-		<p class="lead"><span class="details"><%= @weekend_programme.date.strftime('%e %b %Y') %></span>
-		<p class="lead"><span class="details"><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></span></p>
-		<p class="lead">
-			<span class="details">$
-    		<% if @special %>
+		    <%= render 'layouts/selected_programme' %>
 
-    			<% if @special.date_redeemed.nil? %>
-    				<%= @weekend_programme.popular_programme.price - @special.dollar_discount %> <span class="text-danger">($<%= @special.dollar_discount %> off)</span>
-    			<% else %>
-    				<%= @weekend_programme.popular_programme.price %> (Promotion has already been redeemed)
-    			<% end %>
-    		<% else %>
-    			<%= @weekend_programme.popular_programme.price %>
-    		<% end %>
-    	</span>
-	   </p>
 	</div>
 </div>
 <% else %>
-Please select a class first
+<p>Please select a class first</p>
 <% end %>
+</div></div>

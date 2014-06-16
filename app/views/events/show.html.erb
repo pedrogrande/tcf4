@@ -1,34 +1,23 @@
 <%= content_for :title, 'Coder Factory Events - ' + @event.name + ', ' + @event.location.city %>
 <%= content_for :description, 'Coder Factory workshop events ' + @event.name + 'in ' + @event.location.city + ', ' + @event.location.state %>
+<%= content_for :page_title, @event.name + ', ' + @event.location.city %>
+<%= content_for :icon, @event.icon %>
 
-<h1 class="col-md-12"><span class="fa-stack">
-    <i class="fa fa-circle-thin fa-stack-2x"></i>
-    <i class="fa fa-<%= @event.icon %> fa-stack-1x"></i>
-  </span> <%= @event.name %>, <%= @event.location.city %></h1>
-  <div class="col-md-12">
-        <ul class="breadcrumb">
-          <li><a href="<%= root_path %>">Home</a> <span class="divider"></span></li>
-          <li class="active"><%= @event.name %></li>
-        </ul>
-    </div>
 
 <div class="row">
   
 
  
 <section class="col-md-8">
-  <div class="col-left" itemscope itemtype="http://schema.org/Event">
+  <div class="col-sidebar" itemscope itemtype="http://schema.org/Event">
 
-<h2>
-  <span class="fa-stack">
-    <i class="fa fa-circle-thin fa-stack-2x"></i>
-    <i class="fa fa-<%= @event.icon %> fa-stack-1x"></i>
-  </span>
+<h3>
+    <i class="fa fa-<%= @event.icon %>"></i>
   <span itemprop="name"><%= @event.name %>, <%= @location.city %></span>
   <% if @event.price == 0 or @event.price.nil? %>
     <span class="label label-success">FREE!</span>
   <% end %>
-</h2>
+</h3>
 <div class="row">
 <div class="col-sm-12">
 <p class="lead"><%= @event.tagline %></p>
@@ -77,8 +66,8 @@
     <% end %>  
 </section>
 <div class="col-sm-4 hidden-xs">
-    <div class="col-right">
-    <h2>Register to attend</h2>
+    <div class="col-sidebar">
+    <h3>Register to attend</h3>
     <%= render 'event_registrations/form' %>
     </div>
   </div>

@@ -1,32 +1,15 @@
 <%= content_for :title, 'Coder Factory Articles on learning to code, startups' %>
 <%= content_for :description, 'Coder Factory articles cover learning to code, startups, programming languages, student success stories and interviews of influencers. Authors are Pete Argent, Dan Siepen, Florian Fischer ' %>
+<%= content_for :page_title, 'Coder Factory Blog' %>
+<%= content_for :icon, 'file-text-o' %>
 
 <% if @tag %>
   <h1 class="col-md-12">Coder Factory posts tagged with: <em><%= @tag %></em></h1>
-  <div class="col-md-12">
-    <ul class="breadcrumb">
-      <li><a href="/">Home</a> <span class="divider"></span></li>
-      <li><a href="<%= blog_path %>">Blog</a> <span class="divider"></span></li>
-      <li class="active">Posts tagged with: <em><%= @tag %></em></li>
-    </ul>
-</div>
+  
 <% elsif @category %>
   <h1 class="col-md-12">Coder Factory posts in category: <em><%= @category.name %></em></h1>
-  <div class="col-md-12">
-    <ul class="breadcrumb">
-      <li><a href="/">Home</a> <span class="divider"></span></li>
-      <li><a href="<%= blog_path %>">Blog</a> <span class="divider"></span></li>
-      <li class="active">Posts in category: <em><%= @tag %></em></li>
-    </ul>
-</div>
-<% else %>
-  <h1 class="col-md-12">Coder Factory Blog</h1>
-  <div class="col-md-12">
-    <ul class="breadcrumb">
-      <li><a href="/">Home</a> <span class="divider"></span></li>
-      <li class="active">Blog</li>
-    </ul>
-</div>
+  
+
 <% end %>
 
 <div class="row">

@@ -91,7 +91,7 @@ select {
 .panel {
 	margin-bottom: 20px;
 	background-color: #fff;
-	border: 0px solid;
+	border: 1px solid #DDD;
 	border-radius: 0px;
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .0);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .0);
@@ -187,9 +187,9 @@ ol li, ul li{
 	padding: .2em .3em;
 }
 .facts {
-	background: #CCC;
+	background: #DDD;
 	padding: 20px 20px 20px;
-	margin-top: 0px;
+	margin: 0px -20px;
 }
 .facts p {
 	color: #4c4c4c;
@@ -315,13 +315,13 @@ dd {
 	color: #FF8900;
 }
 .panel-success > .panel-heading {
-	background: rgba(0,255,111, 0.3);
+	background: rgba(0,255,111, 0.1);
 }
 .panel-warning > .panel-heading {
-	background: rgba(255, 137, 0, 0.3);
+	background: rgba(255, 137, 0, 0.1);
 }
 .panel-info > .panel-heading {
-	background: rgba(0,112,166, 0.3);
+	background: rgba(0,112,166, 0.1);
 }
 .panel-success > .panel-body {
 	background: rgba(0,255,111, 0.1);
@@ -394,9 +394,7 @@ dd {
 .break {
 	height: 40px;
 }
-.text-success {
-	color: #00FF6F;
-}
+
 .text-muted {
 	color: #999999;
 }
@@ -425,11 +423,7 @@ position:absolute;
 .unit-details h4 {
 	color: white;
 }
-.programme {
-	background: rgba(0,0,0,0.7);
-	padding: 20px;
-	margin: 0 -20px;
-}
+
 .calendar-strip {
  	margin-top: 20px;
  }
@@ -438,17 +432,19 @@ position:absolute;
  }
  
  .event {
- 	background: #FEE;
+ 	background: transparent;
   padding: 20px;
  	margin: 0 0px 20px;
   }
  
  .programme {
  	background: #EEF;
+ 	margin: 10px -20px;
+ 	padding: 20px 40px;
   }
  
  .name {
- 	color: #00AEFF;
+ 	color: #828387;
  	font-family: Comfortaa;
  	font-weight: 400;
  	font-size: 1.1em;
@@ -481,4 +477,76 @@ position:absolute;
 }
 .label-info {
 	background: #00AEFF;
+}
+.home-panel {
+	padding-bottom: 60px;
+}
+
+.testimonial-box {
+	padding: 0 50px;
+}
+.home-panel h2 {
+	color: #00AEFF;
+	font-size: 70px;
+	padding: 40px 0;
+	font-family: 'Comfortaa', 'Play', sans-serif;
+}
+.blue {
+	background: #00AEFF;
+	color: white;
+	padding: 80px 0;
+}
+.blue h2 {
+	color: white;
+}
+.programme-boxes h3 {
+	font-size: 30px;
+}
+.upcoming {
+	font-size: 40px;
+}
+.hero {
+    width: 100%;
+    height: 700px;
+    display: block;
+    position: relative;
+    background: url('http://res.cloudinary.com/coder-factory/image/upload/v1402932558/landing_jagsi4.jpg') no-repeat;
+}
+ 
+.hero:after {
+    content: "";
+    background: url('03.png') repeat;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+}
+.page-title {
+	background: #00AEFF;
+	color: white;
+	padding: 60px 0;
+	margin-bottom: 40px;
+}
+.page-title h1 {
+	color:white;
+	font-size: 60px;
+}
+.page-title a {
+	color: white;
+}
+.breadcrumb > .active {
+  color: #4c4c4c;
+}
+.panel-title > a:hover {
+  color: #fff;
+}
+.panel-group .panel {
+  margin-bottom: 0;
+  border-radius: 0px;
+}
+.skill-group {
+	font-size: 0.9em;
+	font-weight: 300;
 }

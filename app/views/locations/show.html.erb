@@ -1,21 +1,8 @@
-<%= content_for :page_title, 'Coder Factory Locations - ' + @location.name + ', ' + @location.city %>
+<%= content_for :page_title, @location.name + ', ' + @location.city %>
 <%= content_for :title, 'Coder Factory Locations - ' + @location.name + ', ' + @location.city %>
 <%= content_for :description, 'Coder Factory workshop locations include ' + @location.name + 'in ' + @location.city + ', ' + @location.state + ', ' + @location.country %>
+<%= content_for :icon, 'map-marker' %>
 
-<h1 class="col-md-12"><span class="fa-stack">
-    <i class="fa fa-circle-thin fa-stack-2x"></i>
-    <i class="fa fa-map-marker fa-stack-1x"></i>
-  </span>
-  <%= @location.name %>, <%= @location.city %></h1>
-  <div class="col-md-12">
-        <ul class="breadcrumb">
-          <li><a href="<%= root_path %>">Home</a> <span class="divider"></span></li>
-          <li class="active"><%= @location.name %></li>
-        </ul>
-    </div>
-
-<div class="row">
- 
 <section class="col-md-8">
   <div class="col-sidebar">
 
@@ -44,7 +31,8 @@
 <div class="scheduled">
       <div class="col-sidebar">
       <h3>Scheduled programmes at <%= @location.name %></h3>
-      <%= render @weekend_programmes %>
+      <br>
+      <%= render partial: "scheduled_programme", collection: @weekend_programmes %>
       <p>If you are interested in attending a Coder Factory workshop but these times don't suit you, please drop us a line via our <a href="/contact">contact page</a>.</p>
     </div>
     <% end %>  

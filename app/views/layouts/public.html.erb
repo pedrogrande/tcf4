@@ -32,14 +32,16 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <%= render 'layouts/nav' %>
-  <%= render 'layouts/slider' if current_page?(root_path) %>
-
-  <div class="<%= 'container' if !current_page?(root_path) %>">
-  <div class="<%= 'row' if !current_page?(root_path) %>">
+  <% if current_page?(root_path) or current_page?(controller: 'enrolments', action: 'new') or current_page?(controller: 'payments', action: 'new') %>
     <%= yield %>
-    
-  </div></div>
+  <% else %>
+    <%= render 'layouts/page_title' %>
+    <div class="container">
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  <% end %>
   <%= render 'layouts/footer' %>
   <%= javascript_include_tag "scripts", "data-turbolinks-track" => true %>
   

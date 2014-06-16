@@ -1,25 +1,27 @@
-<h1 class="col-md-12"><i class="fa fa-edit"></i> Registration <small>Step 2 of 2</small></h1>
+<div class="container">
+      <div class="row">
+      <h1 class="col-md-12"><i class="fa fa-edit"></i> Registration <small>Step 2 of 2</small></h1>
 <hr><br>
 <div class="row">
 
 <div class="col-md-8">
   <div class="col-sidebar">
-    <h2 class="text-muted">1. Complete your details <span class="text-success"><i class="fa fa-check-square-o"></i></span></h2>
+    <h3 class="text-muted">1. Complete your details <span class="text-success"><i class="fa fa-check-square-o"></i></span></h3>
   
     <% if @special and enrolment_price(@enrolment) == 0 %>
-    <h2 class="text-muted">2. Make a payment <span class="text-success"><i class="fa fa-check-square-o"></i></span></h2>
+    <h3 class="text-muted">2. Make a payment <span class="text-success"><i class="fa fa-check-square-o"></i></span></h3>
     
       <h3>Nothing more to do here, lucky you!</h3>
       <p><%= button_to "Confirm your enrolment", payments_path(amount: 0, guid: @enrolment.guid), method: :post, class: 'btn btn-success btn-xl' %></p>
     <% else %>
-    <h2>2. Make a payment </h2>
+    <h3>2. Make a payment </h3>
     <hr>
     <p>Visa, MasterCard, and American Express are accepted and payments are processed through <a href="#stripe">Stripe</a>.</p> 
     
     
     <div class="row">
       <div class="col-sm-6">
-        <h3 class="text-center">Pay upfront and save</h3>
+        <h4 class="text-center">Pay upfront and save</h4>
         <form accept-charset="UTF-8" action="/payments?amount=<%= enrolment_price(@enrolment) %>&amp;guid=<%= @enrolment.guid %>" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" /></div>
             <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
      
@@ -42,7 +44,7 @@
           <p class=" text-center">No more to pay!</p>
         </div>
         <div class="col-sm-6">
-          <h3 class="text-center">Pay a deposit*</h3>
+          <h4 class="text-center">Pay a deposit*</h4>
             <form accept-charset="UTF-8" action="/payments?amount=10000&amp;guid=<%= @enrolment.guid %>" method="post">
               <div style="display:none">
                 <input name="utf8" type="hidden" value="&#x2713;" />
@@ -76,27 +78,7 @@
   </div>
   <div class="col-md-4">
   <div class="col-sidebar">
-    <h2>Your selected programme</h2>
-    
-    <p class="lead"><span class="details"><%= @weekend_programme.popular_programme.name %></span></p>
-    <p class="lead"><span class="details"><%= @weekend_programme.day %></span></p>
-    <p class="lead"><span class="details"><%= @weekend_programme.start_time.strftime('%l:%M%P') %> - <%= @weekend_programme.end_time.strftime('%l:%M%P') %></span></p>
-    <p class="lead"><span class="details"><%= @weekend_programme.date.strftime('%e %b %Y') %></span>
-    <p class="lead"><span class="details"><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></span></p>
-    <p class="lead">
-      <span class="details">$
-        <% if @special %>
-
-          <% if @special.date_redeemed.nil? %>
-            <%= @weekend_programme.popular_programme.price - @special.dollar_discount %> <span class="text-danger">($<%= @special.dollar_discount %> off)</span>
-          <% else %>
-            <%= @weekend_programme.popular_programme.price %> (Promotion has already been redeemed)
-          <% end %>
-        <% else %>
-          <%= @weekend_programme.popular_programme.price %>
-        <% end %>
-      </span>
-     </p>
+    <%= render 'layouts/selected_programme' %>
   </div>
 </div>
   </div>
@@ -108,6 +90,7 @@
   <%= render 'layouts/payment_plans' %>
   <% end %>
 </div>
+</div></div>
 <% if enrolment_price(@enrolment) > 0 %>
 <script src="https://checkout.stripe.com/v2/checkout.js"></script>
               

@@ -1,27 +1,50 @@
-<div class="container hidden-xs">
+<div class="fullwidthbanner-container hero" id="hero-image">
+<!-- <img src="http://res.cloudinary.com/coder-factory/image/upload/v1402932558/landing_jagsi4.jpg">
+ -->
+ <br></div>
 
-     <div class="row" id="main-boxes">
+<div class="container-fluid hidden-xs home-panel">
+<h2 class="text-center">What our students say</h2>
+     <div class="row-fluid" id="main-boxes">
         <% @featured_testimonials.each do |testimonial| %>
-    	<div class="col-md-4">
-        	<div class="box-style-2 ">
-            	<a href="<%= popular_programme_path(testimonial.popular_programme) %>" title="<%= testimonial.popular_programme.name %>">
-                	<%= cl_image_tag(testimonial.image, :width => 150, :height => 150, :crop => :fill, class: 'img-responsive img-circle') %>
-                    <h3><%= testimonial.quote %> <small>--<%= testimonial.name %></small></h3>
-                    <p><%= testimonial.text.html_safe %></p>
-                </a>
-            </div>
+    	<div class="col-md-4 testimonial-box">
+        	
+            <%= cl_image_tag(testimonial.image, :width => 200, :height => 200, :crop => :fill, class: 'img-responsive img-circle center-block') %>
+            <p class="text-muted text-center"><%= testimonial.name %></p>
+            <p class="text-center"><%= testimonial.text.html_safe %></p>
+            <p class="lead text-center">"<%= testimonial.quote %>" </p>
+                
+            
         </div>
         <% end %>
         
     </div>
 </div> <!-- end container-->
-<div class="container">
-<div class="row">
+<div class="container-fluid hidden-xs home-panel blue">
+<h2 class="text-center">Why Coder Factory?</h2>
+     <div class="row-fluid text-center" id="main-boxes">
+     <div class="col-md-4 testimonial-box">
+        <i class="fa fa-smile-o fa-5x fa-fw"></i><br><br>
+              <h3>Have fun while you learn</h3>
+              
+              <p>Why should learning new things be serious and boring? Make new friends, build projects that you can relate to and have a real world purpose. That's what makes learning coding fun.</p>
+        </div>
+        <div class="col-md-4">
+        <i class="fa fa-group fa-5x fa-fw"></i><br><br> 
+              <h3>Teachers that care about you</h3>
+              <p>There are no instructors at Coder Factory, we have teachers. Teachers who take the time to find out who you are, what your goals are and supports you on your journey. No one gets left behind in a Coder Factory class.</p>
+        </div>
+        <div class="col-md-4">
+        <i class="fa fa-rocket fa-5x fa-fw"></i><br><br> 
+              <h3>Learn the latest and greatest</h3>
+              <p>So many online courses and schools offer outdated versions of languages. We only teach you the latest and greatest technologies. So you can innovate and disrupt.</p>
+        </div>
+    </div>
+</div> <!-- end container-->
+<div class="container home-panel">
     
 
-    <section class="col-md-8">
         <%= render 'upcoming_programmes' %>
-    </section>
-    <%= render 'home_sidebar' %>
-  </div>
+  
+</div>
    </div><!-- end container-->

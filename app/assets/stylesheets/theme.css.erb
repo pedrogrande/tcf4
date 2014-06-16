@@ -13,14 +13,14 @@ h6 {
 }
 
 h1 {
-  font-size: 38px;
-  line-height: 40px;
+  font-size: 50px;
+  line-height: 1.5em;
   color: #00AEFF;
   font-family: Comfortaa;
 }
 h2 {
-  font-size: 32px;
-   line-height:36px;
+  font-size: 50px;
+   line-height: 1.5em;
    color: #00AEFF;
 }
 h3 {
@@ -83,7 +83,7 @@ header a {
 #menu-top{
 	float:right;
 	color:#00AEEF;
-	font-size:16px;
+	font-size:18px;
 	margin-right:10px;
 	margin-top:30px;
 }
@@ -129,9 +129,9 @@ nav{
 /* #Site Footer
 ================================================ */
 footer {
-	background-color: rgba(0,0,0,0.7);
+	background-color: white;
 	color:#4c4c4c;
-	border-top: 1px solid #e0eaf0;
+	border-top: 1px solid #00AEFF;
 	width:100%;
 	padding-top:60px;
 	padding-bottom:45px;
@@ -220,14 +220,24 @@ footer a {
 .col-sidebar {
 	padding:30px 20px 15px 20px;
 	color: #0070a6;
-	background-color: white;
+	background-color: transparent;
 	
 	border: 1px solid #00AEFF;
+	/*border-bottom: 1px solid #00AEFF;*/
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
 	margin-bottom:30px;
 	position:relative;
+}
+.col-sidebar h2 {
+	color: #00AEFF;
+	font-size: 50px;
+	padding: 40px 0;
+	font-family: 'Comfortaa', 'Play', sans-serif;
+}
+.col-sidebar h3 {
+	font-size: 30px;
 }
 .col-full {
 	padding:30px 30px 15px 30px;
@@ -425,7 +435,7 @@ hr.double {
 }
 .box-style-1{
 	padding:30px 30px 10px 30px;  
-	background: #FFD; 
+	background: #EEF; 
 	box-shadow: 0; 
 	-webkit-box-shadow: 0; 
 	-moz-box-shadow: 0; 
@@ -442,19 +452,18 @@ hr.double {
 }
 .box-style-2 a  {
 	color:#2D343E;
-	background: #DFD;
+	background: transparent;
 	display:block;
 	font-size:14px;
 	text-shadow: 1px 1px 0px rgba(0,0,0,.2); 
-	padding:25px 25px 5px 25px;
+	padding:25px 0px 5px 0;
 	text-decoration:none;
 	font-weight:700;
 	
 	transition: background .8s ease; 
 	-webkit-transition: background .8s ease; 
 	-moz-transition: background .8s ease;
-	margin-bottom:0px;
-	margin-top:0px;
+	margin:30px;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
@@ -483,7 +492,7 @@ hr.double {
 	background: #E65F64;
 }
 .box-style-2 a:hover {
-	background: #EEF;
+	background: transparent;
 }
 .main-img { 
 	margin:-20px -10px 30px -10px; 

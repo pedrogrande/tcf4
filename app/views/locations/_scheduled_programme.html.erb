@@ -2,12 +2,12 @@
 <h3>
   <span class="fa-stack hidden-xs">
     <i class="fa fa-circle-thin fa-stack-2x"></i>
-    <i class="fa fa-map-marker fa-stack-1x"></i>
+    <i class="fa fa-<%= scheduled_programme.popular_programme.icon %> fa-stack-1x"></i>
   </span>
-<%= scheduled_programme.location.city %>  <small><%= scheduled_programme.day %></small>
+<%= scheduled_programme.popular_programme.name %>  <small><%= scheduled_programme.day %></small>
 </h3>
 <div class="row">
-  <div class="col-sm-8">
+  <div class="col-sm-6">
     
       <i class="fa fa-map-marker fa-fw"></i>
     <span class="all-caps">
@@ -22,9 +22,16 @@
       <i class="fa fa-clock-o fa-fw"></i>
     <%= scheduled_programme.start_time.strftime('%l:%M%P') %> - <%= scheduled_programme.end_time.strftime('%l:%M%P') %>
   </div>
-
-  
-  <div class="col-sm-4">
+  <div class="col-sm-3">
+  <%= link_to scheduled_programme.popular_programme, class: 'btn btn-block btn-default' do %> 
+    <span class="fa-stack">
+      <i class="fa fa-circle-thin fa-stack-2x"></i>
+      <i class="fa fa-info fa-stack-1x"></i>
+    </span>
+    More info
+  <% end %>
+  </div>
+  <div class="col-sm-3">
     <%= link_to new_enrolment_path(intake: scheduled_programme.id), class: 'btn btn-block btn-success' do %>
       <span class="fa-stack">
         <i class="fa fa-circle-thin fa-stack-2x"></i>

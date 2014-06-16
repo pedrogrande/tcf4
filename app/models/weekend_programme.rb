@@ -31,11 +31,7 @@ class WeekendProgramme < ActiveRecord::Base
     where('date <= ?', Date.today)
   end
 
-  def self.programmes_this_week
-    active.where('date >= ? and date < ?', Date.today, Date.today + 7).order(date: :asc)
-  end
-
-  def self.programmes_next_week
-    active.where('date >= ? and date < ?', Date.today + 7, Date.today + 14).order(date: :asc)
+  def self.next_three_programmes
+    future_by_date_ascending.limit(3)
   end
 end

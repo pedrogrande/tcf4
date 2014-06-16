@@ -35,9 +35,9 @@ html {
 		width:100% !important;
 		position:relative;
 		padding:0;
-		max-height:230px !important;
+		/*max-height:500px !important;*/
 		overflow:hidden;
-		margin:-25px 0 0 0;
+		margin:20px 0px 60px 0;
 		z-index:1;
 	}
 

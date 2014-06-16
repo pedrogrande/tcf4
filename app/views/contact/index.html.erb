@@ -1,26 +1,17 @@
-<%= content_for :page_title, 'Contact Coder Factory - the people there will help you with a smile' %>
+<%= content_for :page_title, 'Contact Coder Factory' %>
+<%= content_for :icon, 'phone' %>
 <%= content_for :title, 'Contact Coder Factory - the people there will help you with a smile' %>
 <%= content_for :description, 'Coder Factory contact details - drop us a line, ask a question, check where we are located' %>
 
-<h1 class="col-md-12">Contact Coder Factory</h1>
-		<div class="col-md-12">
-			<ul class="breadcrumb">
-				<li><a href="<%= root_path %>">Home</a><span class="divider"></span></li>
-				<li class="active">Contact</li>
-			</ul>
-		</div>
-        <!-- =========================Start Col left section ============================= -->
-		
-        
-        <!-- =========================Start Col right section ============================= -->
-		<section class="col-md-8 ">
-			<div class="col-sidebar">
-				<p class="lead">
-					We love to hear your goals and are always open to any questions, feedback or suggestions. Feel free to contact us!
-				</p>
-				<hr>
-				<h4>General enquiry</h4>
-				<%= render 'enquiries/form' %>
-			</div>
-		</section>
-		<%= render 'map_sidebar' %>
+
+<section class="col-md-8 ">
+	<div class="col-sidebar">
+		<p class="lead">
+			We love to hear your goals and are always open to any questions, feedback or suggestions. Feel free to contact us!
+		</p>
+		<hr>
+		<h4>General enquiry</h4>
+		<%= render 'enquiries/form' %>
+	</div>
+</section>
+<%= render 'map_sidebar' %>

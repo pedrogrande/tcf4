@@ -1,33 +1,125 @@
-<div class="col-sidebar">
-  <div class="calendar-strip">
-  <% if @events_this_week and @programmes_this_week %>
-	  <h2>This week at <span class="lowercase name">coderfactory</span></h2>
-	  <hr>
-	  <% if @programmes_this_week.count > 0 %>
-	  	<p class="lead">Programmes starting this week:</p>
-	  	<%= render @programmes_this_week %>
+<div class="row">
+  <% if @next_three_events.count > 0 or @next_three_programmes.count > 0 %>
+
+  <% if @next_three_programmes.count > 0 %>
+	  <h2 class="col-md-12 text-center ">Starting soon at <span class="lowercase name">coderfactory</span></h2>
+	  
+	  	<div class="row">
+			  	<h3 class="col-md-12">Programmes</h3>
+			  <% @next_three_programmes.each do |weekend_programme| %>
+			  			<div class="col-md-4">
+			  			<div class="panel panel-default">
+			  				<div class="panel-heading">
+			  					<p class="panel-title text-center all-caps">
+	                  <%= weekend_programme.location.city %>
+	                </p>
+			  				</div>
+			  				<div class="panel-body">
+			  					<h3>
+	                <span class="fa-stack">
+	                  <i class="fa fa-circle-thin fa-stack-2x"></i>
+	                  <i class="fa fa-<%= weekend_programme.popular_programme.icon %> fa-stack-1x"></i>
+	                </span> 
+	                <%= weekend_programme.popular_programme.name %>
+	              </h3>
+              	<p>
+                  <i class="fa fa-map-marker fa-fw"></i>
+	                 
+	                <%= link_to weekend_programme.location.name, weekend_programme.location, target: '_blank' %>
+
+	                <br>
+	                  <i class="fa fa-calendar fa-fw"></i>
+	                <%= weekend_programme.date.strftime('%A, %e/%m/%y') %>
+	                <br>
+	                  <i class="fa fa-clock-o fa-fw"></i>
+	                <%= weekend_programme.start_time.strftime('%l:%M%P') %> - <%= weekend_programme.end_time.strftime('%l:%M%P') %>
+	              </p>
+
+
+                <%= link_to weekend_programme.popular_programme, class: 'btn btn-block btn-default' do %> 
+                  <span class="fa-stack">
+                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                    <i class="fa fa-info fa-stack-1x"></i>
+                  </span>
+                  More info
+                <% end %>
+              
+              
+                <%= link_to new_enrolment_path(intake: weekend_programme.id), class: 'btn btn-block btn-success' do %>
+                  <span class="fa-stack">
+                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                    <i class="fa fa-edit fa-stack-1x"></i>
+                  </span>
+                  ENROL
+                <% end %>
+			  			</div>
+			  				</div>
+			  			</div>
+			  				
+			  				
+			  	
+			  <% end %>
+	  	</div>
 	  <% end %>
 
-	  <% if @events_this_week.count > 0 %>
-		  <p class="lead">Events this week:</p>
-		  <%= render @events_this_week %>
+	  <div class="row">
+	  <h3 class="col-md-12">Events</h3>
+	  <% @next_three_events.each do |event| %>
+	  					  			<div class="col-md-4">
+	  					  			<div class="panel panel-default">
+	  					  				<div class="panel-heading">
+	  					  					<p class="panel-title text-center all-caps">
+	  			                  <%= event.location.city %>
+	  			                </p>
+	  					  				</div>
+	  					  				<div class="panel-body">
+	  					  					<h3>
+	  			                <span class="fa-stack">
+	  			                  <i class="fa fa-circle-thin fa-stack-2x"></i>
+	  			                  <i class="fa fa-<%= event.icon %> fa-stack-1x"></i>
+	  			                </span> 
+	  			                <%= event.name %>
+	  			              </h3>
+	  		              	<p>
+	  		                  <i class="fa fa-map-marker fa-fw"></i>
+	  			                 
+	  			                <%= link_to event.location.name, event.location, target: '_blank' %>
+
+	  			                <br>
+	  			                  <i class="fa fa-calendar fa-fw"></i>
+	  			                <%= event.date.strftime('%A, %e/%m/%y') %>
+	  			                <br>
+	  			                  <i class="fa fa-clock-o fa-fw"></i>
+	  			                <%= event.start_time.strftime('%l:%M%P') %> - <%= event.end_time.strftime('%l:%M%P') %>
+	  			              </p>
+
+
+	  		                <%= link_to event, class: 'btn btn-block btn-default' do %> 
+	  		                  <span class="fa-stack">
+	  		                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+	  		                    <i class="fa fa-info fa-stack-1x"></i>
+	  		                  </span>
+	  		                  More info
+	  		                <% end %>
+	  		              
+	  		              
+	  		                <%= link_to event.link, class: 'btn btn-block btn-success' do %>
+	  		                  <span class="fa-stack">
+	  		                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+	  		                    <i class="fa fa-edit fa-stack-1x"></i>
+	  		                  </span>
+	  		                  ENROL
+	  		                <% end %>
+	  					  			</div>
+	  					  				</div>
+	  					  			</div>
 	  <% end %>
+	  </div>
+
+	  
 	<% end %>
 	</div>
-</div>
-<div class="col-sidebar">
-  <div class="calendar-strip">
-	  <% if @events_next_week and @programmes_next_week %>
-		  <h2>Next week at <span class="lowercase name">coderfactory</span></h2>
-  	  <% if @programmes_next_week.count > 0 %>
-  	  	<p class="lead">Programmes starting next week:</p>
-  	  	<%= render @programmes_next_week %>
-  	  <% end %>
+  
 
-  	  <% if @events_next_week.count > 0 %>
-  		  <p class="lead">Events next week:</p>
-  		  <%= render @events_next_week %>
-  	  <% end %>
-	  <% end %>
-	</div>
-</div>
+	  
+       

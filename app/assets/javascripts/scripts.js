@@ -18,4 +18,3 @@
 //= require revolutio-slider-func.js
 //= require jquery.form-validator.min.js
 //= require RRSSB
-//= require vegas_custom.js

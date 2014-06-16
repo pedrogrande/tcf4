@@ -1,0 +1,21 @@
+<h3>Your selected programme</h3>
+    <hr>
+    <p class="lead"><span class="details"><i class="fa fa-<%= @weekend_programme.popular_programme.icon %>"></i> <%= @weekend_programme.popular_programme.name %></span></p>
+    <p class="lead"><span class="details"><%= @weekend_programme.day %></span></p>
+    <p class="lead"><span class="details"><%= @weekend_programme.start_time.strftime('%l:%M%P') %> - <%= @weekend_programme.end_time.strftime('%l:%M%P') %></span></p>
+    <p class="lead"><span class="details"><%= @weekend_programme.date.strftime('%e %b %Y') %></span></p>
+    <p class="lead"><span class="details"><%= @weekend_programme.location.name + ', ' + @weekend_programme.location.city %></span></p>
+    <p class="lead">
+      <span class="details">$
+        <% if @special %>
+
+          <% if @special.date_redeemed.nil? %>
+            <%= @weekend_programme.popular_programme.price - @special.dollar_discount %> <span class="text-danger">($<%= @special.dollar_discount %> off)</span>
+          <% else %>
+            <%= @weekend_programme.popular_programme.price %> (Promotion has already been redeemed)
+          <% end %>
+        <% else %>
+          <%= @weekend_programme.popular_programme.price %>
+        <% end %>
+      </span>
+     </p>

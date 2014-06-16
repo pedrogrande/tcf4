@@ -3,17 +3,10 @@
 <%= content_for :title, @popular_programme.name + ' Locations: Sydney, Melbourne, Brisbane, Gold Coast, Adelaide, Perth' %>
 <%= content_for :description, @popular_programme.name + ': ' + @popular_programme.tagline + ' Next start date: ' + @popular_programme.weekend_programmes.first.date.strftime('%e %h %Y').to_s %>
 <%= content_for :image, @popular_programme.image %>
+<%= content_for :icon, @popular_programme.icon %>
 
-<h1 class="col-md-12"><span class="fa-stack">
-        <i class="fa fa-circle-thin fa-stack-2x"></i>
-        <i class="fa fa-<%= @popular_programme.icon %> fa-stack-1x"></i>
-      </span> <%= @popular_programme.name %></h1>
-  <div class="col-md-12">
-        <ul class="breadcrumb">
-          <li><a href="<%= root_path %>">Home</a> <span class="divider"></span></li>
-          <li class="active"><%= @popular_programme.name %></li>
-        </ul>
-    </div>
+
+
 
  
 <section class="col-lg-8 col-sidebar">
@@ -21,8 +14,9 @@
         <img itemprop="image" src="<%= asset_path @popular_programme.image %>" alt="<%= @popular_programme.name %>" class="img-responsive">
     
     
-    <p class="lead"><%= @popular_programme.tagline %></p>
+    
   </div>
+  <h3 class="lead"><%= @popular_programme.tagline %></h3>
   <%= render 'programme_numbers' %>
   <div class="col-right" id="information">
     <div class="text-justify">
@@ -47,37 +41,42 @@
     <div class="scheduled" id="workshops">
       <h3>Included workshops</h3>
       <div class="included-workshops">
-      
+ 
+<div class="panel-group" id="accordion">
+  <% @units.each_with_index do |unit, index| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index %>">
+            <%= (index + 1).to_s.rjust(2, '0') + '. ' + unit.name %>
+          </a>
 
-      <div class="row">            
-      <% @units.each do |unit| %>
-
-       
-      <div class="col-sm-12">
-        <div class="panel panel-<%= panel_color(unit.skill_group) %>">
-          <div class="panel-heading">
-              <p class="panel-title"><%= unit.name %></p>
-          </div>
-          <div class="panel-body">
-              <p class="labels">
-              <span class="label label-<%= panel_color(unit.skill_group) %>"><%= unit.skill_group.name %></span>
+          
+            
               
-                <span class="label label-<%= skill_label(unit.skill_level_id) %>"><%= skill_level_name(unit.skill_level) %></span>
-              
-              <span class="label label-default"><%= pluralize(unit.duration_minutes / 60.0, 'hour') %></span>
-            </p>
-            <p class="lead"><%= unit.tagline %></p>
-            <% if !unit.outcome.blank? %>
-              <p><strong>Outcome:</strong></p>
-              <p><%= unit.outcome %></p>
-            <% end %>
-          </div>
+        </h4>
+      </div>
+      <div id="collapse<%= index %>" class="panel-collapse collapse <%= 'in' if index == 0 %>">
+        <div class="panel-body">
+          <p class="labels">
+          <span class=" label label-<%= panel_color(unit.skill_group) %>"><%= unit.skill_group.name %></span>
+            <span class="label label-<%= skill_label(unit.skill_level_id) %>"><%= skill_level_name(unit.skill_level) %></span>
+            
+            <span class="label label-default"><%= pluralize(unit.duration_minutes / 60.0, 'hour') %></span>
+          </p>
+          <p class="lead"><%= unit.tagline %></p>
+          <% if !unit.outcome.blank? %>
+            <p><strong>Outcome:</strong></p>
+            <p><%= unit.outcome %></p>
+          <% end %>
         </div>
       </div>
-      <% end %>
-
-      
     </div>
+  <% end %>
+  
+</div>
+      
+    
     <a href="#scheduled" class="btn btn-success btn-xl">Book this programme</a>
   
 </section>
@@ -85,6 +84,6 @@
   <%= render 'layouts/programme_sidebar' %>
 </aside>
 
-
+</div></div>
 
 
