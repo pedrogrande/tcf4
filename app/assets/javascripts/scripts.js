@@ -11,11 +11,7 @@
 // about supported directives.
 //
 //= require jquery.easing.js
-//= require megamenu.js
 //= require functions.js
-//= require jquery.themepunch.plugins.min.js
-//= require jquery.themepunch.revolution.min.js
-//= require revolutio-slider-func.js
 //= require jquery.form-validator.min.js
 //= require RRSSB
 //= require bootstrap.youtubepopup.min.js
