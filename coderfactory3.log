@@ -290,3 +290,87 @@
 [0;37m2014-06-17 14:00:25.957[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (46.9ms) (pid:27037)
 [0;37m2014-06-17 14:00:25.997[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms) (pid:27037)
 [0;37m2014-06-17 14:00:25.997[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (234.4ms) (pid:27037)
+[0;37m2014-06-17 14:01:13.116[0m [[0;37mmeh[0m]  (pid:27037)
+[0;37m2014-06-17 14:01:13.117[0m [[0;37mmeh[0m]  (pid:27037)
+[0;37m2014-06-17 14:01:13.120[0m [[32mfyi[0m] Started GET "/" for 127.0.0.1 at 2014-06-17 14:01:13 +1000 (pid:27037)
+[0;37m2014-06-17 14:01:13.798[0m [[32mfyi[0m] Processing by HomeController#index as HTML (pid:27037)
+[0;37m2014-06-17 14:01:13.860[0m [[0;37mmeh[0m] [1m[36mBanner Load (7.5ms)[0m  [1mSELECT  "banners".* FROM "banners"   ORDER BY "banners"."id" ASC LIMIT 1[0m (pid:27037)
+[0;37m2014-06-17 14:01:13.892[0m [[0;37mmeh[0m] [1m[35mUser Load (9.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1 (pid:27037)
+[0;37m2014-06-17 14:01:13.915[0m [[0;37mmeh[0m] [1m[36m (1.0ms)[0m  [1mBEGIN[0m (pid:27037)
+[0;37m2014-06-17 14:01:13.952[0m [[0;37mmeh[0m] [1m[35mSQL (32.9ms)[0m  INSERT INTO "impressions" ("action_name", "controller_name", "created_at", "impressionable_type", "ip_address", "referrer", "request_hash", "session_hash", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["action_name", "index"], ["controller_name", "home"], ["created_at", "2014-06-17 04:01:13.916697"], ["impressionable_type", "Home"], ["ip_address", "127.0.0.1"], ["referrer", "http://localhost:3000/blog"], ["request_hash", "788076cbb89c3c7af87c2686149c49d7f2584e0a810f2ff2512e49269061821d"], ["session_hash", "53ad9ff65043e14bf123542d71f5219b"], ["updated_at", "2014-06-17 04:01:13.916697"], ["user_id", 1]] (pid:27037)
+[0;37m2014-06-17 14:01:14.581[0m [[0;37mmeh[0m] [1m[36m (42.5ms)[0m  [1mCOMMIT[0m (pid:27037)
+[0;37m2014-06-17 14:01:14.708[0m [[0;37mmeh[0m] [1m[35mTestimonial Load (0.4ms)[0m  SELECT  "testimonials".* FROM "testimonials"  WHERE "testimonials"."featured" = 't' LIMIT 3 (pid:27037)
+[0;37m2014-06-17 14:01:14.139[0m [[0;37mmeh[0m] [1m[36m (12.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "events"  WHERE (date >= '2014-06-17') LIMIT 3) subquery_for_count[0m (pid:27037)
+[0;37m2014-06-17 14:01:14.148[0m [[0;37mmeh[0m] [1m[35m (0.7ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "weekend_programmes"  WHERE "weekend_programmes"."active" = 't' AND (date >= '2014-06-17') LIMIT 3) subquery_for_count (pid:27037)
+[0;37m2014-06-17 14:01:14.149[0m [[0;37mmeh[0m] [1m[36mWeekendProgramme Load (0.4ms)[0m  [1mSELECT  "weekend_programmes".* FROM "weekend_programmes"  WHERE "weekend_programmes"."active" = 't' AND (date >= '2014-06-17')  ORDER BY "weekend_programmes"."date" ASC LIMIT 3[0m (pid:27037)
+[0;37m2014-06-17 14:01:14.177[0m [[0;37mmeh[0m] [1m[35mLocation Load (0.6ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."id" = $1 LIMIT 1  [["id", 3]] (pid:27037)
+[0;37m2014-06-17 14:01:14.200[0m [[0;37mmeh[0m] [1m[36mPopularProgramme Load (2.2ms)[0m  [1mSELECT  "popular_programmes".* FROM "popular_programmes"  WHERE "popular_programmes"."id" = $1 LIMIT 1[0m  [["id", 2]] (pid:27037)
+[0;37m2014-06-17 14:01:14.226[0m [[0;37mmeh[0m] [1m[35mLocation Load (0.4ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."id" = $1 LIMIT 1  [["id", 2]] (pid:27037)
+[0;37m2014-06-17 14:01:14.227[0m [[0;37mmeh[0m] [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "popular_programmes".* FROM "popular_programmes"  WHERE "popular_programmes"."id" = $1 LIMIT 1[0m  [["id", 2]] (pid:27037)
+[0;37m2014-06-17 14:01:14.231[0m [[0;37mmeh[0m] [1m[35mCACHE (0.0ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."id" = $1 LIMIT 1  [["id", 3]] (pid:27037)
+[0;37m2014-06-17 14:01:14.234[0m [[0;37mmeh[0m] [1m[36mPopularProgramme Load (0.4ms)[0m  [1mSELECT  "popular_programmes".* FROM "popular_programmes"  WHERE "popular_programmes"."id" = $1 LIMIT 1[0m  [["id", 3]] (pid:27037)
+[0;37m2014-06-17 14:01:14.246[0m [[0;37mmeh[0m] [1m[35mEvent Load (0.6ms)[0m  SELECT  "events".* FROM "events"  WHERE (date >= '2014-06-17')  ORDER BY "events"."date" ASC LIMIT 3 (pid:27037)
+[0;37m2014-06-17 14:01:14.252[0m [[0;37mmeh[0m] [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."id" = $1 LIMIT 1[0m  [["id", 3]] (pid:27037)
+[0;37m2014-06-17 14:01:14.265[0m [[32mfyi[0m] Rendered home/_upcoming_programmes.html.erb (151.3ms) (pid:27037)
+[0;37m2014-06-17 14:01:14.265[0m [[32mfyi[0m] Rendered home/index.html.erb within layouts/public (199.7ms) (pid:27037)
+[0;37m2014-06-17 14:01:14.283[0m [[32mfyi[0m] Rendered layouts/_icons.html.erb (0.5ms) (pid:27037)
+[0;37m2014-06-17 14:01:14.286[0m [[32mfyi[0m] Rendered layouts/_post_meta.html.erb (1.3ms) (pid:27037)
+[0;37m2014-06-17 14:01:14.288[0m [[32mfyi[0m] Rendered layouts/_facebook_pixel.html.erb (0.7ms) (pid:27037)
+[0;37m2014-06-17 14:01:14.290[0m [[32mfyi[0m] Rendered layouts/_google_analytics.html.erb (1.1ms) (pid:27037)
+[0;37m2014-06-17 14:01:14.299[0m [[0;37mmeh[0m] [1m[35mPopularProgramme Load (0.4ms)[0m  SELECT "popular_programmes".* FROM "popular_programmes"   ORDER BY "popular_programmes"."price" ASC (pid:27037)
+[0;37m2014-06-17 14:01:14.301[0m [[32mfyi[0m] Rendered layouts/_header_links2.html.erb (6.8ms) (pid:27037)
+[0;37m2014-06-17 14:01:14.301[0m [[32mfyi[0m] Rendered layouts/_header.html.erb (9.1ms) (pid:27037)
+[0;37m2014-06-17 14:01:14.303[0m [[32mfyi[0m] Rendered layouts/_footer.html.erb (0.9ms) (pid:27037)
+[0;37m2014-06-17 14:01:14.308[0m [[32mfyi[0m] Completed 200 OK in 510ms (Views: 209.3ms | ActiveRecord: 179.7ms) (pid:27037)
+[0;37m2014-06-17 14:01:17.811[0m [[0;37mmeh[0m]  (pid:29980)
+[0;37m2014-06-17 14:01:17.812[0m [[0;37mmeh[0m]  (pid:29980)
+[0;37m2014-06-17 14:01:17.813[0m [[32mfyi[0m] Started GET "/fonts/fontawesome-webfont.woff?v=4.0.3" for 127.0.0.1 at 2014-06-17 14:01:17 +1000 (pid:29980)
+[0;37m2014-06-17 14:01:17.957[0m [[31momg[0m] ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.woff"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:22:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  passenger (4.0.45) lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+  passenger (4.0.45) lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+  passenger (4.0.45) lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+  passenger (4.0.45) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads' (pid:29980)
+[0;37m2014-06-17 14:01:18.515[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms) (pid:29980)
+[0;37m2014-06-17 14:01:18.215[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (37.0ms) (pid:29980)
+[0;37m2014-06-17 14:01:18.234[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.7ms) (pid:29980)
+[0;37m2014-06-17 14:01:18.234[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (225.3ms) (pid:29980)
+[0;37m2014-06-17 14:01:18.391[0m [[0;37mmeh[0m]  (pid:29980)
+[0;37m2014-06-17 14:01:18.391[0m [[0;37mmeh[0m]  (pid:29980)
+[0;37m2014-06-17 14:01:18.391[0m [[32mfyi[0m] Started GET "/fonts/fontawesome-webfont.svg?v=4.0.3" for 127.0.0.1 at 2014-06-17 14:01:18 +1000 (pid:29980)
+[0;37m2014-06-17 14:01:18.421[0m [[31momg[0m] ActionController::RoutingError (No route matches [GET] "/fonts/fontawesome-webfont.svg"):
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:22:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  passenger (4.0.45) lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+  passenger (4.0.45) lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+  passenger (4.0.45) lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+  passenger (4.0.45) lib/phusion_passenger/request_handler.rb:448:in `block (3 levels) in start_threads' (pid:29980)
+[0;37m2014-06-17 14:01:18.439[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms) (pid:29980)
+[0;37m2014-06-17 14:01:18.515[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (20.3ms) (pid:29980)
+[0;37m2014-06-17 14:01:18.521[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms) (pid:29980)
+[0;37m2014-06-17 14:01:18.521[0m [[32mfyi[0m] Rendered /Users/pete/.rvm/gems/ruby-2.1.2@rails-410/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (90.8ms) (pid:29980)
