@@ -1,26 +1,39 @@
-<style type="text/css">
- 
-#share-buttons img {
-width: 35px;
-padding: 5px;
-border: 0;
-box-shadow: 0;
-display: inline;
-}
- 
-</style>
+<%= content_for :icon, 'star' %>
+<%= content_for :page_title, "Thanks" %>
 
-<h1 class="col-md-12">Thanks</h1>
-		<div class="col-md-12">
-			<ul class="breadcrumb">
-				<li><a href="<%= root_path %>">Home</a><span class="divider"></span></li>
-				<li><a href="<%= contact_path %>">Contact</a><span class="divider"></span></li>
-				<li class="active">Thanks</li>
-			</ul>
-		</div>
+<section class="col-md-8 ">
+			<div class="col-sidebar">
+
+			
+				<h3>We'll get back to you very soon!</h3>
+
+				<p class="lead">If you know anyone else who may be interested in learning to code, please take a moment and share our courses with them.</p>
+				<br>
+				<p>
+					<div id="share-buttons">
+	 					<center>
+						<!-- Facebook -->
+						<a href="https://www.facebook.com/thecoderfactory" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
+						<!-- Twitter -->
+						<a href="https://www.twitter.com/coderfactory" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" /></a>
+						<!-- Google+ -->
+						<a href="https://plus.google.com/b/100818528139080406377/" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/google.png" alt="Google" /></a>
+						<!-- LinkedIn -->
+						<a href="http://www.linkedin.com/company/3290162" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" /></a>
+						</center>	
+					</div>
+					<br><br>
+					 <p class="lead">You can get started on your journey now by joining the following groups.</p>
+					<div class="row"><div class="col-md-5">
+					 <p><a href="https://facebook.com/groups/thecoderfactory" target="_blank" class="btn btn-default btn-block">Coder Factory Facebook Group</a></p>
+					 <p><a href="http://www.meetup.com/Sunday-Coder-Club/" target="_blank" class="btn btn-default btn-block">Sunday Coder Club - Sydney</a></p>
+					 <p><a href="http://www.meetup.com/Brisbane-Coder-Club/" target="_blank" class="btn btn-default btn-block">Sunday Coder Club - Brisbane</a></p>
+				</p>
+			</div>
+		</section>
         <!-- =========================Start Col left section ============================= -->
 		<aside class="col-md-4">
-		<div class="col-left">
+		<div class="col-sidebar">
 			<h3>Address</h3>
 			<ul class="fa-ul">
 				<li><i class="fa-li fa fa-building"></i> 91 Campbell St<br>SURRY HILLS, 2010</li>
@@ -39,26 +52,4 @@ display: inline;
 		</aside>
         
         <!-- =========================Start Col right section ============================= -->
-		<section class="col-md-8 ">
-			<div class="col-right">
-
-			
-				<p class="lead">We'll get back to you as soon as possible!</p>
-
-				<p>If you know anyone else who may be interested in learning to code, please take a moment and share our courses with them.</p>
-				<p>
-					<div id="share-buttons">
-	 					<center>
-						<!-- Facebook -->
-						<a href="https://www.facebook.com/thecoderfactory" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
-						<!-- Twitter -->
-						<a href="https://www.twitter.com/coderfactory" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" /></a>
-						<!-- Google+ -->
-						<a href="https://plus.google.com/b/100818528139080406377/" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/google.png" alt="Google" /></a>
-						<!-- LinkedIn -->
-						<a href="http://www.linkedin.com/company/3290162" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" /></a>
-						</center>	
-					</div>
-				</p>
-			</div>
-		</section>
+		

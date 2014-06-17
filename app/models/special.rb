@@ -6,6 +6,8 @@ class Special < ActiveRecord::Base
   before_create :populate_guid
   after_create :set_programme, :set_discount
 
+  
+
   def self.reverse_order
     order(created_at: :desc)
   end

@@ -1,10 +1,13 @@
+<%= content_for :icon, 'star' %>
+<%= content_for :page_title, "Welcome" %>
+
 <h1 class="col-md-12">Welcome to the Coder Factory family.</h1>
 
 <hr><br>
 
  <div class="col-md-8">
- <div class="col-left">
- <h2>You have joined a fast growing community of coders and you're going to have fun, be inspired and have more hope for the future.</h2>
+ <div class="col-sidebar">
+ <h3>You have joined a fast growing community of coders and you're going to have fun, be inspired and have more hope for the future.</h3>
  <p class="lead">You can get started on your journey now by joining the following groups.</p>
 <div class="row"><div class="col-md-5">
  <p><a href="https://facebook.com/groups/thecoderfactory" target="_blank" class="btn btn-default btn-block">Coder Factory Facebook Group</a></p>
@@ -16,7 +19,7 @@
  </div>
 <div class="col-md-4">
   <%= render 'layouts/banner' %>
-  <div class="col-right"><div class="widget">
+  <div class="col-sidebar"><div class="widget">
         <h4>Keep in the loop</h4>
             
             <div id="message-newsletter"></div>
