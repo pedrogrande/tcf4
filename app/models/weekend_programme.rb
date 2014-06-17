@@ -16,7 +16,7 @@ class WeekendProgramme < ActiveRecord::Base
   end
 
   def self.future_programmes
-    active.where('date > ?', Date.today)
+    active.where('date >= ?', Date.today)
   end
 
   def self.future_by_date_ascending
