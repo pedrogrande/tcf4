@@ -50,6 +50,7 @@ input[type="color"],
 </head>
 <body class="<%= 'signin' if devise_controller? %>">
 	<%= render 'layouts/header' %>
+  <%= render 'layouts/nav' %>
   <div class="container">
   <% if user_signed_in? %>
     <div class="row">
