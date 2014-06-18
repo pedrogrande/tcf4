@@ -1,5 +1,8 @@
 <div class="home-panel">
-<h2 class="col-md-12 text-center "><span class="name">Programmes</span></h2>
+<h2 class="col-md-12 text-center">
+	<span class="name hidden-xs">Programmes</span>
+	<span class="visible-xs small">Programmes</span>
+</h2>
 <hr class="grey-rule">
 </div>
 <div class="">
@@ -7,13 +10,14 @@
 	<div class="row programme-panel">
 	<% if (index + 1)%2 != 0 %>
   	<div class="col-md-4">
-  		<h2>
+  		<h2 class="hidden-xs text-center">
 	  		<%= image_tag popular_programme.icon %>
 	    </h2>
   	</div>
   <% end %>
   	<div class="col-md-8">
-  		<h2><%= popular_programme.name %></h2>
+  		<h2 class="hidden-xs"><%= popular_programme.name %></h2>
+  		<h3 class="visible-xs"><%= cl_image_tag(popular_programme.icon, width:50) %> <%= popular_programme.name %></h3>
   		<% if popular_programme.intro %>
   			<div class="text-justify">
   				<%= popular_programme.intro.html_safe %>
@@ -30,7 +34,7 @@
 	  	</h3>
 	  </div>
 	  	<% if (index + 1)%2 == 0 %>
-	    	<div class="col-md-4">
+	    	<div class="col-md-4 hidden-xs">
   		<h2>
 	  		<%= image_tag popular_programme.icon %>
 	    </h2>

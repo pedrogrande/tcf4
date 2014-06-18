@@ -37,7 +37,9 @@ Rails.application.routes.draw do
   get 'payment-plans' => 'payment_plans#index'
   get 'thanks' => 'thanks#index'
   get 'admin' => 'admin#index'
-
+  get "/popular_programmes/beginner-coder-weekend-programme", to: redirect('/popular_programmes/rails-foundations-for-beginners')
+  get "/popular_programmes/web-application-developer-programme", to: redirect('/popular_programmes/rails-developer')
+  get "/popular_programmes/web-app-developer-deluxe", to: redirect('/popular_programmes/rails-developer-pro')
   get "/courses/web-app-coder-ruby-on-rails", to: redirect('/popular_programmes/web-app-developer-deluxe')
   get "/courses/web-app-coder-angular-and-node", to: redirect('/popular_programmes/web-app-developer-deluxe')
   get "/ruby_on_rails_course_scholarship", to: redirect('/')
