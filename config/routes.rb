@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  
   root 'home#index'
   devise_for :users
   resources :users, only: [:index, :destroy]
-  
+  get 'promotion' => 'promotion#index'
+
   resources :popular_programmes
   resources :enrolments do
     member do

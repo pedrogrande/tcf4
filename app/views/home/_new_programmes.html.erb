@@ -1,0 +1,28 @@
+<br>
+<div class="home-panel">
+<% @popular_programmes.each do |popular_programme| %>
+	<div class="row col-sidebar">
+  	<div class="col-md-2">
+  		<h2>
+	  		<span class="fa-stack">
+	        <i class="fa fa-circle-thin fa-stack-2x"></i>
+	        <i class="fa fa-<%= popular_programme.icon %> fa-stack-1x"></i>
+	      </span>
+	    </h2>
+  	</div>
+  	<div class="col-md-10">
+  		<h3><%= popular_programme.name %></h3>
+  		<p class="lead"><%= popular_programme.tagline %></p>
+  		<h3>
+  			<%= link_to popular_programme, class: 'btn btn-block btn-default' do %> 
+	  		  <span class="fa-stack">
+	  		    <i class="fa fa-circle-thin fa-stack-2x"></i>
+	  		    <i class="fa fa-info fa-stack-1x"></i>
+	  		  </span>
+	  		  More info
+	  		<% end %>
+	  	</h3>
+	  </div>
+	</div>
+<% end %>
+</div>

@@ -88,6 +88,8 @@ GEM
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
     hike (1.2.3)
+    html_truncator (0.4.0)
+      nokogiri (~> 1.5)
     httpclient (2.4.0)
     i18n (0.6.9)
     impressionist (1.5.1)
@@ -217,6 +219,7 @@ DEPENDENCIES
   devise
   exception_notification
   friendly_id (~> 5.0.0)
+  html_truncator (~> 0.2)
   impressionist
   jbuilder (~> 2.0)
   jquery-rails
