@@ -1,22 +1,35 @@
-<div class="fullwidthbanner-container hero text-center" id="hero-image">
+<div class="fullwidthbanner-container hero" id="hero-image">
 <!-- <img src="http://res.cloudinary.com/coder-factory/image/upload/v1402932558/landing_jagsi4.jpg">
  -->
- <a href="https://www.youtube.com/watch?v=Dthd3_-IS20" class="youtube white">
-   <h2><i class="fa fa-play-circle fa-3x"></i><br>
-   Watch "Inside the Coder Factory" </h2>
- </a>
+ <div class="container">
+ <div class="row">
+ <div class="col-md-7">
+   <a href="https://www.youtube.com/watch?v=Dthd3_-IS20" class="youtube white">
+     <h2 class="">Learn. Build. Connect. </h2>
+  </a>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-md-8 value-message">
+  <a href="https://www.youtube.com/watch?v=Dthd3_-IS20" class="youtube white">
+     <h3 class="">Become a confident developer in a matter of weeks and join a thriving community of coders.</h3>
+   </a>
+   <br>
+   <a href="https://www.youtube.com/watch?v=Dthd3_-IS20" class="btn btn-warning btn-xl youtube "><i class="fa fa-play-circle"></i> Watch the video</a></div>
+   </div></div>
  </div>
+</div>
 
 <div class="container-fluid hidden-xs home-panel">
-<h2 class="text-center">What our students say</h2>
+<h2 class="text-center name testimonial">What our students say</h2>
      <div class="row-fluid" id="main-boxes">
         <% @featured_testimonials.each do |testimonial| %>
     	<div class="col-md-4 testimonial-box">
         	
             <%= cl_image_tag(testimonial.image, :width => 200, :height => 200, :crop => :fill, class: 'img-responsive img-circle center-block') %>
             <p class="text-muted text-center"><%= testimonial.name %></p>
-            <p class="text-center"><%= testimonial.text.html_safe %></p>
             <p class="lead text-center">"<%= testimonial.quote %>" </p>
+            <p class="text-center"><%= testimonial.text.html_safe %></p>
                 
             
         </div>
@@ -45,7 +58,7 @@
         </div>
     </div>
 </div> <!-- end container-->
-<div class="container home-panel">
+<div class="container">
     
 
         <%= render 'upcoming_programmes' %>

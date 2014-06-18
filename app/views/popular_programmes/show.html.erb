@@ -3,7 +3,7 @@
 <%= content_for :title, @popular_programme.name + ' Locations: Sydney, Melbourne, Brisbane, Gold Coast, Adelaide, Perth' %>
 <%= content_for :description, @popular_programme.name + ': ' + @popular_programme.tagline + ' Next start date: ' + @popular_programme.weekend_programmes.first.date.strftime('%e %h %Y').to_s %>
 <%= content_for :image, @popular_programme.image %>
-<%= content_for :icon, @popular_programme.icon %>
+<%= content_for :icon_special, @popular_programme.icon %>
 
 
 

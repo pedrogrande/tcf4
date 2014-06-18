@@ -80,7 +80,7 @@ class PopularProgrammesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def popular_programme_params
-      params.require(:popular_programme).permit(:icon, :price, :name, :image, :tagline, :description, :total_points, :credit_point_pack_id, :unit_ids => [])
+      params.require(:popular_programme).permit(:intro, :icon, :price, :name, :image, :tagline, :description, :total_points, :credit_point_pack_id, :unit_ids => [])
       
     end
 

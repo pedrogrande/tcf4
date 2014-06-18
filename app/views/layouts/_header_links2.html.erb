@@ -12,12 +12,9 @@
 	                		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 	                		    		<% @popular_programmes.each do |popular_programme| %>
 	                		    			<li>
-	                		    				<a href="<%= popular_programme_path(popular_programme) %>" title="<%= popular_programme.name %>" class="nodrop-down">
+	                		    				<a href="<%= popular_programme_path(popular_programme) %>" title="<%= popular_programme.name %>">
 	                		    					
-	                		    					<span class="fa-stack fa-lg">
-	                		                    <i class="fa fa-circle-thin fa-stack-2x"></i>
-	                		                    <i class="fa fa-<%= popular_programme.icon %> fa-stack-1x"></i>
-	                		                  </span>
+	                		    					<%= image_tag popular_programme.icon, class: 'menu-icon' %>
 	                		    					&nbsp;
 	                		    					<%= popular_programme.name %>
 	                		    				</a>

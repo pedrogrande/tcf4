@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614122519) do
+ActiveRecord::Schema.define(version: 20140618073741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -303,6 +303,7 @@ ActiveRecord::Schema.define(version: 20140614122519) do
     t.string   "image"
     t.integer  "price"
     t.string   "icon"
+    t.text     "intro"
   end
 
   add_index "popular_programmes", ["credit_point_pack_id"], name: "index_popular_programmes_on_credit_point_pack_id", using: :btree
