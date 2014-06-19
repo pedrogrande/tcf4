@@ -43,7 +43,7 @@
       <hr>
     
       <i class="fa fa-th-list"></i> Posted in <%= link_to @post.category.name, blog_path(category: @post.category), class: 'btn btn-xs btn-default' %></li>
-       
+       <%= javascript_include_tag "post", "data-turbolinks-track" => true %>
     </div>
   </div>
   <div class="col-sidebar">
@@ -68,4 +68,3 @@
 <%= render 'layouts/blog_sidebar' %>
 <%= render 'layouts/banner' %>
 </aside>
-<%= javascript_include_tag "post" => true %>
