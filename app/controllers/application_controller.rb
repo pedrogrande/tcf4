@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :get_popular_programmes, :get_banner
 
+  
   def get_popular_programmes
     @popular_programmes = PopularProgramme.order_by_price
   end

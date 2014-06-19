@@ -60,7 +60,9 @@ input[type="color"],
   </style>
 </head>
 <body class="<%= 'signin' if devise_controller? %>">
+<% if !devise_controller? %>
 	<%= render 'layouts/header' %>
+<% end %>
   <div class="container">
   <% if user_signed_in? %>
     <div class="row">
