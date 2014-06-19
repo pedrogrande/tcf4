@@ -1,0 +1,2 @@
+module ReferralEnrolmentsHelper
+end

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  resources :referral_enrolments
+
+  resources :referral_visits
+
+  resources :referrers
+
   root 'home#index'
   devise_for :users
   resources :users, only: [:index, :destroy]

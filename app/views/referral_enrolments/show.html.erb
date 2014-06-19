@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Referrer:</strong>
+  <%= @referral_enrolment.referrer %>
+</p>
+
+<p>
+  <strong>Enrolment:</strong>
+  <%= @referral_enrolment.enrolment %>
+</p>
+
+<p>
+  <strong>Student paid:</strong>
+  <%= @referral_enrolment.student_paid %>
+</p>
+
+<p>
+  <strong>Amount owed:</strong>
+  <%= @referral_enrolment.amount_owed %>
+</p>
+
+<p>
+  <strong>Date paid:</strong>
+  <%= @referral_enrolment.date_paid %>
+</p>
+
+<%= link_to 'Edit', edit_referral_enrolment_path(@referral_enrolment) %> |
+<%= link_to 'Back', referral_enrolments_path %>

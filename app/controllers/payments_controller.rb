@@ -51,6 +51,10 @@ class PaymentsController < ApplicationController
         @payment = Payment.credit_card_payment(amount)
         enrolment.update_attributes(stripe_id: stripe_customer.id, payment_id: @payment.id)
         Special.has_been_redeemed(enrolment) if enrolment.special_id
+        if session[:ref]
+          referrer = session[:ref]
+          ReferrerEnrolmentJob.new.async(@enrolment.id, referrer)
+        end
         # PointsTransaction.enrolment_points(enrolment)
         
         # PurchaseMailer.response(purchase, amount).deliver

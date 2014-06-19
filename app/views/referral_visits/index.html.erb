@@ -1,0 +1,29 @@
+<h1>Listing referral_visits</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Referrer</th>
+      <th>First visit</th>
+      <th>Last visit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @referral_visits.each do |referral_visit| %>
+      <tr>
+        <td><%= referral_visit.referrer.name %></td>
+        <td><%= referral_visit.created_at.strftime('%H:%M %d %b %Y') %></td>
+        <td><%= referral_visit.updated_at.strftime('%H:%M %d %b %Y') %></td>
+        <td><%= link_to 'Show', referral_visit %></td>
+        <td><%= link_to 'Edit', edit_referral_visit_path(referral_visit) %></td>
+        <td><%= link_to 'Destroy', referral_visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Referral visit', new_referral_visit_path %>
