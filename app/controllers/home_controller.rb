@@ -5,8 +5,8 @@ class HomeController < ApplicationController
   def index
   	# @unit_sessions = UnitSession.future_sessions.limit(6)
   	# @weekend_programmes = WeekendProgramme.future_by_date_ascending
-  	@next_three_events = Event.next_three_events
-  	@next_three_programmes = WeekendProgramme.next_three_programmes
+  	# @next_three_events = Event.next_three_events
+  	# @next_three_programmes = WeekendProgramme.next_three_programmes
     @featured_testimonials = Testimonial.featured.limit(3)
   end
 end

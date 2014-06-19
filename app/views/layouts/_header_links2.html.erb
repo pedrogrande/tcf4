@@ -1,18 +1,15 @@
  <div id="menu-top">
             	<ul>
-                	<li>
+                	<li class="programmes">
                 		<div class="dropdown">
 	                		<a data-toggle="dropdown" href="#" title="Programmes" class="<%= 'active' if current_page?(controller: 'popular_programmes') %>">
-	                			<span class="fa-stack">
-					                <i class="fa fa-circle-thin fa-stack-2x"></i>
-					                <i class="fa fa-list fa-stack-1x"></i>
-					              </span>
+	                			
 	                			<span class='hidden-xs'>Programmes <span class="caret"></span></span>
 	                		</a>  
 	                		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 	                		    		<% @popular_programmes.each do |popular_programme| %>
-	                		    			<li>
-	                		    				<a href="<%= popular_programme_path(popular_programme) %>" title="<%= popular_programme.name %>">
+	                		    			<li class="clear-icon">
+	                		    				<a href="<%= popular_programme_path(popular_programme) %>" title="<%= popular_programme.name %>" class="nodropdowns">
 	                		    					
 	                		    					<%= image_tag popular_programme.icon, class: 'menu-icon' %>
 	                		    					&nbsp;
@@ -23,18 +20,10 @@
 	                		  </ul>
                 		</div>
                 	</li>
-                	<li><a href="<%= blog_path %>" title="Blog" class="<%= 'active' if current_page?(blog_path) %>"><span class="fa-stack">
-				                <i class="fa fa-circle-thin fa-stack-2x"></i>
-				                <i class="fa fa-file-text-o fa-stack-1x"></i>
-				              </span> <span class='hidden-xs'>Blog</span></a>  </li>
-                    <li><a href="<%= about_path %>" title="About" class="<%= 'active' if current_page?(about_path) %>"><span class="fa-stack">
-				                <i class="fa fa-circle-thin fa-stack-2x"></i>
-				                <i class="fa fa-info fa-stack-1x"></i>
-				              </span> <span class='hidden-xs'>About</span></a>  </li>
-                    <li><a href="<%= contact_path %>" title="Contact" class="<%= 'active' if current_page?(contact_path) %>"><span class="fa-stack">
-				                <i class="fa fa-circle-thin fa-stack-2x"></i>
-				                <i class="fa fa-phone fa-stack-1x"></i>
-				              </span> <span class='hidden-xs'>Contact</span></a>  </li>
+                	<li class="blog"><a href="<%= blog_path %>" title="Blog" class="<%= 'active' if current_page?(blog_path) %>">
+                	<span class='hidden-xs'>Blog</span></a>  </li>
+                    <li class="about"><a href="<%= about_path %>" title="About" class="<%= 'active' if current_page?(about_path) %>"> <span class='hidden-xs'>About</span></a>  </li>
+                    <li class="contact"><a href="<%= contact_path %>" title="Contact" class="<%= 'active' if current_page?(contact_path) %>"><span class='hidden-xs'>Contact</span></a>  </li>
                     
                     
                 </ul>
