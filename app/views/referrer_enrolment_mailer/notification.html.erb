@@ -247,19 +247,20 @@
 				<tr>
 					<td>
 						<p><img src="http://res.cloudinary.com/coder-factory/image/upload/v1401909689/logo-footer_ksgy8i.png" /></p>
-						<h3>Thanks for enrolling at Coder Factory, <%= @enrolment.first_name %> </h3>
+						<h3>Someone you referred has enrolled in a Coder Factory course! </h3>
 						<!-- A Real Hero (and a real human being) -->
 						<p><img src="http://res.cloudinary.com/coder-factory/image/upload/v1401907457/class-compressor_wkztgw.png" /></p><!-- /hero -->
 						
 						<!-- Callout Panel -->
 						<p class="callout">
-							If you'd like to ask us any questions,  <a href="https://thecoderfactory.com/contact">You can do it Now! &raquo;</a>
+							If you'd like to ask us any questions,  <a href="https://thecoderfactory.com/contact">You can do it here &raquo;</a>
 						</p><!-- /Callout Panel -->
 						
-						<h3>Your enrolment has been recieved and we will send you more details shortly.</h3>
-						<h4>Here are the details of the programme you are enrolled in:
+						<h3>Details.</h3>
+						<h4>Here are the details of the enrolment and referral:</h4>
+						<hr>
 						<p>
-						  <strong>Programme:</strong>
+						  <strong>Course:</strong>
 						  <%= @enrolment.popular_programme.name %>
 						</p>
 						<p>
@@ -267,18 +268,32 @@
 						  <%= link_to @enrolment.weekend_programme.location.name, location_url(@enrolment.weekend_programme.location) %>, <%= @enrolment.weekend_programme.location.city %>
 						</p>
 						<p>
-						  <strong>Days:</strong>
-						  <%= @enrolment.weekend_programme.day %>
+						  <strong>Date:</strong>
+						  <%= @enrolment.weekend_programme.date.strftime('%d %b %y') %>
 						</p>
 						<p>
-						  <strong>Dates:</strong>
-						  <%= @enrolment.weekend_programme.date.strftime('%d %b %y') %> to <%= @enrolment.weekend_programme.end_date.strftime('%d %b %y') %>
+						<p>
+						  <strong>Student:</strong>
+						  <%= @enrolment.first_name + ' ' + @enrolment.last_name %>
 						</p>
 						<p>
-						  <strong>Times:</strong>
-						  <%= @enrolment.weekend_programme.start_time.strftime('%l:%M%P') %> to <%= @enrolment.weekend_programme.end_time.strftime('%l:%M%P') %>
+						  <strong>Price of course:</strong>
+						  <%= number_to_currency(@enrolment.popular_programme.price) %>
 						</p>
-						<h4>We're looking forward to seeing you soon.</h4>
+						<p>
+						  <strong>Discount applied:</strong>
+						  <% if @enrolment.special %>
+						  	<%= number_to_currency(@enrolment.special.dollar_discount) %>
+						  <% else %>
+						  	$0
+						  <% end %>
+						</p>
+						<p>
+						  <strong>Amount to be paid to you at end of month:</strong>
+						  	<%= number_to_currency((@referral.amount_owed) %>
+						</p>
+						<hr>
+						<h4>Please get in touch if you have any questions.</h4>
 												
 						<br/>
 						<br/>							
@@ -334,8 +349,7 @@
 				<table class="table">
 				<tr>
 					<td align="center">
-						<p>
-						</p>
+						
 					</td>
 				</tr>
 			</table>

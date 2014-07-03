@@ -18,6 +18,7 @@ class PopularProgrammesController < ApplicationController
     @weekend_programmes = @popular_programme.weekend_programmes.future_by_date_ascending
     @next_programme = @weekend_programmes.first
     @banner = Banner.active.last
+    @enrolment = Enrolment.new
   end
 
   # GET /popular_programmes/new

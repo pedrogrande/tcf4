@@ -13,7 +13,7 @@
   <tbody>
     <% @referral_visits.each do |referral_visit| %>
       <tr>
-        <td><%= referral_visit.referrer.name %></td>
+        <td><%= referral_visit.referrer.name if referral_visit.referrer %></td>
         <td><%= referral_visit.created_at.strftime('%H:%M %d %b %Y') %></td>
         <td><%= referral_visit.updated_at.strftime('%H:%M %d %b %Y') %></td>
         <td><%= link_to 'Show', referral_visit %></td>

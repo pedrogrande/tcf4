@@ -53,7 +53,7 @@ class PaymentsController < ApplicationController
         Special.has_been_redeemed(enrolment) if enrolment.special_id
         if session[:ref]
           referrer = session[:ref]
-          ReferrerEnrolmentJob.new.async(@enrolment.id, referrer)
+          ReferrerEnrolmentJob.new.async(enrolment.id, referrer)
         end
         # PointsTransaction.enrolment_points(enrolment)
         

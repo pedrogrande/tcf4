@@ -25,13 +25,28 @@
 
   
   <div class="col-sm-4">
-    <%= link_to new_enrolment_path(intake: scheduled_programme.id), class: 'btn btn-block btn-warning' do %>
+
+  
+  
+ 
+    <a href="#enrolment-form" data-toggle="adaptive-modal" class='btn btn-block btn-warning'>
       <span class="fa-stack">
         <i class="fa fa-circle-thin fa-stack-2x"></i>
         <i class="fa fa-edit fa-stack-1x"></i>
       </span>
       REGISTER
-    <% end %>
+    </a>
   </div>
 </div>
 </div>
+<div id="enrolment-form">
+  <div class="enrolment-heading">
+    <h1><img src="<%= asset_path 'logo23.png' %>" width="100px"> Registration <small>Step 1 of 2</small></h1>
+    <div class="enrolment-body">
+      
+      <%= render 'enrolment_form' %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "jquery.form-validator.js" => true %>
+  
