@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     posts_csv = CSV.generate do |csv|
       csv << ["Title", "Lead", "Content", "Image", "Slug", "Published Date", "Impressions Count"]
       @posts.each do |post|
-        csv << [post.lead, post.content, post.image, post.slug, post.published_date, post.impressions_count]
+        csv << [post.title, post.lead, post.content, post.image, post.slug, post.published_date, post.impressions_count]
       end
     end
     send_data(posts_csv, :type => 'text/csv', :filename => 'all_posts.csv')
