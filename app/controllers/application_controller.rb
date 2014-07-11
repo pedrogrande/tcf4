@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :get_popular_programmes, :get_banner
+  before_action :capture_referral
+  
 
   
   def get_popular_programmes
@@ -41,5 +43,18 @@ class ApplicationController < ActionController::Base
     u.save!
     session[:guest_user_id] = u.id
     u
+  end
+
+  def capture_referral
+    session[:ref] = params[:ref] if params[:ref]
+    if ReferralVisit.find_by(ref_session: session[:ref])
+      @referral_visit = ReferralVisit.find_by(ref_session: session[:ref])
+      @referral_visit.update(updated_at: DateTime.now)
+    else
+      @referral_visit = ReferralVisit.new
+      @referral_visit.referrer = Referrer.find_by(referral_code: params[:ref])
+      @referral_visit.ref_session = session[:ref]
+      @referral_visit.save
+    end
   end
 end

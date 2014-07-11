@@ -1,6 +1,6 @@
-<h3>Your selected programme</h3>
+<h3>Selected programme</h3>
     <hr>
-    <p class="lead"><span class="details"><i class="fa fa-<%= @weekend_programme.popular_programme.icon %>"></i> <%= @weekend_programme.popular_programme.name %></span></p>
+    <p class="lead"><span class="details"> <%= @weekend_programme.popular_programme.name %></span></p>
     <p class="lead"><span class="details"><%= @weekend_programme.day %></span></p>
     <p class="lead"><span class="details"><%= @weekend_programme.start_time.strftime('%l:%M%P') %> - <%= @weekend_programme.end_time.strftime('%l:%M%P') %></span></p>
     <p class="lead"><span class="details"><%= @weekend_programme.date.strftime('%e %b %Y') %></span></p>

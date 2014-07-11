@@ -1,0 +1,66 @@
+<%= simple_form_for(@enrolment, html: { novalidate: false }) do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="form-group">
+      <div class="control-group select optional enrolment_weekend_programme_id">
+        <div class="controls">
+          <select class="select optional form-control" id="enrolment_weekend_programme_id" name="enrolment[weekend_programme_id]">
+            <option value="">Choose your preferred date and location</option>
+            <% @weekend_programmes.each do |weekend_programme| %>
+              <option value="<%= weekend_programme.id %>"> <%= @popular_programme.name.upcase %>: <%= weekend_programme.date.strftime('%d %B %Y') %>, <%= weekend_programme.location.name %> <%= weekend_programme.location.city.upcase %></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="control-group string optional enrolment_first_name col-sm-6"><div class="controls"><input class="string optional form-control" id="enrolment_first_name" name="enrolment[first_name]" placeholder="Your first name" type="text" data-validation="required" /></div></div>
+    
+    <div class="control-group string optional enrolment_last_name col-sm-6"><div class="controls"><input class="string optional form-control" id="enrolment_last_name" name="enrolment[last_name]" placeholder="Your last name" type="text" data-validation="required" /></div></div>
+  </div>
+  <div class="form-group">
+    <div class="control-group email required enrolment_email"><div class="controls"><input class="string email required form-control" id="enrolment_email" name="enrolment[email]" placeholder="Preferred email" type="email" data-validation="email" data-validation="required" /></div></div>
+  </div>
+  <div class="row">
+    <div class="control-group string required enrolment_address col-sm-6"><div class="controls"><input class="string required form-control" id="enrolment_address" name="enrolment[address]" placeholder="Address" type="text" data-validation="required" /></div></div>
+    
+    <div class="control-group string required enrolment_suburb col-sm-6"><div class="controls"><input class="string required form-control" id="enrolment_suburb" name="enrolment[suburb]" placeholder="Suburb" type="text" data-validation="required" /></div></div>
+  </div>
+  <div class="row">
+      <div class="control-group select optional enrolment_state col-sm-6">
+        <div class="controls">
+          <select class="select optional form-control" id="enrolment_state" name="enrolment[state]">
+            <option value="">State</option>
+            <option value="ACT">ACT</option>
+            <option value="NSW">NSW</option>
+            <option value="NT">NT</option>
+            <option value="QLD">QLD</option>
+            <option value="SA">SA</option>
+            <option value="TAS">TAS</option>
+            <option value="VIC">VIC</option>
+            <option value="WA">WA</option>
+          </select>
+        </div>
+    </div>
+    <div class="control-group string optional enrolment_postcode col-sm-6"><div class="controls"><input class="string optional form-control" id="enrolment_postcode" name="enrolment[postcode]" placeholder="Postcode" type="text" data-validation="required" /></div></div>
+  </div>
+  <div class="form-group">
+  <%= f.input :about, label: false, input_html: { class: 'form-control', rows:5 }, placeholder: "Tell us a bit about why you want to learn to code" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :popular_programme_id, as: :hidden, input_html: { class: 'form-control', value: @popular_programme.id} %>
+  </div>
+  <% if @special %>
+    <% if @special.date_redeemed.nil? %>
+      <%= f.input :special_id, as: :hidden, input_html: { value: @special.id } %>
+    <% end %>
+  <% end %>
+  <div class="row">
+  <div class="col-sm-4">
+  <!-- <p>By proceeding to payment, you agree to the Coder Factory <a href="">terms and conditions</a>.</p> -->
+  </div>
+  <div class="col-sm-8">
+  <%= f.submit 'Next step', class: 'btn btn-success btn-xl btn-block' %>
+  </div></div>
+<% end %>

@@ -1,5 +1,8 @@
 <h1>Blog posts  <small><span class="label label-default"><%= @posts.count %></span> <%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-xs' %></small></h1>
 
+<br>
+<%= link_to "Export posts", export_posts_path, class: 'btn btn-primary' %>
+<br>
 <table class="table">
   <thead>
     <tr>

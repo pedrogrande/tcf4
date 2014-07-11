@@ -12,3 +12,4 @@
 //
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.adaptive-modal.min.js

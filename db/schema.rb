@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618073741) do
+ActiveRecord::Schema.define(version: 20140619050039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -387,6 +387,40 @@ ActiveRecord::Schema.define(version: 20140618073741) do
   add_index "purchases", ["credit_point_pack_id"], name: "index_purchases_on_credit_point_pack_id", using: :btree
   add_index "purchases", ["payment_id"], name: "index_purchases_on_payment_id", using: :btree
   add_index "purchases", ["user_id"], name: "index_purchases_on_user_id", using: :btree
+
+  create_table "referral_enrolments", force: true do |t|
+    t.integer  "referrer_id"
+    t.integer  "enrolment_id"
+    t.integer  "student_paid"
+    t.integer  "amount_owed"
+    t.date     "date_paid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "referral_enrolments", ["enrolment_id"], name: "index_referral_enrolments_on_enrolment_id", using: :btree
+  add_index "referral_enrolments", ["referrer_id"], name: "index_referral_enrolments_on_referrer_id", using: :btree
+
+  create_table "referral_visits", force: true do |t|
+    t.integer  "referrer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ref_session"
+  end
+
+  add_index "referral_visits", ["referrer_id"], name: "index_referral_visits_on_referrer_id", using: :btree
+
+  create_table "referrers", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "contact_phone"
+    t.string   "company"
+    t.string   "referral_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "referrers", ["user_id"], name: "index_referrers_on_user_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
