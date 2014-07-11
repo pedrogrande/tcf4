@@ -59,6 +59,10 @@ Rails.application.routes.draw do
   get "/courses/angular-coder-frontend-javascript-framework-course", to: redirect('/popular_programmes/web-application-developer-programme')
   get "/web-development-and-javascript-courses", to: redirect('/')
   get 'all-workshops' => "all_workshops#index"
+
+
+
+  get "export_posts" => "posts#export"
   # get 'dashboard' => 'dashboard#index'
   # resources :unit_sessions
   # get 'personalised-programme' => 'personalised_programme#index'
