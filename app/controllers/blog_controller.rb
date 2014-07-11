@@ -2,6 +2,7 @@ class BlogController < ApplicationController
   skip_before_action :authenticate_user!
   layout 'public'
   impressionist
+  
   def index
   	@categories = Category.all
     @popular_posts = Post.popular_posts.limit(3)

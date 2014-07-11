@@ -3,6 +3,8 @@ class Enrolment < ActiveRecord::Base
   belongs_to :weekend_programme
   belongs_to :payment
   belongs_to :special
+  has_many :referral_enrolments
+  has_many :referrals, through: :referral_enrolments
   
   is_impressionable
 
